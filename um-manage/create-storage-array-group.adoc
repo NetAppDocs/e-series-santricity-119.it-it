@@ -1,0 +1,43 @@
+---
+permalink: um-manage/create-storage-array-group.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, create, storage, array, group 
+summary: Si creano gruppi di storage e quindi si aggiungono array di storage ai gruppi. Il gruppo di storage definisce quali drive forniscono lo storage che costituisce il volume. 
+---
+= Configurare un gruppo di array di storage in SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si creano gruppi di storage e poi si aggiungono storage array ai gruppi.
+
+La configurazione dei gruppi è una procedura in due fasi.
+
+
+
+== Passaggio 1: Crea gruppo
+
+Per prima cosa, si crea un gruppo. Il gruppo di archiviazione definisce quali unità forniscono lo storage che costituisce il volume.
+
+.Passaggi
+. Dalla pagina Manage, selezionare menu:Manage Groups[Crea storage array group].
+. Nel campo *Name*, digita un nome per il nuovo gruppo.
+. Seleziona gli array di storage che desideri aggiungere al nuovo gruppo.
+. Fai clic su *Create*.
+
+
+
+
+== Passaggio 2: Aggiungi l'array di storage al gruppo
+
+È possibile aggiungere uno o più array di archiviazione a un gruppo creato dall'utente.
+
+.Passaggi
+. Dalla schermata principale, seleziona *Manage* e poi seleziona il gruppo a cui desideri aggiungere gli array di archiviazione.
+. Selezionare menu:Manage Groups [Add storage arrays to group].
+. Seleziona gli array di storage che desideri aggiungere al gruppo.
+. Fai clic su *Aggiungi.*
+

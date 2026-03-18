@@ -1,0 +1,71 @@
+---
+permalink: sm-settings/define-log-policies.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, define, audit, log, policies, 
+summary: È possibile modificare la policy di sovrascrittura e i tipi di eventi registrati nel registro di audit. 
+---
+= Definire le policy dei log di audit in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare la policy di sovrascrittura e i tipi di eventi registrati nel registro di audit.
+
+.Prima di iniziare
+È necessario aver effettuato l'accesso con un profilo utente che includa le autorizzazioni di Security admin. In caso contrario, le funzioni di Access Management non vengono visualizzate.
+
+.Informazioni su questa attività
+Questa procedura descrive come modificare le impostazioni del registro di controllo, che includono la policy per la sovrascrittura degli eventi vecchi e la policy per la registrazione dei tipi di evento.
+
+.Passaggi
+. Selezionare menu:Settings[Access Management].
+. Seleziona la scheda *Audit Log*.
+. Seleziona *Visualizza/Modifica impostazioni*.
++
+Si apre la finestra di dialogo Audit Log Settings.
+
+. Modifica la policy di sovrascrittura o i tipi di eventi registrati.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Impostazione | Descrizione 
+
+
+ a| 
+Criterio di sovrascrittura
+ a| 
+Determina la politica per la sovrascrittura degli eventi precedenti quando viene raggiunta la capacità massima:
+
+** *Consente la sovrascrittura degli eventi più vecchi nel registro di controllo quando il registro di controllo è pieno* -- Sovrascrive gli eventi più vecchi quando il registro di controllo raggiunge 50.000 record.
+** *Richiedi l'eliminazione manuale degli eventi del registro di controllo* -- Specifica che gli eventi non verranno eliminati automaticamente; invece, al raggiungimento della percentuale impostata, verrà visualizzato un avviso di soglia. Gli eventi devono essere eliminati manualmente.
++
+
+NOTE: Se la politica di sovrascrittura è disabilitata e le voci del registro di controllo raggiungono il limite massimo, l'accesso a System Manager viene negato agli utenti privi di autorizzazioni Security Admin. Per ripristinare l'accesso al sistema agli utenti privi di autorizzazioni Security Admin, un utente a cui è assegnato il ruolo Security Admin deve eliminare i vecchi record degli eventi.
+
++
+
+NOTE: Le policy di sovrascrittura non si applicano se un syslog server è configurato per l'archiviazione dei log di controllo.
+
+
+
+
+
+ a| 
+Livello delle azioni da registrare
+ a| 
+Determina i tipi di eventi da registrare:
+
+** *Registra solo gli eventi di modifica* -- Mostra solo gli eventi in cui un'azione dell'utente comporta una modifica nel sistema.
+** *Registra tutti gli eventi di modifica e di sola lettura* -- Mostra tutti gli eventi, inclusa un'azione dell'utente che comporta la lettura o il download di informazioni.
+
+
+|===
+====
+. Fare clic su *Save*.
+

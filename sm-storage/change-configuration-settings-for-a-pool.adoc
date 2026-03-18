@@ -1,0 +1,97 @@
+---
+permalink: sm-storage/change-configuration-settings-for-a-pool.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configuration settings, pool 
+summary: È possibile modificare le impostazioni di un pool, inclusi il nome, le impostazioni degli avvisi di capacità, le priorità di modifica e la capacità di preservazione. 
+---
+= Modificare le impostazioni di configurazione di un pool in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare le impostazioni di un pool, inclusi il nome, le impostazioni degli avvisi di capacità, le priorità di modifica e la capacità di preservazione.
+
+.Informazioni su questa attività
+Questa procedura descrive come modificare le impostazioni di configurazione per un pool.
+
+[NOTE]
+====
+Non è possibile modificare il livello RAID di un pool utilizzando l'interfaccia di System Manager. System Manager configura automaticamente i pool come RAID 6.
+
+====
+.Passaggi
+. Selezionare menu:Storage[Pool & Volume Groups].
+. Seleziona il pool che desideri modificare, quindi fai clic su *View/Edit Settings*.
++
+Viene visualizzata la finestra di dialogo Pool Setting.
+
+. Seleziona la scheda *Settings* e quindi modifica le impostazioni del pool secondo necessità.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Impostazione | Descrizione 
+
+
+ a| 
+Nome
+ a| 
+È possibile modificare il nome del pool fornito dall'utente. Specificare un nome per il pool è obbligatorio.
+
+
+
+ a| 
+Avvisi di capacità
+ a| 
+È possibile inviare notifiche di avviso quando la capacità libera in un pool raggiunge o supera una soglia specificata. Quando i dati archiviati nel pool superano la soglia specificata, System Manager invia un messaggio, consentendo di aggiungere altro spazio di storage o di eliminare oggetti non necessari.
+
+Gli avvisi vengono visualizzati nell'area Notifiche della Dashboard e possono essere inviati dal server agli amministratori tramite email e messaggi SNMP trap.
+
+È possibile definire i seguenti avvisi di capacità:
+
+** *Avviso critico* -- Questo avviso critico ti notifica quando la capacità libera nel pool raggiunge o supera la soglia specificata. Utilizza i controlli a rotella per regolare la percentuale della soglia. Seleziona la check box per disattivare questa notifica.
+** *Avviso preventivo* -- Questo avviso preventivo ti notifica quando la capacità libera in un pool sta per raggiungere una soglia specificata. Utilizza i controlli a rotella per regolare la percentuale della soglia. Seleziona la check box per disattivare questa notifica.
+
+
+
+
+ a| 
+Priorità di modifica
+ a| 
+È possibile specificare i livelli di priorità per le operazioni di modifica in un pool in relazione alle prestazioni del sistema. Una priorità più elevata per le operazioni di modifica in un pool consente di completare un'operazione più rapidamente, ma può rallentare le prestazioni di I/O dell'host. Una priorità inferiore comporta tempi di esecuzione più lunghi, ma le prestazioni di I/O dell'host ne risentono in misura minore.
+
+È possibile scegliere tra cinque livelli di priorità: minimo, basso, medio, alto e massimo. Maggiore è il livello di priorità, maggiore è l'impatto su I/O dell'host e sulle prestazioni del sistema.
+
+** *Priorità di ricostruzione critica* -- Questa barra di scorrimento determina la priorità di un'operazione di ricostruzione dei dati quando più guasti delle unità determinano una condizione in cui alcuni dati non hanno ridondanza e un ulteriore guasto dell'unità potrebbe comportare la perdita di dati.
+** *Priorità di ricostruzione degradata* -- Questa barra di scorrimento determina la priorità dell'operazione di ricostruzione dei dati quando si verifica un guasto dell'unità, ma i dati hanno ancora ridondanza e un ulteriore guasto dell'unità non comporta la perdita di dati.
+** *Priorità delle operazioni in background* -- Questa barra di scorrimento determina la priorità delle operazioni in background del pool che si verificano quando il pool è in uno stato ottimale. Queste operazioni includono Dynamic Volume Expansion (DVE), Instant Availability Format (IAF) e la migrazione dei dati verso un drive sostituito o aggiunto.
+
+
+
+
+ a| 
+Capacità di conservazione ("Capacità di ottimizzazione" per EF600 o EF300)
+ a| 
+*Capacità di conservazione* -- È possibile definire il numero di drive per determinare la capacità riservata nel pool per supportare potenziali guasti dei drive. Quando si verifica un guasto di un drive, la capacità di conservazione viene utilizzata per memorizzare i dati ricostruiti. I pool utilizzano la capacità di conservazione durante il processo di ricostruzione dei dati al posto dei drive hot spare, che vengono utilizzati nei gruppi di volumi.
+
+Utilizza i comandi a rotella per regolare il numero di drive. In base al numero di drive, la capacità di preservazione nel pool viene visualizzata accanto al riquadro della rotella.
+
+Tenete presente le seguenti informazioni sulla capacità di conservazione.
+
+** Poiché la capacità di conservazione viene sottratta dalla capacità libera totale di un pool, la quantità di capacità riservata influisce sulla quantità di capacità libera disponibile per la creazione di volumi. Se si specifica 0 per la capacità di conservazione, tutta la capacità libera del pool viene utilizzata per la creazione di volumi.
+** Se si riduce la capacità di conservazione, si aumenta la capacità che può essere utilizzata per i volumi del pool.
+
+
+*Capacità di ottimizzazione aggiuntiva* (solo per array EF600 e EF300) -- Quando viene creato un pool, viene generata una capacità di ottimizzazione consigliata che offre un equilibrio tra capacità disponibile rispetto a prestazioni e durata delle unità. Puoi regolare questo equilibrio spostando il cursore verso destra per ottenere prestazioni e durata delle unità migliori a scapito di una maggiore capacità disponibile, oppure spostandolo verso sinistra per ottenere una maggiore capacità disponibile a scapito di prestazioni e durata delle unità migliori.
+
+Le unità SSD avranno una durata maggiore e migliori prestazioni massime di scrittura se una parte della loro capacità non è allocata. Per le unità associate a un pool, la capacità non allocata è composta dalla capacità di conservazione del pool, dalla capacità libera (capacità non utilizzata dai volumi) e da una parte della capacità utilizzabile riservata come capacità di ottimizzazione aggiuntiva. La capacità di ottimizzazione aggiuntiva garantisce un livello minimo di capacità di ottimizzazione riducendo la capacità utilizzabile e, di conseguenza, non è disponibile per la creazione di volumi.
+
+|===
+====
+. Fare clic su *Save*.
+

@@ -1,0 +1,63 @@
+---
+permalink: sm-storage/create-pool-automatically.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, pool, automatically 
+summary: 'La creazione del pool viene avviata automaticamente quando System Manager rileva unità non assegnate nell"array di storage. È possibile utilizzare la creazione automatica del pool per configurare facilmente tutte le unità non assegnate nell"array di storage in un unico pool e per aggiungere unità ai pool esistenti.' 
+---
+= Crea automaticamente un pool in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La creazione del pool viene avviata automaticamente quando SANtricity System Manager rileva unità non assegnate nell'array di storage. È possibile utilizzare la creazione automatica del pool per configurare facilmente tutte le unità non assegnate nell'array di storage in un unico pool e per aggiungere unità ai pool esistenti.
+
+.Prima di iniziare
+È possibile avviare la finestra di dialogo Pool Auto-Configuration quando si verifica una delle seguenti condizioni:
+
+* È stato rilevato almeno un disco singolo non assegnato che può essere aggiunto a un pool esistente con tipi di disco simili.
+* Sono stati rilevati undici (11) o più dischi singoli non assegnati che possono essere utilizzati per creare un nuovo pool (se non possono essere aggiunti a un pool esistente a causa di tipi di disco dissimili).
+
+
+.Informazioni su questa attività
+Tenete presente quanto segue:
+
+* Quando si aggiungono drive a un array di storage, System Manager rileva automaticamente i drive e chiede di creare un disco singolo pool o più pool in base al tipo di drive e alla configurazione corrente.
+* Se in precedenza erano stati definiti dei pool, System Manager propone automaticamente l'opzione di aggiungere i dischi compatibili a un pool esistente. Quando vengono aggiunti nuovi dischi a un pool esistente, System Manager ridistribuisce automaticamente i dati sulla nuova capacità, che ora include i nuovi dischi aggiunti.
+* Quando si configura un array di storage EF600 o EF300, assicurarsi che ciascun controller abbia accesso a un numero uguale di drive nei primi 12 slot e a un numero uguale di drive negli ultimi 12 slot. Questa configurazione consente ai controller di utilizzare in modo più efficace entrambi i bus PCIe lato drive.
+
+
+È possibile avviare la finestra di dialogo Pool Auto-Configuration utilizzando uno dei seguenti metodi:
+
+* Quando viene rilevata capacità non assegnata, il suggerimento Pool Auto-Configuration viene visualizzato nella pagina iniziale, nell'area Notifiche. Fare clic su *View Pool Auto-Configuration* per aprire la finestra di dialogo.
+* È inoltre possibile avviare la finestra di dialogo Configurazione automatica del pool dalla pagina Pool e Volume Groups, come descritto nell'attività seguente.
+
+
+.Passaggi
+. Selezionare menu:Storage[Pool & Volume Groups].
+. Selezionare menu:Altro[Avvia configurazione automatica del pool].
++
+La tabella dei risultati elenca i nuovi pool, i pool esistenti a cui sono stati aggiunti dischi o entrambi. Un nuovo pool viene denominato con un numero sequenziale per impostazione predefinita.
+
++
+System Manager esegue le seguenti attività:
+
++
+** Crea un disco singolo pool se è presente un numero sufficiente di drive con lo stesso tipo di drive (HDD o SSD) e con capacità simili.
+** Crea più pool se la capacità non assegnata è costituita da diversi tipi di drive.
+** Aggiunge i dischi a un pool esistente se un pool è già definito nell'array di storage e si aggiungono nuovi dischi dello stesso tipo di disco al pool.
+** Aggiunge i dischi dello stesso tipo di disco al pool esistente e utilizza gli altri tipi di disco per creare pool diversi se i nuovi dischi sono di tipi di disco diversi.
+
+
+. Per modificare il nome di un nuovo pool, fai clic sull'icona *Edit* (la matita).
+. Per visualizzare ulteriori caratteristiche del pool, posiziona il cursore sull'icona *Dettagli* (la pagina) o toccala.
++
+Vengono visualizzate informazioni sul tipo di disco, sulla funzionalità di sicurezza, sulla funzionalità di data assurance (DA), sulla shelf loss protection e sulla drawer loss protection.
+
++
+Per gli array di storage EF600 e EF300, vengono visualizzate anche le impostazioni relative al resource provisioning e alle dimensioni dei volume block.
+
+. Fai clic su *Accept*.
+

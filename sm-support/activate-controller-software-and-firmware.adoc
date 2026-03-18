@@ -1,0 +1,53 @@
+---
+permalink: sm-support/activate-controller-software-and-firmware.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, activate, controller, software, firmware 
+summary: È possibile scegliere di attivare immediatamente i file di upgrade oppure attendere un momento più opportuno. 
+---
+= Attivare il software del controller e il firmware in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile scegliere di attivare immediatamente i file di upgrade oppure attendere un momento più opportuno.
+
+.Informazioni su questa attività
+È possibile scaricare e trasferire i file senza attivarli. Potresti scegliere di attivare in seguito per questi motivi:
+
+* *Orario della giornata* -- L'attivazione del software e del firmware può richiedere molto tempo, quindi potresti voler attendere che i carichi di I/O siano più leggeri. I controller effettuano un failover durante l'attivazione, quindi le prestazioni potrebbero essere inferiori al solito fino al completamento dell'aggiornamento.
+* *Tipo di pacchetto* -- Potresti voler testare il nuovo software e firmware su un array di storage prima di aggiornare i file su altri storage array.
+
+
+Quando si dispone di software o firmware trasferiti ma non attivati, viene visualizzata una notifica nell'area Notifiche della pagina iniziale di System Manager e anche nella pagina del Centro aggiornamenti.
+
+[CAUTION]
+====
+Non è possibile interrompere il processo di attivazione dopo che è iniziato.
+
+====
+.Passaggi
+. Selezionare menu:Support[Upgrade Center].
+. Nell'area denominata SANtricity OS Controller Software upgrade, fare clic su *Attiva* e confermare di voler eseguire l'operazione.
++
+È possibile annullare l'operazione durante il controllo di integrità pre-aggiornamento, ma non durante l'attivazione.
+
++
+Viene avviato il controllo di integrità preliminare all'aggiornamento. Se il controllo di integrità preliminare all'aggiornamento ha esito positivo, il processo di aggiornamento procede con l'attivazione dei file. Se il controllo di integrità preliminare all'aggiornamento non ha esito positivo, utilizzare Recovery Guru o contattare il supporto tecnico per risolvere il problema. Per alcuni tipi di condizioni, il supporto tecnico potrebbe consigliare di continuare con l'aggiornamento nonostante gli errori selezionando la casella di controllo *Allow Upgrade*.
+
++
+Una volta completato con successo il controllo di integrità preliminare all'aggiornamento, si procede all'attivazione. Il tempo necessario per l'attivazione dipende dalla configurazione dell'array di storage e dai componenti che si stanno attivando.
+
+. *Facoltativo:* Per vedere un elenco di ciò che è stato aggiornato, fare clic su *Salva registro*.
++
+Il file viene salvato nella cartella Downloads del tuo browser con il nome `drive_upgrade_log-timestamp.txt`.
+
+
+
+.Dopo aver finito
+* Verifica che tutti i componenti siano visualizzati nella pagina Hardware.
+* Verifica le nuove versioni del software e del firmware controllando la finestra di dialogo Inventario software e firmware (vai al menu:Supporto[Upgrade Center], e quindi fai clic sul collegamento *Inventario software e firmware*).
+* Se hai aggiornato la NVSRAM del controller, tutte le impostazioni personalizzate applicate alla NVSRAM esistente vengono perse durante il processo di attivazione. Devi applicare nuovamente le impostazioni personalizzate alla NVSRAM dopo che il processo di attivazione è stato completato.
+

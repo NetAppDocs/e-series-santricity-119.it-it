@@ -1,0 +1,103 @@
+---
+permalink: san-getstarted/supported-browsers-os.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, 
+summary: SANtricity può essere accessibile da diversi tipi di browser e sistemi operativi. 
+---
+= Supporto per browser e sistemi operativi del software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il software SANtricity supporta diversi tipi di browser e sistemi operativi.
+
+
+
+== Browser
+
+Sono supportati i seguenti browser e versioni.
+
+[cols="1a,1a"]
+|===
+| Browser | Versione minima 
+
+
+ a| 
+Google Chrome
+ a| 
+89
+
+
+
+ a| 
+Mozilla Firefox
+ a| 
+80
+
+
+
+ a| 
+Safari
+ a| 
+14
+
+
+
+ a| 
+Microsoft Edge
+ a| 
+90
+
+|===
+[NOTE]
+====
+Per Unified Manager, il proxy dei servizi Web deve essere installato e disponibile per il browser. Per ulteriori informazioni, vedere https://docs.netapp.com/us-en/e-series/web-services-proxy/index.html["Panoramica del proxy di SANtricity Web Services"^]
+
+====
+
+
+== Sistemi operativi
+
+Sono supportati i seguenti sistemi operativi e versioni.
+
+[cols="1a,1a"]
+|===
+| Sistema operativo | Versione/architettura minima 
+
+
+ a| 
+Red Hat Enterprise Linux (RHEL)
+ a| 
+7.x, 8.x / 64-bit
+
+
+
+ a| 
+SuSE Linux Enterprise Server (SLES)
+ a| 
+12.x, 15.x / 64-bit
+
+
+
+ a| 
+Oracle Linux (OL)
+ a| 
+7.x, 8.x / 64-bit
+
+
+
+ a| 
+Windows Server
+ a| 
+2016, 2019, 2022 / 64-bit
+
+
+
+ a| 
+Ubuntu
+ a| 
+18.04, 20.04 / 64-bit
+
+|===

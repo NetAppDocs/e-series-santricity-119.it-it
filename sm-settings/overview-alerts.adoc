@@ -1,0 +1,50 @@
+---
+permalink: sm-settings/overview-alerts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, Alerts, 
+summary: È possibile configurare System Manager per inviare avvisi relativi agli array di storage tramite e-mail, trap SNMP e messaggi syslog. 
+---
+= Scopri gli avvisi in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile configurare SANtricity System Manager per inviare avvisi relativi agli array di storage tramite e-mail, trap SNMP e messaggi syslog.
+
+
+
+== Che cosa sono gli avvisi?
+
+_Alerts_ notificano agli amministratori eventi importanti che si verificano sull'array di storage. Gli eventi possono includere problemi come un guasto alla batteria, un componente che passa da Ottimale a Offline o errori di ridondanza nel controller. Tutti gli eventi Critical sono considerati "alertable", insieme ad alcuni eventi Warning e Informational.
+
+Per saperne di più:
+
+* link:how-alerts-work.html["Come funzionano gli avvisi"]
+* link:alerts-terminology.html["Terminologia degli avvisi"]
+
+
+
+
+== Come si configurano gli avvisi?
+
+È possibile configurare gli avvisi in modo che vengano inviati come messaggio a uno o più indirizzi e-mail, come trap SNMP a un server SNMP o come messaggio a un server syslog. La configurazione degli avvisi è disponibile dal menu:Impostazioni[Avvisi].
+
+Per saperne di più:
+
+* link:configure-mail-server-and-recipients-for-alerts.html["Configura il server di posta e i destinatari per gli avvisi"]
+* link:configure-syslog-server-for-alerts.html["Configura il server syslog per gli avvisi"]
+* link:configure-snmp-alerts.html["Configura gli avvisi SNMP"]
+
+
+
+
+== Informazioni correlate
+
+Scopri di più sui concetti relativi agli avvisi:
+
+* link:../sm-support/overview-event-log.html["Panoramica del registro eventi"]
+* link:why-are-timestamps-inconsistent-between-the-array-and-alerts.html["Indicazioni temporali incoerenti"]
+

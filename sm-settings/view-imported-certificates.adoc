@@ -1,0 +1,53 @@
+---
+permalink: sm-settings/view-imported-certificates.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, imported, certificate, information, 
+summary: 'Dalla pagina Certificati, è possibile visualizzare il tipo di certificato, l"autorità emittente e l"intervallo di date di validità dei certificati per l"array di storage.' 
+---
+= Visualizza le informazioni sul certificato importato in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dalla pagina Certificati, è possibile visualizzare il tipo di certificato, l'autorità emittente e l'intervallo di date di validità dei certificati per l'array di storage.
+
+.Prima di iniziare
+È necessario aver effettuato l'accesso con un profilo utente che includa le autorizzazioni di Security admin. In caso contrario, le funzioni dei certificati non vengono visualizzate.
+
+.Passaggi
+. Selezionare menu:Impostazioni[Certificati].
+. Seleziona una delle schede per visualizzare le informazioni sui certificati.
++
+[cols="25h,~"]
+|===
+| Scheda | Descrizione 
+
+
+ a| 
+Gestione array
+ a| 
+Visualizza le informazioni sui certificati firmati da CA importati per ciascun controller, inclusi il file root, i file intermedi e i file server.
+
+
+
+ a| 
+Attendibile
+ a| 
+Visualizza le informazioni relative a tutti gli altri tipi di certificati importati per i controller. Utilizza il campo filtro sotto *Mostra i certificati che sono...* per visualizzare i certificati installati dall'utente o quelli preinstallati.
+
+** *Installati dall'utente* -- Certificati che un utente ha caricato nell'array di archiviazione, che possono includere certificati attendibili quando il controller agisce come client (anziché come server), certificati LDAPS e certificati di federazione delle identità.
+** *Pre-installati* -- Certificati autofirmati inclusi con l'array di storage.
+
+
+
+
+ a| 
+Gestione delle chiavi
+ a| 
+Visualizza informazioni sui certificati firmati da CA importati per un server di gestione delle chiavi esterno.
+
+|===
+

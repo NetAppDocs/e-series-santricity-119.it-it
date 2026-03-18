@@ -1,0 +1,24 @@
+---
+permalink: sm-storage/turn-on-locator-lights-in-a-pool-volume-group-or-ssd-cache.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, lights, LEDs 
+summary: È possibile individuare le unità per identificare fisicamente tutte le unità che compongono un pool, un gruppo di volumi o una Cache SSD. Un indicatore LED si accende su ciascuna unità nel pool, nel gruppo di volumi o nella Cache SSD. 
+---
+= Attiva le spie di localizzazione in un pool, un gruppo di volumi o Cache SSD in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile individuare le unità per identificare fisicamente tutte le unità che compongono un pool, un gruppo di volumi o una Cache SSD. Un indicatore LED si accende su ciascuna unità nel pool, nel gruppo di volumi o nella Cache SSD.
+
+.Passaggi
+. Selezionare menu:Storage[Pool & Volume Groups].
+. Seleziona il pool, il gruppo di volumi o la Cache SSD che desideri individuare, quindi fai clic su menu:More[Turn on locator lights].
++
+Viene visualizzata una finestra di dialogo che indica che le spie delle unità che compongono il pool selezionato, il gruppo di volumi o la Cache SSD sono accese.
+
+. Dopo aver individuato correttamente le unità, fai clic su *Turn Off*.
+

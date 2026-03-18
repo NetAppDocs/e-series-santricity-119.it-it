@@ -1,0 +1,153 @@
+---
+permalink: um-certificates/edit-directory-server-settings-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, edit, directory, server, settings, role, mappings 
+summary: Se in precedenza hai configurato un server di directory in Access Management, puoi modificarne le impostazioni in qualsiasi momento. Le impostazioni includono le informazioni di connessione al server e le associazioni tra gruppi e ruoli. 
+---
+= Modifica le impostazioni del server di directory e le mappature dei ruoli in SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se in precedenza hai configurato un server di directory in Access Management, puoi modificarne le impostazioni in qualsiasi momento. Le impostazioni includono le informazioni di connessione al server e le associazioni tra gruppi e ruoli.
+
+.Prima di iniziare
+* È necessario aver effettuato l'accesso con un profilo utente che includa le autorizzazioni di Security admin. In caso contrario, le funzioni di Access Management non vengono visualizzate.
+* È necessario definire un server di directory.
+
+
+.Passaggi
+. Seleziona *Access Management*.
+. Seleziona la scheda *Directory Services*.
+. Se sono definiti più server, selezionare il server che si desidera modificare dalla tabella.
+. Seleziona *Visualizza/Modifica impostazioni*.
++
+Si apre la finestra di dialogo Directory Server Settings.
+
+. Nella scheda *Server Settings*, modificare le impostazioni desiderate.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Impostazione | Descrizione 
+
+
+ a| 
+*Impostazioni di configurazione*
+
+
+
+ a| 
+Dominio(i)
+ a| 
+Il domain name dei LDAP server. Per più domain name, inserirli in un elenco separato da virgole. Il domain name viene utilizzato nel login (_username_@_domain_) per specificare il directory server su cui autenticarsi.
+
+
+
+ a| 
+URL del server
+ a| 
+L'URL per accedere al LDAP server nel formato  `ldap[s]://host:port`.
+
+
+
+ a| 
+Account di bind (facoltativo)
+ a| 
+Account utente di sola lettura per le query di ricerca contro il LDAP server e per la ricerca all'interno dei gruppi.
+
+
+
+ a| 
+Password di bind (facoltativa)
+ a| 
+La password per l'account di bind. (Questo campo viene visualizzato quando si inserisce un account di bind.)
+
+
+
+ a| 
+Verifica la connessione al server prima di salvare
+ a| 
+Verifica che il sistema possa comunicare con la configurazione del LDAP server. Il test viene eseguito dopo aver fatto clic su *Salva*. Se questa casella di controllo è selezionata e il test fallisce, la configurazione non viene modificata. È necessario risolvere l'errore o deselezionare la casella di controllo per saltare il test e modificare nuovamente la configurazione.
+
+
+
+ a| 
+*Impostazioni dei privilegi*
+
+
+
+ a| 
+DN di base di ricerca
+ a| 
+Il contesto LDAP per la ricerca degli utenti, in genere nella forma di `CN=Users, DC=cpoc, DC=local`.
+
+
+
+ a| 
+Attributo username
+ a| 
+L'attributo associato all'ID utente per l'autenticazione. Ad esempio:
+`sAMAccountName`.
+
+
+
+ a| 
+Attributo/i del gruppo
+ a| 
+Un elenco di attributi di gruppo sull'utente, utilizzato per la mappatura gruppo-ruolo. Ad esempio:
+`memberOf, managedObjects`.
+
+|===
+====
+. Nella scheda *Role Mapping*, modificare la mappatura desiderata.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Impostazione | Descrizione 
+
+
+ a| 
+*Mappature*
+
+
+
+ a| 
+DN gruppo
+ a| 
+Il domain name per il gruppo di utenti LDAP da mappare. Sono supportate le espressioni regolari. Questi caratteri speciali delle espressioni regolari devono essere preceduti da una barra rovesciata (\) se non fanno parte di un modello di espressione regolare:
+
+\.[]{}()<>*+-=!?^$|
+
+
+
+ a| 
+Ruoli
+ a| 
+I ruoli da mappare al DN del gruppo. È necessario selezionare singolarmente ogni ruolo che si desidera includere per questo gruppo. Il ruolo Monitor è richiesto in combinazione con gli altri ruoli per accedere a SANtricity Unified Manager. I ruoli includono i seguenti:
+
+** *Amministratore dello storage* -- Accesso completo in lettura/scrittura agli oggetti di storage sugli array, ma nessun accesso alla configurazione della sicurezza.
+** *Amministratore della sicurezza* -- Accesso alla configurazione della sicurezza in Access Management e Certificate Management.
+** *Support admin* -- Accesso a tutte le risorse hardware sugli array di storage, ai dati di errore e agli eventi MEL. Nessun accesso agli oggetti di storage o alla configurazione di sicurezza.
+** *Monitor* -- Accesso in sola lettura a tutti gli oggetti di archiviazione, ma nessun accesso alla configurazione di sicurezza.
+
+
+|===
+====
++
+
+NOTE: Il ruolo Monitor è obbligatorio per tutti gli utenti, incluso l'amministratore.
+
+. Se lo desideri, fai clic su *Aggiungi un'altra mappatura* per inserire ulteriori mappature gruppo-ruolo.
+. Fare clic su *Save*.
+
+
+.Risultati
+Dopo aver completato questa operazione, tutte le sessioni utente attive verranno terminate. Solo la sessione utente corrente verrà mantenuta.

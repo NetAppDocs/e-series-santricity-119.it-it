@@ -1,0 +1,34 @@
+---
+permalink: sm-interface/home-page.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, home page 
+summary: La pagina iniziale fornisce una vista dalla dashboard per la gestione quotidiana del tuo array di storage. Quando accedi a System Manager, la pagina iniziale è la prima schermata visualizzata. 
+---
+= Scopri la home page di SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La pagina iniziale fornisce una vista dalla dashboard per la gestione quotidiana del tuo array di storage. Quando accedi a SANtricity System Manager, la pagina iniziale è la prima schermata visualizzata.
+
+La vista dalla dashboard comprende quattro aree di riepilogo che contengono informazioni chiave sullo stato e la salute del tuo array di storage. Puoi trovare ulteriori informazioni nell'area di riepilogo.
+
+* *Notifiche*
++
+L'area Notifiche visualizza le notifiche relative ai problemi che indicano lo stato dell'array di storage e dei suoi componenti. Inoltre, questo portlet visualizza avvisi automatici che possono aiutarti a risolvere i problemi prima che influiscano su altre aree del tuo ambiente di storage.
+
+* *Prestazioni*
++
+L'area Prestazioni consente di confrontare l'utilizzo delle risorse nel tempo. È possibile visualizzare le metriche delle prestazioni di un array di storage per il tempo di risposta (IOPS), le velocità di trasferimento (MiB/s) e la quantità di capacità di elaborazione utilizzata (CPU).
+
+* *Capacità*
++
+L'area Capacità visualizza un grafico della capacità allocata, della capacità storage libera e della capacità storage non assegnata nel tuo storage array.
+
+* *Gerarchia dello storage*
++
+L'area Gerarchia di archiviazione fornisce una visualizzazione organizzata dei vari componenti hardware e oggetti di storage gestiti dal tuo array di storage. Fai clic sulla freccia a discesa per eseguire una determinata azione su quel componente hardware o oggetto di storage.
+
+

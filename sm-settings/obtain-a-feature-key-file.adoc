@@ -1,0 +1,47 @@
+---
+permalink: sm-settings/obtain-a-feature-key-file.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, obtain, feature, key, file, 
+summary: Per abilitare una funzionalità premium o un pacchetto di funzionalità sul tuo storage array, devi prima ottenere un file chiave della funzionalità. Una chiave è associata a un solo storage array. 
+---
+= Ottieni un file della chiave delle funzionalità in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per abilitare una funzionalità premium o un pacchetto di funzionalità sul tuo storage array, devi prima ottenere un file chiave della funzionalità. Una chiave è associata a un solo storage array.
+
+.Informazioni su questa attività
+Questa attività descrive come raccogliere le informazioni necessarie per la funzionalità e quindi inviare una richiesta per un file chiave della funzionalità. Le informazioni richieste includono:
+
+* Numero di serie dello chassis
+* Identificatore di abilitazione della funzionalità
+* Codice di attivazione della funzionalità
+
+
+.Passaggi
+. In System Manager, individua e annota il numero di serie dello chassis. Puoi visualizzare questo numero di serie posizionando il puntatore del mouse sul riquadro del Support Center.
+. In System Manager, individua il Feature Enable Identifier. Vai al menu:Settings[System], quindi scorri verso il basso fino a *Add-ons*. Cerca il *Feature Enable Identifier*. Annota il numero del Feature Enable Identifier.
+. Individua e annota il codice per l'attivazione delle funzionalità. Per i feature pack, questo codice è fornito nelle istruzioni appropriate per eseguire la conversione.
++
+Per le funzionalità premium, puoi accedere al codice di attivazione dal sito di supporto, come segue:
+
++
+.. Accedi a https://mysupport.netapp.com/site/global/dashboard["NetApp Supporto"^].
+.. Vai a *Licenze software* per il tuo prodotto.
+.. Inserisci il numero di serie dello chassis dello storage array, quindi fai clic su *Vai*.
+.. Cerca i codici di attivazione delle funzionalità nella colonna *License Key*.
+.. Annota il Feature Activation Code per la funzione che desideri.
+
+
+. Richiedete un file di attivazione della funzionalità inviando un'email o un documento di testo al vostro fornitore di storage con le seguenti informazioni: numero di serie dello chassis, identificativo di abilitazione e codice di attivazione della funzionalità.
++
+Puoi anche accedere a http://partnerspfk.netapp.com["NetApp License Activation: Attivazione della funzionalità Premium di Storage Array"^] e inserire le informazioni richieste per ottenere la funzionalità o il pacchetto di funzionalità. (Le istruzioni su questo sito si riferiscono alle funzionalità premium, non ai pacchetti di funzionalità.)
+
+
+
+.Dopo aver finito
+Quando si dispone di un file di chiave delle funzionalità, è possibile abilitare la funzionalità premium o il pacchetto di funzionalità.

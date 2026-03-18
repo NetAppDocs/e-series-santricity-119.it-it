@@ -1,0 +1,14 @@
+---
+permalink: sm-settings/index.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= SANtricity System Manager 11.9
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile configurare SANtricity System Manager per alcune impostazioni generali dell'array e funzionalità aggiuntive.

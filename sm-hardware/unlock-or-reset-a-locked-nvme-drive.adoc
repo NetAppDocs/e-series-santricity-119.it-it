@@ -1,0 +1,64 @@
+---
+permalink: sm-hardware/unlock-or-reset-a-locked-nvme-drive.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, unlock, reset, locked, fips, nvme, drives, 
+summary: 'Se si inserisce una o più unità NVMe o FIPS bloccate in un array di storage, è possibile sbloccare i dati dell"unità aggiungendo il file della chiave di sicurezza associato alle unità. Se non si dispone di una chiave di sicurezza, è possibile eseguire un reset su ciascuna unità bloccata inserendo il relativo Physical Security ID (PSID) per resettare gli attributi di sicurezza e cancellare i dati dell"unità.' 
+---
+= Sblocca o reimposta le unità NVMe o FIPS bloccate in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si inserisce una o più unità NVMe o FIPS bloccate in un array di storage, è possibile sbloccare i dati dell'unità aggiungendo il file della chiave di sicurezza associato alle unità. Se non si dispone di una chiave di sicurezza, è possibile eseguire un reset su ciascuna unità bloccata inserendo il relativo Physical Security ID (PSID) per resettare gli attributi di sicurezza e cancellare i dati dell'unità.
+
+.Prima di iniziare
+* Per l'opzione Sblocca, assicurati che il file della chiave di sicurezza (con un'estensione di  `.slk`) sia disponibile sul client di gestione (il sistema con un browser utilizzato per accedere a System Manager). Devi inoltre conoscere la pass phrase associata alla chiave.
+* Per l'opzione Reset, è necessario individuare il PSID su ciascuna unità che si desidera ripristinare. Per individuare il PSID, rimuovere fisicamente l'unità e individuare la stringa PSID (massimo 32 caratteri) sull'etichetta dell'unità, quindi reinstallare l'unità.
+
+
+.Informazioni su questa attività
+Questa procedura descrive come sbloccare i dati nelle unità NVMe o FIPS importando un file di chiave di sicurezza nell'array di storage. Per le situazioni in cui la chiave di sicurezza non è disponibile, questa procedura descrive anche come eseguire un ripristino su un'unità bloccata.
+
+[NOTE]
+====
+Se l'unità è stata bloccata utilizzando un server di gestione delle chiavi esterno, selezionare menu:Settings[System > Security key management] in System Manager per configurare la gestione delle chiavi esterne e sbloccare l'unità.
+
+====
+È possibile accedere alla funzione di sblocco dalla pagina Hardware oppure dal menu:Settings[System > Security key management]. La procedura seguente fornisce istruzioni dalla pagina Hardware.
+
+.Passaggi
+. Seleziona *Hardware*.
+. Se il grafico mostra i controller, fai clic sulla scheda *Drives*.
++
+La grafica cambia per mostrare le unità invece dei controller.
+
+. Seleziona l'unità NVMe o FIPS che desideri sbloccare o ripristinare.
++
+Si apre il menu contestuale dell'unità.
+
+. Seleziona *Sblocca* per applicare il file della chiave di sicurezza o *Ripristina* se non hai un file della chiave di sicurezza.
++
+Queste opzioni vengono visualizzate solo se si seleziona un'unità NVMe o FIPS bloccata.
+
++
+[CAUTION]
+====
+Durante un'operazione di Reset, tutti i dati vengono cancellati. Eseguire un Reset solo se non si dispone di una security key. Il Reset di un drive bloccato rimuove definitivamente tutti i dati presenti sul drive e ripristina i suoi attributi di sicurezza su "secure-capable", ma non abilitato. *Questa operazione non è reversibile.*
+
+====
+. Eseguire una delle seguenti operazioni:
++
+.. *Sblocca*: Nella finestra di dialogo *Sblocca unità protetta*, fai clic su *Sfoglia* e quindi seleziona il file della chiave di sicurezza che corrisponde all'unità che desideri sbloccare. Successivamente, inserisci la pass phrase e poi fai clic su *Sblocca*.
+.. *Ripristina*: Nella finestra di dialogo *Ripristina unità bloccata*, immettere la stringa PSID nel campo e quindi digitare  `RESET` per confermare. Fare clic su *Ripristina*.
++
+Per un'operazione di sblocco, è sufficiente eseguire questa operazione una sola volta per sbloccare tutte le unità NVMe o FIPS. Per un'operazione di ripristino, è necessario selezionare singolarmente ciascuna unità che si desidera ripristinare.
+
+
+
+
+
+.Risultati
+L'unità è ora disponibile per l'utilizzo in un altro gruppo di volumi o pool di dischi, o in un altro array di storage.

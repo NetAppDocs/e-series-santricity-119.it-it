@@ -1,0 +1,58 @@
+---
+permalink: sm-mirroring/role-change-of-volumes-in-a-mirrored-pair.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, role, change, between, volume, mirrored, pair, 
+summary: È possibile modificare il ruolo tra i volumi in una coppia mirrorata. È possibile farlo declassando il volume primario al ruolo secondario o promuovendo il volume secondario al ruolo primario. 
+---
+= Scopri le modifiche al ruolo del volume in una coppia mirrorata nel software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare il ruolo tra i volumi in una coppia mirrorata. È possibile farlo declassando il volume primario al ruolo secondario o promuovendo il volume secondario al ruolo primario.
+
+[NOTE]
+====
+La funzione di mirroring sincrono non è disponibile sui sistemi storage EF600/EF600C o EF300/EF300C.
+
+====
+Esamina le seguenti informazioni relative all'operazione di cambio di ruolo:
+
+* Quando un volume primario viene declassato al ruolo secondario, il volume secondario in quella coppia mirrorata viene promosso al ruolo primario e viceversa.
+* Quando il volume primario viene declassato al ruolo secondario, gli host a cui era assegnato tale volume non hanno più accesso in scrittura a esso.
+* Quando il volume secondario viene promosso al ruolo primario, tutti gli host che accedono a tale volume sono ora in grado di scrivere su di esso.
+* Se l'array di storage locale non riesce a comunicare con l'array di storage remoto, puoi forzare il cambio di ruolo sull'array di storage locale.
+
+
+
+
+== Forza cambio di ruolo
+
+È possibile forzare un cambio di ruolo tra volumi in una coppia con mirroring quando un problema di comunicazione tra l'array di storage locale e l'array di storage remoto impedisce la promozione del volume secondario o la retrocessione del volume primario.
+
+È possibile forzare il volume sul lato secondario a passare al ruolo primario. Successivamente, l'host di ripristino può accedere al volume appena promosso e le operazioni di business possono continuare.
+
+[NOTE]
+====
+Quando l'array di storage remoto è stato ripristinato e tutti i problemi di comunicazione sono stati risolti, si verifica una condizione di conflitto Synchronous Mirroring - Primary Volume. I passaggi di ripristino includono la risincronizzazione dei volumi. Utilizzare il Recovery Guru per recuperare da questo errore.
+
+====
+
+
+== Quando è consentita una promozione forzata e quando non è consentita?
+
+La promozione forzata di un volume in una coppia mirrorata non è consentita alle seguenti condizioni:
+
+* Uno qualsiasi dei volumi in una coppia mirrorata è in fase di sincronizzazione iniziale.
+* La coppia mirrorata si trova negli stati Non riuscito, Cambio ruolo in sospeso o Cambio ruolo in corso, oppure se uno qualsiasi dei volumi di capacità riservata associati è non riuscito.
+
+
+
+
+== Stato di avanzamento del cambio di ruolo
+
+Se due array di storage in una configurazione di mirroring si disconnettono, e il volume primario di una coppia di volumi mirrorati viene forzatamente declassato a ruolo secondario, e il volume secondario di una coppia di volumi mirrorati viene forzatamente promosso a ruolo primario, allora, quando la comunicazione viene ripristinata, i volumi su entrambi gli array di storage vengono posti nello stato Role-Change-In-Progress.
+
+Il sistema completerà il processo di cambio ruolo trasferendo i registri delle modifiche, risincronizzando, riportando lo stato della coppia mirrorata a uno stato operativo normale e proseguendo con le sincronizzazioni.

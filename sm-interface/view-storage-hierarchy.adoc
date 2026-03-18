@@ -1,0 +1,121 @@
+---
+permalink: sm-interface/view-storage-hierarchy.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, storage hierarchy 
+summary: 'La Storage Hierarchy nell"interfaccia principale fornisce una visualizzazione organizzata dei vari componenti hardware e degli oggetti di storage gestiti dal tuo storage array.' 
+---
+= Visualizza la gerarchia dello storage in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La Storage Hierarchy nell'interfaccia principale fornisce una visualizzazione organizzata dei vari componenti hardware e degli oggetti di storage gestiti dal tuo storage array.
+
+Per visualizzare la gerarchia di archiviazione, vai alla pagina iniziale e fai clic sulla freccia a discesa su un componente array di storage o su un oggetto di storage. Un array di storage è costituito da una raccolta di componenti sia fisici che logici.
+
+
+
+== Componenti fisici
+
+I componenti fisici di un array di storage sono descritti in questa tabella.
+
+[cols="25h,~"]
+|===
+| Componente | Descrizione 
+
+
+ a| 
+Controller
+ a| 
+Un controller è costituito da una scheda, firmware e software. Controlla i drive e implementa le funzioni di System Manager.
+
+
+
+ a| 
+Shelf
+ a| 
+Un shelf è un contenitore installato in un cabinet o rack. Contiene i componenti hardware per lo storage array. Esistono due tipi di shelf: uno shelf controller e uno shelf drive. Uno shelf controller include controller e drive. Uno shelf drive include moduli di input/output (IOM) e drive.
+
+[NOTE]
+====
+Se l'array di storage contiene diversi tipi di supporti o diversi tipi di interfaccia, viene visualizzato un alloggiamento per unità per ciascun tipo di unità.
+
+====
+
+
+ a| 
+Unità
+ a| 
+Un'unità disco è un dispositivo elettromeccanico o un dispositivo di memoria a stato solido che fornisce lo storage fisico per i dati.
+
+
+
+ a| 
+Host
+ a| 
+Un host è un server che invia I/O a un volume su un array di storage.
+
+
+
+ a| 
+Adattatore bus host (HBA)
+ a| 
+Un host bus adapter (HBA) è una scheda che risiede in un host e contiene una o più porte host.
+
+
+
+ a| 
+Porta host
+ a| 
+Una porta host è una porta su un host bus adapter (HBA) che fornisce la connessione fisica a un controller e viene utilizzata per le operazioni di I/O.
+
+
+
+ a| 
+Client di gestione
+ a| 
+Un client di gestione è il computer su cui è installato un browser per accedere a System Manager.
+
+|===
+
+
+== Componenti logici
+
+Le unità disco nell'array di storage forniscono la capacità di storage fisico per i dati. Utilizzare System Manager per configurare la capacità fisica in componenti logici, come pool, gruppi di volumi e volumi. Questi componenti sono gli strumenti che si utilizzano per configurare, archiviare, gestire e preservare i dati sull'array di storage. I componenti logici di un array di storage sono descritti in questa tabella.
+
+[cols="25h,~"]
+|===
+| Componente | Descrizione 
+
+
+ a| 
+Pool
+ a| 
+Un pool è un insieme di unità disco raggruppate logicamente. È possibile utilizzare un pool per creare uno o più volumi accessibili a un host. (È possibile creare volumi da un pool o da un gruppo di volumi.)
+
+
+
+ a| 
+Gruppo di volumi
+ a| 
+Un gruppo di volumi è un container per volumi con caratteristiche condivise. Un gruppo di volumi ha una capacità definita e livello RAID. È possibile utilizzare un gruppo di volumi per creare uno o più volumi accessibili a un host. (È possibile creare volumi da un gruppo di volumi o da un pool.)
+
+
+
+ a| 
+Volume
+ a| 
+Un volume è un container in cui applicazioni, database e file system memorizzano i dati. È il componente logico creato per consentire all'host di accedere allo storage sull'array di storage.
+
+
+
+ a| 
+Numero di unità logica (LUN)
+ a| 
+Un numero di unità logica (LUN) è il numero assegnato allo spazio di indirizzi che un host utilizza per accedere a un volume. Il volume viene presentato all'host come capacità sotto forma di LUN.
+
+Ogni host dispone di un proprio spazio di indirizzamento LUN. Pertanto, lo stesso LUN può essere utilizzato da host diversi per accedere a volumi differenti.
+
+|===

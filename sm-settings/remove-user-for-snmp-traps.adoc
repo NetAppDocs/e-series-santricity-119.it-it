@@ -1,0 +1,32 @@
+---
+permalink: sm-settings/remove-user-for-snmp-traps.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remove, users, snmpv3, traps, 
+summary: È possibile rimuovere un utente per le trap SNMPv3. 
+---
+= Rimuovere gli utenti per le trap SNMPv3 in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile rimuovere un utente per le trap SNMPv3.
+
+.Passaggi
+. Seleziona menu:Impostazioni[Avvisi].
+. Seleziona la scheda *SNMP*.
++
+Le destinazioni delle trappole e i nomi utente vengono visualizzati nella pagina Alerts.
+
+. Seleziona *Configure Users*.
++
+Si apre la finestra di dialogo Configura SNMPv3 Users.
+
+. Seleziona il nome utente che desideri eliminare, quindi fai clic su *Delete*.
+. Conferma l'operazione, quindi fai clic su *Delete*.
+
+
+.Risultati
+Il nome utente e la relativa destinazione trap vengono rimossi dalla pagina degli avvisi.

@@ -1,0 +1,159 @@
+---
+permalink: sm-mirroring/asynchronous-mirror-status.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, asynchronous, mirror, status, consistency, group, 
+summary: Lo stato dello specchio definisce lo stato dei gruppi di coerenza dello specchio e delle coppie di volumi mirrorati. 
+---
+= Visualizza lo stato del mirror asincrono in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lo stato dello specchio definisce lo stato dei gruppi di coerenza dello specchio e delle coppie di volumi mirrorati.
+
+
+
+== Stato dei gruppi di coerenza mirror
+
+[cols="25h,~"]
+|===
+| Stato | Descrizione 
+
+
+ a| 
+Sincronizzazione (initial sync)
+ a| 
+Lo stato di avanzamento della sincronizzazione iniziale dei dati completata tra le coppie di volume mirrorato.
+
+Durante una sincronizzazione iniziale, i volumi possono passare ai seguenti stati: Degradato/Non riuscito/Ottimale/Sconosciuto.
+
+
+
+ a| 
+Sincronizzazione (sincronizzazione a intervalli)
+ a| 
+Lo stato di avanzamento della sincronizzazione periodica dei dati completata tra le coppie di volume mirrorato.
+
+
+
+ a| 
+Sistema sospeso
+ a| 
+Sincronizzazione dei dati sospesa dal sistema storage su tutte le coppie mirrorate a livello del gruppo di coerenza mirror.
+
+Almeno una coppia mirrorata nel mirror consistency group si trova in uno stato Arrestato o Fallito.
+
+
+
+ a| 
+Utente sospeso
+ a| 
+Sincronizzazione dei dati sospesa dall'utente su tutte le coppie mirrorate a livello del gruppo di coerenza del mirror.
+
+Questo stato contribuisce a ridurre qualsiasi impatto sulle prestazioni dell'applicazione host che potrebbe verificarsi mentre tutti i dati modificati sull'array di storage locale vengono copiati sull'array di storage remoto.
+
+
+
+ a| 
+In pausa
+ a| 
+Il processo di sincronizzazione dei dati è stato temporaneamente sospeso a causa di un errore nell'accesso all'array di storage remoto.
+
+
+
+ a| 
+Orfano
+ a| 
+Un volume di coppia mirrorata orfano esiste quando un volume membro in un gruppo di mirror di coerenza è stato rimosso da un lato del gruppo di mirror di coerenza (sia dal lato primario che dal lato secondario), ma non dall'altro lato.
+
+I volumi di coppie mirrorate orfane vengono rilevati quando la comunicazione tra gli array viene ripristinata e i due lati della configurazione mirrorata riconciliano i parametri del mirror.
+
+È possibile rimuovere una coppia mirrorata per correggere lo stato di una coppia mirrorata orfana.
+
+
+
+ a| 
+Cambio di ruolo in sospeso/in corso
+ a| 
+Un cambio di ruolo tra i mirror consistency groups è in sospeso o in corso.
+
+Il cambio di ruolo (a ruolo primario o secondario) influisce su tutte le coppie mirrorate asincrone all'interno del gruppo di coerenza mirror selezionato.
+
+È possibile annullare una modifica di ruolo in sospeso, ma non una modifica di ruolo in corso.
+
+
+
+ a| 
+Conflitto di ruolo
+ a| 
+Si è verificato un conflitto di ruoli tra i gruppi di coerenza mirror a causa di un problema di comunicazione tra l'array di storage locale e l'array di storage remoto durante un'operazione di cambio di ruolo.
+
+Quando il problema di comunicazione è stato risolto, si verifica un Role Conflict. Utilizzare il Recovery Guru per recuperare da questo errore.
+
+Non è consentita una promozione forzata quando si risolve un conflitto di ruoli.
+
+|===
+
+
+== Stato delle coppie mirrorate
+
+Lo stato di una coppia mirrorata indica se i dati sul volume primario e sul volume secondario sono sincronizzati.
+
+[cols="25h,~"]
+|===
+| Stato | Descrizione 
+
+
+ a| 
+Sincronizzazione
+ a| 
+L'avanzamento della sincronizzazione iniziale o periodica dei dati che è stata completata tra le coppie speculari.
+
+Esistono due tipi di sincronizzazione: sincronizzazione iniziale e sincronizzazione periodica. L'avanzamento della sincronizzazione iniziale viene visualizzato anche nella finestra di dialogo Long Running Operations.
+
+
+
+ a| 
+Ottimale
+ a| 
+I volumi nella coppia speculare sono sincronizzati, il che indica che la connessione tra gli array di storage è operativa e ciascun volume si trova nelle condizioni di lavoro desiderate.
+
+
+
+ a| 
+Incompleto
+ a| 
+La coppia di mirroring asincrono è incompleta sull'array di storage remoto perché la sequenza di creazione della coppia di mirroring è stata avviata su un array di storage non supportato da System Manager e la coppia di mirroring non è stata completata sul volume secondario.
+
+Il processo di creazione della coppia con mirroring si completa quando un volume viene aggiunto al gruppo di coerenza mirror sull'array di storage remoto. Questo volume diventa il volume secondario nella coppia con mirroring asincrono.
+
+La coppia mirrorata viene completata automaticamente se l'array di storage remoto è gestito da System Manager.
+
+
+
+ a| 
+Fallito
+ a| 
+L'operazione di mirroring asincrono non può funzionare normalmente a causa di un errore con i volumi primari, i volumi secondari o la capacità riservata al mirroring.
+
+
+
+ a| 
+Orfano
+ a| 
+Un volume di coppia mirrorata orfano esiste quando un volume membro in un gruppo di mirror di coerenza è stato rimosso da un lato del gruppo di mirror di coerenza (sia dal lato primario che dal lato secondario), ma non dall'altro lato.
+
+I volumi di coppie mirror orfane vengono rilevati quando viene ripristinata la comunicazione tra i due array di storage e i due lati della configurazione mirror riconciliano i parametri del mirror.
+
+È possibile rimuovere una coppia mirrorata per correggere lo stato di una coppia mirrorata orfana.
+
+
+
+ a| 
+Arrestato
+ a| 
+La coppia speculare si trova nello stato Arrestato perché il gruppo di coerenza del mirror si trova nello stato di sospensione del sistema.
+
+|===

@@ -1,0 +1,50 @@
+---
+permalink: um-manage/requirements-for-replicating-storage-configurations.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, requirements, replicating, storage, configurations 
+summary: Prima di importare una configurazione dello storage da un array di storage a un altro, esaminare i requisiti e le linee guida. 
+---
+= Requisiti per la replica delle configurazioni degli array di storage in SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di importare una configurazione dello storage da un array di storage a un altro, esaminare i requisiti e le linee guida.
+
+
+
+== Shelf di espansione
+
+* Gli alloggiamenti in cui risiedono i controller devono essere identici nell'array di origine e in quello di destinazione.
+* Gli ID degli shelf devono essere identici sugli array di origine e di destinazione.
+* Gli alloggiamenti di espansione devono essere popolati negli stessi slot con gli stessi tipi di unità (se l'unità viene utilizzata nella configurazione, la posizione delle unità non utilizzate non è rilevante).
+
+
+
+
+== Controllori
+
+* Il tipo di controller può essere diverso tra gli array di origine e di destinazione (ad esempio, importando da un E2800 a un E5700), ma il tipo di enclosure RBOD deve essere identico.
+* Gli HIC, comprese le funzionalità DA dell'host, devono essere identici tra gli array di origine e di destinazione.
+* L'importazione da una configurazione duplex a una simplex non è supportata; tuttavia, l'importazione da simplex a duplex è consentita.
+* Le impostazioni FDE non sono incluse nel processo di importazione.
+
+
+
+
+== Stato
+
+* Gli array di destinazione devono trovarsi in stato Optimal.
+* L'array di origine non deve essere nello stato Ottimale.
+
+
+
+
+== Storage
+
+* La capacità delle unità può variare tra gli array di origine e di destinazione, purché la capacità dei volumi sulla destinazione sia maggiore di quella dell'origine. (Un array di destinazione potrebbe avere unità più recenti e con maggiore capacità che non verrebbero configurate completamente in volumi dall'operazione di replica.)
+* I volumi del pool di dischi da 64 TB o superiori sull'array di origine impediranno il processo di importazione sui target.
+* I volumi sottili non sono inclusi nel processo di importazione.
+

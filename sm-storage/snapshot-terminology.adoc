@@ -1,0 +1,96 @@
+---
+permalink: sm-storage/snapshot-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, snapshot, terms 
+summary: Scopri come si applicano i termini relativi agli snapshot al tuo array di storage. 
+---
+= Scopri la terminologia relativa agli Snapshot nel software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scopri come si applicano i termini relativi agli snapshot al tuo array di storage.
+
+[cols="25h,~"]
+|===
+| Termine | Descrizione 
+
+
+ a| 
+Funzione Snapshot
+ a| 
+La funzione Snapshot viene utilizzata per creare e gestire immagini dei volumi.
+
+
+
+ a| 
+Immagine Snapshot
+ a| 
+Un'immagine Snapshot è una copia logica dei dati di un volume, acquisita in un point-in-time. Come un punto di ripristino, le immagini Snapshot consentono di tornare a un set di dati funzionante. Sebbene l'host possa accedere all'immagine Snapshot, non può leggerla o scriverci direttamente.
+
+
+
+ a| 
+Volume base
+ a| 
+Il volume di base è la sorgente da cui viene creata un'immagine Snapshot. Può essere un volume thick o thin e viene in genere assegnato a un host. Il volume di base può risiedere in un gruppo di volumi o in un pool di dischi.
+
+
+
+ a| 
+Volume Snapshot
+ a| 
+Un volume snapshot consente all'host di accedere ai dati nell'immagine snapshot. Il volume snapshot contiene una propria capacità riservata, che salva eventuali modifiche al volume di base senza influire sull'immagine snapshot originale.
+
+
+
+ a| 
+Gruppo Snapshot
+ a| 
+Un gruppo di snapshot è una raccolta di immagini snapshot da un singolo volume di base.
+
+
+
+ a| 
+volume di capacità riservato
+ a| 
+Un volume di capacità riservata tiene traccia di quali blocchi di dati del volume di base vengono sovrascritti e del contenuto conservato di tali blocchi.
+
+
+
+ a| 
+calendario di Snapshot
+ a| 
+Una pianificazione di Snapshot è una tabella di marcia per la creazione automatica di immagini Snapshot. Tramite la pianificazione, puoi controllare la frequenza di creazione delle immagini.
+
+
+
+ a| 
+Gruppo di coerenza Snapshot
+ a| 
+Un gruppo di coerenza snapshot è una raccolta di volumi che vengono trattati come un'unica entità quando viene creata un'immagine snapshot. Ciascuno di questi volumi ha la propria immagine snapshot, ma tutte le immagini vengono create nello stesso momento.
+
+
+
+ a| 
+Volume membro del gruppo di coerenza Snapshot
+ a| 
+Ogni volume appartenente a un gruppo di coerenza snapshot viene definito volume membro. Quando si aggiunge un volume a un gruppo di coerenza snapshot, System Manager crea automaticamente un nuovo gruppo snapshot che corrisponde a questo volume membro.
+
+
+
+ a| 
+Rollback
+ a| 
+Il rollback è il processo di restituzione dei dati in un volume di base a un precedente point-in-time.
+
+
+
+ a| 
+Capacità riservata
+ a| 
+La capacità riservata è la capacità fisica allocata utilizzata per qualsiasi operazione di copia del servizio e oggetto di archiviazione. Non è direttamente leggibile dall'host.
+
+|===

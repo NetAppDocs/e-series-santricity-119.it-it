@@ -1,0 +1,35 @@
+---
+permalink: um-manage/perform-pre-upgrade-health-check.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, perform, pre-upgrade, health, check 
+summary: 'Il controllo di integrità viene eseguito come parte del processo di aggiornamento, ma è anche possibile eseguire un controllo di integrità separatamente prima di iniziare. Il controllo di integrità valuta i componenti dell"array di storage per assicurarsi che l"aggiornamento possa procedere.' 
+---
+= Eseguire un controllo di integrità pre-aggiornamento in SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il controllo di integrità viene eseguito come parte del processo di aggiornamento, ma è anche possibile eseguire un controllo di integrità separatamente prima di iniziare. Il controllo di integrità valuta i componenti dell'array di storage per assicurarsi che l'aggiornamento possa procedere.
+
+.Passaggi
+. Dalla schermata principale, selezionare *Gestisci* e quindi selezionare menu:Upgrade Center[Pre-Upgrade Health Check].
++
+Si apre la finestra di dialogo Controllo integrità pre-aggiornamento, che elenca tutti i sistemi storage rilevati.
+
+. Se necessario, filtra o ordina i sistemi storage nell'elenco, così puoi visualizzare tutti i sistemi che non sono attualmente nello stato Optimal.
+. Seleziona le caselle di controllo per i sistemi storage che desideri sottoporre al controllo di integrità.
+. Fai clic su *Start*.
++
+L'avanzamento viene visualizzato nella finestra di dialogo mentre viene eseguito il controllo di integrità.
+
+. Al termine del controllo dello stato di salute, puoi fare clic sui puntini di sospensione (...) a destra di ciascuna riga per visualizzare ulteriori informazioni ed eseguire altre operazioni.
++
+[NOTE]
+====
+Se uno o più array non superano il controllo di integrità, puoi saltare quell'array specifico e continuare l'aggiornamento per gli altri, oppure puoi interrompere l'intero processo e risolvere i problemi degli array che non hanno superato il controllo.
+
+====
+

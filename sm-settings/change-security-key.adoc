@@ -1,0 +1,62 @@
+---
+permalink: sm-settings/change-security-key.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, security, key, 
+summary: È possibile sostituire una chiave di sicurezza con una nuova in qualsiasi momento. Potrebbe essere necessario modificare una chiave di sicurezza in caso di potenziale violazione della sicurezza nella propria azienda e per assicurarsi che il personale non autorizzato non possa accedere ai dati delle unità. 
+---
+= Modificare una chiave di sicurezza in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile sostituire una chiave di sicurezza con una nuova in qualsiasi momento. Potrebbe essere necessario modificare una chiave di sicurezza in caso di potenziale violazione della sicurezza nella propria azienda e voler assicurarsi che il personale non autorizzato non possa accedere ai dati delle unità.
+
+.Passaggi
+. Selezionare menu:Impostazioni[Sistema].
+. In *Security key management*, selezionare *Change Key*.
++
+Si apre la finestra di dialogo Change Security Key.
+
+. Inserisci le informazioni nei seguenti campi.
++
+** *Definisci un identificatore per la chiave di sicurezza* -- (Solo per chiavi di sicurezza interne.) Accetta il valore predefinito (nome dell'array di storage e timestamp, generato dal firmware del controller) oppure inserisci un valore personalizzato. Puoi inserire fino a 189 caratteri alfanumerici senza spazi, punteggiatura o simboli.
++
+[NOTE]
+====
+Vengono generati automaticamente dei caratteri aggiuntivi che vengono aggiunti a entrambe le estremità della stringa inserita. I caratteri generati contribuiscono a garantire che l'identificativo sia univoco.
+
+====
+** *Definisci una pass phrase/Reinserisci la pass phrase* -- In ciascuno di questi campi, inserisci la tua pass phrase. Il valore può contenere da 8 a 32 caratteri e deve includere ciascuno dei seguenti:
++
+*** Una o più lettere maiuscole. Ricorda che la pass phrase distingue tra maiuscole e minuscole.
+*** Un numero (uno o più).
+*** Un carattere non alfanumerico, come !, *, @ (uno o più).
+
+
+
+
+. Per le chiavi di sicurezza esterne, se si desidera eliminare la vecchia chiave di sicurezza quando viene creata quella nuova, selezionare la casella di controllo "Elimina la chiave di sicurezza corrente..." in fondo alla finestra di dialogo.
++
+[CAUTION]
+====
+*Assicurati di annotare le tue voci per un utilizzo successivo* -- Se devi spostare un'unità secure-enabled dall'array di archiviazione, devi conoscere l'identificatore e la pass phrase per sbloccare i dati dell'unità.
+
+====
+. Fai clic su *Change*.
++
+La nuova chiave di sicurezza sovrascrive la chiave precedente, che non è più valida.
+
++
+[NOTE]
+====
+Il percorso del file scaricato potrebbe dipendere dalla posizione di download predefinita del browser.
+
+====
+. Annota il tuo identificatore chiave, la pass phrase e la posizione del file chiave scaricato, quindi fai clic su *Chiudi*.
+
+
+.Dopo aver finito
+Dovresti convalidare la chiave di sicurezza per assicurarti che il file della chiave non sia danneggiato.

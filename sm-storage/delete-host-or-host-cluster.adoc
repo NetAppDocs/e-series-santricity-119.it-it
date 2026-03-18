@@ -1,0 +1,49 @@
+---
+permalink: sm-storage/delete-host-or-host-cluster.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, host, host cluster 
+summary: È possibile eliminare un host o un cluster host. 
+---
+= Eliminare un host o un cluster in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eliminare un host o un cluster host.
+
+.Informazioni su questa attività
+Tenete presenti queste linee guida quando eliminate un host o un cluster di host:
+
+* Tutte le assegnazioni di volumi specifici vengono eliminate e i volumi associati sono disponibili per una nuova assegnazione.
+* Se l'host fa parte di un cluster di host che ha assegnazioni specifiche proprie, il cluster di host non viene influenzato. Tuttavia, se l'host fa parte di un cluster di host che non ha altre assegnazioni, il cluster di host e tutti gli altri host o identificatori di porta host associati ereditano le assegnazioni predefinite.
+* Tutti gli identificatori di porta host che erano associati all'host diventano indefiniti.
+
+
+.Passaggi
+. Seleziona menu:Storage[Hosts].
+. Seleziona l'host o il cluster che desideri eliminare, quindi fai clic su *Elimina*.
++
+Viene visualizzata la finestra di dialogo di conferma.
+
+. Conferma di voler eseguire l'operazione, quindi fai clic su *Delete*.
+
+
+.Risultati
+Se si elimina un host, il sistema esegue le seguenti azioni:
+
+* Elimina l'host e, se applicabile, lo rimuove dal cluster host.
+* Rimuove l'accesso a tutti i volumi assegnati.
+* Riporta i volumi associati a uno stato non assegnato.
+* Riporta tutti gli identificatori di porta host associati all'host a uno stato non associato.
+
+
+Se si elimina un cluster host, il sistema esegue le seguenti azioni:
+
+* Elimina il cluster host e gli host associati (se presenti).
+* Rimuove l'accesso a tutti i volumi assegnati.
+* Riporta i volumi associati a uno stato non assegnato.
+* Restituisce eventuali identificatori di porta host associati agli host a uno stato non associato.
+

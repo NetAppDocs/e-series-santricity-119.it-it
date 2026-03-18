@@ -1,0 +1,351 @@
+---
+permalink: sm-storage/create-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, volumes 
+summary: 'Si creano volumi per aggiungere capacità di archiviazione a un carico di lavoro specifico di un"applicazione e per rendere i volumi creati visibili a un host o a un cluster. Inoltre, la sequenza di creazione dei volumi fornisce opzioni per allocare quantità specifiche di capacità a ogni volume che si desidera creare.' 
+---
+= Creare volumi in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si creano volumi per aggiungere capacità di archiviazione a un carico di lavoro specifico di un'applicazione e per rendere i volumi creati visibili a un host o a un cluster. Inoltre, la sequenza di creazione dei volumi fornisce opzioni per allocare quantità specifiche di capacità a ogni volume che si desidera creare.
+
+.Informazioni su questa attività
+La maggior parte dei tipi di applicazione ha come impostazione predefinita una configurazione di volume definita dall'utente. Alcuni tipi di applicazione hanno una configurazione intelligente applicata al momento della creazione del volume. Ad esempio, se si creano volumi per l'applicazione Microsoft Exchange, viene chiesto di quante caselle di posta si ha bisogno, quali sono i requisiti di capacità media delle caselle di posta e quante copie del database si desidera. System Manager utilizza queste informazioni per creare una configurazione di volume ottimale, che può essere modificata se necessario.
+
+Il processo per creare un volume è una procedura a più fasi.
+
+
+
+== Passo 1: Seleziona host per un volume
+
+Si creano volumi per aggiungere capacità di archiviazione a un carico di lavoro specifico di un'applicazione e per rendere i volumi creati visibili a un host o a un cluster. Inoltre, la sequenza di creazione dei volumi fornisce opzioni per allocare quantità specifiche di capacità a ogni volume che si desidera creare.
+
+.Prima di iniziare
+* Host o cluster di host validi esistono sotto il riquadro Hosts.
+* Sono stati definiti identificatori di porta host per l'host.
+* Prima di creare un volume abilitato per DA, la connessione host che si intende utilizzare deve supportare DA. Se una qualsiasi delle connessioni host sui controller nel tuo storage array non supporta DA, gli host associati non possono accedere ai dati sui volumi abilitati per DA.
+
+
+.Informazioni su questa attività
+Tenete presenti queste linee guida quando assegnate i volumi:
+
+* Il sistema operativo di un host può avere limiti specifici sul numero di volumi a cui l'host può accedere. Tieni presente questa limitazione quando crei volumi da utilizzare per un particolare host.
+* È possibile definire un'assegnazione per ciascun volume nel sistema storage.
+* I volumi assegnati sono condivisi tra i controller nell'array di storage.
+* Lo stesso numero di unità logica (LUN) non può essere utilizzato due volte da un host o da un host cluster per accedere a un volume. È necessario utilizzare un LUN univoco.
+* Se si desidera velocizzare il processo di creazione dei volumi, è possibile saltare la fase di assegnazione dell'host in modo che i volumi appena creati vengano inizializzati offline.
+
+
+[NOTE]
+====
+L'assegnazione di un volume a un host non andrà a buon fine se si tenta di assegnare un volume a un cluster di host che è in conflitto con un'assegnazione già stabilita per un host nei cluster di host.
+
+====
+.Passaggi
+. Selezionare menu:Storage[Volumes].
+. Seleziona menu:Create[Volume].
++
+Viene visualizzata la finestra di dialogo Create Volumes.
+
+. Dall'elenco a discesa, seleziona un host specifico o un cluster di host a cui desideri assegnare i volumi, oppure scegli di assegnare l'host o il cluster di host in un secondo momento.
+. Per continuare la sequenza di creazione del volume per l'host o host cluster selezionato, fare clic su *Avanti* e procedere a <<Passaggio 2: Seleziona un carico di lavoro per un volume>>.
++
+Viene visualizzata la finestra di dialogo Select Workload.
+
+
+
+
+
+== Passaggio 2: Seleziona un carico di lavoro per un volume
+
+Seleziona un carico di lavoro per personalizzare la configurazione dell'array di storage per un'applicazione specifica, come Microsoft SQL Server, Microsoft Exchange, applicazioni di videosorveglianza o VMware. Puoi selezionare "Altra applicazione" se l'applicazione che intendi utilizzare su questo array di storage non è presente nell'elenco.
+
+.Informazioni su questa attività
+Questa attività descrive come creare volumi per un workload esistente.
+
+* Quando si creano volumi utilizzando un carico di lavoro specifico per un'applicazione, il sistema potrebbe consigliare una configurazione di volume ottimizzata per ridurre al minimo la contesa tra l'I/O del carico di lavoro dell'applicazione e altro traffico proveniente dall'istanza dell'applicazione. È possibile esaminare la configurazione di volume consigliata e modificare, aggiungere o eliminare i volumi e le caratteristiche consigliati dal sistema tramite la finestra di dialogo Aggiungi/Modifica volumi.
+* _Quando si creano volumi utilizzando applicazioni "Altro"_ (o applicazioni senza supporto specifico per la creazione di volumi), si specifica manualmente la configurazione del volume tramite la finestra di dialogo Aggiungi/Modifica volumi.
+
+
+.Passaggi
+. Eseguire una delle seguenti operazioni:
++
+** Seleziona l'opzione *Crea volumi per un carico di lavoro esistente* per creare volumi per un carico di lavoro esistente.
+** Seleziona l'opzione *Crea un nuovo carico di lavoro* per definire un nuovo carico di lavoro per un'applicazione supportata o per "Other" applicazioni.
++
+*** Dall'elenco a discesa, seleziona il nome dell'applicazione per cui desideri creare il nuovo workload.
++
+Seleziona una delle voci "Altro" se l'applicazione che intendi utilizzare su questo storage array non è elencata.
+
+*** Inserisci un nome per il workload che desideri creare.
+
+
+
+
+. Fai clic su *Avanti*.
+. Se il tuo carico di lavoro è associato a un tipo di applicazione supportato, inserisci le informazioni richieste; altrimenti, vai a <<Passaggio 3: Aggiungi o modifica i volumi>>.
+
+
+
+
+== Passaggio 3: Aggiungi o modifica i volumi
+
+System Manager potrebbe suggerire una configurazione del volume in base all'applicazione o al carico di lavoro selezionato. Questa configurazione del volume è ottimizzata in base al tipo di applicazione che il carico di lavoro supporta. Puoi accettare la configurazione del volume consigliata oppure modificarla secondo necessità. Se hai selezionato una delle applicazioni "Other", devi specificare manualmente i volumi e le caratteristiche che desideri creare.
+
+.Prima di iniziare
+* I pool o i gruppi di volume devono avere sufficiente capacità libera.
+* Il numero massimo di volumi consentiti in un gruppo di volumi è 256.
+* Il numero massimo di volumi consentiti in un pool dipende dal modello del sistema storage:
++
+** 2,048 volumi (EF600, EF600C e E5700 series)
+** 1,024 volumi (EF300 e EF300C)
+** 512 volumi (serie E4000 e E2800)
+
+
+* Per creare un volume con Data Assurance (DA) abilitato, la connessione host che si intende utilizzare deve supportare DA.
++
+.Selezione di un pool o di un gruppo di volumi secure-capable
+[%collapsible]
+====
+Se si desidera creare un volume abilitato per DA, selezionare un pool o un gruppo di volumi compatibile con DA (verificare la presenza di *Yes* accanto a "DA" nella tabella dei pool e dei gruppi di volumi candidati).
+
+Le funzionalità DA sono presentate a livello di pool e di gruppo di volumi in System Manager. La protezione DA verifica e corregge gli errori che potrebbero verificarsi durante il trasferimento dei dati dai controller fino alle unità. La selezione di un pool o di un gruppo di volumi compatibile con DA per il nuovo volume garantisce che eventuali errori vengano rilevati e corretti.
+
+Se una qualsiasi delle connessioni host sui controller nel tuo storage array non supporta DA, gli host associati non possono accedere ai dati sui volumi abilitati per DA.
+
+====
+* Per creare un volume abilitato alla sicurezza, è necessario creare una chiave di sicurezza per lo storage array.
++
+.Selezione di un pool o di un gruppo di volumi secure-capable
+[%collapsible]
+====
+Se si desidera creare un volume con funzionalità di sicurezza, selezionare un pool o un gruppo di volumi secure capable (verificare la presenza di *Yes* accanto a "Secure-capable" nella tabella dei pool e dei gruppi di volumi candidati).
+
+Le funzionalità di sicurezza delle unità vengono presentate a livello di pool e di gruppo di volumi in System Manager. Le unità con funzionalità di sicurezza impediscono l'accesso non autorizzato ai dati su un'unità fisicamente rimossa dall'array di storage. Un'unità con funzionalità di sicurezza crittografa i dati durante la scrittura e li decrittografa durante la lettura utilizzando una chiave di crittografia univoca.
+
+Un pool o un gruppo di volumi può contenere sia unità secure-capable che unità non secure-capable, ma tutte le unità devono essere secure-capable per poter utilizzare le loro funzionalità di crittografia.
+
+====
+* Per creare un volume con allocazione di risorse, tutte le unità devono essere unità NVMe con l'opzione Deallocated or Unwritten Logical Block Error (DULBE).
+
+
+.Informazioni su questa attività
+È possibile creare volumi da pool o gruppi di volumi. La finestra di dialogo Aggiungi/Modifica volumi mostra tutti i pool e i gruppi di volumi idonei presenti nell'array di storage. Per ogni pool e gruppo di volumi idoneo, vengono visualizzati il numero di unità disponibili e la capacità libera totale.
+
+Per alcuni carichi di lavoro specifici dell'applicazione, ogni pool o gruppo di volumi idoneo mostra la capacità proposta in base alla configurazione del volume suggerita e mostra la capacità libera rimanente in GiB. Per altri carichi di lavoro, la capacità proposta viene visualizzata man mano che si aggiungono volumi a un pool o a un gruppo di volumi e si specifica la capacità riportata.
+
+.Passaggi
+. Scegli una di queste azioni in base al fatto che tu abbia selezionato Other o un carico di lavoro specifico dell'applicazione:
++
+** *Altro* -- Fai clic su *Aggiungi nuovo volume* in ogni pool o gruppo di volumi che vuoi usare per creare uno o più volumi.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Nome volume
+ a| 
+A un volume viene assegnato un nome predefinito da System Manager durante la sequenza di creazione del volume. È possibile accettare il nome predefinito oppure fornire uno più descrittivo che indichi il tipo di dati memorizzati nel volume.
+
+
+
+ a| 
+Capacità segnalata
+ a| 
+Definire la capacità del nuovo volume e le unità di capacità da utilizzare (MiB, GiB o TiB). Per i volumi Thick, la capacità minima è 1 MiB e la capacità massima è determinata dal numero e dalla capacità delle unità nel pool o nel gruppo di volumi.
+
+Tieni presente che la capacità di storage è necessaria anche per i servizi di copia (snapshot images, snapshot volumes, volume copies e remote mirrors); pertanto, non allocare tutta la capacità ai volumi standard.
+
+La capacità in un pool viene allocata in incrementi di 4 GiB o 8 GiB, a seconda del tipo di unità. Qualsiasi capacità che non sia un multiplo di 4 o 8 GiB viene allocata ma non è utilizzabile. Per assicurarsi che l'intera capacità sia utilizzabile, specificare la capacità in incrementi di 4 GiB o 8 GiB. Se esiste capacità inutilizzabile, l'unico modo per recuperarla è aumentare la capacità del volume.
+
+
+
+ a| 
+Dimensione blocco volume (EF300 e EF600 solo)
+ a| 
+Mostra le dimensioni dei blocchi che possono essere creati per il volume:
+
+*** 512 -- 512 byte
+*** 4K -- 4,096 byte
+
+
+
+
+ a| 
+Dimensione del segmento
+ a| 
+Mostra l'impostazione per la dimensione del segmento, che viene visualizzata solo per i volumi in un gruppo di volumi. È possibile modificare la dimensione del segmento per ottimizzare le prestazioni.
+
+*Transizioni consentite per le dimensioni dei segmenti* -- System Manager determina le transizioni di dimensione del segmento che sono consentite. Le dimensioni dei segmenti che rappresentano transizioni inappropriate rispetto alla dimensione corrente del segmento non sono disponibili nell'elenco a discesa. Le transizioni consentite sono solitamente il doppio o la metà della dimensione corrente del segmento. Ad esempio, se la dimensione corrente del segmento di volume è 32 KiB, è consentita una nuova dimensione del segmento di volume di 16 KiB o 64 KiB.
+
+*Volumi con Cache SSD abilitata* -- È possibile specificare una dimensione del segmento di 4 KiB per i volumi con Cache SSD abilitata. Assicurarsi di selezionare la dimensione del segmento di 4 KiB solo per i volumi con Cache SSD abilitata che gestiscono operazioni di I/O a blocchi di piccole dimensioni (ad esempio, dimensioni di blocchi I/O di 16 KiB o inferiori). Le prestazioni potrebbero risentirne se si seleziona 4 KiB come dimensione del segmento per i volumi con Cache SSD abilitata che gestiscono operazioni sequenziali a blocchi di grandi dimensioni.
+
+*Tempo necessario per modificare la dimensione del segmento* -- Il tempo necessario per modificare la dimensione del segmento di un volume dipende da queste variabili:
+
+*** Il carico I/O dall'host
+*** La priorità di modifica del volume
+*** Il numero di unità nel gruppo di volumi
+*** Il numero di canali drive
+*** La potenza di elaborazione dei controller degli array di storage
+
+
+Quando si modifica la dimensione del segmento di un volume, le prestazioni di I/O sono influenzate, ma i dati rimangono disponibili.
+
+
+
+ a| 
+Compatibile con la sicurezza
+ a| 
+*Sì* appare accanto a "Secure-capable" solo se le unità nel pool o nel gruppo di volumi sono secure-capable.
+
+Drive Security impedisce l'accesso non autorizzato ai dati su un'unità fisicamente rimossa dall'array di storage. Questa opzione è disponibile solo quando la funzione Drive Security è stata abilitata e una chiave di sicurezza è stata configurata per l'array di storage.
+
+Un pool o un gruppo di volumi può contenere sia unità secure-capable che unità non secure-capable, ma tutte le unità devono essere secure-capable per poter utilizzare le loro funzionalità di crittografia.
+
+
+
+ a| 
+DA
+ a| 
+*Sì* compare accanto a "DA" solo se le unità nel pool o nel gruppo di volumi supportano Data Assurance (DA).
+
+DA aumenta l'integrità dei dati nell'intero sistema storage. DA consente all'array di storage di verificare la presenza di errori che potrebbero verificarsi durante il trasferimento dei dati attraverso i controller fino alle unità. L'utilizzo di DA per il nuovo volume garantisce che eventuali errori vengano rilevati.
+
+
+
+ a| 
+Risorsa allocata (solo EF300 e EF600)
+ a| 
+*Sì* viene visualizzato accanto a "Resource provisioned" solo se le unità supportano questa opzione. Resource Provisioning è una funzionalità disponibile negli array di storage EF300 e EF600, che consente di mettere in uso i volumi immediatamente senza alcun processo di inizializzazione in background.
+
+|===
+====
+** *Carico di lavoro specifico dell'applicazione* -- Fare clic su *Avanti* per accettare i volumi e le caratteristiche consigliati dal sistema per il carico di lavoro selezionato, oppure fare clic su *Modifica volumi* per modificare, aggiungere o eliminare i volumi e le caratteristiche consigliati dal sistema per il carico di lavoro selezionato.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="1a,1a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Nome volume
+ a| 
+A un volume viene assegnato un nome predefinito da System Manager durante la sequenza di creazione del volume. È possibile accettare il nome predefinito oppure fornire uno più descrittivo che indichi il tipo di dati memorizzati nel volume.
+
+
+
+ a| 
+Capacità segnalata
+ a| 
+Definire la capacità del nuovo volume e le unità di capacità da utilizzare (MiB, GiB o TiB). Per i volumi Thick, la capacità minima è 1 MiB e la capacità massima è determinata dal numero e dalla capacità delle unità nel pool o nel gruppo di volumi.
+
+Tieni presente che la capacità di storage è necessaria anche per i servizi di copia (snapshot images, snapshot volumes, volume copies e remote mirrors); pertanto, non allocare tutta la capacità ai volumi standard.
+
+La capacità in un pool viene allocata in incrementi di 4 GiB o 8 GiB, a seconda del tipo di unità. Qualsiasi capacità che non sia un multiplo di 4 o 8 GiB viene allocata ma non è utilizzabile. Per assicurarsi che l'intera capacità sia utilizzabile, specificare la capacità in incrementi di 4 GiB o 8 GiB. Se esiste capacità inutilizzabile, l'unico modo per recuperarla è aumentare la capacità del volume.
+
+
+
+ a| 
+Tipo di volume
+ a| 
+Il tipo di volume indica il tipo di volume che è stato creato per un carico di lavoro specifico dell'applicazione.
+
+
+
+ a| 
+Dimensione blocco volume (EF300 e EF600 solo)
+ a| 
+Mostra le dimensioni dei blocchi che possono essere creati per il volume:
+
+*** 512 -- 512 byte
+*** 4K -- 4,096 byte
+
+
+
+
+ a| 
+Dimensione del segmento
+ a| 
+Mostra l'impostazione per la dimensione del segmento, che viene visualizzata solo per i volumi in un gruppo di volumi. È possibile modificare la dimensione del segmento per ottimizzare le prestazioni.
+
+*Transizioni consentite per le dimensioni dei segmenti* -- System Manager determina le transizioni di dimensione del segmento che sono consentite. Le dimensioni dei segmenti che rappresentano transizioni inappropriate rispetto alla dimensione corrente del segmento non sono disponibili nell'elenco a discesa. Le transizioni consentite sono solitamente il doppio o la metà della dimensione corrente del segmento. Ad esempio, se la dimensione corrente del segmento di volume è 32 KiB, è consentita una nuova dimensione del segmento di volume di 16 KiB o 64 KiB.
+
+*Volumi con Cache SSD abilitata* -- È possibile specificare una dimensione del segmento di 4 KiB per i volumi con Cache SSD abilitata. Assicurarsi di selezionare la dimensione del segmento di 4 KiB solo per i volumi con Cache SSD abilitata che gestiscono operazioni di I/O a blocchi di piccole dimensioni (ad esempio, dimensioni di blocchi I/O di 16 KiB o inferiori). Le prestazioni potrebbero risentirne se si seleziona 4 KiB come dimensione del segmento per i volumi con Cache SSD abilitata che gestiscono operazioni sequenziali a blocchi di grandi dimensioni.
+
+*Tempo necessario per modificare la dimensione del segmento* -- Il tempo necessario per modificare la dimensione del segmento di un volume dipende da queste variabili:
+
+*** Il carico I/O dall'host
+*** La priorità di modifica del volume
+*** Il numero di unità nel gruppo di volumi
+*** Il numero di canali drive
+*** La potenza di elaborazione dei controller degli array di storage Quando si modifica la dimensione del segmento di un volume, le prestazioni di I/O vengono influenzate, ma i dati rimangono disponibili.
+
+
+
+
+ a| 
+Compatibile con la sicurezza
+ a| 
+*Sì* appare accanto a "Secure-capable" solo se le unità nel pool o nel gruppo di volumi sono secure-capable.
+
+La protezione dell'unità impedisce l'accesso non autorizzato ai dati su un'unità fisicamente rimossa dall'array di storage. Questa opzione è disponibile solo se la funzionalità di protezione dell'unità è stata abilitata e se è stata configurata una chiave di sicurezza per l'array di storage.
+
+Un pool o un gruppo di volumi può contenere sia unità secure-capable che unità non secure-capable, ma tutte le unità devono essere secure-capable per poter utilizzare le loro funzionalità di crittografia.
+
+
+
+ a| 
+DA
+ a| 
+*Sì* compare accanto a "DA" solo se le unità nel pool o nel gruppo di volumi supportano Data Assurance (DA).
+
+DA aumenta l'integrità dei dati nell'intero sistema storage. DA consente all'array di storage di verificare la presenza di errori che potrebbero verificarsi durante il trasferimento dei dati attraverso i controller fino alle unità. L'utilizzo di DA per il nuovo volume garantisce che eventuali errori vengano rilevati.
+
+
+
+ a| 
+Risorsa allocata (solo EF300 e EF600)
+ a| 
+*Sì* viene visualizzato accanto a "Resource Provisioned" solo se le unità supportano questa opzione. Resource Provisioning è una funzionalità disponibile negli array di storage EF300 e EF600, che consente di mettere in uso i volumi immediatamente senza alcun processo di inizializzazione in background.
+
+|===
+====
+
+
+. Per continuare la sequenza di creazione del volume per l'applicazione selezionata, fare clic su *Avanti* e andare a <<Passaggio 4: Rivedi la configurazione del volume>>.
+
+
+
+
+== Passaggio 4: Rivedi la configurazione del volume
+
+Esamina un riepilogo dei volumi che intendi creare e apporta le modifiche necessarie.
+
+.Passaggi
+. Rivedi i volumi che desideri creare. Fai clic su *Back* per apportare eventuali modifiche.
+. Quando sei soddisfatto della configurazione del volume, fai clic su *Finish*.
+
+
+.Risultati
+System Manager crea i nuovi volumi nei pool e nei gruppi di volumi selezionati, quindi visualizza i nuovi volumi nella tabella Tutti i volumi.
+
+.Dopo aver finito
+* Eseguire tutte le modifiche necessarie al sistema operativo sull'host dell'applicazione affinché le applicazioni possano utilizzare il volume.
+* Eseguire l'utilità specifica del sistema operativo (disponibile presso un fornitore di terze parti), quindi eseguire il comando SMcli `-identifyDevices` per correlare i nomi dei volumi con i nomi degli array di storage host.
++
+SMcli è disponibile direttamente tramite SANtricity System Manager. Questa versione scaricabile di SMcli è disponibile sui controller E4000, EF600, EF600C, EF300, EF300C, E5700, EF570, E2800 e EF280. Per scaricare SMcli all'interno di SANtricity System Manager, selezionare *Impostazioni* > *Sistema* e *Componenti aggiuntivi* > *Interfaccia a riga di comando*.
+
+

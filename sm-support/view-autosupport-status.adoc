@@ -1,0 +1,21 @@
+---
+permalink: sm-support/view-autosupport-status.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, autosupport, status 
+summary: La pagina AutoSupport mostra se la funzionalità AutoSupport e le singole funzionalità AutoSupport sono attualmente abilitate. 
+---
+= Visualizza lo stato di AutoSupport in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La pagina AutoSupport mostra se la funzionalità AutoSupport e le singole funzionalità AutoSupport sono attualmente abilitate.
+
+.Passaggi
+. Selezionare menu:Supporto[Support Center > AutoSupport] scheda.
+. Guardate il lato destro della pagina, appena sotto le schede, per verificare se la funzione base AutoSupport è abilitata.
+. Passa il cursore del mouse sul punto interrogativo per verificare se le singole funzionalità AutoSupport sono abilitate.
+

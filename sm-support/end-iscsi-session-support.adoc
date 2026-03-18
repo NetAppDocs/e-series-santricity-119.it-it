@@ -1,0 +1,32 @@
+---
+permalink: sm-support/end-iscsi-session-support.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, end, iscsi, session 
+summary: È possibile terminare una sessione iSCSI non più necessaria. Le sessioni iSCSI possono avvenire con host o array di storage remoti in una relazione di mirroring asincrono. 
+---
+= Terminare una sessione iSCSI in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile terminare una sessione iSCSI non più necessaria. Le sessioni iSCSI possono avvenire con host o array di storage remoti in una relazione di mirroring asincrono.
+
+.Informazioni su questa attività
+Potresti voler terminare una sessione iSCSI per i seguenti motivi:
+
+* *Accesso non autorizzato* -- Se un iSCSI initiator è connesso e non dovrebbe avere accesso, puoi terminare la sessione iSCSI per forzare l'iSCSI initiator dall'array di storage. L'iSCSI initiator potrebbe essersi connesso perché il metodo di autenticazione None era disponibile.
+* *Interruzione del servizio* -- Se è necessario arrestare un array di storage e si nota che gli iSCSI initiator sono ancora connessi, è possibile terminare le sessioni iSCSI per disconnettere gli iSCSI initiator dall'array di storage.
+
+
+.Passaggi
+. Selezionare menu:Support[Support Center > Diagnostics] scheda.
+. Selezionare *Visualizza/Termina iSCSI Sessions*.
++
+Viene visualizzato un elenco delle sessioni iSCSI attive.
+
+. Seleziona la sessione che vuoi terminare.
+. Fai clic su *End Session* e conferma di voler eseguire l'operazione.
+

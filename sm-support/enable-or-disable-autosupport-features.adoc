@@ -1,0 +1,41 @@
+---
+permalink: sm-support/enable-or-disable-autosupport-features.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, disable, autosupport, 
+summary: È possibile abilitare la funzione AutoSupport e le singole funzioni AutoSupport durante la configurazione iniziale oppure abilitarle o disattivarle in un secondo momento. 
+---
+= Attivare o disattivare le funzionalità AutoSupport in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile abilitare la funzione AutoSupport e le singole funzioni AutoSupport durante la configurazione iniziale oppure abilitarle o disattivarle in un secondo momento.
+
+.Prima di iniziare
+Se si desidera abilitare AutoSupport OnDemand o la Diagnostica remota, il metodo di consegna di AutoSupport deve essere impostato su HTTPS.
+
+.Informazioni su questa attività
+È possibile disabilitare la funzione AutoSupport in qualsiasi momento, ma si consiglia vivamente di lasciarla abilitata. L'abilitazione della funzione AutoSupport può accelerare significativamente la determinazione e la risoluzione dei problemi qualora si verificasse un problema sullo storage array.
+
+La funzionalità AutoSupport è composta da tre funzionalità individuali che si abilitano separatamente.
+
+* *Base AutoSupport* -- Consente al tuo array di storage di raccogliere e inviare automaticamente i dati al supporto tecnico.
+* *AutoSupport OnDemand* -- Consente al supporto tecnico di richiedere la ritrasmissione di una precedente spedizione AutoSupport quando necessario per la risoluzione di un problema. Tutte le trasmissioni vengono avviate dall'array di storage, non dal server AutoSupport. L'array di storage si connette periodicamente al server AutoSupport per determinare se sono presenti richieste di ritrasmissione in sospeso e risponde di conseguenza.
+* *Diagnostica remota* -- Consente al supporto tecnico di richiedere una nuova, aggiornata AutoSupport dispatch quando necessario per la risoluzione di un problema. Tutte le trasmissioni vengono avviate dall'array di storage, non dal server AutoSupport. L'array di storage si connette periodicamente al server AutoSupport per determinare se ci sono nuove richieste in sospeso e risponde di conseguenza.
+
+
+.Passaggi
+. Selezionare menu:Supporto[Support Center > AutoSupport] scheda.
+. Seleziona *Abilita/Disabilita AutoSupport Features*.
+. Seleziona le caselle di controllo accanto alle funzionalità AutoSupport che desideri abilitare.
++
+Le funzionalità dipendono l'una dall'altra, come indicato dalla rientranza degli elementi nella finestra di dialogo. Ad esempio, è necessario abilitare AutoSupport OnDemand prima di poter abilitare Remote Diagnostics.
+
+. Fare clic su *Save*.
++
+Se disattivi AutoSupport, viene visualizzata una notifica nella pagina Home. Puoi ignorare la notifica facendo clic su *Ignore*.
+
+

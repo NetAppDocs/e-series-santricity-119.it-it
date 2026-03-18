@@ -1,0 +1,37 @@
+---
+permalink: sm-hardware/place-controller-in-service-mode.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, place, controller, service, mode, 
+summary: Se richiesto, è possibile mettere un controller in modalità service. 
+---
+= Mettere un controller in modalità di servizio in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se richiesto, è possibile mettere un controller in modalità service.
+
+.Prima di iniziare
+* L'array di storage deve avere due controller. Il controller che non si intende mettere in modalità di servizio deve essere online (nello stato ottimale).
+* Assicurati che nessun volume sia in uso o che tu abbia installato un driver multipath su tutti gli host che utilizzano questi volumi.
+
+
+[NOTE]
+====
+Mettere un controller in modalità di servizio potrebbe ridurne significativamente le prestazioni. Non mettere un controller in modalità di servizio a meno che non ti venga richiesto dal supporto tecnico.
+
+====
+.Passaggi
+. Seleziona *Hardware*.
+. Se il grafico mostra le unità, fare clic sulla scheda *Controllers & Components*.
++
+La grafica cambia per mostrare i controller anziché le unità.
+
+. Fai clic sul controller che desideri mettere in modalità di servizio.
++
+Viene visualizzato il menu contestuale del controller.
+
+. Seleziona *Place in service mode* e conferma di voler eseguire l'operazione.
+

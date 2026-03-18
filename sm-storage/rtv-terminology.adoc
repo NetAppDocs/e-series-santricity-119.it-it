@@ -1,0 +1,68 @@
+---
+permalink: sm-storage/rtv-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remote, storage, terms 
+summary: Scopri come i termini di storage remoto si applicano al tuo array di storage. 
+---
+= Scopri la terminologia relativa all'archiviazione remota nel software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scopri come i termini di storage remoto si applicano al tuo array di storage.
+
+[cols="25h,~"]
+|===
+| Termine | Descrizione 
+
+
+ a| 
+IQN
+ a| 
+Identificatore iSCSI Qualified Name (IQN), che è un nome univoco per un iSCSI initiator o target.
+
+
+
+ a| 
+LUN
+ a| 
+Numero di unità logica, utilizzato per identificare un'unità logica che può essere presentata a un host per l'accesso.
+
+
+
+ a| 
+sistema storage remoto
+ a| 
+Il sistema storage in cui risiedono inizialmente i dati. Il sistema storage remoto può essere un modello E-Series o un sistema di un altro fornitore.
+
+
+
+ a| 
+dispositivo di storage remoto
+ a| 
+Il dispositivo fisico o logico in cui i dati vengono inizialmente memorizzati sul sistema remoto. In un sistema storage E-Series, questo viene definito "volume".
+
+
+
+ a| 
+Oggetto storage remoto
+ a| 
+Un oggetto contenente informazioni che consentono al sistema E-Series di identificare e connettersi al sistema storage remoto. Queste informazioni includono l'IQN e gli indirizzi IP del sistema storage remoto. L'oggetto storage remoto rappresenta la comunicazione tra il sistema storage remoto e il sistema E-Series.
+
+
+
+ a| 
+Volume di storage remoto
+ a| 
+Un volume standard del sistema E-Series che consente l'accesso ai dati a un dispositivo di storage remoto.
+
+
+
+ a| 
+Volume
+ a| 
+Un container in cui vengono memorizzati i dati. È il componente logico creato affinché l'host possa accedere ai dati.
+
+|===

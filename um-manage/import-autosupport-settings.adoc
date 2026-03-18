@@ -1,0 +1,49 @@
+---
+permalink: um-manage/import-autosupport-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, import, autosupport, settings 
+summary: È possibile importare una configurazione AutoSupport da un array di storage ad altri array di storage. Questa operazione in batch consente di risparmiare tempo quando è necessario configurare più array nella rete. 
+---
+= Importa le impostazioni AutoSupport in SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile importare una configurazione AutoSupport da un array di storage ad altri array di storage. Questa operazione in batch consente di risparmiare tempo quando è necessario configurare più array nella rete.
+
+.Prima di iniziare
+* AutoSupport è configurato in System Manager per l'array di storage che si desidera utilizzare come origine (menu:Support[Support Center]).
+* La configurazione esistente per gli array di storage di destinazione viene salvata in System Manager (menu: Impostazioni [Sistema > Salva configurazione array di storage]).
+
+
+.Informazioni su questa attività
+Le impostazioni importate includono le singole funzionalità (Basic AutoSupport, AutoSupport OnDemand e Remote Diagnostics), la finestra di manutenzione, il metodo di consegna e il programma di spedizione.
+
+.Passaggi
+. Dalla pagina Manage, fai clic su *Import Settings*.
++
+Si apre la procedura guidata Import Settings.
+
+. Nella finestra di dialogo Seleziona impostazioni, seleziona *AutoSupport* e poi fai clic su *Next*.
++
+Si apre una finestra di dialogo per selezionare l'array di origine.
+
+. Nella finestra di dialogo Seleziona origine, seleziona l'array con le impostazioni che desideri importare, quindi fai clic su *Next*.
+. Nella finestra di dialogo Seleziona destinazioni, seleziona una o più matrici per ricevere le nuove impostazioni.
++
+[NOTE]
+====
+Gli array di storage con firmware inferiore a 8.50 non sono disponibili per la selezione. Inoltre, un array non viene visualizzato in questa finestra di dialogo se Unified Manager non può comunicare con quell'array (ad esempio, se è offline o se presenta problemi di certificato, password o di rete).
+
+====
+. Fare clic su *Fine*.
++
+La pagina Operazioni mostra i risultati dell'operazione di importazione. Se l'operazione non riesce, puoi fare clic sulla sua riga per vedere ulteriori informazioni.
+
+
+
+.Risultati
+Gli array di storage di destinazione sono ora configurati con le stesse impostazioni AutoSupport dell'array di origine.

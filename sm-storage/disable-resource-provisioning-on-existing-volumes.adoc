@@ -1,0 +1,49 @@
+---
+permalink: sm-storage/disable-resource-provisioning-on-existing-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, disable, resource provisioning, 
+summary: È possibile abilitare o disabilitare il provisioning delle risorse su un pool o un gruppo di volumi esistente. 
+---
+= Abilitare o disabilitare il provisioning delle risorse su gruppi di volumi e pool esistenti in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per qualsiasi unità compatibile con DULBE, puoi abilitare o disabilitare il provisioning delle risorse sui volumi esistenti in un pool o in un gruppo di volumi.
+
+Il provisioning delle risorse è una funzionalità disponibile negli array di storage EF300 e EF600, che consente di mettere in uso i volumi immediatamente senza alcun processo di inizializzazione in background. Tutti i blocchi di unità assegnati al volume sono deallocati (unmapped), il che può migliorare la durata degli SSD e aumentare le prestazioni massime di scrittura.
+
+Per impostazione predefinita, il provisioning delle risorse è abilitato sui sistemi in cui le unità supportano DULBE. Non è necessario abilitare il provisioning delle risorse a meno che non sia stato precedentemente disabilitato.
+
+.Prima di iniziare
+* È necessario disporre di un array di storage EF300 o EF600.
++
+
+NOTE: DULBE non è supportato sugli array di storage EF300C o EF600C al momento.
+
+* È necessario disporre di gruppi o pool di volumi SSD, in cui tutte le unità supportano la funzionalità di ripristino degli errori NVMe Deallocated or Unwritten Logical Block Error Enable (DULBE). Altrimenti, l'opzione di provisioning delle risorse non è disponibile.
+
+
+.Informazioni su questa attività
+Quando si abilita il provisioning delle risorse per gruppi di volumi e pool esistenti, tutti i volumi nel gruppo di volumi o pool selezionato vengono modificati per consentire la deallocazione dei blocchi. Questo processo potrebbe comportare un'operazione in background per garantire un'allocazione coerente alla granularità di unmap. Questa operazione non esegue l'unmap di alcuno spazio. Una volta completata l'operazione in background, il sistema operativo deve eseguire l'unmap di tutti i blocchi non utilizzati per creare spazio libero.
+
+Quando si disabilita il provisioning delle risorse per gruppi o pool di volumi esistenti, un'operazione in background riscrive tutti i blocchi logici in ogni volume. I dati esistenti rimangono intatti. Le operazioni di scrittura mappano o assegnano risorse ai blocchi sulle unità associate al gruppo o pool di volumi.
+
+
+NOTE: Per i nuovi gruppi e pool di volumi, puoi abilitare o disabilitare il provisioning delle risorse dal menu:Settings[Sistema > Impostazioni aggiuntive > Abilita/Disabilita volumi con provisioning delle risorse].
+
+.Passaggi
+. Selezionare menu:Storage[Pool & Volume Groups].
+. Seleziona un pool o un gruppo di volumi dall'elenco.
++
+È possibile selezionare un solo pool o gruppo di volumi alla volta. Scorri l'elenco per visualizzare altri pool o gruppi di volumi.
+
+. Seleziona *Attività non comuni* e quindi *Abilita il provisioning delle risorse* oppure *Disabilita il provisioning delle risorse*.
+. Nella finestra di dialogo, conferma l'operazione.
+
+
+
+NOTE: *Se hai riattivato DULBE* -- Dopo il completamento dell'operazione in background, potrebbe essere necessario riavviare l'host affinché rilevi le modifiche alla configurazione DULBE e quindi rimontare tutti i filesystem.

@@ -1,0 +1,94 @@
+---
+permalink: sm-hardware/view-controller-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, controller, settings 
+summary: È possibile visualizzare informazioni su un controller, come lo stato delle interfacce verso gli host, delle interfacce delle unità e delle porte di gestione. 
+---
+= Visualizza le impostazioni del controller in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile visualizzare informazioni su un controller, come lo stato delle interfacce verso gli host, delle interfacce delle unità e delle porte di gestione.
+
+.Passaggi
+. Seleziona *Hardware*.
+. Se il grafico mostra le unità, fare clic sulla scheda *Controllers & Components*.
++
+La grafica cambia per mostrare i controller anziché le unità.
+
+. Eseguire una delle seguenti azioni per visualizzare le impostazioni del controller:
++
+** Fai clic sul controller per visualizzare il menu contestuale, quindi seleziona *View settings*.
+** Selezionare l'icona del controller (accanto all'elenco a discesa *Shelf*). Per le configurazioni duplex, selezionare *Controller A* o *Controller B* dalla finestra di dialogo, quindi fare clic su *Next*.
++
+Si apre la finestra di dialogo Impostazioni controller.
+
+
+
+. Seleziona le schede per spostarti tra le impostazioni delle proprietà.
++
+Alcune schede hanno un collegamento per *Mostra altre impostazioni* in alto a destra.
+
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Scheda | Descrizione 
+
+
+ a| 
+Base
+ a| 
+Mostra lo stato del controller, il nome del modello, il codice del ricambio, la versione corrente del firmware e la versione della memoria statica ad accesso casuale non volatile (NVSRAM).
+
+
+
+ a| 
+cache
+ a| 
+Mostra le impostazioni della cache del controller, che includono la data cache, la processor cache e il cache backup device. Il cache backup device viene utilizzato per eseguire il backup dei dati nella cache se si perde l'alimentazione al controller. Lo stato può essere Ottimale, Non riuscito, Rimosso, Sconosciuto, Protetto da scrittura o Incompatibile.
+
+
+
+ a| 
+Interfacce verso gli host
+ a| 
+Mostra le informazioni sull'interfaccia verso gli host e lo stato del collegamento di ciascuna porta. L'interfaccia verso gli host è la connessione tra il controller e l'host, ad esempio Fibre Channel o iSCSI.
+
+
+NOTE: La scheda di interfaccia verso gli host (HIC) si trova sulla scheda madre o in uno slot (bay). "Baseboard" indica che le porte HIC sono integrate nel controller. Le porte "slot" si trovano sulla HIC opzionale.
+
+
+
+ a| 
+Interfacce di unità
+ a| 
+Mostra le informazioni sull'interfaccia dell'unità e lo stato del collegamento di ciascuna porta. L'interfaccia dell'unità è la connessione tra il controller e le unità, come SAS.
+
+
+
+ a| 
+Porte di gestione
+ a| 
+Mostra i dettagli della porta di gestione, come l'host name utilizzato per accedere al controller e se è stato abilitato l'accesso remoto. La porta di gestione collega il controller e il client di gestione, dove è installato un browser per accedere a System Manager.
+
+
+
+ a| 
+DNS / NTP
+ a| 
+Mostra il metodo di indirizzamento e gli indirizzi IP per il DNS server e il server NTP, se questi server sono stati configurati in System Manager.
+
+Il Domain Name System (DNS) è un sistema di denominazione per i dispositivi connessi a Internet o a una rete privata. Il DNS server mantiene una directory di nomi di dominio e li traduce in indirizzi Internet Protocol (IP).
+
+Network Time Protocol (NTP) è un protocollo di rete per la sincronizzazione del clock tra sistemi informatici in reti dati.
+
+|===
+====
+. Fare clic su *Close*.
+

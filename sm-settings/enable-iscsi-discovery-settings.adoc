@@ -1,0 +1,62 @@
+---
+permalink: sm-settings/enable-iscsi-discovery-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, iscsi, discovery, settings, 
+summary: È possibile abilitare le impostazioni relative al rilevamento dei dispositivi storage in una rete iSCSI. 
+---
+= Abilitare le impostazioni di rilevamento iSCSI in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile abilitare le impostazioni relative al rilevamento dei dispositivi storage in una rete iSCSI.
+
+Le impostazioni di individuazione della destinazione consentono di registrare le informazioni iSCSI dell'array di storage utilizzando il protocollo Internet Storage Name Service (iSNS) e di determinare se consentire sessioni di individuazione senza nome.
+
+.Prima di iniziare
+Se il server iSNS utilizza un indirizzo IP statico, tale indirizzo deve essere disponibile per la registrazione iSNS. Sono supportati sia IPv4 che IPv6.
+
+.Informazioni su questa attività
+È possibile abilitare le seguenti impostazioni relative alla scoperta iSCSI:
+
+* *Abilita il server iSNS per registrare una destinazione* -- Quando abilitato, l'array di storage registra il proprio iSCSI Qualified Name (IQN) e le informazioni sulla porta dal server iSNS. Questa impostazione consente la scoperta iSNS, così che un initiator possa recuperare l'IQN e le informazioni sulla porta dal server iSNS.
+* *Abilita sessioni di discovery senza nome* -- Quando le sessioni di discovery senza nome sono abilitate, l'initiator (iSCSI host) non deve fornire l'IQN del target (controller) durante la sequenza di login per una connessione di tipo discovery. Quando sono disabilitate, gli host devono fornire l'IQN per stabilire una discovery-session con il controller. Tuttavia, l'IQN del target è sempre richiesto per una normale sessione (con I/O). La disabilitazione di questa impostazione può impedire agli host iSCSI non autorizzati di connettersi al controller utilizzando solo il suo indirizzo IP.
+
+
+[NOTE]
+====
+Le impostazioni e le funzioni iSCSI vengono visualizzate nella pagina Impostazioni solo se l'array di storage supporta iSCSI.
+
+====
+.Passaggi
+. Selezionare menu:Impostazioni[Sistema].
+. In *impostazioni iSCSI*, fare clic su *Visualizza/Modifica impostazioni di rilevamento destinazione*.
++
+Viene visualizzata la finestra di dialogo Impostazioni di individuazione della destinazione. Sotto il campo *Abilita server iSNS*..., la finestra di dialogo indica se il controller è già registrato.
+
+. Per registrare il controller, selezionare *Abilita il server iSNS per registrare il mio target* e quindi selezionare una delle seguenti:
++
+** *Ottieni automaticamente la configurazione dal server DHCP* -- Seleziona questa opzione se desideri configurare il server iSNS utilizzando un server DHCP (Dynamic Host Configuration Protocol). Tieni presente che se utilizzi questa opzione, tutte le porte iSCSI sul controller devono essere configurate per utilizzare DHCP anche loro. Se necessario, aggiorna le impostazioni della porta iSCSI del controller per abilitare questa opzione.
++
+[NOTE]
+====
+Affinché il server DHCP possa fornire l'indirizzo del server iSNS, è necessario configurare il server DHCP per utilizzare l'opzione 43 -- "`Vendor Specific Information.`" Questa opzione deve contenere l'indirizzo IPv4 del server iSNS nei byte di dati 0xa-0xd (10-13).
+
+====
+** *Specifica manualmente la configurazione statica* -- Seleziona questa opzione se desideri immettere un indirizzo IP statico per il server iSNS. (Se desiderato, puoi tagliare e incollare gli indirizzi nei campi.) Nel campo, immetti un indirizzo IPv4 o un indirizzo IPv6. Se hai configurato entrambi, IPv4 è l'impostazione predefinita. Immetti anche una porta di ascolto TCP (usa il valore predefinito di 3205 o immetti un valore compreso tra 49152 e 65535).
+
+
+. Per consentire all'array di storage di partecipare alle sessioni di unnamed discovery, selezionare *Enable unnamed discovery sessions*.
++
+** Quando questa funzione è abilitata, gli iSCSI initiator non sono tenuti a specificare l'IQN di destinazione per recuperare le informazioni del controller.
+** Quando disabilitato, le sessioni di rilevamento vengono impedite a meno che l'initiator non fornisca l'IQN di destinazione. La disabilitazione delle sessioni di rilevamento senza nome offre maggiore sicurezza.
+
+
+. Fare clic su *Save*.
+
+
+.Risultati
+Viene visualizzata una barra di avanzamento mentre System Manager tenta di registrare il controller con il server iSNS. Questo processo potrebbe richiedere fino a cinque minuti.

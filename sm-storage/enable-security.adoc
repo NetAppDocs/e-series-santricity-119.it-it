@@ -1,0 +1,36 @@
+---
+permalink: sm-storage/enable-security.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, security, pool, volume group 
+summary: 'È possibile abilitare Drive Security per un pool o un gruppo di volumi per impedire l"accesso non autorizzato ai dati presenti sulle unità contenute nel pool o nel gruppo di volumi. L"accesso in lettura e scrittura alle unità è consentito solo tramite un controller configurato con una chiave di sicurezza.' 
+---
+= Abilitare la sicurezza per un pool o un gruppo di volumi in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile abilitare Drive Security per un pool o un gruppo di volumi per impedire l'accesso non autorizzato ai dati presenti sulle unità contenute nel pool o nel gruppo di volumi. L'accesso in lettura e scrittura alle unità è consentito solo tramite un controller configurato con una chiave di sicurezza.
+
+.Prima di iniziare
+* La funzionalità Drive Security deve essere abilitata.
+* È necessario creare una chiave di sicurezza.
+* Il pool o il gruppo di volumi deve trovarsi in uno stato ottimale.
+* Tutti i dischi nel pool o nel gruppo di volumi devono essere dischi secure-capable.
+
+
+.Informazioni su questa attività
+Se si desidera utilizzare Drive Security, selezionare un pool o un gruppo di volumi che sia secure-capable. Un pool o un gruppo di volumi può contenere sia drive secure-capable che drive non secure-capable, ma tutti i drive devono essere secure-capable per poter utilizzare le loro capacità di crittografia.
+
+Dopo aver abilitato la sicurezza, puoi rimuoverla solo eliminando il pool o il gruppo di volumi e quindi cancellando i dischi.
+
+.Passaggi
+. Selezionare menu:Storage[Pool & Volume Groups].
+. Seleziona il pool o il gruppo di volumi su cui desideri abilitare la sicurezza, quindi fai clic su menu:More[Enable security].
++
+Viene visualizzata la finestra di dialogo Confirm Enable Security.
+
+. Conferma che vuoi abilitare la sicurezza per il pool o il gruppo di volumi selezionato, quindi fai clic su *Abilita*.
+

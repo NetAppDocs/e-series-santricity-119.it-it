@@ -1,0 +1,49 @@
+---
+permalink: sm-hardware/fail-drive.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, fail, drive, 
+summary: 'Se richiesto, è possibile eseguire manualmente il fail di un"unità.' 
+---
+= Guasto manuale di un'unità in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se richiesto, è possibile eseguire manualmente il fail di un'unità.
+
+.Informazioni su questa attività
+System Manager monitora le unità nell'array di storage. Quando rileva che un'unità sta generando molti errori, il Recovery Guru ti avvisa di un imminente guasto dell'unità. Se ciò accade e hai a disposizione un'unità sostitutiva, potresti voler contrassegnare come guasto l'unità per adottare un'azione preventiva. Se non hai un'unità sostitutiva disponibile, puoi attendere che l'unità si guasti da sola.
+
+[CAUTION]
+====
+*Possibile perdita di accesso ai dati* -- Questa operazione potrebbe comportare la perdita di dati o la perdita di ridondanza dei dati. Eseguire questa operazione solo su indicazione del supporto tecnico o del Recovery Guru.
+
+====
+.Passaggi
+. Seleziona *Hardware*.
+. Se il grafico mostra i controller, fai clic sulla scheda *Drives*.
++
+La grafica cambia per mostrare le unità invece dei controller.
+
+. Fai clic sull'unità che desideri guastare.
++
+Viene visualizzato il menu contestuale dell'unità.
+
+. Seleziona *Fail*.
+. Mantieni selezionata la check box *Copia il contenuto dell'unità prima dell'errore*.
++
+L'opzione di copia appare solo per le unità assegnate e per i gruppi di volumi non RAID 0.
+
++
+Prima di rendere inutilizzabile l'unità, assicurati di copiarne il contenuto. A seconda della configurazione, potresti perdere tutti i dati o la ridondanza sul pool o sul gruppo di volumi associato se non copi prima il contenuto dell'unità.
+
++
+L'opzione di copia consente un ripristino del disco più rapido rispetto alla ricostruzione e riduce la possibilità di un errore del volume se un altro disco dovesse guastarsi durante l'operazione di copia.
+
+. Conferma che vuoi dichiarare l'errore dell'unità.
++
+Dopo che l'unità si è guastata, attendere almeno 60 secondi prima di rimuoverla.
+
+

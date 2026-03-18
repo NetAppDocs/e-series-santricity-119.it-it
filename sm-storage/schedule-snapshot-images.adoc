@@ -1,0 +1,223 @@
+---
+permalink: sm-storage/schedule-snapshot-images.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, schedule, snapshot, images 
+summary: Si crea un calendario di Snapshot per abilitare il ripristino in caso di un problema con il volume di base e per eseguire backup programmati. Gli Snapshot dei volumi di base o dei gruppi di coerenza di Snapshot possono essere creati su base giornaliera, settimanale o mensile, in qualsiasi momento della giornata. 
+---
+= Pianifica le immagini Snapshot in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si crea un calendario di Snapshot per abilitare il ripristino in caso di un problema con il volume di base e per eseguire backup programmati. Gli Snapshot dei volumi di base o dei gruppi di coerenza di Snapshot possono essere creati su base giornaliera, settimanale o mensile, in qualsiasi momento della giornata.
+
+.Prima di iniziare
+Il volume di base deve essere Optimal.
+
+.Informazioni su questa attività
+Questa procedura descrive come creare un calendario di Snapshot per un gruppo di coerenza Snapshot o un volume di base esistente.
+
+[NOTE]
+====
+È inoltre possibile creare un calendario di Snapshot contemporaneamente alla creazione di un'immagine Snapshot di un volume di base o di un gruppo di coerenza Snapshot.
+
+====
+.Passaggi
+. Eseguire una delle seguenti azioni per creare un calendario di Snapshot:
++
+** Selezionare menu:Storage[Volumes].
++
+Selezionare l'oggetto (volume o gruppo di coerenza snapshot) per questo calendario di Snapshot, quindi selezionare menu:Copy Services[Crea calendario di Snapshot].
+
+** Selezionare menu:Storage[Snapshots].
++
+Seleziona la scheda *Schedules* e poi fai clic su *Create*.
+
+
+
+. Selezionare l'oggetto (volume o gruppo di coerenza di snapshot) per questo calendario di Snapshot, quindi fare clic su *Avanti*.
++
+Viene visualizzata la finestra di dialogo Crea calendario di Snapshot.
+
+. Eseguire una delle seguenti azioni:
++
+** *Utilizzare un calendario di Snapshot definito in precedenza da un altro oggetto Snapshot*.
++
+Assicurati che le opzioni avanzate siano visualizzate. Fai clic su *Mostra altre opzioni*. Fai clic su *Importa Schedule*, seleziona l'oggetto con il calendario che desideri importare e quindi fai clic su *Importa*.
+
+** *Modifica le opzioni di base o avanzate*.
++
+Nell'angolo in alto a destra della finestra di dialogo, fai clic su *Mostra altre opzioni* per visualizzare tutte le opzioni, e poi consulta la tabella seguente.
+
+
+
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+*Impostazioni di base*
+
+
+
+ a| 
+Seleziona giorni
+ a| 
+Seleziona i singoli giorni della settimana per le immagini Snapshot.
+
+
+
+ a| 
+Ora di inizio
+ a| 
+Dal menu a tendina, seleziona un nuovo orario di inizio per le Snapshot giornaliere (le opzioni sono disponibili con incrementi di mezz'ora). L'orario di inizio predefinito è mezz'ora avanti rispetto all'ora corrente.
+
+
+
+ a| 
+Fuso orario
+ a| 
+Dal menu a discesa, seleziona il fuso orario del tuo array.
+
+
+
+ a| 
+*Impostazioni avanzate*
+
+
+
+ a| 
+Giorno/mese
+ a| 
+Scegli una delle seguenti opzioni:
+
+** *Giornaliero/Settimanale* -- Seleziona i singoli giorni per le Snapshot di sincronizzazione. Puoi anche selezionare la check box *Seleziona tutti i giorni* in alto a destra se desideri un calendario giornaliero.
+** *Mensile/Annuale* -- Seleziona i singoli mesi per le Snapshot di sincronizzazione. Nel campo *Giorno/i*, inserisci i giorni del mese in cui devono avvenire le sincronizzazioni. I valori validi sono da *1* a *31* e *Last*. Puoi separare più giorni con una virgola o un punto e virgola. Usa un trattino per le date inclusive. Ad esempio: 1,3,4,10-15,Last. Puoi anche selezionare la check box *Select all months* in alto a destra se desideri un calendario mensile.
+
+
+
+
+ a| 
+Ora di inizio
+ a| 
+Dal menu a tendina, seleziona un nuovo orario di inizio per le Snapshot giornaliere (le opzioni sono disponibili con incrementi di mezz'ora). L'orario di inizio predefinito è mezz'ora avanti rispetto all'ora corrente.
+
+
+
+ a| 
+Fuso orario
+ a| 
+Dal menu a discesa, seleziona il fuso orario del tuo array.
+
+
+
+ a| 
+Snapshot al giorno / Tempo tra Snapshot
+ a| 
+Seleziona il numero di immagini di Snapshot da creare al giorno. Se ne selezioni più di una, seleziona anche l'intervallo di tempo tra le immagini di Snapshot. Per più immagini di Snapshot, assicurati di disporre di una capacità riservata adeguata.
+
+
+
+ a| 
+Creare un'immagine Snapshot adesso?
+ a| 
+Seleziona questa check box per creare un'istantanea in aggiunta alle immagini automatiche che stai programmando.
+
+
+
+ a| 
+Data di inizio/fine o nessuna data di fine
+ a| 
+Inserisci la data di inizio per l'avvio delle sincronizzazioni. Inserisci anche una data di fine oppure seleziona *No end date*.
+
+|===
+====
+. Eseguire una delle seguenti azioni:
++
+** Se l'oggetto è un gruppo di coerenza Snapshot, fai clic su *Crea* per accettare le impostazioni e creare il calendario di Snapshot.
+** Se l'oggetto è un volume, fai clic su *Avanti* per allocare la capacità riservata per le immagini Snapshot.
++
+La tabella dei volumi candidati visualizza solo i candidati che supportano la capacità riservata specificata. La capacità riservata è la capacità fisica allocata utilizzata per qualsiasi operazione di copy service e oggetto di storage. Non è direttamente leggibile dall'host.
+
+
+
+. Utilizzare la casella di selezione per allocare la capacità riservata per le immagini Snapshot. Eseguire una delle seguenti azioni:
++
+** *Accetta le impostazioni predefinite.*
++
+Utilizza questa opzione consigliata per allocare la capacità riservata per le immagini Snapshot con le impostazioni predefinite.
+
+** *Assegna le tue impostazioni di capacità riservata per soddisfare le tue esigenze di archiviazione dati.*
++
+Se modifichi l'impostazione predefinita della capacità riservata, fai clic su *Aggiorna candidati* per aggiornare l'elenco dei candidati per la capacità riservata che hai specificato.
+
++
+Assegnare la capacità riservata utilizzando le seguenti linee guida:
+
++
+*** L'impostazione predefinita per la capacità riservata è il 40% della capacità del volume base. Di solito questa capacità è sufficiente.
+*** La capacità necessaria varia a seconda della frequenza e della dimensione delle scritture di I/O sui volumi e della quantità e durata della raccolta delle immagini Snapshot.
+
+
+
+
+. Fai clic su *Avanti*.
++
+Viene visualizzata la finestra di dialogo Edit Settings.
+
+. Modifica le impostazioni del calendario di Snapshot secondo necessità, quindi fai clic su *Fine*.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Impostazione | Descrizione 
+
+
+ a| 
+*Limite di immagini Snapshot*
+
+
+
+ a| 
+Abilita l'eliminazione automatica delle immagini Snapshot quando...
+ a| 
+Mantieni selezionata la check box se desideri che le immagini Snapshot vengano eliminate automaticamente dopo il limite specificato; usa la spinner box per modificare il limite. Se deselezioni questa check box, la creazione di immagini Snapshot si interrompe dopo 32 immagini.
+
+
+
+ a| 
+*Impostazioni di capacità riservata*
+
+
+
+ a| 
+Avvisami quando...
+ a| 
+Utilizzare il selettore a rotella per regolare la percentuale al punto in cui il sistema invia una notifica di avviso quando la capacità riservata per un calendario sta per esaurirsi.
+
+Quando la capacità riservata per il calendario supera la soglia specificata, utilizzare l'avviso anticipato per aumentare la capacità riservata o per eliminare gli oggetti non necessari prima che lo spazio rimanente si esaurisca.
+
+
+
+ a| 
+Politica per la piena capacità riservata
+ a| 
+Scegli una delle seguenti policy:
+
+** *Elimina l'immagine Snapshot più vecchia* -- Il sistema elimina automaticamente l'immagine Snapshot più vecchia, liberando la capacità riservata per le Snapshot per il riutilizzo all'interno del gruppo di Snapshot.
+** *Rifiuta le scritture sul volume base* -- Quando la capacità riservata raggiunge la percentuale massima definita, il sistema rifiuta qualsiasi richiesta di scrittura I/O sul volume base che ha attivato l'accesso alla capacità riservata.
+
+
+|===
+====
+

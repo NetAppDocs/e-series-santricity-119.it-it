@@ -1,0 +1,16 @@
+---
+permalink: sm-storage/maximum-number-of-luns.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, maximum, luns 
+summary: 'L"array di storage ha un numero massimo di logical unit numbers (LUN) che possono essere utilizzati per ciascun host.' 
+---
+= Scopri il numero massimo di LUN nel software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'array di storage ha un numero massimo di logical unit numbers (LUN) che possono essere utilizzati per ciascun host.
+
+Il numero massimo dipende dal sistema operativo dell'host. L'array di storage tiene traccia del numero di LUN utilizzati. Se si tenta di assegnare un volume a un host che supera il numero massimo di LUN, l'host non può accedere al volume.

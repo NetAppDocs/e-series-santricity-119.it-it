@@ -1,0 +1,41 @@
+---
+permalink: sm-interface/recover-from-problems-using-recovery-guru.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, Recovery Guru 
+summary: The Recovery Guru è un componente di System Manager che diagnostica i problemi degli array di storage e consiglia le procedure di ripristino per risolvere i problemi. 
+---
+= Recupera dai problemi utilizzando il SANtricity System Manager Recovery Guru
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il Recovery Guru è un componente di SANtricity System Manager che diagnostica i problemi degli array di storage e consiglia le procedure di ripristino per risolverli.
+
+.Passaggi
+. Seleziona *Home*.
+. Fai clic sul collegamento etichettato *Ripristina da _n_ problemi* al centro in alto della finestra.
++
+Viene visualizzata la finestra di dialogo Recovery Guru.
+
+. Seleziona il primo problema visualizzato nell'elenco riepilogativo, quindi segui le istruzioni della procedura di ripristino per correggere il problema. Se necessario, utilizza le istruzioni di sostituzione per sostituire i componenti guasti. Ripeti questo passaggio per ogni problema elencato.
++
+All'interno di un array di storage possono presentarsi diversi problemi correlati. In questo caso, l'ordine in cui vengono risolti i problemi può influire sul risultato. Selezionare e correggere i problemi nell'ordine in cui sono elencati nella lista di riepilogo.
+
++
+I guasti multipli relativi a un contenitore di alimentazione vengono raggruppati e elencati come un unico problema nell'elenco riepilogativo. I guasti multipli relativi a un contenitore di ventola vengono anch'essi elencati come un unico problema.
+
+. Per verificare che la procedura di ripristino sia andata a buon fine, fai clic su *Recheck*.
++
+Se hai selezionato un problema per un gruppo di mirroring asincrono o per un membro di un gruppo di mirroring asincrono, fai prima clic su *Clear* per eliminare l'errore dal controller, quindi fai clic su *Recheck* per rimuovere l'evento da Recovery Guru.
+
++
+Se tutti i problemi sono stati risolti, l'icona dell'array di storage passa infine da Needs Attention a Optimal. Per alcuni problemi, viene visualizzata un'icona Fixing mentre è in corso un'operazione, come la ricostruzione.
+
+. *Facoltativo:* Per salvare le informazioni di Recovery Guru in un file, fai clic sull'icona *Save*.
++
+Il file viene salvato nella cartella Downloads del tuo browser con il nome `recovery-guru-failure-yyyy-mm-dd-hh-mm-ss-mmm.html`.
+
+. Per stampare le informazioni di Recovery Guru, fai clic sull'icona *Print*.
+

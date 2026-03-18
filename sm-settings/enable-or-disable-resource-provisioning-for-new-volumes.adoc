@@ -1,0 +1,44 @@
+---
+permalink: sm-settings/enable-or-disable-resource-provisioning-for-new-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, disable, resource, provisioning, 
+summary: 'Se in precedenza avevi disabilitato la funzionalità predefinita per il provisioning delle risorse, puoi andare in Impostazioni e riattivarla per qualsiasi nuovo gruppo o pool di volumi SSD che crei. Puoi anche disabilitare nuovamente l"impostazione.' 
+---
+= Abilitare o disabilitare il provisioning delle risorse per nuovi gruppi di volumi o pool in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se in precedenza avevi disabilitato la funzionalità predefinita per il provisioning delle risorse, puoi riattivarla per tutti i nuovi gruppi o pool di volumi SSD che crei. Puoi anche disabilitare nuovamente l'impostazione.
+
+Il provisioning delle risorse è una funzionalità disponibile negli array di storage EF300 e EF600, che consente di mettere in uso i volumi immediatamente senza alcun processo di inizializzazione in background. Tutti i blocchi di unità assegnati al volume sono deallocati (unmapped), il che può migliorare la durata degli SSD e aumentare le prestazioni massime di scrittura.
+
+
+NOTE: Per impostazione predefinita, il provisioning delle risorse è abilitato sui sistemi in cui le unità supportano DULBE.
+
+.Prima di iniziare
+* È necessario disporre di un array di storage EF300 o EF600.
+* È necessario disporre di gruppi o pool di volumi SSD, in cui tutte le unità supportano la capacità di ripristino degli errori NVMe Deallocated or Unwritten Logical Block Error Enable (DULBE).
++
+
+NOTE: DULBE non è supportato sugli array di storage EF300C o EF600C al momento.
+
+
+
+.Informazioni su questa attività
+Quando si riattiva il provisioning delle risorse per nuovi gruppi di volumi o pool, vengono interessati solo i gruppi di volumi e i pool appena creati. I gruppi di volumi e i pool esistenti con il provisioning delle risorse abilitato rimarranno invariati.
+
+.Passaggi
+. Selezionare menu:Impostazioni[Sistema].
+. Scorri verso il basso fino a *Impostazioni aggiuntive* e poi fai clic su *Abilita/Disabilita volumi con provisioning delle risorse*.
++
+La descrizione dell'impostazione indica se il provisioning delle risorse è attualmente abilitato o disabilitato.
+
+. Nella finestra di dialogo, conferma l'operazione.
+
+
+.Risultati
+L'attivazione o la disattivazione del provisioning delle risorse ha effetto solo sui nuovi pool SSD o gruppi di volumi che crei. I pool o gruppi di volumi esistenti rimangono invariati.

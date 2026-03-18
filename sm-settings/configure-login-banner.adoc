@@ -1,0 +1,37 @@
+---
+permalink: sm-settings/configure-login-banner.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, login, banner, 
+summary: È possibile creare un banner di accesso che viene mostrato agli utenti prima che stabiliscano una sessione in SANtricity System Manager. Il banner può includere un avviso e un messaggio di consenso. 
+---
+= Configura il banner di accesso in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile creare un banner di accesso che viene mostrato agli utenti prima che stabiliscano una sessione in SANtricity System Manager. Il banner può includere un avviso e un messaggio di consenso.
+
+.Informazioni su questa attività
+Quando crei un banner, appare prima della schermata di accesso in una finestra di dialogo.
+
+.Passaggi
+. Selezionare menu:Impostazioni[Sistema].
+. Nella sezione Generale, seleziona *Configure Login Banner*.
++
+Si apre la finestra di dialogo Configure Login Banner.
+
+. Inserisci il testo che desideri venga visualizzato nel banner di login.
++
+[NOTE]
+====
+Non utilizzare tag HTML o altri tag di markup per la formattazione.
+
+====
+. Fare clic su *Save*.
+
+
+.Risultati
+La prossima volta che gli utenti accederanno a System Manager, il testo si aprirà in una finestra di dialogo. Gli utenti devono fare clic su *OK* per continuare alla schermata di accesso.

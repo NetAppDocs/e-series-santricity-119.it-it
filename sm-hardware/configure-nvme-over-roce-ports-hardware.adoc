@@ -1,0 +1,103 @@
+---
+permalink: sm-hardware/configure-nvme-over-roce-ports-hardware.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, nvme, over, roce, ports 
+summary: 'Se il controller include una connessione per NVMe su RoCE (RDMA over Converged Ethernet), puoi configurare le impostazioni della porta NVMe dalla pagina Hardware.' 
+---
+= Configurare le porte NVMe over RoCE in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se il controller include una connessione per NVMe su RoCE (RDMA over Converged Ethernet), puoi configurare le impostazioni della porta NVMe dalla pagina Hardware.
+
+.Prima di iniziare
+* Il controller deve includere una porta host NVMe over RoCE; in caso contrario, le impostazioni NVMe over RoCE non sono disponibili in System Manager.
+* È necessario conoscere l'indirizzo IP della connessione host.
+
+
+.Passaggi
+. Seleziona *Hardware*.
+. Se il grafico mostra le unità, fare clic sulla scheda *Controllers & Components*.
++
+La grafica cambia per mostrare i controller anziché le unità.
+
+. Fai clic sul controller con la porta NVMe over RoCE che desideri configurare.
++
+Viene visualizzato il menu contestuale del controller.
+
+. Selezionare *Configura NVMe su porte RoCE*.
++
+La finestra di dialogo Configura NVMe su porte RoCE si apre.
+
+. Nell'elenco a discesa, seleziona la porta HIC che vuoi configurare.
+. Fai clic su *Avanti*.
++
+Per visualizzare tutte le impostazioni delle porte, fare clic sul collegamento *Mostra altre impostazioni delle porte* a destra della finestra di dialogo.
+
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Impostazione della porta | Descrizione 
+
+
+ a| 
+Velocità della porta Ethernet configurata
+ a| 
+Selezionare la velocità che corrisponde alla capacità di velocità del modulo SFP sulla porta.
+
+
+
+ a| 
+Abilita IPv4 / Abilita IPv6
+ a| 
+Seleziona una o entrambe le opzioni per abilitare il supporto per le reti IPv4 e IPv6.
+
+
+NOTE: Se si desidera disabilitare l'accesso alla porta, deselezionare entrambe le caselle di controllo.
+
+
+
+ a| 
+Dimensione MTU (disponibile cliccando su *Mostra altre impostazioni della porta*.)
+ a| 
+Se necessario, inserire una nuova dimensione in byte per la Maximum Transmission Unit (MTU).
+
+La dimensione predefinita della Maximum Transmission Unit (MTU) è di 1500 byte per frame. È necessario inserire un valore compreso tra 1500 e 9000.
+
+|===
+====
++
+Se hai selezionato *Abilita IPv4*, si apre una finestra di dialogo per la selezione delle impostazioni IPv4 dopo aver fatto clic su *Avanti*. Se hai selezionato *Abilita IPv6*, si apre una finestra di dialogo per la selezione delle impostazioni IPv6 dopo aver fatto clic su *Avanti*. Se hai selezionato entrambe le opzioni, la finestra di dialogo per le impostazioni IPv4 si apre per prima e, dopo aver fatto clic su *Avanti*, si apre la finestra di dialogo per le impostazioni IPv6.
+
+. Configura le impostazioni IPv4 e/o IPv6, automaticamente o manualmente.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Impostazione della porta | Descrizione 
+
+
+ a| 
+Ottieni automaticamente la configurazione
+ a| 
+Seleziona questa opzione per ottenere la configurazione automaticamente.
+
+
+
+ a| 
+Specificare manualmente la configurazione statica
+ a| 
+Seleziona questa opzione, quindi inserisci un indirizzo statico nei campi. (Se desiderato, puoi tagliare e incollare gli indirizzi nei campi.) Per IPv4, includi la subnet mask di rete e il gateway. Per IPv6, includi l'indirizzo IP instradabile e l'indirizzo IP del router. Se stai configurando un array di storage EF600 con un HIC compatibile con 200Gb, questa finestra di dialogo visualizza due serie di campi per i parametri di rete, una per una porta fisica (esterna) e una per una porta virtuale (interna). Dovresti assegnare parametri univoci a entrambe le porte. Queste impostazioni consentono all'host di stabilire un percorso tra ciascuna porta e all'HIC di raggiungere le massime prestazioni. Se non assegni un indirizzo IP alla porta virtuale, l'HIC funzionerà a circa metà della sua velocità.
+
+|===
+====
+. Fare clic su *Fine*.
+

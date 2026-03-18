@@ -1,0 +1,51 @@
+---
+permalink: sm-settings/change-cache-settings-for-storage-array.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, cache, settings, 
+summary: 'Per tutti i volumi nell"array di storage, è possibile regolare le impostazioni della memoria cache per lo svuotamento e la dimensione dei blocchi.' 
+---
+= Modificare le impostazioni della cache dell'array di storage in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per tutti i volumi nell'array di storage, è possibile regolare le impostazioni della memoria cache per lo svuotamento e la dimensione dei blocchi.
+
+.Informazioni su questa attività
+La memoria cache è un'area di archiviazione volatile temporanea sul controller, che offre tempi di accesso più rapidi rispetto ai supporti di memorizzazione. Per ottimizzare le prestazioni della cache, è possibile regolare le seguenti impostazioni:
+
+[cols="25h,~"]
+|===
+| Impostazione della cache | Descrizione 
+
+
+ a| 
+Avvia lo svuotamento della cache su richiesta
+ a| 
+L'avvio dello svuotamento della cache su richiesta specifica la percentuale di dati non scritti nella cache che attiva uno svuotamento della cache (scrittura su disco). Per impostazione predefinita, lo svuotamento della cache inizia quando i dati non scritti raggiungono l'80% della capacità. Una percentuale più alta è una buona scelta per ambienti con operazioni prevalentemente di scrittura, così le nuove richieste di scrittura possono essere elaborate dalla cache senza dover accedere al disco. Impostazioni inferiori sono migliori in ambienti in cui l'I/O è irregolare (con picchi di dati), così il sistema svuota la cache frequentemente tra i picchi di dati. Tuttavia, una percentuale di avvio inferiore all'80% può causare una diminuzione delle prestazioni.
+
+
+
+ a| 
+Dimensione del blocco cache
+ a| 
+La dimensione del blocco della cache determina la dimensione massima di ciascun blocco della cache, che rappresenta un'unità organizzativa per la gestione della cache. Per impostazione predefinita, la dimensione del blocco è 32 KiB. Il sistema consente che la dimensione del blocco della cache sia 4, 8, 16 o 32 KiBs. Le applicazioni utilizzano dimensioni di blocco diverse, che hanno un impatto sulle performance dello storage. Una dimensione inferiore è una buona scelta per file system o applicazioni di database. Una dimensione maggiore è ideale per applicazioni che generano I/O sequenziali, come quelle multimediali.
+
+|===
+.Passaggi
+. Selezionare menu:Impostazioni[Sistema].
+. Scorri verso il basso fino a *Impostazioni aggiuntive* e poi fai clic su *Modifica impostazioni cache*.
++
+Si apre la finestra di dialogo Change Cache Settings.
+
+. Regola i seguenti valori:
++
+** *Avvia lo svuotamento della cache su richiesta* -- Scegli una percentuale appropriata per l'I/O utilizzato nel tuo ambiente. Se scegli un valore inferiore all'80%, potresti notare un calo delle prestazioni.
+** **Cache block size -- **Scegli una dimensione appropriata per le tue applicazioni.
+
+
+. Fare clic su *Save*.
+

@@ -1,0 +1,46 @@
+---
+permalink: sm-storage/add-to-workload.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add workload, volume 
+summary: È possibile aggiungere uno o più volumi a un carico di lavoro esistente o nuovo per i volumi che non sono attualmente associati a un carico di lavoro. 
+---
+= Aggiungere volumi a un workload in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile aggiungere uno o più volumi a un carico di lavoro esistente o nuovo per i volumi che non sono attualmente associati a un carico di lavoro.
+
+.Informazioni su questa attività
+I volumi non sono associati a un workload se sono stati creati tramite la command line interface (CLI) o se sono stati migrati (importati/esportati) da un diverso storage array.
+
+.Passaggi
+. Selezionare menu:Storage[Volumes].
+. Seleziona la scheda *Applications & Workloads*.
++
+Viene visualizzata la vista Applications & Workloads.
+
+. Seleziona *Add to Workload*.
++
+Viene visualizzata la finestra di dialogo Select Workload.
+
+. Eseguire una delle seguenti azioni:
++
+** *Aggiungi volumi a un workload esistente* -- Seleziona questa opzione per aggiungere volumi a un workload esistente.
++
+Utilizza l'elenco a discesa per selezionare un carico di lavoro. Il tipo di applicazione associato al carico di lavoro viene assegnato ai volumi che aggiungi a questo carico di lavoro.
+
+** *Aggiungi volumi a un nuovo workload* -- Seleziona questa opzione per definire un nuovo workload per un application type e aggiungere volumi al nuovo workload.
+
+
+. Seleziona *Avanti* per continuare con la sequenza di aggiunta al workload.
++
+Viene visualizzata la finestra di dialogo Seleziona volumi.
+
+. Seleziona i volumi che desideri aggiungere al workload.
+. Esamina i volumi che desideri aggiungere al workload selezionato.
+. Quando sei soddisfatto della configurazione del workload, fai clic su *Finish*.
+

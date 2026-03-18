@@ -1,0 +1,86 @@
+---
+permalink: sm-storage/view-ssd-cache-statistics.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, ssd cache, statistics 
+summary: È possibile visualizzare le statistiche per la Cache SSD, come letture, scritture, cache hit, percentuale di allocazione della cache e percentuale di utilizzo della cache. 
+---
+= Visualizza le statistiche della Cache SSD in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile visualizzare le statistiche per la Cache SSD, come letture, scritture, cache hit, percentuale di allocazione della cache e percentuale di utilizzo della cache.
+
+Le statistiche nominali, che costituiscono un sottoinsieme delle statistiche dettagliate, vengono visualizzate nella finestra di dialogo Visualizza statistiche Cache SSD. È possibile visualizzare statistiche dettagliate per la Cache SSD solo quando si esportano tutte le statistiche SSD in un  `.csv` file.
+
+Durante la revisione e l'interpretazione delle statistiche, tieni presente che alcune interpretazioni sono derivate dall'osservazione di una combinazione di statistiche.
+
+.Passaggi
+. Selezionare menu:Storage[Pool & Volume Groups].
+. Seleziona la Cache SSD per la quale desideri visualizzare le statistiche, quindi fai clic su menu:Altro[Visualizza statistiche Cache SSD].
++
+Viene visualizzata la finestra di dialogo Visualizza statistiche Cache SSD e vengono visualizzate le statistiche nominali per la Cache SSD selezionata.
+
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Impostazioni | Descrizione 
+
+
+ a| 
+Letture
+ a| 
+Mostra il numero totale di letture dell'host dai volumi con Cache SSD abilitata. Maggiore è il rapporto tra letture e scritture, migliore è il funzionamento della cache.
+
+
+
+ a| 
+Scritture
+ a| 
+Il numero totale di scritture dell'host sui volumi con Cache SSD abilitata. Maggiore è il rapporto tra letture e scritture, migliore è il funzionamento della cache.
+
+
+
+ a| 
+Cache hit
+ a| 
+Mostra il numero di cache hit.
+
+
+
+ a| 
+Cache hit %
+ a| 
+Mostra la percentuale di cache hit. Questo numero è derivato da cache hit / (letture + scritture). La percentuale di cache hit dovrebbe essere superiore al 50 percento per un funzionamento efficace della Cache SSD.
+
+
+
+ a| 
+Allocazione cache %
+ a| 
+Mostra la percentuale di spazio di archiviazione della Cache SSD allocato, espressa come percentuale dello spazio di archiviazione della Cache SSD disponibile per questo controller ed è calcolata come rapporto tra byte allocati e byte disponibili.
+
+
+
+ a| 
+Utilizzo cache %
+ a| 
+Mostra la percentuale di spazio di archiviazione della Cache SSD che contiene dati provenienti da volumi abilitati, espressa come percentuale dello spazio di archiviazione della Cache SSD allocato. Questo valore rappresenta l'utilizzo o la densità della Cache SSD. Derivato da byte allocati / byte disponibili.
+
+
+
+ a| 
+Esporta tutto
+ a| 
+Esporta tutte le statistiche della Cache SSD in formato CSV. Il file esportato contiene tutte le statistiche disponibili per la Cache SSD (sia nominali che dettagliate).
+
+|===
+====
+. Fare clic su *Annulla* per chiudere la finestra di dialogo.
+

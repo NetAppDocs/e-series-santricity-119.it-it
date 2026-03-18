@@ -1,0 +1,35 @@
+---
+permalink: sm-storage/change-controller-ownership-of-a-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, controller ownership, volume 
+summary: 'È possibile modificare la proprietà del controller preferito di un volume, in modo che l"I/O per le applicazioni host venga indirizzato attraverso il nuovo percorso.' 
+---
+= Modificare la proprietà del controller di un volume in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare la proprietà del controller preferito di un volume, in modo che l'I/O per le applicazioni host venga indirizzato attraverso il nuovo percorso.
+
+.Prima di iniziare
+Se non si utilizza un driver multipath, tutte le applicazioni host che attualmente utilizzano il volume devono essere arrestate. Questa operazione previene errori delle applicazioni quando cambia il percorso di I/O.
+
+.Informazioni su questa attività
+È possibile modificare la proprietà del controller per uno o più volumi in un pool o gruppo di volumi.
+
+.Passaggi
+. Selezionare menu:Storage[Volumes].
+. Seleziona un volume qualsiasi, quindi seleziona menu:More[Change ownership].
++
+Viene visualizzata la finestra di dialogo Cambia proprietà del volume. Tutti i volumi sull'array di storage vengono visualizzati in questa finestra di dialogo.
+
+. Utilizza l'elenco a discesa *Proprietario preferito* per modificare il controller preferito per ciascun volume che desideri modificare e conferma che vuoi eseguire l'operazione.
+
+
+.Risultati
+* System Manager modifica la proprietà del controller del volume. L'I/O verso il volume viene ora indirizzato attraverso questo percorso I/O.
+* Il volume potrebbe non utilizzare il nuovo percorso I/O finché il driver multipath non si riconfigura per riconoscere il nuovo percorso. Questa operazione richiede in genere meno di cinque minuti.
+

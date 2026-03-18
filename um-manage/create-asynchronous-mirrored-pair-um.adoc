@@ -1,0 +1,160 @@
+---
+permalink: um-manage/create-asynchronous-mirrored-pair-um.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, create, asynchronous, mirrored, pair 
+summary: 'Per configurare il mirroring asincrono, si crea una coppia mirrorata che include un volume primario sull"array locale e un volume secondario sull"array remoto.' 
+---
+= Creare una coppia speculare asincrona in SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per configurare il mirroring asincrono, si crea una coppia mirrorata che include un volume primario sull'array locale e un volume secondario sull'array remoto.
+
+.Prima di iniziare
+Prima di creare una coppia speculare, soddisfa i seguenti requisiti per Unified Manager:
+
+* Il servizio Web Services Proxy deve essere in esecuzione.
+* Unified Manager deve essere in esecuzione sul tuo host locale tramite una connessione HTTPS.
+* Unified Manager deve visualizzare certificati SSL validi per lo storage array. È possibile accettare un certificato autofirmato o installare un certificato di sicurezza personalizzato tramite Unified Manager e accedendo a menu:Certificate[Certificate Management].
+
+
+Assicurati inoltre di soddisfare i seguenti requisiti per gli array di storage e i volumi:
+
+* Ogni array di storage deve avere due controller.
+* I due array di storage devono essere rilevati in Unified Manager.
+* Ciascun controller, sia nell'array primario che in quello secondario, deve avere una porta di gestione Ethernet configurata e deve essere connesso alla rete.
+* Gli array di storage hanno una versione minima del firmware pari a 7.84. (Ciascuno può eseguire diverse versioni del sistema operativo.)
+* È necessario conoscere la password per gli array di storage locali e remoti.
+* È necessario disporre di una capacità libera sufficiente sull'array di storage remoto per creare un volume secondario uguale o superiore al volume primario che si desidera replicare.
+* I tuoi array di storage locali e remoti sono collegati tramite una fabric Fibre Channel o un'interfaccia iSCSI.
+* Hai creato sia il volume primario che il volume secondario che desideri utilizzare nella relazione di mirroring asincrono.
+* Il volume secondario deve essere almeno grande quanto il volume primario.
+
+
+.Informazioni su questa attività
+Il processo per creare una coppia mirror asincrona è una procedura in più fasi.
+
+
+
+== Passaggio 1: crea o seleziona un gruppo di coerenza speculare
+
+In questa fase, si crea un nuovo gruppo di coerenza mirror o se ne seleziona uno esistente. Un gruppo di coerenza mirror è un container per i volumi primario e secondario (la coppia mirror) e specifica il metodo di risincronizzazione desiderato (manuale o automatico) per tutte le coppie nel gruppo.
+
+.Passaggi
+. Dalla pagina *Manage*, seleziona l'array di storage locale che desideri utilizzare come origine.
+. Selezionare menu:Actions[Crea coppia speculare asincrona].
++
+Si apre la procedura guidata Create Asynchronous Mirrored Pair.
+
+. Seleziona un gruppo di coerenza mirror esistente o creane uno nuovo.
++
+Per selezionare un gruppo esistente, assicurarsi che sia selezionata l'opzione *An existing mirror consistency group* e quindi selezionare il gruppo dalla tabella. Un gruppo di coerenza può includere più coppie speculari.
+
++
+Per creare un nuovo gruppo, procedi come segue:
+
++
+.. Seleziona *A new mirror consistency group* e poi fai clic su *Avanti*.
+.. Inserisci un nome univoco che descriva al meglio i dati presenti sui volumi che verranno replicati tra i due array di storage. Un nome può contenere solo lettere, numeri e i caratteri speciali underscore (_), trattino (-) e cancelletto (#). Un nome non può superare i 30 caratteri e non può contenere spazi.
+.. Seleziona l'array di storage remoto su cui desideri stabilire una relazione mirror con l'array di storage locale.
++
+[NOTE]
+====
+Se il tuo array di storage remoto è protetto da password, il sistema richiederà una password.
+
+====
+.. Scegli se vuoi sincronizzare le coppie speculari manualmente o automaticamente:
++
+*** *Manuale* -- Selezionare questa opzione per avviare manualmente la sincronizzazione per tutte le coppie replicate all'interno di questo gruppo. Si noti che quando si desidera eseguire una risincronizzazione in un secondo momento, è necessario avviare System Manager per lo storage primario, quindi accedere al menu:Storage[Mirroring asincrono], selezionare il gruppo dalla scheda *Mirror Consistency Groups* e quindi selezionare menu:More[Risincronizza manualmente].
+*** *Automatico* -- Seleziona l'intervallo desiderato in *Minuti*, *Ore* o *Giorni*, dall'inizio dell'aggiornamento precedente all'inizio dell'aggiornamento successivo. Ad esempio, se l'intervallo di sincronizzazione è impostato su 30 minuti e il processo di sincronizzazione inizia alle 16:00, il processo successivo inizia alle 16:30.
+
+
+.. Seleziona le impostazioni di avviso desiderate:
++
+*** Per le sincronizzazioni manuali, specificare la soglia (definita dalla percentuale di capacità rimanente) per quando si ricevono gli avvisi.
+*** Per le sincronizzazioni automatiche, puoi impostare tre metodi di avviso: quando la sincronizzazione non è stata completata entro un determinato periodo di tempo, quando i dati del punto di ripristino sull'array remoto sono più vecchi di un determinato limite di tempo e quando la capacità riservata si sta avvicinando a una determinata soglia (definita dalla percentuale di capacità rimanente).
+
+
+
+
+. Seleziona *Avanti* e vai a <<Passaggio 2: Seleziona il volume primario>>.
++
+Se si definisce un nuovo gruppo di coerenza mirror, Unified Manager crea il gruppo di coerenza mirror prima sull'array di storage locale e poi sull'array di storage remoto. È possibile visualizzare e gestire il gruppo di coerenza mirror avviando System Manager per ciascun array.
+
++
+[NOTE]
+====
+Se Unified Manager crea correttamente il gruppo di coerenza mirror sull'array di storage locale, ma non riesce a crearlo sull'array di storage remoto, elimina automaticamente il gruppo di coerenza mirror dall'array di storage locale. Se si verifica un errore mentre Unified Manager tenta di eliminare il gruppo di coerenza mirror, è necessario eliminarlo manualmente.
+
+====
+
+
+
+
+== Passaggio 2: Seleziona il volume primario
+
+In questa fase, si seleziona il volume primario da utilizzare nella relazione di mirroring e si alloca la sua capacità riservata. Quando si seleziona un volume primario sull'array di storage locale, il sistema visualizza un elenco di tutti i volumi idonei per quella coppia con mirroring. I volumi che non sono idonei per l'uso non vengono visualizzati in tale elenco.
+
+Tutti i volumi che aggiungi al gruppo di coerenza mirror sull'array di storage locale avranno il ruolo primario nella relazione di mirror.
+
+.Passaggi
+. Dall'elenco dei volumi idonei, seleziona un volume che desideri utilizzare come volume primario, quindi fai clic su *Avanti* per allocare la capacità riservata.
+. Dall'elenco dei candidati idonei, seleziona la capacità riservata per lo storage primario.
++
+Tenete presenti le seguenti linee guida:
+
++
+** L'impostazione predefinita per la capacità riservata è il 20% della capacità del volume base e, di solito, questa capacità è sufficiente. Se si modifica la percentuale, fare clic su *Refresh Candidates*.
+** La capacità necessaria varia a seconda della frequenza e della dimensione delle scritture di I/O sul volume primario e di quanto tempo è necessario mantenere la capacità.
+** In generale, scegli una capacità maggiore per la capacità di riserva se una o entrambe queste condizioni esistono:
++
+*** Intendi mantenere la coppia mirrorata per un lungo periodo di tempo.
+*** Una percentuale elevata di blocchi di dati subirà modifiche sul volume primario a causa di un'intensa attività di I/O. Utilizza i dati storici sulle prestazioni o altre utilità del sistema operativo per aiutarti a determinare l'attività di I/O tipica sul volume primario.
+
+
+
+
+. Seleziona *Avanti* e vai a <<Passaggio 3: Seleziona il volume secondario>>.
+
+
+
+
+== Passaggio 3: Seleziona il volume secondario
+
+In questa fase, si seleziona il volume secondario da utilizzare nella relazione di mirroring e si alloca la sua capacità riservata. Quando si seleziona un volume secondario sull'array di storage remoto, il sistema visualizza un elenco di tutti i volumi idonei per quella coppia con mirroring. I volumi che non sono idonei all'uso non vengono visualizzati in tale elenco.
+
+Tutti i volumi che aggiungi al gruppo di coerenza mirror sull'array di storage remoto avranno il ruolo secondario nella relazione di mirroring.
+
+.Passaggi
+. Dall'elenco dei volumi idonei, seleziona un volume che desideri utilizzare come volume secondario nella coppia con mirroring, quindi fai clic su *Avanti* per allocare la capacità riservata.
+. Dall'elenco dei candidati idonei, seleziona la capacità riservata per il volume secondario.
++
+Tenete presenti le seguenti linee guida:
+
++
+** L'impostazione predefinita per la capacità riservata è il 20% della capacità del volume base e, di solito, questa capacità è sufficiente. Se si modifica la percentuale, fare clic su *Refresh Candidates*.
+** La capacità necessaria varia a seconda della frequenza e della dimensione delle scritture di I/O sul volume primario e di quanto tempo è necessario mantenere la capacità.
+** In generale, scegli una capacità maggiore per la capacità di riserva se una o entrambe queste condizioni esistono:
++
+*** Intendi mantenere la coppia mirrorata per un lungo periodo di tempo.
+*** Una percentuale elevata di blocchi di dati subirà modifiche sul volume primario a causa di un'intensa attività di I/O. Utilizza i dati storici sulle prestazioni o altre utilità del sistema operativo per aiutarti a determinare l'attività di I/O tipica sul volume primario.
+
+
+
+
+. Selezionare *Fine* per completare la sequenza di mirroring asincrono.
+
+
+.Risultati
+Unified Manager esegue le seguenti azioni:
+
+* Avvia la sincronizzazione iniziale tra l'array di archiviazione locale e l'array di archiviazione remoto.
+* Crea la capacità riservata per la coppia mirrorata sull'array di storage locale e sull'array di storage remoto.
+
+
+
+NOTE: Se il volume di cui si esegue il mirroring è un volume thin, solo i blocchi di cui è stato effettuato il provisioning (capacità allocata anziché capacità dichiarata) vengono trasferiti al volume secondario durante la sincronizzazione iniziale. Ciò riduce la quantità di dati che devono essere trasferiti per completare la sincronizzazione iniziale.

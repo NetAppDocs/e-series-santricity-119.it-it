@@ -1,0 +1,39 @@
+---
+permalink: sm-storage/ssd-cache-and-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, ssd, cache, volumes 
+summary: 'È possibile aggiungere un volume alla Cache SSD per migliorare le prestazioni in sola lettura. La Cache SSD consiste in un insieme di unità a stato solido (SSD) che vengono raggruppate logicamente nell"array di storage.' 
+---
+= Scopri la Cache SSD e i volumi nel software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile aggiungere un volume alla Cache SSD per migliorare le prestazioni in sola lettura. La Cache SSD consiste in un insieme di unità a stato solido (SSD) che vengono raggruppate logicamente nell'array di storage.
+
+
+
+== Volumi
+
+Vengono utilizzati semplici meccanismi di I/O del volume per spostare i dati da e verso la Cache SSD. Dopo che i dati sono stati memorizzati nella Cache SSD e sugli SSD, le successive letture di tali dati vengono eseguite sulla Cache SSD, eliminando così la necessità di accedere al volume HDD.
+
+Cache SSD è una cache secondaria da utilizzare insieme alla cache primaria nella memoria ad accesso casuale dinamica (DRAM) del controller.
+
+* Nella cache primaria, i dati vengono memorizzati nella DRAM dopo una lettura da parte dell'host.
+* Nella Cache SSD, i dati vengono copiati dai volumi e archiviati su due volumi RAID interni (uno per controller) che vengono creati automaticamente quando si crea una Cache SSD.
+
+
+I volumi RAID interni vengono utilizzati per l'elaborazione interna della cache. Questi volumi non sono accessibili né visualizzati nell'interfaccia utente. Tuttavia, questi due volumi vengono conteggiati nel numero totale di volumi consentiti nell'array di storage.
+
+[NOTE]
+====
+Qualsiasi volume assegnato all'utilizzo della Cache SSD di un controller non è idoneo per un trasferimento automatico del bilanciamento del carico.
+
+====
+
+
+== Funzione di sicurezza dell'unità
+
+Per utilizzare Cache SSD su un volume che utilizza anche Drive Security (is secure-enabled), le funzionalità di Drive Security del volume e della Cache SSD devono corrispondere. Se non corrispondono, il volume non sarà secure-enabled.

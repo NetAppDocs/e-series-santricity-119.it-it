@@ -1,0 +1,51 @@
+---
+permalink: um-manage/how-import-settings-works.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, import, settings, 
+summary: 'È possibile utilizzare Unified Manager per importare le impostazioni da un array di storage a più array di storage. La funzione Import Settings è un"operazione batch che consente di risparmiare tempo quando è necessario configurare più array nella rete.' 
+---
+= Scopri come configurare più array di storage in SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare SANtricity Unified Manager per importare le impostazioni da un array di storage a più array di storage. La funzione Import Settings è un'operazione batch che consente di risparmiare tempo quando è necessario configurare più array nella rete.
+
+
+
+== Impostazioni disponibili per l'importazione
+
+Le seguenti configurazioni possono essere importate in più array:
+
+* *Avvisi* -- Metodi di avviso per inviare eventi importanti agli amministratori, tramite e-mail, un syslog server o un server SNMP.
+* *AutoSupport* -- Una funzionalità che monitora lo stato di salute di un array di storage e invia notifiche automatiche al supporto tecnico.
+* *Servizi di directory* -- Un metodo di autenticazione utente gestito tramite un server LDAP (Lightweight Directory Access Protocol) e un servizio di directory, come Microsoft Active Directory.
+* *Configurazione dello storage* -- Configurazioni relative a quanto segue:
++
+** Volumi (solo volumi thick e non-repository)
+** Gruppi di volumi e pool
+** Assegnazione delle unità hot spare
+
+
+* *Impostazioni di sistema* -- Configurazioni relative a quanto segue:
++
+** Impostazioni di scansione dei supporti per un volume
+** Impostazioni SSD
+** Bilanciamento del carico automatico (non include la segnalazione della connettività host)
+
+
+
+
+
+
+== Flusso di lavoro di configurazione
+
+Per importare le impostazioni, segui questo workflow:
+
+. Su un array di storage da utilizzare come origine, configurare le impostazioni utilizzando System Manager.
+. Sugli array di storage da utilizzare come target, eseguire il backup della loro configurazione utilizzando System Manager.
+. Da Unified Manager, vai alla pagina *Manage* e importa le impostazioni.
+. Dalla pagina *Operazioni*, esamina i risultati dell'operazione Import Settings.
+

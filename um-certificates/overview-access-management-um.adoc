@@ -1,0 +1,46 @@
+---
+permalink: um-certificates/overview-access-management-um.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, access management, authentication 
+summary: 'Access Management è un metodo per configurare l"autenticazione degli utenti in SANtricity Unified Manager.' 
+---
+= Scopri la gestione degli accessi con SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Access Management è un metodo per configurare l'autenticazione degli utenti in SANtricity Unified Manager.
+
+
+
+== Quali metodi di autenticazione sono disponibili?
+
+Sono disponibili i seguenti metodi di autenticazione:
+
+* *Ruoli utente locali* -- L'autenticazione viene gestita tramite funzionalità RBAC (controllo degli accessi in base al ruolo). I ruoli utente locali includono profili utente predefiniti e ruoli con autorizzazioni di accesso specifiche.
+* *Servizi di directory* -- L'autenticazione viene gestita tramite un server LDAP (Lightweight Directory Access Protocol) e un servizio di directory, come Microsoft Active Directory.
+* *SAML* -- L'autenticazione viene gestita tramite un Identity Provider (IdP) utilizzando SAML 2.0.
+
+
+Per saperne di più:
+
+* link:how-access-management-works-unified.html["Come funziona la gestione degli accessi"]
+* link:access-management-terminology-unified.html["Terminologia relativa alla gestione degli accessi"]
+* link:permissions-for-mapped-roles-unified.html["Autorizzazioni per i ruoli mappati"]
+* link:access-management-with-saml.html["SAML"]
+
+
+
+
+== Come si configura Access Management?
+
+Il software SANtricity è preconfigurato per utilizzare i ruoli utente locali. Se si desidera utilizzare LDAP, è possibile configurarlo nella pagina Access Management.
+
+Per saperne di più:
+
+* link:access-management-with-local-user-roles-unified.html["Gestione degli accessi con ruoli utente locali"]
+* link:access-management-with-directory-services-unified.html["Gestione degli accessi con servizi di directory"]
+* link:configure-saml.html["Configura SAML"]
+

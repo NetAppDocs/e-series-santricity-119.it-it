@@ -1,0 +1,31 @@
+---
+permalink: sm-storage/resume-snapshot-image-rollback.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, resume, snapshot, image, rollback 
+summary: 'Se si verifica un errore durante un"operazione di rollback di un"immagine Snapshot, l"operazione viene automaticamente sospesa. È possibile riprendere un"operazione di rollback che si trova in stato di sospensione.' 
+---
+= Riprendi un rollback dell'immagine Snapshot in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si verifica un errore durante un'operazione di rollback di un'immagine Snapshot, l'operazione viene automaticamente sospesa. È possibile riprendere un'operazione di rollback che si trova in stato di sospensione.
+
+.Passaggi
+. Selezionare menu:Storage[Snapshots].
+. Fai clic sulla scheda *Snapshot Images*.
+. Evidenzia il rollback in pausa, quindi seleziona menu:Rollback[Resume].
++
+L'operazione riprende.
+
+
+
+.Risultati
+System Manager esegue le seguenti azioni:
+
+* Se l'operazione di rollback riprende correttamente, puoi visualizzare lo stato di avanzamento dell'operazione di rollback nella finestra Operazioni in corso.
+* Se l'operazione di rollback non va a buon fine, l'operazione si interrompe nuovamente. È possibile seguire la procedura di Recovery Guru per risolvere il problema oppure contattare il supporto tecnico.
+

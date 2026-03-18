@@ -1,0 +1,41 @@
+---
+permalink: um-certificates/delete-trusted-certificates-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, delete, trusted, certificates 
+summary: È possibile eliminare uno o più certificati che non sono più necessari, ad esempio un certificato scaduto. 
+---
+= Eliminare i certificati attendibili in SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eliminare uno o più certificati che non sono più necessari, ad esempio un certificato scaduto.
+
+.Prima di iniziare
+Importa il nuovo certificato prima di eliminare quello vecchio.
+
+[CAUTION]
+====
+Tieni presente che l'eliminazione di un certificato root o intermedio può avere un impatto su più storage array, poiché questi array possono condividere gli stessi file di certificato.
+
+====
+.Passaggi
+. Seleziona *Certificate Management*.
+. Seleziona la scheda *Trusted*.
+. Seleziona uno o più certificati nella tabella, quindi fai clic su *Delete*.
++
+[NOTE]
+====
+La funzione *Delete* non è disponibile per i certificati preinstallati.
+
+====
++
+Si apre la finestra di dialogo Conferma eliminazione certificato attendibile.
+
+. Conferma l'eliminazione, quindi fai clic su *Elimina*.
++
+Il certificato viene rimosso dalla tabella.
+
+

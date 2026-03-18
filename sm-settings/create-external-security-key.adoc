@@ -1,0 +1,127 @@
+---
+permalink: sm-settings/create-external-security-key.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, external, security, key, 
+summary: 'Per utilizzare la funzionalità Drive Security con un key management server, è necessario creare una chiave esterna condivisa dal key management server e dalle unità secure-capable nell"array di storage.' 
+---
+= Crea una chiave di sicurezza esterna in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per utilizzare la funzionalità Drive Security con un key management server, è necessario creare una chiave esterna condivisa dal key management server e dalle unità secure-capable nell'array di storage.
+
+.Prima di iniziare
+* Nell'array devono essere installate unità secure-capable. Queste unità possono essere Full Disk Encryption (FDE) o Federal Information Processing Standard (FIPS).
++
+[NOTE]
+====
+Se nell'array di storage sono installate sia unità FDE che FIPS, tutte condividono la stessa chiave di sicurezza.
+
+====
+* La funzionalità Drive Security deve essere abilitata. In caso contrario, durante questa operazione verrà visualizzata la finestra di dialogo Cannot Create Security Key. Se necessario, contattare il proprio storage vendor per istruzioni su come abilitare la funzionalità Drive Security.
+* Hai un file di certificato client firmato per i controller dell'array di storage e lo hai copiato sull'host da cui accedi a System Manager. Un certificato client convalida i controller dell'array di storage, quindi il server di gestione delle chiavi può considerare attendibili le loro richieste Key Management Interoperability Protocol (KMIP).
+* È necessario recuperare un file di certificato dal server di gestione delle chiavi e quindi copiarlo sull'host da cui si accede a System Manager. Un certificato del server di gestione delle chiavi convalida il server di gestione delle chiavi, quindi l'array di storage può considerare attendibile il suo indirizzo IP. È possibile utilizzare un certificato root, intermedio o server per il server di gestione delle chiavi.
++
+[NOTE]
+====
+Per ulteriori informazioni sul certificato del server, consultare la documentazione per il proprio key management server.
+
+====
+
+
+.Informazioni su questa attività
+In questa attività, si definisce l'indirizzo IP del server di gestione delle chiavi e il numero di porta che utilizza, quindi si caricano i certificati per la gestione delle chiavi esterne.
+
+.Passaggi
+. Selezionare menu:Impostazioni[Sistema].
+. In *Gestione chiavi di sicurezza*, selezionare *Crea chiave esterna*.
++
+[NOTE]
+====
+Se la gestione interna delle chiavi è attualmente configurata, si apre una finestra di dialogo che chiede di confermare che si desidera passare alla gestione esterna delle chiavi.
+
+====
++
+Si apre la finestra di dialogo Create External Security Key.
+
+. In *Connetti al server delle chiavi*, inserisci le informazioni nei seguenti campi.
++
+** *Indirizzo del server di gestione delle chiavi* -- Inserire il fully qualified domain name o l'indirizzo IP (IPv4 o IPv6) del server utilizzato per la gestione delle chiavi.
+** *Numero di porta per la gestione delle chiavi* -- Inserire il numero di porta utilizzato per le comunicazioni KMIP. Il numero di porta più comune utilizzato per le comunicazioni con il key management server è 5696.
++
+*Facoltativo:* Se si desidera configurare un server di chiavi di backup, fare clic su *Aggiungi server di chiavi* e quindi immettere le informazioni relative a tale server. Il secondo server di chiavi verrà utilizzato se il server di chiavi primario non può essere raggiunto. Assicurarsi che ciascun server di chiavi abbia accesso allo stesso database di chiavi; in caso contrario, l'array genererà errori e non potrà utilizzare il server di backup.
+
++
+
+NOTE: Viene utilizzato un solo server di chiavi alla volta. Se l'array di storage non riesce a raggiungere il server di chiavi primario, l'array contatterà il server di chiavi di backup. Tieni presente che è necessario mantenere la parità tra entrambi i server; in caso contrario potrebbero verificarsi errori.
+
+** *Seleziona il certificato client* -- Fai clic sul primo pulsante *Browse* per selezionare il file del certificato per i controller dell'array di storage.
+** *Seleziona il file della chiave privata* -- Se necessario, fai clic sul secondo pulsante *Sfoglia* per selezionare un file della chiave privata per i controller dell'array di storage.
+** *Seleziona il certificato del server di gestione delle chiavi* -- Fai clic sul terzo pulsante *Sfoglia* per selezionare il file del certificato per il server di gestione delle chiavi. Puoi scegliere un certificato root, intermedio o server per il server di gestione delle chiavi.
+
+
+. Fai clic su *Avanti*.
+. In *Crea/Backup Key*, puoi creare una chiave di backup per motivi di sicurezza.
++
+** (Consigliato) Per creare una chiave di backup, mantieni la casella di controllo selezionata, quindi inserisci e conferma una pass phrase. Il valore può contenere da 8 a 32 caratteri e deve includere ciascuno dei seguenti:
++
+*** Una o più lettere maiuscole. Ricorda che la pass phrase distingue tra maiuscole e minuscole.
+*** Un numero (uno o più).
+*** Un carattere non alfanumerico, come !, *, @ (uno o più).
+
+
+
+
++
+[CAUTION]
+====
+*Assicurati di annotare le tue voci per un utilizzo successivo*. Se devi spostare un'unità protetta dall'array di archiviazione, devi conoscere la pass phrase per sbloccare i dati dell'unità.
+
+====
++
+** Se non si desidera creare una chiave di backup, deselezionare la casella di controllo.
++
+[CAUTION]
+====
+Tieni presente che se perdi l'accesso al server delle chiavi esterno e non disponi di una chiave di backup, perderai l'accesso ai dati presenti sulle unità se queste vengono migrate su un altro storage array. Questa opzione è l'unico metodo per creare una chiave di backup in System Manager.
+
+====
+
+
+. Fare clic su *Fine*.
++
+Il sistema si connette al server di gestione delle chiavi con le credenziali inserite. Una copia della chiave di sicurezza viene quindi memorizzata sul sistema locale.
+
++
+[NOTE]
+====
+Il percorso del file scaricato potrebbe dipendere dalla posizione di download predefinita del browser.
+
+====
+. Annota la tua pass phrase e la posizione del file chiave scaricato, quindi fai clic su *Chiudi*.
++
+La pagina visualizza il seguente messaggio con collegamenti aggiuntivi per la gestione esterna delle chiavi:
+
++
+`Current key management method: External`
+
+. Verifica la connessione tra l'array di storage e il key management server selezionando *Test Communication*.
++
+I risultati del test vengono visualizzati nella finestra di dialogo.
+
+
+
+.Risultati
+Quando la gestione delle chiavi esterne è abilitata, è possibile creare gruppi o pool di volumi con protezione abilitata, oppure abilitare la sicurezza su gruppi e pool di volumi esistenti.
+
+[NOTE]
+====
+Ogni volta che l'alimentazione delle unità viene interrotta e poi riattivata, tutte le unità con sicurezza abilitata passano allo stato Security Locked. In questo stato, i dati sono inaccessibili finché il controller non applica la chiave di sicurezza corretta durante l'inizializzazione dell'unità. Se qualcuno rimuove fisicamente un'unità bloccata e la installa in un altro sistema, lo stato Security Locked impedisce l'accesso non autorizzato ai suoi dati.
+
+====
+.Dopo aver finito
+Dovresti convalidare la chiave di sicurezza per assicurarti che il file della chiave non sia danneggiato.

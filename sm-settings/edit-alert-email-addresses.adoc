@@ -1,0 +1,37 @@
+---
+permalink: sm-settings/edit-alert-email-addresses.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, edit, email, addresses, alerts, 
+summary: È possibile modificare gli indirizzi e-mail dei destinatari che ricevono avvisi e-mail. 
+---
+= Modifica gli indirizzi email per gli avvisi in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare gli indirizzi e-mail dei destinatari che ricevono avvisi e-mail.
+
+.Prima di iniziare
+L'indirizzo email che si intende modificare deve essere definito nella scheda Email della pagina Avvisi.
+
+.Passaggi
+. Seleziona menu:Impostazioni[Avvisi].
+. Seleziona la scheda *Email*.
+. Dalla tabella *Email Address*, seleziona l'indirizzo che desideri modificare, quindi fai clic sull'icona *Edit* (matita) all'estrema destra.
++
+La riga diventa un campo modificabile.
+
+. Inserisci un nuovo indirizzo, quindi fai clic sull'icona *Salva* (segno di spunta).
++
+[NOTE]
+====
+Se desideri annullare le modifiche, seleziona l'icona *Cancel* (X).
+
+====
+
+
+.Risultati
+La scheda Email della pagina Avvisi visualizza gli indirizzi email aggiornati.

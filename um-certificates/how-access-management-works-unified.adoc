@@ -1,0 +1,60 @@
+---
+permalink: um-certificates/how-access-management-works-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, authentication, users, roles, access management 
+summary: 'Utilizzare Access Management per stabilire l"autenticazione degli utenti in SANtricity Unified Manager.' 
+---
+= Come funziona la gestione degli accessi in SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilizzare Access Management per stabilire l'autenticazione degli utenti in SANtricity Unified Manager.
+
+
+
+== Flusso di lavoro di configurazione
+
+La configurazione di Access Management funziona come segue:
+
+. Un amministratore accede a Unified Manager con un profilo utente che include le autorizzazioni di Security admin.
++
+[NOTE]
+====
+Al primo accesso, il nome utente `admin` viene visualizzato automaticamente e non può essere modificato. L'utente `admin` ha pieno accesso a tutte le funzioni del sistema. La password deve essere impostata al primo accesso.
+
+====
+. L'amministratore accede alla sezione Gestione accessi nell'interfaccia utente, che include ruoli utente locali preconfigurati. Questi ruoli rappresentano un'implementazione delle funzionalità di controllo degli accessi in base al ruolo (role-based access control, RBAC).
+. L'amministratore configura uno o più dei seguenti metodi di autenticazione:
++
+** *Ruoli utente locali* -- L'autenticazione viene gestita tramite le funzionalità RBAC. I ruoli utente locali includono utenti e ruoli predefiniti con autorizzazioni di accesso specifiche. Gli amministratori possono utilizzare questi ruoli utente locali come unico metodo di autenticazione o utilizzarli in combinazione con un servizio di directory. Non è necessaria alcuna configurazione, tranne l'impostazione delle password per gli utenti.
+** *Servizi di directory* -- L'autenticazione viene gestita tramite un server LDAP (Lightweight Directory Access Protocol) e un servizio di directory, come Microsoft's Active Directory. Un amministratore si connette al server LDAP e quindi associa gli utenti LDAP ai ruoli utente locali.
+** *SAML* -- L'autenticazione viene gestita tramite un Identity Provider (IdP) utilizzando il Security Assertion Markup Language (SAML) 2.0. Un amministratore stabilisce la comunicazione tra il sistema IdP e l'array di storage, quindi associa gli utenti IdP ai ruoli utente locali incorporati nell'array di storage.
+
+
+. L'amministratore fornisce agli utenti le credenziali di accesso per Unified Manager.
+. Gli utenti accedono al sistema inserendo le proprie credenziali. Durante l'accesso, il sistema esegue le seguenti operazioni in background:
++
+** Autentica il nome utente e la password rispetto all'account utente.
+** Determina le autorizzazioni dell'utente in base ai ruoli assegnati.
+** Fornisce all'utente l'accesso alle funzioni dell'interfaccia utente.
+** Visualizza il nome utente nel banner superiore.
+
+
+
+
+
+
+== Funzioni disponibili in Unified Manager
+
+L'accesso alle funzioni dipende dai ruoli assegnati all'utente, che includono i seguenti:
+
+* *Amministratore dello storage* -- Accesso completo in lettura/scrittura agli oggetti di storage sugli array, ma nessun accesso alla configurazione della sicurezza.
+* *Amministratore della sicurezza* -- Accesso alla configurazione della sicurezza in Access Management e Certificate Management.
+* *Support admin* -- Accesso a tutte le risorse hardware sugli array di storage, ai dati di errore e agli eventi MEL. Nessun accesso agli oggetti di storage o alla configurazione di sicurezza.
+* *Monitor* -- Accesso in sola lettura a tutti gli oggetti di archiviazione, ma nessun accesso alla configurazione di sicurezza.
+
+
+Una funzione non disponibile è visualizzata in grigio oppure non viene mostrata nell'interfaccia utente.

@@ -1,0 +1,64 @@
+---
+permalink: sm-hardware/erase-drive.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, erase, drives, removal, 
+summary: 'È possibile utilizzare l"opzione Cancella per preparare un"unità non assegnata alla rimozione dal sistema. Questa procedura elimina i dati in modo permanente, garantendo che i dati non possano essere letti nuovamente.' 
+---
+= Cancella le unità in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare l'opzione Cancella per preparare un'unità non assegnata alla rimozione dal sistema. Questa procedura elimina i dati in modo permanente, garantendo che i dati non possano essere letti nuovamente.
+
+.Prima di iniziare
+L'unità deve trovarsi in uno stato Unassigned.
+
+.Informazioni su questa attività
+Utilizza l'opzione Cancella solo se desideri rimuovere definitivamente tutti i dati da un'unità. Se l'unità è abilitata alla sicurezza, l'opzione Cancella esegue una cancellazione crittografica e ripristina gli attributi di sicurezza dell'unità allo stato di secure-capable.
+
+[NOTE]
+====
+La funzione Erase non supporta alcuni modelli di unità meno recenti. Se si tenta di cancellare uno di questi modelli, viene visualizzato un messaggio di errore.
+
+====
+.Passaggi
+. Seleziona *Hardware*.
+. Se il grafico mostra i controller, fai clic sulla scheda *Drives*.
++
+La grafica cambia per mostrare le unità invece dei controller.
+
+. Facoltativamente, è possibile utilizzare i campi filtro per visualizzare tutte le unità non assegnate nello shelf. Dall'elenco a discesa *Mostra unità che sono...*, selezionare *Non assegnate*.
++
+La visualizzazione a scaffale mostra solo le unità non assegnate; tutte le altre sono grigiate.
+
+. Per aprire il menu contestuale dell'unità, fai clic su un'unità che desideri cancellare. (Se desideri selezionare più unità, puoi farlo nella finestra di dialogo Cancella unità.)
++
+[CAUTION]
+====
+*Possibile perdita di dati* -- L'operazione di Erase non può essere annullata. Assicurati di selezionare le unità corrette durante la procedura.
+
+====
+. Dal menu contestuale, seleziona *Erase*.
++
+Si apre la finestra di dialogo Erase Drives, che mostra tutte le unità idonee per un'operazione di cancellazione.
+
+. Se lo si desidera, selezionare ulteriori unità dalla tabella. Non è possibile selezionare _tutte_ le unità; assicurarsi che una unità rimanga deselezionata.
+. Conferma l'operazione digitando `erase`, quindi fai clic su *Cancella*.
++
+[CAUTION]
+====
+Assicurati di voler continuare con questa operazione. Una volta cliccato su Sì nella finestra di dialogo successiva, l'operazione non potrà essere annullata.
+
+====
+. Nella finestra di dialogo Estimated Completion Time, fare clic su *Yes* per continuare con l'operazione di cancellazione.
+
+
+.Risultati
+L'operazione di Erase potrebbe richiedere da diversi minuti a diverse ore. Puoi visualizzare lo stato nel menu: Home[View Operations in Progress]. Quando l'operazione di Erase è completata, le unità sono disponibili per l'uso in un altro volume group o disk pool, oppure in un altro storage array.
+
+.Dopo aver finito
+Se desideri utilizzare nuovamente l'unità, devi prima inizializzarla. Per farlo, seleziona *Inizializza* dal menu contestuale dell'unità.

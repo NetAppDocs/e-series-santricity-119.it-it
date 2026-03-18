@@ -1,0 +1,30 @@
+---
+permalink: sm-hardware/turn-on-drive-locator-light.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, turn, drive, locator, light, LEDs 
+summary: 'Dalla pagina Hardware, puoi attivare la spia di localizzazione per trovare la posizione fisica di un"unità nell"array di storage.' 
+---
+= Attivare la spia di localizzazione dell'unità in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dalla pagina Hardware, puoi attivare la spia di localizzazione per trovare la posizione fisica di un'unità nell'array di storage.
+
+.Informazioni su questa attività
+È possibile individuare singole unità o più unità mostrate nella pagina Hardware.
+
+.Passaggi
+. Seleziona *Hardware*.
+. Per individuare una o più unità, eseguire una delle seguenti operazioni:
++
+** *Unità singola* -- Dalla rappresentazione grafica dello scaffale, individua l'unità che desideri posizionare fisicamente nell'array. (Se la rappresentazione grafica mostra i controller, fai clic sulla scheda *Unità*.) Fai clic sull'unità per visualizzare il relativo menu contestuale, quindi seleziona *Attiva la spia di localizzazione*.
++
+La spia di localizzazione dell'unità si accende. Quando hai individuato fisicamente l'unità, torna alla finestra di dialogo e seleziona *Turn off*.
+
+** *Unità multiple* -- Nei campi filtro, seleziona un tipo di unità fisica dall'elenco a discesa a sinistra e un tipo di unità logica dall'elenco a discesa a destra. Il numero di unità che corrispondono ai tuoi criteri viene visualizzato all'estrema destra dei campi. Successivamente, puoi fare clic su *Attiva spie di localizzazione* oppure selezionare *Individua tutte le unità filtrate* dal menu contestuale. Quando hai individuato fisicamente le unità, torna alla finestra di dialogo e seleziona *Disattiva*.
+
+
+

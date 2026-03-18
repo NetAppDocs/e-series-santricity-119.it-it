@@ -1,0 +1,48 @@
+---
+permalink: sm-settings/export-saml-service-provider-files.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, export, saml, Service Provider, files, 
+summary: 'Se necessario, è possibile esportare i metadati del Service Provider per l"array di storage e reimportare il file o i file nel sistema Identity Provider (IdP).' 
+---
+= Esporta i file del Service Provider SAML in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se necessario, è possibile esportare i metadati del Service Provider per l'array di storage e reimportare il file o i file nel sistema Identity Provider (IdP).
+
+.Prima di iniziare
+* È necessario aver effettuato l'accesso con un profilo utente che includa le autorizzazioni di Security admin. In caso contrario, le funzioni di Access Management non vengono visualizzate.
+* SAML è configurato e abilitato.
+
+
+.Informazioni su questa attività
+In questa attività, si esportano metadati dai controller (un file per ciascun controller). L'IdP necessita di questi metadati per stabilire una relazione di fiducia con i controller e per elaborare le richieste di autenticazione. Il file include informazioni quali il domain name o l'indirizzo IP del controller che l'IdP può utilizzare per inviare le richieste.
+
+.Passaggi
+. Selezionare menu:Settings[Access Management].
+. Seleziona la scheda *SAML*.
+. Seleziona *Export*.
++
+Si apre la finestra di dialogo Export Service Provider Files.
+
+. Per ogni controller, fai clic su *Esporta* per salvare il file di metadati sul tuo sistema locale.
++
+[NOTE]
+====
+I campi domain name per ciascun controller sono di sola lettura.
+
+====
++
+Prendi nota di dove è memorizzato il file.
+
+. Dal sistema locale, individua il file o i file di metadati del Service Provider che hai esportato.
++
+Esiste un file in formato XML per ciascun controller.
+
+. Dal server IdP, importa il/i file di metadati del Service Provider. Puoi importare i file direttamente oppure inserire manualmente le informazioni del controller da essi.
+. Fare clic su *Close*.
+

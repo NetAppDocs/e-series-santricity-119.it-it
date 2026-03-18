@@ -1,0 +1,136 @@
+---
+permalink: sm-mirroring/requirements-for-using-asynchronous-mirroring.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, requirements, asynchronous, mirroring, 
+summary: Se si intende utilizzare il mirroring asincrono, tenere presenti i seguenti requisiti. 
+---
+= Requisiti per l'utilizzo del mirroring asincrono nel software SANtricity
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si intende utilizzare il mirroring asincrono, tenere presenti i seguenti requisiti.
+
+
+
+== Unified Manager
+
+Per abilitare e configurare il mirroring tra due array, è necessario utilizzare l'interfaccia di Unified Manager. Unified Manager viene installato su un sistema host insieme al Web Services Proxy.
+
+* Il servizio Web Services Proxy deve essere in esecuzione.
+* Unified Manager deve essere in esecuzione sul tuo host locale tramite una connessione HTTPS.
+* Unified Manager deve visualizzare certificati SSL validi per lo storage array. È possibile accettare un certificato autofirmato o installare un certificato di sicurezza personalizzato tramite Unified Manager e accedendo a menu:Certificate[Certificate Management].
+
+
+
+
+== Array di archiviazione
+
+* È necessario disporre di due storage array.
+* Ogni array di storage deve avere due controller.
+* I due array di storage devono essere rilevati in Unified Manager.
+* Ciascun controller, sia nell'array primario che in quello secondario, deve avere una porta di gestione Ethernet configurata e deve essere connesso alla rete.
+* Gli array di storage hanno una versione minima del firmware pari a 7.84. (Ciascuno può eseguire diverse versioni del sistema operativo.)
+* È necessario conoscere la password per gli array di storage locali e remoti.
+* È necessario disporre di una capacità libera sufficiente sull'array di storage remoto per creare un volume secondario uguale o superiore al volume primario che si desidera replicare.
+* I tuoi array di storage locali e remoti sono collegati tramite una fabric Fibre Channel o un'interfaccia iSCSI.
+
+
+
+
+== Connessioni supportate
+
+Il mirroring asincrono può utilizzare connessioni FC o iSCSI, o entrambe, per la comunicazione tra sistemi storage locali e remoti. Al momento della creazione di un gruppo di coerenza mirror, l'amministratore può selezionare FC o iSCSI per quel gruppo se entrambe sono connesse all'array di storage remoto. Non è previsto alcun failover da un tipo di canale all'altro.
+
+Il mirroring asincrono utilizza le porte I/O lato host dell'array di storage per trasferire i dati mirrorati dal lato primario al lato secondario.
+
+* *Mirroring attraverso un'interfaccia Fibre Channel (FC)*
++
+Ciascun controller dell'array di storage dedica la sua porta host FC con il numero più alto alle operazioni di mirroring.
+
++
+Se il controller dispone sia di porte FC di base che di porte FC sulla scheda di interfaccia verso gli host (HIC), la porta con il numero più alto si trova sulla HIC. Qualsiasi host connesso alla porta dedicata viene disconnesso e non vengono accettate richieste di accesso host. Le richieste di I/O su questa porta sono accettate solo dai controller che partecipano alle operazioni di mirroring.
+
++
+Le porte di mirroring dedicate devono essere collegate a un ambiente FC fabric che supporti le interfacce directory service e name service. In particolare, FC-AL e point-to-point non sono supportati come opzioni di connettività tra i controller che partecipano alle relazioni di mirroring.
+
+* *Mirroring tramite un'interfaccia iSCSI*
++
+A differenza di FC, iSCSI non richiede una porta dedicata. Quando si utilizza il mirroring asincrono in ambienti iSCSI, non è necessario dedicare nessuna delle porte iSCSI front-end dell'array di storage al mirroring asincrono; tali porte sono condivise sia per il traffico di mirroring asincrono che per le connessioni I/O host-array.
+
++
+Il controller mantiene un elenco di sistemi di storage remoti con cui l'iSCSI initiator tenta di stabilire una sessione. La prima porta che riesce a stabilire una connessione iSCSI viene utilizzata per tutte le comunicazioni successive con tale array di storage remoto. Se la comunicazione fallisce, viene tentata una nuova sessione utilizzando tutte le porte disponibili.
+
++
+Le porte iSCSI sono configurate a livello di array su base porta per porta. La comunicazione tra controller per la messaggistica di configurazione e il trasferimento dei dati utilizza le impostazioni globali, incluse le impostazioni per:
+
++
+** VLAN: Sia il sistema locale che quello remoto devono avere la stessa impostazione VLAN per comunicare
+** porta di ascolto iSCSI
+** Frame jumbo
+** Priorità Ethernet
++
+[NOTE]
+====
+La comunicazione iSCSI tra i controller deve utilizzare una porta di connessione host e non la porta Ethernet di gestione.
+
+====
+
+
++
+Il mirroring asincrono utilizza le porte I/O lato host dell'array di storage per trasferire dati mirrorati dal lato primario al lato secondario. Poiché il mirroring asincrono è pensato per reti a latenza più elevata e a basso costo, le connessioni iSCSI (e quindi basate su TCP/IP) sono particolarmente adatte. Quando si utilizza il mirroring asincrono in ambienti iSCSI, non è necessario dedicare alcuna porta iSCSI front-end dell'array al mirroring asincrono; tali porte sono condivise sia per il traffico di mirroring asincrono che per le connessioni I/O host-array.
+
+
+
+[NOTE]
+====
+E4000 non supporta il mirroring asincrono quando si utilizza il protocollo iSCSI.
+
+====
+
+
+== Candidati al volume mirrorato
+
+* Il livello RAID, i parametri di caching e la dimensione dei segmenti possono essere diversi sui volumi primario e secondario di una coppia con mirroring asincrono.
++
+
+NOTE: Per i controller EF600 e EF300, i volumi primari e secondari di una coppia asincrona in mirroring devono corrispondere allo stesso protocollo, livello di vassoio, dimensione del segmento, tipo di sicurezza e livello RAID. Le coppie asincrone in mirroring non ammissibili non appariranno nell'elenco dei volumi disponibili.
+
+* Il volume secondario deve essere almeno grande quanto il volume primario.
+* Un volume può partecipare a una sola relazione mirror.
+* I candidati volume devono condividere le stesse funzionalità di Data Security.
++
+** Se il volume primario è FIPS capable, il volume secondario deve essere FIPS capable.
+** Se il volume primario è FDE capable, anche il volume secondario deve essere FDE capable.
+** Se il volume primario non utilizza Drive Security, il volume secondario non deve utilizzare Drive Security.
+
+
+* I volumi primari e secondari devono condividere lo stesso tipo di unità. La combinazione di unità NVMe e SAS tra volumi primari e secondari non è supportata.
+* I volumi primari e secondari non devono avere la partizione delle risorse abilitata.
+
+
+
+
+== Capacità riservata
+
+* È necessario un volume di capacità riservato sia per il volume primario che per il volume secondario in una coppia mirrorata per registrare le informazioni di scrittura e recuperare dai reset del controller e altre interruzioni temporanee.
+* Poiché sia il volume primario che il volume secondario in una coppia mirrorata richiedono capacità riservata aggiuntiva, è necessario assicurarsi di disporre di capacità libera su entrambi gli array di storage nella relazione di mirror.
+* Il volume di capacità riservata deve condividere lo stesso tipo di drive dei volumi mirror associati.
++
+** Se il volume di capacità riservata viene creato su unità NVMe, anche i suoi volumi mirrorati devono essere creati su unità NVMe.
+** Se il volume di capacità riservata viene creato su unità SAS, anche i suoi volumi mirrorati devono essere creati su unità SAS.
+
+
+
+
+
+
+== Funzione di sicurezza dell'unità
+
+* Se si utilizzano unità con funzionalità di sicurezza, il volume primario e il volume secondario devono avere impostazioni di sicurezza compatibili. Questa restrizione non viene applicata; pertanto, è necessario verificarla autonomamente.
+* Se si utilizzano unità compatibili con Secure, il volume primario e il volume secondario devono utilizzare lo stesso tipo di unità. Questa restrizione non è applicata; pertanto, è necessario verificarla autonomamente.
+* Se si utilizza Data Assurance (DA), il volume primario e il volume secondario devono avere le stesse impostazioni DA.
+

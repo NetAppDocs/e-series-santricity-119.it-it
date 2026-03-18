@@ -1,0 +1,39 @@
+---
+permalink: sm-settings/faq-storage-system-alerts.html 
+sidebar: sidebar 
+keywords:  
+summary: Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda. 
+---
+= Domande frequenti sugli avvisi del sistema di storage per SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda.
+
+
+
+== Cosa succede se gli avvisi sono disattivati?
+
+Se si desidera che gli amministratori ricevano notifiche relative a eventi importanti che si verificano nell'array di storage, è necessario configurare un metodo di avviso.
+
+Per gli array di storage gestiti con SANtricity System Manager, configuri gli avvisi dalla pagina Avvisi. Le notifiche di avviso possono essere inviate tramite email, trap SNMP o messaggi syslog. Inoltre, gli avvisi email possono essere configurati dalla procedura guidata di configurazione iniziale.
+
+
+
+== Come configuro gli avvisi SNMP o syslog?
+
+Oltre agli avvisi via e-mail, è possibile configurare gli avvisi da inviare tramite trap Simple Network Management Protocol (SNMP) o tramite messaggi syslog.
+
+Per configurare gli avvisi SNMP o syslog, vai al menu:Impostazioni[Avvisi].
+
+
+
+== Perché i timestamp non sono coerenti tra l'array e gli avvisi?
+
+Quando l'array di storage invia avvisi, non corregge il fuso orario del server o host di destinazione che riceve gli avvisi. Al contrario, l'array di storage utilizza l'ora locale (GMT) per creare il timestamp utilizzato per il record di avviso. Di conseguenza, potresti vedere delle incongruenze tra i timestamp dell'array di storage e quelli del server o host che riceve un avviso.
+
+Poiché l'array di storage non corregge il fuso orario durante l'invio degli avvisi, il timestamp degli avvisi è relativo al GMT, che ha un offset di fuso orario pari a zero. Per calcolare un timestamp appropriato al proprio fuso orario locale, è necessario determinare l'offset orario rispetto al GMT e quindi aggiungere o sottrarre tale valore dai timestamp.

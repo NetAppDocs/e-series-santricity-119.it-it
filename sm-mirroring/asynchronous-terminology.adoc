@@ -1,0 +1,86 @@
+---
+permalink: sm-mirroring/asynchronous-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, asynchronous, mirroring, terms, 
+summary: Scopri come i termini relativi al mirroring asincrono si applicano al tuo array di storage. 
+---
+= Scopri la terminologia relativa al mirroring asincrono nel software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scopri come i termini relativi al mirroring asincrono si applicano al tuo array di storage.
+
+[cols="25h,~"]
+|===
+| Termine | Descrizione 
+
+
+ a| 
+Array di archiviazione locale
+ a| 
+L'array di archiviazione locale è l'array di archiviazione su cui si sta operando.
+
+Quando nella colonna Ruolo locale viene visualizzato *Primary*, significa che l'array di storage contiene il volume che ricopre il ruolo primario nella relazione di mirroring. Quando nella colonna Ruolo locale viene visualizzato *Secondary*, significa che l'array di storage contiene il volume che ricopre il ruolo secondario nella relazione di mirroring.
+
+
+
+ a| 
+Gruppo di coerenza mirror
+ a| 
+Un gruppo di coerenza mirror è un container per una o più coppie mirror. Per le operazioni di mirroring asincrono, è necessario creare un gruppo di coerenza mirror.
+
+
+
+ a| 
+Coppia specchiata
+ a| 
+Una coppia speculare è composta da due volumi, un volume primario e un volume secondario.
+
+Nel mirroring asincrono, una coppia mirrorata appartiene sempre a un mirror consistency group. Le operazioni di scrittura vengono eseguite prima sul volume primario e poi replicate sul volume secondario. Ogni coppia mirrorata in un mirror consistency group condivide le stesse impostazioni di sincronizzazione.
+
+
+
+ a| 
+Volume primario
+ a| 
+Il volume primario di una coppia speculare è il volume di origine da sottoporre a mirroring.
+
+
+
+ a| 
+array di storage remoto
+ a| 
+L'array di storage remoto viene solitamente designato come sito secondario, che di solito contiene una replica dei dati in una configurazione di mirroring.
+
+
+
+ a| 
+Capacità riservata
+ a| 
+La capacità riservata è la capacità fisica allocata utilizzata per qualsiasi operazione di copia del servizio e oggetto di archiviazione. Non è direttamente leggibile dall'host.
+
+
+
+ a| 
+Cambio di ruolo
+ a| 
+Il cambio di ruolo consiste nell'assegnare il ruolo primario al volume secondario e viceversa.
+
+
+
+ a| 
+Volume secondario
+ a| 
+Il volume secondario di una coppia speculare si trova solitamente in una sede secondaria e contiene una replica dei dati.
+
+
+
+ a| 
+Sincronizzazione
+ a| 
+La sincronizzazione avviene al momento della sincronizzazione iniziale tra l'array di storage locale e l'array di storage remoto. La sincronizzazione si verifica anche quando i volumi primario e secondario si desincronizzano a seguito di un'interruzione della comunicazione. Quando il collegamento di comunicazione viene ripristinato, tutti i dati non replicati vengono sincronizzati con l'array di storage del volume secondario.
+
+|===

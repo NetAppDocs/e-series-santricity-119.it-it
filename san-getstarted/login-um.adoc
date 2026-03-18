@@ -1,0 +1,36 @@
+---
+permalink: san-getstarted/login-um.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, log in Unified Manager 
+summary: Accedi ed effettua il login a Unified Manager. 
+---
+= Accedi a SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver installato il Web Services Proxy, puoi accedere a SANtricity Unified Manager per gestire più sistemi storage tramite un'interfaccia basata su web.
+
+
+NOTE: Per i browser supportati, vedere link:supported-browsers-os.html["Browser e sistemi operativi supportati"].
+
+.Passaggi
+. Apri un browser e inserisci il seguente URL:
++
+`+http[s]://<server>:<port>/um+`
+
++
+In questo URL, `<server>` rappresenta l'indirizzo IP o FQDN del server in cui è installato il Web Services Proxy, e `<port>` rappresenta il numero di porta di ascolto (predefinito su 8080 per HTTP o 8443 per HTTPS).
+
++
+Si apre la pagina di accesso di Unified Manager.
+
+. Al primo accesso, inserisci  `admin` per il nome utente, quindi imposta e conferma una password per l'utente admin.
++
+La password può contenere fino a 30 caratteri.
+
+
+
+Per ulteriori informazioni su utenti e password, vedere link:../um-certificates/how-access-management-works-unified.html["Come funziona la gestione degli accessi"].

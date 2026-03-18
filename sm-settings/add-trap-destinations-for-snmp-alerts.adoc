@@ -1,0 +1,56 @@
+---
+permalink: sm-settings/add-trap-destinations-for-snmp-alerts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add, trap, destinations, SNMP, alerts, 
+summary: 'È possibile aggiungere fino a 10 server per l"invio di trap SNMP.' 
+---
+= Aggiungi destinazioni trap per gli avvisi SNMP in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile aggiungere fino a 10 server per l'invio di trap SNMP.
+
+.Prima di iniziare
+* Il server di rete che si desidera aggiungere deve essere configurato con un'applicazione di servizio SNMP. È necessario l'indirizzo di rete di questo server (un indirizzo IPv4 o IPv6), affinché il monitor degli eventi possa inviare messaggi trap a tale indirizzo. È possibile utilizzare più di un server (fino a 10 server sono consentiti).
+* Il file management information base (MIB) è stato copiato e compilato sul server con l'applicazione del servizio SNMP. Questo file MIB definisce i dati monitorati e gestiti.
++
+Se non si dispone del file MIB, è possibile ottenerlo dal sito di supporto NetApp:
+
++
+** Vai a https://mysupport.netapp.com/site/global/dashboard["NetApp Supporto"^].
+** Fai clic su *Downloads* e poi seleziona *Downloads*.
+** Fare clic su *E-Series SANtricity OS Controller Software*.
+** Seleziona *Download Latest Release*.
+** Accedi.
+** Accettare l'informativa di attenzione e il contratto di licenza.
+** Scorri verso il basso finché non vedi il file MIB per il tuo tipo di controller, quindi fai clic sul link per scaricare il file.
+
+
+
+
+.Passaggi
+. Seleziona menu:Impostazioni[Avvisi].
+. Seleziona la scheda *SNMP*.
++
+Le destinazioni delle trappole attualmente definite vengono visualizzate nella tabella.
+
+. Seleziona *Add Trap Desinations*.
++
+Si apre la finestra di dialogo Add Trap Destinations.
+
+. Inserisci una o più destinazioni trap, seleziona i nomi della community o i nomi utente associati e quindi fai clic su *Aggiungi*.
++
+** *Destinazione trap* -- Inserire un indirizzo IPv4 o IPv6 del server su cui è in esecuzione un servizio SNMP.
+** *Nome della community o nome utente* -- Dal menu a tendina, seleziona il nome della community (SNMPv2c) o il nome utente (SNMPv3) per questa destinazione trap. (Se ne hai definito solo uno, il nome appare già in questo campo.)
+** *Invia trap di errore di autenticazione* -- Seleziona questa opzione (la casella di controllo) se desideri avvisare la destinazione trap ogni volta che una richiesta SNMP viene rifiutata a causa di un nome di community o di un nome utente non riconosciuto. Dopo aver fatto clic su *Aggiungi*, le destinazioni trap e i relativi nomi di community o nomi utente vengono visualizzati nella tabella.
+
+
+. Per assicurarti che una trap sia valida, seleziona una destinazione trap dalla tabella e poi fai clic su *Test Trap Destination* per inviare una trap di prova all'indirizzo configurato.
+
+
+.Risultati
+Il monitor degli eventi invia trap SNMP al/ai server ogni volta che si verifica un evento segnalabile.

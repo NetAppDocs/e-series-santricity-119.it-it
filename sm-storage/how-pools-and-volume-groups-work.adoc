@@ -1,0 +1,83 @@
+---
+permalink: sm-storage/how-pools-and-volume-groups-work.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, pools, volume group, 
+summary: 'Per predisporre lo storage, crei un pool o un gruppo di volumi che conterrà le Hard Disk Drives (HDD) o le Solid State Disk (SSD) che vuoi utilizzare nel tuo storage array.' 
+---
+= Come funzionano pool e gruppi di volume nel software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per predisporre lo storage, crei un pool o un gruppo di volumi che conterrà le Hard Disk Drives (HDD) o le Solid State Disk (SSD) che vuoi utilizzare nel tuo storage array.
+
+L'hardware fisico viene suddiviso in componenti logici in modo che i dati possano essere organizzati e facilmente recuperati. Sono supportati due tipi di raggruppamenti:
+
+* Pool
+* Gruppi di volumi RAID
+
+
+I pool e i gruppi di volumi sono le unità di storage di livello superiore in un array di storage: suddividono la capacità delle unità in divisioni gestibili. All'interno di queste divisioni logiche si trovano i singoli volumi o LUN in cui vengono memorizzati i dati. La figura seguente illustra questo concetto.
+
+image::../media/sam1130-dwg-volumes-drive-structure-pools-and-volume-groups.gif[Struttura dei pool e dei gruppi di volume]
+
+^1^ LUN host; ^2^ Volumi; ^3^ Gruppi di volumi o pool; ^4^ HDD o SSD drives
+
+Quando un sistema storage viene implementato, il primo passo consiste nel presentare la capacità di unità disponibile ai vari host tramite:
+
+* Creazione di pool o gruppi di volume con capacità sufficiente
+* Aggiunta del numero di dischi necessari per soddisfare i requisiti di prestazioni al pool o al gruppo di volumi
+* Selezionare il livello di protezione RAID desiderato (se si utilizzano gruppi di volumi) per soddisfare specifiche esigenze aziendali
+
+
+È possibile avere pool o gruppi di volumi sullo stesso sistema storage, ma un drive non può far parte di più di un pool o gruppo di volumi. I volumi che vengono presentati agli host per I/O vengono quindi creati utilizzando lo spazio sul pool o gruppo di volumi.
+
+
+
+== Pool
+
+I pool sono progettati per aggregare dischi rigidi fisici in un ampio spazio di storage e per fornire una protezione RAID avanzata. Un pool crea numerosi set RAID virtuali a partire dal numero totale di unità assegnate al pool e distribuisce i dati in modo uniforme tra tutte le unità partecipanti. Se un'unità viene persa o aggiunta, System Manager ribilancia dinamicamente i dati tra tutte le unità attive.
+
+I pool fungono da un altro livello RAID, virtualizzando l'architettura RAID sottostante per ottimizzare prestazioni e flessibilità durante attività quali la ricostruzione, l'espansione delle unità e la gestione della perdita di unità. System Manager imposta automaticamente il livello RAID a 6 in una configurazione 8+2 (otto dischi dati più due dischi di parità).
+
+
+
+=== Abbinamento drive
+
+È possibile scegliere tra HDD o SSD da utilizzare nei pool; tuttavia, come per i gruppi di volumi, tutte le unità del pool devono utilizzare la stessa tecnologia. I controller selezionano automaticamente le unità da includere, quindi è necessario assicurarsi di disporre di un numero sufficiente di unità per la tecnologia scelta.
+
+
+
+=== Gestione dei dischi guasti
+
+I pool hanno una capacità minima di 11 unità; tuttavia, una capacità equivalente a quella di un'unità è riservata come capacità di riserva in caso di guasto di un'unità. Questa capacità di riserva è chiamata "`preservation capacity.`"
+
+Quando si creano dei pool, una certa quantità di capacità viene riservata per uso di emergenza. Questa capacità viene espressa in termini di numero di drive in System Manager, ma l'implementazione effettiva è distribuita sull'intero pool di drive. La quantità predefinita di capacità che viene riservata si basa sul numero di drive nel pool.
+
+Dopo la creazione del pool, è possibile modificare il valore della capacità di conservazione, aumentandola o diminuendola, oppure impostarla su nessuna capacità di conservazione (equivalente a 0 drive). La quantità massima di capacità che può essere conservata (espressa come numero di drive) è 10, ma la capacità disponibile potrebbe essere inferiore, in base al numero totale di drive presenti nel pool.
+
+
+
+== Gruppi di volume
+
+I gruppi di volumi definiscono come la capacità viene allocata nel sistema storage ai volumi. Le unità disco sono organizzate in gruppi RAID e i volumi risiedono sulle unità all'interno di un gruppo RAID. Pertanto, le impostazioni di configurazione dei gruppi di volumi identificano quali unità fanno parte del gruppo e quale livello RAID viene utilizzato.
+
+Quando si crea un gruppo di volumi, i controller selezionano automaticamente le unità da includere nel gruppo. È necessario scegliere manualmente il livello RAID per il gruppo. La capacità del gruppo di volumi è il totale del numero di unità selezionate, moltiplicato per la loro capacità.
+
+
+
+=== Abbinamento drive
+
+È necessario che le unità nel gruppo di volumi corrispondano per dimensioni e prestazioni. Se nel gruppo di volumi sono presenti unità più piccole e più grandi, tutte le unità vengono riconosciute come della capacità più piccola. Se nel gruppo di volumi sono presenti unità più lente e più veloci, tutte le unità vengono riconosciute alla velocità più lenta. Questi fattori influiscono sulle prestazioni e sulla capacità complessiva del sistema storage.
+
+Non è possibile combinare tecnologie di drive diverse (HDD e SSD drives). RAID 3, 5 e 6 sono limitati a un massimo di 30 drive. RAID 1 e RAID 10 utilizzano il mirroring, quindi questi volume groups devono avere un numero pari di dischi.
+
+
+
+=== Gestione dei dischi guasti
+
+I gruppi di volumi utilizzano hot spare come unità di riserva in caso di guasto di un disco nei volumi RAID 1/10, RAID 3, RAID 5 o RAID 6 contenuti in un gruppo di volumi. Un hot spare non contiene dati e aggiunge un ulteriore livello di ridondanza al tuo array di storage.
+
+Se un drive si guasta nell'array di storage, il drive hot spare viene automaticamente sostituito al drive guasto senza richiedere una sostituzione fisica. Se il drive hot spare è disponibile quando un drive si guasta, il controller utilizza i dati di ridondanza per ricostruire i dati dal drive guasto al drive hot spare.

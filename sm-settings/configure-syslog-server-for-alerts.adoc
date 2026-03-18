@@ -1,0 +1,48 @@
+---
+permalink: sm-settings/configure-syslog-server-for-alerts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, syslog, server, alerts, 
+summary: Per configurare gli avvisi syslog, è necessario inserire un indirizzo del server syslog e una porta UDP. Sono consentiti fino a cinque server syslog. 
+---
+= Configurare il server syslog per gli avvisi in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per configurare gli avvisi syslog, è necessario inserire un indirizzo del server syslog e una porta UDP. Sono consentiti fino a cinque server syslog.
+
+.Prima di iniziare
+* L'indirizzo del server syslog deve essere disponibile. Questo indirizzo può essere un fully qualified domain name, un indirizzo IPv4 o un indirizzo IPv6.
+* Il numero di porta UDP del syslog server deve essere disponibile. Questa porta è tipicamente 514.
+
+
+.Informazioni su questa attività
+Questa procedura descrive come inserire l'indirizzo e la porta del server syslog e quindi testare l'indirizzo inserito.
+
+.Passaggi
+. Seleziona menu:Impostazioni[Avvisi].
+. Seleziona la scheda *Syslog*.
++
+Se un server syslog non è ancora stato definito, la pagina Avvisi visualizza "Aggiungi server syslog".
+
+. Fai clic su *Aggiungi Syslog Servers*.
++
+Si apre la finestra di dialogo Aggiungi Syslog Server.
+
+. Inserisci le informazioni relative a uno o più syslog server (massimo cinque), quindi fai clic su *Aggiungi*.
++
+** *Indirizzo del server* -- Inserire un fully qualified domain name, un indirizzo IPv4 o un indirizzo IPv6.
+** *Porta UDP* -- In genere, la porta UDP per syslog è 514. La tabella mostra i syslog server configurati.
+
+
+. Per inviare un avviso di prova agli indirizzi del server, selezionare *Test All Syslog Servers*.
+
+
+.Risultati
+Il monitor degli eventi invia avvisi al server syslog ogni volta che si verifica un evento che richiede un avviso. Per configurare ulteriormente le impostazioni syslog per i log di controllo, vedere  https://docs.netapp.com/us-en/e-series-santricity/sm-settings/configure-syslog-server-for-audit-logs.html["Configura il server syslog per i log di controllo"].
+
+
+NOTE: Se sono configurati più server syslog, tutti i server syslog configurati riceveranno un registro di controllo.

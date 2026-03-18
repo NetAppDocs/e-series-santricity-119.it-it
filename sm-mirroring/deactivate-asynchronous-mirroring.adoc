@@ -1,0 +1,37 @@
+---
+permalink: sm-mirroring/deactivate-asynchronous-mirroring.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, deactivate, asynchronous, mirroring, remote, 
+summary: È possibile disattivare il mirroring asincrono sugli array di storage locali e remoti per ripristinare il normale utilizzo delle porte dedicate sugli array di storage. 
+---
+= Disattivare il mirroring asincrono in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile disattivare il mirroring asincrono sugli array di storage locali e remoti per ripristinare il normale utilizzo delle porte dedicate sugli array di storage.
+
+.Prima di iniziare
+* Devi aver eliminato tutte le relazioni di mirror. Verifica che tutti i gruppi di coerenza di mirror e le coppie mirrorate siano stati eliminati dagli array di storage locali e remoti.
+* L'array di storage locale e l'array di storage remoto devono essere collegati tramite una rete Fibre Channel o un'interfaccia iSCSI.
+
+
+.Informazioni su questa attività
+Quando si disattiva il mirroring asincrono, non può verificarsi alcuna attività di mirroring sugli array di storage locali e remoti.
+
+.Passaggi
+. Selezionare menu:Storage[Asynchronous Mirroring].
+. Selezionare menu:Uncommon Tasks[Deactivate].
++
+Il sistema visualizza una conferma.
+
+. Seleziona *Yes* per confermare.
+
+
+.Risultati
+* I canali host HBA del controller che erano dedicati alla comunicazione di mirroring asincrono ora possono accettare richieste di lettura e scrittura da host.
+* Nessuno dei volumi in questo array di storage è in grado di partecipare a relazioni di mirror, né come volumi primari né come volumi secondari.
+

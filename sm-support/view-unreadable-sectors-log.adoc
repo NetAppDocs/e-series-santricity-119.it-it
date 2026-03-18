@@ -1,0 +1,58 @@
+---
+permalink: sm-support/view-unreadable-sectors-log.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, unreadable, sectors, log 
+summary: 'È possibile salvare il registro dei settori illeggibili e inviare il file al supporto tecnico per l"analisi.' 
+---
+= Visualizza il registro dei settori illeggibili in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile salvare il registro dei settori illeggibili e inviare il file al supporto tecnico per l'analisi.
+
+.Informazioni su questa attività
+Il registro dei settori illeggibili contiene informazioni dettagliate sui settori illeggibili causati da unità che segnalano errori irreversibili del supporto di memorizzazione. I settori illeggibili vengono rilevati durante le normali operazioni di I/O e durante le operazioni di modifica, come le ricostruzioni. Quando vengono rilevati settori illeggibili su un array di storage, viene visualizzato un avviso Needs Attention per l'array di storage. Il Recovery Guru distingue quale condizione di settore illeggibile richiede attenzione. Tutti i dati contenuti in un settore illeggibile non possono essere recuperati e devono essere considerati persi.
+
+Il registro dei settori illeggibili può memorizzare fino a 1.000 settori illeggibili. Quando il registro dei settori illeggibili raggiunge 1.000 voci, si applicano le seguenti condizioni:
+
+* Se durante la ricostruzione vengono rilevati nuovi settori illeggibili, la ricostruzione fallisce e non viene registrata alcuna voce.
+* Per i nuovi settori illeggibili rilevati durante l'I/O, l'I/O fallisce e non viene registrata alcuna voce.
++
+[NOTE]
+====
+Queste azioni includono scritture RAID 5 e scritture RAID 6 che sarebbero andate a buon fine prima dell'overflow.
+
+====
+
+
+[CAUTION]
+====
+*Possibile perdita di dati* -- Il recupero da settori illeggibili è una procedura complessa che può prevedere diversi metodi. Eseguire questa operazione solo su indicazione del supporto tecnico.
+
+====
+.Passaggi
+. Selezionare menu:Support[Support Center > Diagnostics] scheda.
+. Seleziona *Visualizza/Cancella settori illeggibili*.
+. Per salvare il registro dei settori illeggibili:
++
+.. Nella prima colonna della tabella, puoi selezionare i singoli volumi per cui desideri salvare il registro dei settori illeggibili (fai clic sulla check box accanto a ciascun volume) oppure selezionare tutti i volumi (seleziona la check box nell'intestazione della tabella).
++
+Per trovare volumi specifici, puoi ordinare una qualsiasi delle colonne o digitare caratteri nella casella *Filter*.
+
+.. Fare clic su *Save*.
+
+
++
+Il file viene salvato nella cartella Downloads del tuo browser con il nome `unreadable-sectors.txt`.
+
+. Se il supporto tecnico ti istruisce a cancellare il registro dei settori illeggibili, esegui i seguenti passaggi:
++
+.. Nella prima colonna della tabella, puoi selezionare i singoli volumi per cui desideri cancellare il registro dei settori illeggibili (fai clic sulla check box accanto a ciascun volume) oppure selezionare tutti i volumi (seleziona la check box nell'intestazione della tabella).
+.. Fai clic su *Clear* e conferma di voler eseguire l'operazione.
+
+
+

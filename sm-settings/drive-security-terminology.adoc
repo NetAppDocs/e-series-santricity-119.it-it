@@ -1,0 +1,91 @@
+---
+permalink: sm-settings/drive-security-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, drive, security, terms, 
+summary: Scopri come si applicano i termini Drive Security al tuo array di storage. 
+---
+= Scopri la terminologia relativa alla sicurezza delle unità nel software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scopri come si applicano i termini Drive Security al tuo array di storage.
+
+[cols="25h,~"]
+|===
+| Termine | Descrizione 
+
+
+ a| 
+Funzione di sicurezza dell'unità
+ a| 
+Drive Security è una funzionalità dell'array di storage che fornisce un ulteriore livello di sicurezza con unità Full Disk Encryption (FDE) o unità Federal Information Processing Standard (FIPS). Quando queste unità vengono utilizzate con la funzionalità Drive Security, richiedono una chiave di sicurezza per accedere ai loro dati. Quando le unità vengono rimosse fisicamente dall'array, non possono funzionare finché non vengono installate in un altro array; a quel punto, saranno in uno stato Security Locked finché non viene fornita la chiave di sicurezza corretta.
+
+
+
+ a| 
+Unità FDE
+ a| 
+Le unità Full Disk Encryption (FDE) eseguono la crittografia sul disco a livello hardware. Il disco rigido contiene un chip ASIC che crittografa i dati durante la scrittura e li decrittografa durante la lettura.
+
+
+
+ a| 
+Unità FIPS
+ a| 
+Le unità FIPS utilizzano i Federal Information Processing Standards (FIPS) 140-2 livello 2. Sono essenzialmente unità FDE che rispettano gli standard del governo degli Stati Uniti per garantire algoritmi e metodi di crittografia robusti. Le unità FIPS hanno standard di sicurezza più elevati rispetto alle unità FDE.
+
+
+
+ a| 
+Client di gestione
+ a| 
+Un sistema locale (computer, tablet, ecc.) che include un browser per accedere a System Manager.
+
+
+
+ a| 
+Passphrase
+ a| 
+La pass phrase viene utilizzata per crittografare la chiave di sicurezza a scopo di backup. La stessa pass phrase utilizzata per crittografare la chiave di sicurezza deve essere fornita quando la chiave di sicurezza di cui è stato eseguito il backup viene importata a seguito di una migrazione del disco o di una sostituzione della testina. Una pass phrase può avere tra 8 e 32 caratteri.
+
+[NOTE]
+====
+La passphrase per Drive Security è indipendente dalla password dell'Administrator dell'array di storage.
+
+====
+
+
+ a| 
+unità compatibili con la sicurezza
+ a| 
+Le unità secure-capable possono essere unità Full Disk Encryption (FDE) o unità Federal Information Processing Standard (FIPS), che crittografano i dati durante la scrittura e li decrittografano durante la lettura. Queste unità sono considerate secure-_capable_ perché possono essere utilizzate per una sicurezza aggiuntiva tramite la funzionalità Drive Security. Se la funzionalità Drive Security è abilitata per i gruppi di volumi e i pool utilizzati con queste unità, le unità diventano secure-_enabled_.
+
+
+
+ a| 
+Unità con protezione abilitata
+ a| 
+Le unità secure-enabled vengono utilizzate con la funzionalità Drive Security. Quando si abilita la funzionalità Drive Security e la si applica a un pool o a un gruppo di volumi su unità secure-capable, le unità diventano secure-enabled. L'accesso in lettura e scrittura è disponibile solo tramite un controller configurato con la chiave di sicurezza corretta. Questa maggiore sicurezza impedisce l'accesso non autorizzato ai dati su un'unità fisicamente rimossa dall'array di storage.
+
+
+
+ a| 
+Chiave di sicurezza
+ a| 
+Una chiave di sicurezza è una stringa di caratteri condivisa tra le unità abilitate alla sicurezza e i controller in un array di storage. Ogni volta che l'alimentazione delle unità viene interrotta e riattivata, le unità abilitate alla sicurezza passano allo stato Security Locked finché il controller non applica la chiave di sicurezza. Se un'unità abilitata alla sicurezza viene rimossa dall'array di storage, i dati dell'unità vengono bloccati. Quando l'unità viene reinstallata in un array di storage diverso, cerca la chiave di sicurezza prima di rendere nuovamente accessibili i dati. Per sbloccare i dati, è necessario applicare la chiave di sicurezza originale. È possibile creare e gestire le chiavi di sicurezza utilizzando uno dei seguenti metodi:
+
+* Gestione delle chiavi interne: crea e mantieni le chiavi di sicurezza nella memoria persistente del controller.
+* Gestione delle chiavi esterne: crea e mantieni le chiavi di sicurezza su un server di gestione delle chiavi esterno.
+
+
+
+
+ a| 
+Identificatore della chiave di sicurezza
+ a| 
+L'identificativo della chiave di sicurezza è una stringa associata alla chiave di sicurezza durante la creazione della chiave. L'identificativo viene memorizzato sul controller e su tutte le unità associate alla chiave di sicurezza.
+
+|===

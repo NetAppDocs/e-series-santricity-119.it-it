@@ -1,0 +1,158 @@
+---
+permalink: san-getstarted/santricity-overview.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, 
+summary: I sistemi E-Series includono il software SANtricity per il provisioning dello storage e altre attività. 
+---
+= Scopri il software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I sistemi E-Series includono il software SANtricity per il provisioning dello storage e altre attività.
+
+Questo sito descrive come utilizzare le seguenti interfacce di gestione di SANtricity:
+
+* System Manager -- interfaccia basata su web utilizzata per gestire un singolo array di storage nella rete.
+* Unified Manager -- interfaccia basata su web utilizzata per visualizzare e gestire tutti gli array di storage nella rete.
+
+
+
+NOTE: Gli array di storage EF600/EF600C e EF300/EF300C non supportano il mirroring sincrono o i volumi thin.
+
+
+
+== SANtricity System Manager
+
+System Manager è software di gestione basato su web, integrato in ciascun controller. Per accedere all'interfaccia utente, punta un browser all'indirizzo IP del controller. Un setup wizard ti aiuta a iniziare con la configurazione del sistema.
+
+System Manager offre una varietà di funzionalità di gestione, tra cui:
+
+|===
+
+
+ a| 
+image:../media/sam1130_icon_performance.gif["Prestazioni"] *Prestazioni*
+ a| 
+Visualizza fino a 30 giorni di dati sulle prestazioni, inclusi latenza I/O, IOPS, utilizzo della CPU e throughput.
+
+
+
+ a| 
+image:../media/sam1130_icon_volumes.gif["Storage"] *Storage*
+ a| 
+Effettua il provisioning dello storage utilizzando pool o gruppi di volumi e crea workload applicativi.
+
+
+
+ a| 
+image:../media/sam1130_icon_async_mirroring.gif["Protezione dei dati"] *Protezione dei dati*
+ a| 
+Eseguire backup e ripristino di emergenza utilizzando snapshot, volume copy e remote mirroring.
+
+
+
+ a| 
+image:../media/sam1130_icon_controllers.gif["Hardware"] *Hardware*
+ a| 
+Verifica lo stato dei componenti ed esegui alcune funzioni relative a tali componenti, come l'assegnazione di hot spare drive.
+
+
+
+ a| 
+image:../media/sam1130_icon_alerts.gif["Avvisi"] *Avvisi*
+ a| 
+Notifica agli amministratori gli eventi importanti che si verificano sull'array di storage. Gli avvisi possono essere inviati tramite email, trap SNMP e syslog.
+
+
+
+ a| 
+image:../media/sam1140_icon_active_directory.gif["Gestione degli accessi"] *Gestione degli accessi*
+ a| 
+Configura l'autenticazione degli utenti che richiede agli utenti di accedere al sistema con credenziali assegnate.
+
+
+
+ a| 
+image:../media/sam1130_icon_settings.gif["Impostazioni di sistema"] *Impostazioni di sistema*
+ a| 
+Configura altre funzionalità relative alle prestazioni del sistema, come SSD cache e il bilanciamento automatico del carico.
+
+
+
+ a| 
+image:../media/sam1130_icon_support.gif["Supporto"] *Supporto*
+ a| 
+Visualizza i dati diagnostici, gestisci gli aggiornamenti e configura AutoSupport, che monitora lo stato di salute di un array di storage e invia notifiche automatiche al supporto tecnico.
+
+|===
+
+
+== SANtricity Unified Manager
+
+Unified Manager è un software basato su web utilizzato per gestire l'intero dominio. Da una vista centrale, puoi vedere lo stato di tutti i più recenti array E-Series ed EF-Series, come E4000, E2800, EF280, EF300, E5700, EF570, EF600, EF300C ed EF600C. Puoi anche eseguire operazioni batch sugli array di storage selezionati.
+
+Unified Manager viene installato su un server di gestione insieme al Web Services Proxy. Per accedere a Unified Manager, apri un browser e inserisci l'URL che punta al server in cui è installato il Web Services Proxy.
+
+Unified Manager offre una varietà di funzionalità di gestione, tra cui:
+
+|===
+
+
+ a| 
+image:../media/artboard_9.png["Scopri l'array di storage"] *Scopri gli array di storage*
+ a| 
+Individua e aggiungi gli array di storage che desideri gestire nella rete della tua organizzazione. Puoi quindi visualizzare lo stato di tutti gli array di storage da un'unica pagina.
+
+
+
+ a| 
+image:../media/artboard_11.png["Avvia"] *Lancio*
+ a| 
+Aprire un'istanza di System Manager per eseguire singole operazioni di gestione su uno specifico storage array.
+
+
+
+ a| 
+image:../media/sam1130_icon_system.gif["Importa impostazioni"] *Importa impostazioni*
+ a| 
+Eseguire un'importazione batch da un array di archiviazione a più array, incluse le impostazioni per gli avvisi, AutoSupport e i servizi di directory.
+
+
+
+ a| 
+image:../media/sam1130_icon_async_mirroring.gif["Mirroring"] *Specchiamento*
+ a| 
+Configura coppie di mirroring asincrono o sincrono tra due array di storage.
+
+
+
+ a| 
+image:../media/artboard_10.png["Gestisci gruppi"] *Gestisci gruppi*
+ a| 
+Organizza gli array di storage in gruppi per una gestione più semplice.
+
+
+
+ a| 
+image:../media/sam1130_icon_upgrade_center.gif["Centro di aggiornamento"] *Centro di aggiornamento*
+ a| 
+Aggiorna il software SANtricity OS su più array di storage.
+
+
+
+ a| 
+image:../media/sam1140_icon_certs.gif["Certificati"] *Certificati*
+ a| 
+Crea richieste di firma dei certificati (CSR), importa certificati e gestisci i certificati esistenti per più array di archiviazione.
+
+
+
+ a| 
+image:../media/sam1140_icon_active_directory.gif["Gestione degli accessi"] *Gestione degli accessi*
+ a| 
+Configura l'autenticazione degli utenti che richiede agli utenti di accedere a Unified Manager con le credenziali assegnate.
+
+|===

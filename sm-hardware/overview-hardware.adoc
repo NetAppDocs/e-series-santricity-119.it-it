@@ -1,0 +1,55 @@
+---
+permalink: sm-hardware/overview-hardware.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, hardware, page, 
+summary: È possibile verificare lo stato dei componenti nella pagina Hardware ed eseguire alcune funzioni relative a quei componenti. 
+---
+= Visualizza e gestisci i componenti hardware in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile verificare lo stato dei componenti nella pagina Hardware ed eseguire alcune funzioni relative a quei componenti.
+
+
+
+== Quali componenti posso gestire?
+
+È possibile verificare lo stato dei componenti ed eseguire alcune funzioni relative a questi componenti:
+
+* **Ripiani** -- Un _ripiano_ è un componente che contiene l'hardware per l'array di storage (controller, power/fan canisters e drive). I ripiani sono disponibili in tre dimensioni per ospitare fino a 12, 24 o 60 drive.
+* **Controller** -- Un _controller_ è l'insieme di hardware e firmware che implementa le funzioni di array di storage e di gestione. Include la memoria cache, il supporto per le unità e le porte per le connessioni host.
+* **Unità** -- Un'unità può essere un disco rigido (HDD) o un'unità a stato solido (SSD). A seconda delle dimensioni dello shelf, è possibile installare fino a 12, 24 o 60 unità.
+
+
+Per saperne di più:
+
+* link:hardware-page-overview.html["Pagina hardware"]
+* link:hardware-terminology.html["Terminologia hardware"]
+
+
+
+
+== Come posso visualizzare i componenti hardware?
+
+Accedete alla pagina Hardware, che fornisce una rappresentazione grafica dei componenti fisici dell'array di storage. Potete passare dalla visualizzazione anteriore a quella posteriore degli alloggiamenti dell'array selezionando la scheda *Drives* o *Controllers* in alto a destra nella visualizzazione degli alloggiamenti.
+
+Per saperne di più:
+
+* link:view-shelf-component-status-and-settings.html["Visualizza lo stato e le impostazioni dei componenti dello shelf"]
+* link:view-controller-settings.html["Visualizza le impostazioni del controller"]
+* link:view-drive-status-and-settings.html["Visualizza lo stato e le impostazioni dell'unità"]
+
+
+
+
+= Informazioni correlate
+
+Scopri di più sui concetti relativi all'hardware:
+
+* link:controller-states.html["Stati del controller"]
+* link:drive-states.html["Stati dei dischi"]
+* link:what-is-shelf-loss-protection-and-drawer-loss-protection.html["Protezione contro la perdita di shelf e protezione contro la perdita di drawer"]
+

@@ -1,0 +1,50 @@
+---
+permalink: sm-settings/switch-from-external-to-internal-key-management.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, switch, external, internal, key, management, 
+summary: 'È possibile modificare il metodo di gestione di Drive Security passando da un server di chiavi esterno al metodo interno utilizzato dall"array di storage. La chiave di sicurezza definita in precedenza per la gestione delle chiavi esterne viene quindi utilizzata per la gestione delle chiavi interne.' 
+---
+= Passare dalla gestione delle chiavi esterna a quella interna in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare il metodo di gestione di Drive Security passando da un server di chiavi esterno al metodo interno utilizzato dall'array di storage. La chiave di sicurezza definita in precedenza per la gestione delle chiavi esterne viene quindi utilizzata per la gestione delle chiavi interne.
+
+.Informazioni su questa attività
+In questa operazione, si disabilita la gestione esterna delle chiavi e si scarica una nuova copia di backup sul computer locale. La chiave esistente viene comunque utilizzata per Drive Security, ma sarà gestita internamente nell'array di storage.
+
+.Passaggi
+. Selezionare menu:Impostazioni[Sistema].
+. In *Gestione delle chiavi di sicurezza*, selezionare *Disabilita gestione chiavi esterne*.
++
+Si apre la finestra di dialogo Disable External Key Management.
+
+. In *Definisci una pass phrase/Reinserisci pass phrase*, inserisci e conferma una pass phrase per la copia di backup della chiave. Il valore può avere tra 8 e 32 caratteri e deve includere ciascuno dei seguenti:
++
+** Una o più lettere maiuscole. Ricorda che la pass phrase distingue tra maiuscole e minuscole.
+** Un numero (uno o più).
+** Un carattere non alfanumerico, come !, *, @ (uno o più).
+
+
++
+[CAUTION]
+====
+Assicurati di annotare le tue voci per un utilizzo successivo. Se devi spostare un'unità abilitata alla sicurezza dall'array di storage, devi conoscere l'identificativo e la pass phrase per sbloccare i dati dell'unità.
+
+====
+. Fai clic su *Disable*.
++
+La chiave di backup viene scaricata sul tuo host locale.
+
+. Annota il tuo identificatore chiave, la pass phrase e la posizione del file chiave scaricato, quindi fai clic su *Chiudi*.
+
+
+.Risultati
+La sicurezza delle unità è ora gestita internamente tramite l'array di storage.
+
+.Dopo aver finito
+Dovresti convalidare la chiave di sicurezza per assicurarti che il file della chiave non sia danneggiato.

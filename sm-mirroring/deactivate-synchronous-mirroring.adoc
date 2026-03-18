@@ -1,0 +1,32 @@
+---
+permalink: sm-mirroring/deactivate-synchronous-mirroring.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, deactivate, synchronous, mirroring, adapter, host, bus, 
+summary: 'È possibile disattivare la funzionalità di mirroring sincrono su un array di storage per ripristinare il normale utilizzo della porta host 4 dell"adattatore bus host (HBA), che era riservata per la trasmissione dei dati mirrorati.' 
+---
+= Disattivare il mirroring sincrono in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile disattivare la funzionalità di mirroring sincrono su un array di storage per ripristinare il normale utilizzo della porta host 4 dell'adattatore bus host (HBA), che era riservata per la trasmissione dei dati mirrorati.
+
+.Prima di iniziare
+Devi aver eliminato tutte le relazioni di mirroring sincrono. Verifica che tutte le coppie mirrorate siano state eliminate dall'array di storage.
+
+.Passaggi
+. Selezionare menu:Storage[Synchronous Mirroring].
+. Selezionare menu:Uncommon Tasks[Deactivate].
++
+Il sistema visualizza una conferma.
+
+. Seleziona *Yes* per confermare.
+
+
+.Risultati
+* La porta host HBA 4 del controller, che era dedicata alla comunicazione di mirroring sincrono, ora può accettare richieste di lettura e scrittura dall'host.
+* I volumi di capacità riservata sull'array di storage vengono eliminati.
+

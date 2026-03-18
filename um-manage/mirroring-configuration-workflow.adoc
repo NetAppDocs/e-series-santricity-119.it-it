@@ -1,0 +1,74 @@
+---
+permalink: um-manage/mirroring-configuration-workflow.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, mirroring, configuration, workflow 
+summary: È possibile configurare il mirroring asincrono o sincrono in Unified Manager, quindi utilizzare System Manager per gestire le sincronizzazioni. 
+---
+= Flussi di lavoro di configurazione del mirroring SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile configurare il mirroring asincrono o sincrono in SANtricity Unified Manager e quindi utilizzare SANtricity System Manager per gestire le sincronizzazioni.
+
+
+
+== Flusso di lavoro di mirroring asincrono
+
+La replica asincrona prevede il seguente flusso di lavoro:
+
+. Eseguire la configurazione iniziale in Unified Manager:
++
+.. Selezionare l'array di storage locale come origine per il trasferimento dei dati.
+.. Crea o seleziona un gruppo di coerenza mirror esistente, che è un container per il volume primario sull'array locale e il volume secondario sull'array remoto. I volumi primario e secondario sono indicati come la "coppia mirrorata". Se stai creando il gruppo di coerenza mirror per la prima volta, specifichi se desideri eseguire sincronizzazioni manuali o pianificate.
+.. Seleziona un volume primario dall'array di storage locale, quindi determina la sua capacità riservata. La capacità riservata è la capacità fisica allocata da utilizzare per l'operazione di copia.
+.. Selezionare un array di storage remoto come destinazione del trasferimento, un volume secondario e quindi determinarne la capacità riservata.
+.. Avviare il trasferimento iniziale dei dati dal volume primario al volume secondario. A seconda delle dimensioni del volume, questo trasferimento iniziale potrebbe richiedere diverse ore.
+
+
+. Verifica lo stato di avanzamento della sincronizzazione iniziale:
++
+.. In Unified Manager, avvia System Manager per l'array locale.
+.. In System Manager, visualizza lo stato dell'operazione di mirroring. Quando il mirroring è completo, lo stato della coppia mirrorata è "Ottimale".
+
+
+. Facoltativamente, è possibile riprogrammare o eseguire manualmente i successivi trasferimenti di dati in System Manager. Solo i nuovi e i blocchi modificati vengono trasferiti dal volume primario al volume secondario.
++
+[NOTE]
+====
+Grazie alla periodicità della replica asincrona, il sistema può consolidare i blocchi modificati e risparmiare larghezza di banda di rete. L'impatto sul throughput di scrittura e sulla latenza di scrittura è minimo.
+
+====
+
+
+
+
+== Flusso di lavoro di mirroring sincrono
+
+Il mirroring sincrono prevede il seguente flusso di lavoro:
+
+. Eseguire la configurazione iniziale in Unified Manager:
++
+.. Seleziona un array di storage locale come origine per il trasferimento dei dati.
+.. Selezionare un volume primario dall'array di storage locale.
+.. Selezionare un array storage remoto come destinazione per il trasferimento dei dati, quindi selezionare un volume secondario.
+.. Seleziona le priorità di sincronizzazione e risincronizzazione.
+.. Avviare il trasferimento iniziale dei dati dal volume primario al volume secondario. A seconda delle dimensioni del volume, questo trasferimento iniziale potrebbe richiedere diverse ore.
+
+
+. Verifica lo stato di avanzamento della sincronizzazione iniziale:
++
+.. In Unified Manager, avvia System Manager per l'array locale.
+.. In System Manager, visualizza lo stato dell'operazione di mirroring. Quando il mirroring è completo, lo stato della coppia mirrorata è "Ottimale". I due array tentano di rimanere sincronizzati durante le normali operazioni. Solo i nuovi blocchi e i blocchi modificati vengono trasferiti dal volume primario al volume secondario.
+
+
+. Facoltativamente, puoi modificare le impostazioni di sincronizzazione in System Manager.
++
+[NOTE]
+====
+Poiché la replica sincrona è continua, il collegamento di replica tra i due siti deve fornire una larghezza di banda sufficiente.
+
+====
+

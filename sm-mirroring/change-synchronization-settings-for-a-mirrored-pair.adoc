@@ -1,0 +1,57 @@
+---
+permalink: sm-mirroring/change-synchronization-settings-for-a-mirrored-pair.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, synchronization, settings, mirrored, pair, 
+summary: 'È possibile modificare la priorità di sincronizzazione e la policy di risincronizzazione che la coppia mirror utilizza per completare l"operazione di risincronizzazione dopo un"interruzione della comunicazione.' 
+---
+= Modificare le impostazioni di sincronizzazione per una coppia mirrorata in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare la priorità di sincronizzazione e la policy di risincronizzazione che la coppia mirror utilizza per completare l'operazione di risincronizzazione dopo un'interruzione della comunicazione.
+
+.Informazioni su questa attività
+È possibile modificare le impostazioni di sincronizzazione per una coppia con mirroring solo sull'array di storage che contiene il volume primario.
+
+.Passaggi
+. Selezionare menu:Storage[Synchronous Mirroring].
+. Seleziona la coppia speculare che desideri modificare, quindi seleziona menu:More[Edit settings].
++
+Il sistema visualizza la finestra di dialogo Visualizza/Modifica impostazioni.
+
+. Utilizza la barra di scorrimento per modificare la priorità di sincronizzazione.
++
+La priorità di sincronizzazione determina quante risorse di sistema vengono utilizzate per completare l'operazione di risincronizzazione dopo un'interruzione della comunicazione rispetto alle richieste di I/O del servizio.
+
++
+.Ulteriori informazioni sulle velocità di sincronizzazione
+[%collapsible]
+====
+Esistono cinque livelli di priorità di sincronizzazione:
+
+** Più basso
+** Basso
+** Medio
+** Alto
+** Più alto
+
+
+====
++
+Se la priorità di sincronizzazione è impostata sul valore più basso, l'attività di I/O ha la priorità e l'operazione di risincronizzazione richiede più tempo. Se la priorità di sincronizzazione è impostata sul valore più alto, l'operazione di risincronizzazione ha la priorità, ma l'attività di I/O per l'array di storage potrebbe essere influenzata.
+
+. Modifica la policy di risincronizzazione come appropriato.
++
+È possibile risincronizzare le coppie mirrorate sull'array di archiviazione remoto manualmente o automaticamente.
+
++
+** *Manuale* (opzione consigliata) -- Selezionare questa opzione per richiedere che la sincronizzazione venga ripresa manualmente dopo il ripristino della comunicazione con una coppia mirror. Questa opzione offre la migliore opportunità per il recupero dei dati.
+** *Automatico* -- Selezionare questa opzione per avviare automaticamente la risincronizzazione dopo il ripristino della comunicazione con una coppia mirrorata.
+
+
+. Seleziona *Save*.
+

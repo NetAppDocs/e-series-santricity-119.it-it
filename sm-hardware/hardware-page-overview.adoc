@@ -1,0 +1,72 @@
+---
+permalink: sm-hardware/hardware-page-overview.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, hardware, page, components, 
+summary: 'La pagina Hardware fornisce una rappresentazione grafica dei componenti fisici dell"array di storage. Da qui puoi verificare lo stato dei componenti ed eseguire alcune funzioni relative a tali componenti.' 
+---
+= Pagina hardware e componenti di SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La pagina Hardware fornisce una rappresentazione grafica dei componenti fisici dell'array di storage. Da qui è possibile verificare lo stato dei componenti ed eseguire alcune funzioni relative a tali componenti.
+
+
+
+== Shelf di espansione
+
+Uno shelf è un componente che contiene l'hardware per lo storage array (controller, power/fan canister e drive). Esistono due tipi di shelf:
+
+* *Shelf dei controller* -- Contiene i drive, i contenitori di alimentazione/ventole e i controller.
+* *Drive shelf* (o *shelf di espansione*) -- Contiene unità disco, alloggiamenti per ventole/alimentazione e due moduli di input/output (IOM). Gli IOM, noti anche come moduli di servizio ambientale (ESM), includono porte SAS che collegano il drive shelf al controller shelf.
+
+
+Sono disponibili shelf in tre dimensioni per ospitare fino a 12, 24 o 60 drive. Ogni shelf include un numero ID, che viene assegnato dal firmware del controller. L'ID appare in alto a sinistra nella vista dello shelf.
+
+La visualizzazione dello shelf nella pagina Hardware mostra i componenti anteriori o posteriori. Puoi passare da una visualizzazione all'altra selezionando le schede *Drives* o *Controller* in alto a destra della visualizzazione dello shelf. Puoi anche selezionare *Show all front* o *Show all back* in fondo alla pagina. Le visualizzazioni anteriore e posteriore mostrano quanto segue:
+
+* *Componenti anteriori* -- Unità disco e alloggiamenti vuoti per unità disco.
+* *Componenti posteriori* -- Controller e contenitori di alimentazione/ventola (per controller shelves) oppure IOM e contenitori di alimentazione/ventola (per drive shelves).
+
+
+È possibile eseguire le seguenti operazioni relative agli shelf di espansione:
+
+* Accendi la luce di localizzazione dello shelf, in modo da poter individuare la posizione fisica dello shelf all'interno dell'armadio o del rack.
+* Modifica il numero ID visualizzato nell'angolo in alto a sinistra della vista shelf.
+* Visualizza le impostazioni dello shelf, come i tipi di drive installati e il numero di serie.
+* Sposta le visualizzazioni degli shelf verso l'alto o verso il basso per adattarle alla disposizione fisica nello storage array.
+
+
+
+
+== Controllori
+
+Un controller è l'insieme di hardware e firmware che implementa le funzioni di array di storage e di gestione. Include la cache, il supporto per i dischi e il supporto per l'interfaccia verso gli host.
+
+È possibile eseguire le seguenti funzioni relative ai controller:
+
+* Configura le porte di gestione per indirizzi IP e velocità.
+* Configura le connessioni host iSCSI (se disponi di host iSCSI).
+* Configura un server Network Time Protocol (NTP) e un server Domain Name System (DNS).
+* Visualizza stato e impostazioni del controller.
+* Consenti agli utenti dall'esterno della rete locale di avviare una sessione SSH e modificare le impostazioni del controller.
+* Posizionare il controller offline, online o in modalità service.
+
+
+
+
+== Dischi
+
+Il sistema di archiviazione può includere hard disk drive (HDD) o solid state drive (SSD). A seconda delle dimensioni dello shelf, è possibile installare fino a 12, 24 o 60 drive nello shelf.
+
+È possibile eseguire le seguenti funzioni relative ai dischi:
+
+* Accendi la spia di localizzazione del disco, in modo da poter individuare la posizione fisica del disco nello shelf.
+* Visualizza lo stato e le impostazioni del disco.
+* Riassegnare un disco (sostituire logicamente un disco guasto con un disco non assegnato) e, se necessario, ricostruire manualmente il disco.
+* Contrassegna manualmente un drive per poterlo sostituire. (Contrassegnare un drive consente di copiarne il contenuto prima di sostituirlo.)
+* Assegna o revoca l'assegnazione degli hot spare.
+* Cancella le unità.
+

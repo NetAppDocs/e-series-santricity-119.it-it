@@ -1,0 +1,48 @@
+---
+permalink: sm-settings/overview-certificates.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, certificates, 
+summary: 'È possibile utilizzare System Manager per creare Certificate Signing Requests (CSR), importare certificati e gestire i certificati esistenti.' 
+---
+= Scopri i certificati in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare SANtricity System Manager per creare Certificate Signing Requests (CSR), importare certificati e gestire i certificati esistenti.
+
+
+
+== Cosa sono i certificati?
+
+I _certificati_ sono file digitali che identificano entità online, come siti web e server, per comunicazioni sicure su internet. Esistono due tipi di certificati: un _certificato firmato_ è convalidato da un'autorità di certificazione (CA) e un _certificato autofirmato_ è convalidato dal proprietario dell'entità invece che da una terza parte.
+
+Per saperne di più:
+
+* link:how-certificates-work-sam.html["Come funzionano i certificati"]
+* link:certificate-terminology.html["Terminologia dei certificati"]
+
+
+
+
+== Come si configurano i certificati firmati?
+
+È possibile generare una richiesta di firma da System Manager o esternamente utilizzando una coppia di chiavi privata e pubblica. La richiesta di firma viene inviata a una CA per generare i file del certificato. Una volta che la CA restituisce i file del certificato, li importi utilizzando System Manager.
+
+Per saperne di più:
+
+* link:use-ca-signed-certificates-for-controllers.html["Utilizza certificati firmati da CA per i controller"]
+* link:use-ca-signed-certificates-for-authentication-with-a-key-management-server.html["Utilizzare certificati firmati da CA per l'autenticazione con un server di gestione delle chiavi"]
+
+
+
+
+== Informazioni correlate
+
+Scopri di più sulle attività relative ai certificati:
+
+* link:view-imported-certificates.html["Visualizza le informazioni sul certificato importato"]
+* link:enable-certificate-revocation-checking.html["Abilita la verifica della revoca dei certificati"]
+

@@ -1,0 +1,35 @@
+---
+permalink: sm-support/enable-autosupport-maintenance-window.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, autosupport, ASUP, maintenance window 
+summary: 'Abilitare la finestra di manutenzione AutoSupport per sopprimere la creazione automatica di ticket in caso di eventi di errore. In modalità operativa normale, l"array di storage utilizza AutoSupport per aprire un caso con il Supporto in caso di problemi.' 
+---
+= Abilitare la finestra di manutenzione AutoSupport in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Abilitare la finestra di manutenzione AutoSupport per sopprimere la creazione automatica di ticket in caso di eventi di errore. In modalità operativa normale, l'array di storage utilizza AutoSupport per aprire un caso con il Supporto in caso di problemi.
+
+.Passaggi
+. Selezionare menu:Supporto[Support Center > AutoSupport] scheda.
+. Selezionare *Abilita AutoSupport finestra di manutenzione*.
+. Inserisci l'indirizzo email per ricevere una conferma che la richiesta della finestra di manutenzione è stata elaborata.
++
+A seconda della configurazione, potresti essere in grado di inserire fino a cinque indirizzi email. Se desideri aggiungere più di un indirizzo, seleziona *Aggiungi un altro indirizzo email* per aprire un altro campo.
+
+. Specificare la durata (in ore) per abilitare la finestra di manutenzione.
++
+La durata massima supportata è 72 ore.
+
+. Fai clic su *Yes*.
++
+AutoSupport la creazione automatica di ticket in caso di eventi di errore è temporaneamente soppressa per la finestra di durata specificata.
+
+
+
+.Dopo aver finito
+La finestra di manutenzione non inizia finché la richiesta dell'array di storage non viene elaborata dai server AutoSupport. Attendi di aver ricevuto un'e-mail di conferma prima di eseguire qualsiasi attività di manutenzione sull'array di storage.

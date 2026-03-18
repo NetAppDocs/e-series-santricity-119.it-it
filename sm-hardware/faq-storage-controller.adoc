@@ -1,0 +1,135 @@
+---
+permalink: sm-hardware/faq-storage-controller.html 
+sidebar: sidebar 
+keywords:  
+summary: Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda. 
+---
+= Domande frequenti sullo storage controller per SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda.
+
+
+
+== Che cos'è l'auto-negotiation?
+
+L'autonegoziazione è la capacità di un'interfaccia di rete di coordinare automaticamente i propri parametri di connessione (velocità e duplex) con un'altra interfaccia di rete.
+
+La negoziazione automatica è generalmente l'impostazione preferita per la configurazione delle porte di gestione; tuttavia, se la negoziazione fallisce, le impostazioni dell'interfaccia di rete non corrispondenti possono influire negativamente sulle prestazioni della rete. Nei casi in cui tale condizione non sia accettabile, è necessario impostare manualmente le impostazioni dell'interfaccia di rete su una configurazione corretta. La negoziazione automatica viene eseguita dalle porte di gestione Ethernet del controller. La negoziazione automatica non viene eseguita dagli iSCSI host bus adapter.
+
+[NOTE]
+====
+Se la negoziazione automatica fallisce, il controller tenta di stabilire una connessione a 10BASE-T, half-duplex, che è il minimo comune denominatore.
+
+====
+
+
+== Che cos'è l'autoconfigurazione degli indirizzi IPv6 senza stato?
+
+Con l'autoconfigurazione stateless, gli host non ottengono indirizzi e altre informazioni di configurazione da un server.
+
+L'autoconfigurazione stateless in IPv6 include indirizzi link-local, multicasting e il protocollo Neighbor Discovery (ND). IPv6 può generare l'ID dell'interfaccia di un indirizzo a partire dall'indirizzo del livello di collegamento dati sottostante.
+
+L'autoconfigurazione senza stato e l'autoconfigurazione con stato si completano a vicenda. Ad esempio, l'host può utilizzare l'autoconfigurazione senza stato per configurare i propri indirizzi, ma utilizzare l'autoconfigurazione con stato per ottenere altre informazioni. L'autoconfigurazione con stato consente agli host di ottenere indirizzi e altre informazioni di configurazione da un server. Internet Protocol versione 6 (IPv6) definisce anche un metodo mediante il quale tutti gli indirizzi IP su una rete possono essere rinumerati contemporaneamente. IPv6 definisce un metodo per cui i dispositivi sulla rete possono configurare automaticamente il proprio indirizzo IP e altri parametri senza la necessità di un server.
+
+I dispositivi eseguono questi passaggi quando utilizzano l'autoconfigurazione stateless:
+
+. *Genera un indirizzo link-local* -- Il dispositivo genera un indirizzo link-local, che ha 10 bit, seguiti da 54 zeri e seguiti dall'ID dell'interfaccia a 64 bit.
+. *Verifica l'unicità di un indirizzo link-local* -- Il nodo verifica che l'indirizzo link-local che genera non sia già in uso sulla rete locale. Il nodo invia un messaggio di richiesta di prossimità utilizzando il protocollo ND. In risposta, la rete locale ascolta un messaggio di annuncio di prossimità, che indica che un altro dispositivo sta già utilizzando l'indirizzo link-local. In tal caso, è necessario generare un nuovo indirizzo link-local oppure l'autoconfigurazione fallisce e si deve utilizzare un altro metodo.
+. *Assegna un indirizzo link-local* -- Se il dispositivo supera il test di unicità, il dispositivo assegna l'indirizzo link-local alla sua interfaccia IP. L'indirizzo link-local può essere utilizzato per la comunicazione sulla rete locale ma non su Internet.
+. *Contattare il router* -- Il nodo tenta di contattare un router locale per ottenere maggiori informazioni su come proseguire con la configurazione. Questo contatto avviene ascoltando i messaggi di annuncio del router inviati periodicamente dai router oppure inviando uno specifico messaggio di richiesta al router per ottenere informazioni su cosa fare dopo.
+. *Fornire indicazioni al nodo* -- Il router fornisce al nodo indicazioni su come procedere con l'autoconfigurazione. In alternativa, il router indica all'host come determinare l'indirizzo Internet globale.
+. *Configura l'indirizzo globale* -- L'host si configura con il suo indirizzo Internet univoco a livello globale. Questo indirizzo è generalmente formato da un prefisso di rete fornito all'host dal router.
+
+
+
+
+== Quale devo scegliere: DHCP o configurazione manuale?
+
+Il metodo predefinito per la configurazione di rete è il Dynamic Host Configuration Protocol (DHCP). Utilizzare sempre questa opzione, a meno che la rete non disponga di un server DHCP.
+
+
+
+== Che cos'è un server DHCP?
+
+Il Dynamic Host Configuration Protocol (DHCP) è un protocollo che automatizza l'assegnazione di un indirizzo Internet Protocol (IP).
+
+A ciascun dispositivo connesso a una rete TCP/IP deve essere assegnato un indirizzo IP univoco. Questi dispositivi includono i controller nel sistema storage.
+
+Senza DHCP, un amministratore di rete inserisce manualmente questi indirizzi IP. Con DHCP, quando un client deve avviare operazioni TCP/IP, il client invia una richiesta broadcast di informazioni sull'indirizzo. Il server DHCP riceve la richiesta, assegna un nuovo indirizzo per un periodo di tempo specificato, chiamato lease period, e invia l'indirizzo al client. Con DHCP, un dispositivo può avere un indirizzo IP diverso ogni volta che si connette alla rete. In alcuni sistemi, l'indirizzo IP del dispositivo può cambiare anche mentre il dispositivo è ancora connesso.
+
+
+
+== Come configuro il mio server DHCP?
+
+È necessario configurare un server Dynamic Host Configuration Protocol (DHCP) per utilizzare indirizzi Internet Protocol (IP) statici per i controller nel sistema storage.
+
+Gli indirizzi IP assegnati dal server DHCP sono generalmente dinamici e possono cambiare perché hanno un periodo di validità che scade. Alcuni dispositivi, ad esempio server e router, devono utilizzare indirizzi statici. I controller nel tuo storage array necessitano anch'essi di indirizzi IP statici.
+
+Per informazioni su come assegnare indirizzi statici, consultare la documentazione per il server DHCP.
+
+
+
+== Perché devo modificare la configurazione di rete del controller?
+
+È necessario impostare la configurazione di rete per ciascun controller--il suo indirizzo Internet Protocol (IP), la maschera di sottorete (subnet mask) e il gateway--quando si utilizza out-of-band management.
+
+È possibile impostare la configurazione di rete utilizzando un server Dynamic Host Configuration Protocol (DHCP). Se non si utilizza un server DHCP, è necessario inserire la configurazione di rete manualmente.
+
+
+
+== Dove posso trovare la configurazione di rete?
+
+È possibile ottenere l'indirizzo Internet Protocol (IP), la maschera di sottorete (subnet mask) e le informazioni sul gateway dal proprio amministratore di rete.
+
+Queste informazioni sono necessarie quando si configurano le porte sui controller.
+
+
+
+== Che cosa sono le risposte ICMP PING?
+
+Internet Control Message Protocol (ICMP) è uno dei protocolli della suite TCP/IP.
+
+I  `ICMP echo request` e i (`ICMP echo reply` messaggi sono comunemente noti come  `ping` messaggi.  `Ping` è uno strumento di risoluzione dei problemi utilizzato dagli amministratori di sistema per testare manualmente la connettività tra dispositivi di rete e anche per testare il ritardo di rete e la perdita di pacchetti. Il comando  `ping` invia un  `ICMP echo request` a un dispositivo sulla rete e il dispositivo risponde immediatamente con un (`ICMP echo reply`. A volte, la politica di sicurezza di rete di un'azienda richiede che  `ping` (`ICMP echo reply` sia disabilitato su tutti i dispositivi per renderli più difficili da individuare da parte di persone non autorizzate.
+
+
+
+== Quando devo aggiornare la configurazione della porta?
+
+Aggiorna il server DHCP ogni volta che il server viene modificato o aggiornato e le informazioni DHCP relative all'array di storage corrente e all'array di storage che si desidera utilizzare sono cambiate.
+
+In particolare, aggiorna la configurazione della porta o il server iSNS dal server DHCP quando sai che il server DHCP assegnerà indirizzi diversi.
+
+[NOTE]
+====
+L'aggiornamento della configurazione di una porta è distruttivo per tutte le connessioni iSCSI su quella porta.
+
+====
+
+
+== Cosa devo fare dopo aver configurato le porte di management?
+
+Se hai modificato l'indirizzo IP dell'array di storage, potresti voler aggiornare la vista globale dell'array in SANtricity Unified Manager.
+
+Per aggiornare la visualizzazione globale dell'array in Unified Manager, apri l'interfaccia e vai al menu:Manage[Discover].
+
+Se stai ancora utilizzando il SANtricity Storage Manager, vai alla Enterprise Management Window (EMW), dove devi rimuovere e aggiungere nuovamente il nuovo indirizzo IP.
+
+
+
+== Perché il sistema storage è in modalità non ottimale?
+
+Un sistema storage in modalità non ottimale è dovuto a uno stato di configurazione di sistema non valido. Nonostante questo stato, il normale accesso I/O ai volumi esistenti è pienamente supportato; tuttavia, SANtricity System Manager proibirà alcune operazioni.
+
+Un sistema storage potrebbe passare allo stato di Configurazione di sistema non valida per uno di questi motivi:
+
+* Il controller non è conforme, probabilmente perché presenta un codice submodel ID (SMID) errato o perché ha superato il limite delle funzionalità premium.
+* È in corso un'operazione di servizio interna, come ad esempio il download del firmware di un'unità.
+* Il controller ha superato la soglia di errore di parità ed è andato in lockdown.
+* Si è verificata una condizione di lockdown generale.
+

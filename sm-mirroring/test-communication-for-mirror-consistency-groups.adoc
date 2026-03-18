@@ -1,0 +1,76 @@
+---
+permalink: sm-mirroring/test-communication-for-mirror-consistency-groups.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, test, communication, mirror, consistency, groups, 
+summary: È possibile testare il collegamento di comunicazione per diagnosticare eventuali problemi di comunicazione tra il sistema storage locale e il sistema storage remoto associato a un gruppo di coerenza mirror. 
+---
+= Test della comunicazione per i gruppi di coerenza mirror in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile testare il collegamento di comunicazione per diagnosticare eventuali problemi di comunicazione tra il sistema storage locale e il sistema storage remoto associato a un gruppo di coerenza mirror.
+
+.Prima di iniziare
+Il gruppo di coerenza mirror che si desidera testare deve esistere sugli array di storage locali e remoti.
+
+.Informazioni su questa attività
+È possibile eseguire quattro test diversi:
+
+* *Connettività* -- Verifica che i due controller abbiano un percorso di comunicazione. Il test di connettività invia un messaggio inter-array tra i sistemi storage e quindi verifica che il corrispondente mirror consistency group sul sistema storage remoto esista. Verifica inoltre che i volumi membri del mirror consistency group sul sistema storage remoto corrispondano ai volumi membri del mirror consistency group sul sistema storage locale.
+* *Latenza* -- Invia un comando SCSI Test Unit a ciascun volume mirrorato sull'array di storage remoto associato al gruppo di coerenza mirror per testare la latenza minima, media e massima.
+* *Larghezza di banda* -- Invia due messaggi inter-array all'array di storage remoto per testare la larghezza di banda minima, media e massima, nonché la velocità di collegamento negoziata della porta sull'array che esegue il test.
+* *Connessioni delle porte* -- Mostra la porta utilizzata per il mirroring sul sistema storage locale e la porta che riceve i dati mirrorati sul sistema storage remoto.
+
+
+.Passaggi
+. Selezionare menu:Storage[Asynchronous Mirroring].
+. Seleziona la scheda *Mirror Consistency Groups* e poi seleziona il mirror consistency group che desideri testare.
+. Seleziona *Test Communication*.
++
+Viene visualizzata la finestra di dialogo Test comunicazione.
+
+. Selezionare uno o più test di comunicazione da eseguire tra i sistemi storage locali e remoti associati al gruppo di coerenza mirror selezionato, quindi fare clic su *Test*.
+. Esamina le informazioni visualizzate nella finestra Risultati.
++
+[cols="35h,~"]
+|===
+| Stato del test di comunicazione | Descrizione 
+
+
+ a| 
+Normale senza errori
+ a| 
+Il gruppo di coerenza mirror sta comunicando correttamente.
+
+
+
+ a| 
+Stato superato (ma non normale)
+ a| 
+Verifica eventuali problemi di rete o di connessione e riprova il test.
+
+
+
+ a| 
+Stato non riuscito
+ a| 
+Viene indicata la causa dell'errore. Consulta la Guida al ripristino per risolvere il problema.
+
+
+
+ a| 
+Errore di connessione alla porta
+ a| 
+Il problema potrebbe essere dovuto al fatto che l'array di storage locale non è connesso o non è possibile contattare l'array di storage remoto. Consultare la Recovery Guru per correggere il problema.
+
+|===
+
+
+.Risultati
+Al termine del test di comunicazione, questa finestra di dialogo mostra uno stato Normale, uno stato Superato o uno stato Non superato.
+
+Se il test di comunicazione restituisce uno stato di errore, il test continua a essere eseguito dopo la chiusura di questa finestra di dialogo finché la comunicazione tra i mirror consistency groups non viene ripristinata.

@@ -1,0 +1,113 @@
+---
+permalink: um-manage/upgrade-controller-firmware.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, upgrade, os, operating system 
+summary: Aggiorna uno o più array di storage con il software e la NVSRAM più recenti per assicurarti di avere tutte le funzionalità e le correzioni di bug più recenti. Controller NVSRAM è un file che specifica le impostazioni predefinite per i controller. 
+---
+= Aggiorna il sistema operativo SANtricity
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aggiorna uno o più array di storage con il software e la NVSRAM più recenti per assicurarti di avere tutte le funzionalità e le correzioni di bug più recenti. Controller NVSRAM è un file che specifica le impostazioni predefinite per i controller.
+
+.Prima di iniziare
+* I file più recenti di SANtricity OS sono disponibili sul sistema host in cui sono in esecuzione SANtricity Web Services Proxy e Unified Manager.
+* Sai se desideri attivare l'aggiornamento del software ora o in un secondo momento.
++
+Potresti scegliere di attivare in un secondo momento per i seguenti motivi:
+
++
+** *Orario della giornata* -- L'attivazione del software può richiedere molto tempo, quindi potresti voler attendere che i carichi di I/O siano più leggeri. I controller effettuano un failover durante l'attivazione, quindi le prestazioni potrebbero essere inferiori al solito fino al completamento dell'aggiornamento.
+** *Tipo di pacchetto* -- Potresti voler testare il nuovo software OS su un array di storage prima di aggiornare i file su altri array di storage.
+
+
+
+
+
+IMPORTANT: I sistemi devono eseguire SANtricity OS 11.70.5 per eseguire l'aggiornamento alla versione 11.80.x o successiva.
+
+.Informazioni su questa attività
+++ ++
+
+[NOTE]
+====
+Rischio di perdita di dati o rischio di danneggiamento dell'array di storage - non apportare modifiche all'array di storage durante l'aggiornamento. Mantenere l'alimentazione all'array di storage.
+
+====
+.Passaggi
+. Se il tuo array di storage contiene solo un controller o non è in uso un driver multipath, interrompi l'attività di I/O verso l'array di storage per evitare errori dell'applicazione. Se il tuo array di storage ha due controller e hai installato un driver multipath, non è necessario interrompere l'attività di I/O.
+. Dalla schermata principale, seleziona *Manage* e quindi seleziona uno o più storage array che desideri aggiornare.
+. Selezionare menu: Upgrade Center [Upgrade SANtricity OS Software].
++
+Viene visualizzata la pagina di aggiornamento del software SANtricity OS.
+
+. Scarica il pacchetto software SANtricity OS più recente dal sito di supporto NetApp sul tuo computer locale.
++
+.. Fare clic su *Aggiungi nuovo file al repository software*.
+.. Fai clic sul link per trovare gli ultimi *SANtricity OS Downloads*.
+.. Fai clic sul link *Download Latest Release*.
+.. Segui le istruzioni rimanenti per scaricare il file SANtricity OS e il file NVSRAM sul tuo computer locale.
+
+
++
+[NOTE]
+====
+Il firmware con firma digitale è richiesto nella versione 8.42 e successive. Se si tenta di scaricare firmware non firmato, viene visualizzato un errore e il download viene interrotto.
+
+====
+. Seleziona il file del software OS e il file NVSRAM che desideri utilizzare per aggiornare i controller:
++
+.. Dal menu a tendina *Seleziona un file software SANtricity OS*, seleziona il file OS che hai scaricato sulla tua macchina locale.
++
+Se sono disponibili più file, i file vengono ordinati dal più recente al più vecchio.
+
++
+[NOTE]
+====
+Il repository software elenca tutti i file software associati al Web Services Proxy. Se non vedi il file che desideri utilizzare, puoi fare clic sul collegamento *Aggiungi nuovo file al repository software* per individuare la posizione in cui si trova il file OS che desideri aggiungere.
+
+====
+.. Dal menu a tendina *Select an NVSRAM file*, seleziona il file del controller che desideri utilizzare.
++
+Se sono presenti più file, i file vengono ordinati dalla data più recente alla data più vecchia.
+
+
+
+. Nella tabella Compatible Storage Array, esamina gli storage array compatibili con il file software OS che hai selezionato, quindi seleziona gli array che desideri aggiornare.
++
+** Gli array di storage che hai selezionato nella vista Gestione e che sono compatibili con il file firmware selezionato sono selezionati per impostazione predefinita nella tabella Array di storage compatibili.
+** Gli array di storage che non possono essere aggiornati con il file firmware selezionato non sono selezionabili nella tabella Compatible Storage Array, come indicato dallo stato *Incompatible*.
+
+
+. *Facoltativo:* Per trasferire il file del software sugli array di storage senza attivarli, selezionare la check box *Trasferisci il software del sistema operativo sugli array di storage, contrassegnalo come preparato e attivalo in un secondo momento*.
+. Fai clic su *Start*.
+. A seconda che tu abbia scelto di attivare ora o in un secondo momento, procedi in uno dei seguenti modi:
++
+** Digita *TRANSFER* per confermare che desideri trasferire le versioni del software del sistema operativo proposte sugli array selezionati per l'aggiornamento, quindi fai clic su *Transfer*.
++
+Per attivare il software trasferito, selezionare menu:Upgrade Center[Attiva software del sistema operativo preinstallato].
+
+** Digita *UPGRADE* per confermare che desideri trasferire e attivare le versioni del software del sistema operativo proposte sugli array selezionati per l'aggiornamento, quindi fai clic su *Upgrade*.
++
+Il sistema trasferisce il file software a ciascun storage array selezionato per l'aggiornamento e quindi attiva tale file avviando un riavvio.
+
+
+
++
+Durante l'operazione di aggiornamento si verificano le seguenti azioni:
+
++
+** Un controllo preliminare dello stato di salute viene eseguito come parte del processo di aggiornamento. Il controllo preliminare dello stato di salute valuta tutti i componenti dell'array di storage per assicurarsi che l'aggiornamento possa procedere.
+** Se un controllo di integrità di un array di storage non riesce, l'aggiornamento si interrompe. Puoi fare clic sui puntini di sospensione (...) e selezionare *Salva registro* per esaminare gli errori. Puoi anche scegliere di ignorare l'errore del controllo di integrità e quindi fare clic su *Continua* per procedere con l'aggiornamento.
+** È possibile annullare l'operazione di upgrade dopo il controllo dello stato di salute pre-upgrade.
+
+
+. *Facoltativo:* Una volta completato l'aggiornamento, puoi vedere un elenco di ciò che è stato aggiornato per uno specifico storage array facendo clic sui puntini di sospensione (...) e quindi selezionando *Save Log*.
++
+Il file viene salvato nella cartella Downloads del tuo browser con il nome `upgrade_log-<date>.json`.
+
+

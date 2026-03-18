@@ -1,0 +1,92 @@
+---
+permalink: sm-storage/interpret-performance-data.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, interpret, performance data 
+summary: 'I dati sulle prestazioni possono guidarti nell"ottimizzazione delle prestazioni del tuo storage array.' 
+---
+= Interpretare i dati sulle prestazioni in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I dati sulle prestazioni possono guidarti nell'ottimizzazione delle prestazioni del tuo storage array.
+
+Quando si interpretano i dati sulle prestazioni, tenere presente che diversi fattori influenzano le prestazioni dell'array di storage. La tabella seguente descrive le principali aree da considerare.
+
+[cols="25h,~"]
+|===
+| Dati sulle prestazioni | Implicazioni per la messa a punto delle prestazioni 
+
+
+ a| 
+Latenza (millisecondi, o ms)
+ a| 
+Monitora l'attività di I/O di un oggetto specifico.
+
+Identificare potenzialmente gli oggetti che costituiscono colli di bottiglia:
+
+* Se un gruppo di volumi è condiviso tra più volumi, i singoli volumi potrebbero necessitare dei propri gruppi di volumi per migliorare le prestazioni sequenziali delle unità e diminuire la latenza.
+* Con i pool, si introducono latenze maggiori e potrebbero verificarsi carichi di lavoro non uniformi tra le unità, rendendo i valori di latenza meno significativi e, in generale, più elevati.
+* Il tipo e la velocità dell'unità influenzano la latenza. Con I/O casuale, le unità con velocità di rotazione più elevata impiegano meno tempo a spostarsi da e verso diverse posizioni sul disco.
+* Un numero insufficiente di unità comporta un maggior numero di comandi in coda e un periodo di tempo maggiore per l'elaborazione del comando da parte dell'unità, aumentando la latenza generale del sistema.
+* Le operazioni di I/O di maggiori dimensioni presentano una latenza maggiore a causa del tempo aggiuntivo necessario per il trasferimento dei dati.
+* Una latenza più elevata potrebbe indicare che il modello di I/O è di natura casuale. Le unità con I/O casuale avranno una latenza maggiore rispetto a quelle con flussi sequenziali.
+* Una disparità di latenza tra le unità o i volumi di uno stesso gruppo di volumi potrebbe indicare un'unità lenta.
+
+
+
+
+ a| 
+IOPS
+ a| 
+I fattori che influenzano le operazioni di input/output al secondo (IOPS o IOs/sec) includono questi elementi:
+
+* Modalità di accesso (casuale o sequenziale)
+* Dimensione I/O
+* livello RAID
+* Dimensione del blocco cache
+* Se la cache di lettura è abilitata
+* Se la cache di scrittura è abilitata
+* Precaricamento dinamico della cache di lettura
+* Dimensione del segmento
+* Il numero di unità nei gruppi di volumi o nell'array di storage
+
+
+Maggiore è il cache hit rate, maggiori saranno i tassi di I/O. Si riscontrano tassi di I/O in scrittura più elevati con la cache di scrittura abilitata rispetto a quando è disabilitata. Nel decidere se abilitare la cache di scrittura per un singolo volume, osserva le IOPS attuali e le IOPS massime. Dovresti vedere tassi più elevati per i pattern di I/O sequenziali rispetto ai pattern di I/O casuali. Indipendentemente dal tuo pattern di I/O, abilita la cache di scrittura per massimizzare il tasso di I/O e ridurre il tempo di risposta dell'applicazione.
+
+È possibile visualizzare i miglioramenti delle prestazioni derivanti dalla modifica della dimensione del segmento nelle statistiche IOPS di un volume. Esegui delle prove per determinare la dimensione ottimale del segmento oppure utilizza la dimensione del file system o la dimensione del blocco del database.
+
+
+
+ a| 
+MiB/s
+ a| 
+Le velocità di trasferimento o di throughput sono determinate dalle dimensioni dell'I/O dell'applicazione e dalla frequenza di I/O. In genere, le richieste di I/O di piccole dimensioni comportano una velocità di trasferimento inferiore ma offrono una frequenza di I/O più elevata e tempi di risposta più brevi. Con richieste di I/O di dimensioni maggiori, sono possibili velocità di throughput più elevate.
+
+Comprendere i tipici modelli di I/O della tua applicazione può aiutarti a determinare le velocità massime di trasferimento I/O per uno specifico storage array.
+
+
+
+ a| 
+CPU
+ a| 
+Questo valore è una percentuale della capacità di elaborazione che viene utilizzata.
+
+Potreste notare una discrepanza nell'utilizzo della CPU da parte di oggetti dello stesso tipo. Ad esempio, l'utilizzo della CPU di un controller è elevato o aumenta nel tempo, mentre quello dell'altro controller è inferiore o più stabile. In questo caso, potreste voler trasferire la proprietà di uno o più volumi al controller con la percentuale di CPU inferiore.
+
+Potrebbe essere opportuno monitorare la CPU sull'array di storage. Se la CPU continua ad aumentare nel tempo mentre le prestazioni delle applicazioni diminuiscono, potrebbe essere necessario aggiungere array di storage. Aggiungendo array di storage all'azienda, è possibile continuare a soddisfare le esigenze delle applicazioni con un livello di prestazioni accettabile.
+
+
+
+ a| 
+Headroom
+ a| 
+Il margine di sicurezza (headroom) si riferisce alla capacità prestazionale residua dei controller, dei canali host dei controller e dei canali drive dei controller. Questo valore è espresso come percentuale e rappresenta il divario tra le massime prestazioni possibili che questi oggetti sono in grado di fornire e i livelli di prestazioni attuali.
+
+* Per i controller, il margine di sicurezza è una percentuale del massimo numero di IOPS possibili.
+* Per i canali, il margine di sicurezza (headroom) è una percentuale del throughput massimo, o MiB/s. Il throughput in lettura, il throughput in scrittura e il throughput bidirezionale sono inclusi nel calcolo.
+
+
+|===

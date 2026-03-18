@@ -1,0 +1,39 @@
+---
+permalink: um-admin/manage-session-timeouts-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, manage, session, timeouts 
+summary: È possibile configurare i timeout per SANtricity Unified Manager, in modo che le sessioni inattive degli utenti vengano disconnesse dopo un tempo specificato. 
+---
+= Gestire i timeout di sessione in SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile configurare i timeout per SANtricity Unified Manager, in modo che le sessioni inattive degli utenti vengano disconnesse dopo un tempo specificato.
+
+.Informazioni su questa attività
+Per impostazione predefinita, il timeout della sessione per Unified Manager è di 30 minuti. Puoi regolare tale tempo oppure puoi disabilitare completamente i timeout di sessione.
+
+
+NOTE: Se Access Management è configurato utilizzando le funzionalità Security Assertion Markup Language (SAML) integrate nell'array, potrebbe verificarsi un timeout di sessione quando la sessione SSO dell'utente raggiunge il limite massimo. Ciò potrebbe verificarsi prima del timeout di sessione di System Manager.
+
+.Passaggi
+. Dalla barra dei menu, seleziona la freccia a discesa accanto al tuo user login name.
+. Seleziona *Abilita/Disabilita timeout sessione*.
++
+Si apre la finestra di dialogo Enable/Disable Session Timeout.
+
+. Utilizzare i controlli spinner per aumentare o diminuire il tempo in minuti.
++
+Il timeout minimo che puoi impostare è di 15 minuti.
+
++
+[NOTE]
+====
+Per disabilitare i timeout di sessione, deselezionare la casella di controllo *Imposta la durata di tempo...*.
+
+====
+. Fare clic su *Save*.
+

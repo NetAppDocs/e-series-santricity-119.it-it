@@ -1,0 +1,53 @@
+---
+permalink: sm-settings/configure-syslog-server-for-audit-logs.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, syslog, server, audit, logs, 
+summary: 'Se si desidera archiviare i log di controllo su un server syslog esterno, è possibile configurare la comunicazione tra tale server e l"array di storage. Una volta stabilita la connessione, i log di controllo vengono salvati automaticamente sul server syslog.' 
+---
+= Configurare il server syslog per i log di controllo in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si desidera archiviare i log di controllo su un server syslog esterno, è possibile configurare la comunicazione tra tale server e l'array di storage. Una volta stabilita la connessione, i log di controllo vengono salvati automaticamente sul server syslog.
+
+.Prima di iniziare
+* È necessario aver effettuato l'accesso con un profilo utente che includa le autorizzazioni di Security admin. In caso contrario, le funzioni di Access Management non vengono visualizzate.
+* L'indirizzo del server syslog, il protocollo e il numero di porta devono essere disponibili. L'indirizzo del server può essere un fully qualified domain name, un indirizzo IPv4 o un indirizzo IPv6.
+* Se il server utilizza un protocollo sicuro (ad esempio, TLS), un certificato di Certificate Authority (CA) deve essere disponibile sul sistema locale. I certificati CA identificano i proprietari dei siti web per connessioni sicure tra server e client.
+
+
+.Passaggi
+. Selezionare menu:Settings[Access Management].
+. Dalla scheda Audit Log, selezionare *Configure Syslog Servers*.
++
+Si apre la finestra di dialogo Configura Syslog Servers.
+
+. Fai clic su *Add*.
++
+Si apre la finestra di dialogo Aggiungi Syslog Server.
+
+. Inserisci le informazioni per il server, quindi fai clic su *Aggiungi*.
++
+** *Indirizzo del server* -- Inserire un fully qualified domain name, un indirizzo IPv4 o un indirizzo IPv6.
+** *Protocollo* -- Seleziona un protocollo dall'elenco a discesa (ad esempio, TLS, UDP o TCP).
+** *Carica il certificato (facoltativo)* -- Se hai selezionato il protocollo TLS e non hai ancora caricato un certificato CA firmato, fai clic su *Sfoglia* per caricare un file di certificato. I log di controllo non vengono archiviati su un syslog server senza un certificato attendibile.
++
+[NOTE]
+====
+Se in seguito il certificato diventa non valido, la stretta di mano TLS fallirà. Di conseguenza, viene registrato un messaggio di errore nel registro di controllo e i messaggi non vengono più inviati al syslog server. Per risolvere questo problema, è necessario correggere il certificato sul syslog server e quindi andare su menu:Settings[Audit Log > Configure Syslog Servers > Test All].
+
+====
+** *Porta* -- Inserire il numero di porta per il syslog receiver. Dopo aver fatto clic su *Aggiungi*, si apre la finestra di dialogo Configura Syslog Servers e viene visualizzato il syslog server configurato nella pagina.
+
+
+. Per testare la connessione del server con l'array di storage, selezionare *Test All*.
+
+
+.Risultati
+Dopo la configurazione, tutti i nuovi log di controllo vengono inviati al server syslog. I log precedenti non vengono trasferiti. Per configurare ulteriormente le impostazioni syslog per gli avvisi, vedere  https://docs.netapp.com/us-en/e-series-santricity/sm-settings/configure-syslog-server-for-alerts.html["Configura il server syslog per gli avvisi"].
+
+ NOTE: If multiple syslog servers are configured, all configured syslog servers will receive an audit log.

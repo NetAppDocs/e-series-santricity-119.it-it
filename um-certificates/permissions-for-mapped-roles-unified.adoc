@@ -1,0 +1,24 @@
+---
+permalink: um-certificates/permissions-for-mapped-roles-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, permissions, mapped, roles 
+summary: 'Le funzionalità RBAC (in base al ruolo, controllo degli accessi basato sui ruoli) includono utenti predefiniti a cui sono associati uno o più ruoli. Ogni ruolo include autorizzazioni per l"accesso alle attività in SANtricity Unified Manager.' 
+---
+= Autorizzazioni per i ruoli mappati
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le funzionalità RBAC (in base al ruolo, controllo degli accessi basato sui ruoli) includono utenti predefiniti a cui sono associati uno o più ruoli. Ogni ruolo include autorizzazioni per l'accesso alle attività in SANtricity Unified Manager.
+
+I ruoli forniscono agli utenti l'accesso alle attività, come segue:
+
+* *Amministratore dello storage* -- Accesso completo in lettura/scrittura agli oggetti di storage sugli array, ma nessun accesso alla configurazione della sicurezza.
+* *Amministratore della sicurezza* -- Accesso alla configurazione della sicurezza in Access Management e Certificate Management.
+* *Support admin* -- Accesso a tutte le risorse hardware sugli array di storage, ai dati di errore e agli eventi MEL. Nessun accesso agli oggetti di storage o alla configurazione di sicurezza.
+* *Monitor* -- Accesso in sola lettura a tutti gli oggetti di archiviazione, ma nessun accesso alla configurazione di sicurezza.
+
+
+Se un utente non dispone delle autorizzazioni per una determinata funzione, tale funzione è o non disponibile per la selezione oppure non viene visualizzata nell'interfaccia utente.

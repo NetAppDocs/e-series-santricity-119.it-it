@@ -1,0 +1,54 @@
+---
+permalink: um-admin/supported-browsers-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, supported, browsers 
+summary: SANtricity Unified Manager può essere accessibile da diversi tipi di browser. 
+---
+= Browser supportati per SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity Unified Manager può essere accessibile da diversi tipi di browser.
+
+Sono supportati i seguenti browser e versioni.
+
+[cols="1a,1a"]
+|===
+| Browser | Versione minima 
+
+
+ a| 
+Google Chrome
+ a| 
+89
+
+
+
+ a| 
+Mozilla Firefox
+ a| 
+80
+
+
+
+ a| 
+Safari
+ a| 
+14
+
+
+
+ a| 
+Microsoft Edge
+ a| 
+90
+
+|===
+[NOTE]
+====
+Il Web Services Proxy deve essere installato e disponibile per il browser.
+
+====

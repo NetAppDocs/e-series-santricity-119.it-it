@@ -1,0 +1,61 @@
+---
+permalink: sm-storage/rtv-remote-storage-requirements.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remote, storage, requirements 
+summary: Prima di utilizzare la funzione Remote Storage, esaminare i seguenti requisiti e limitazioni. 
+---
+= Scopri i requisiti della funzionalità Remote Storage nel software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di utilizzare la funzione Remote Storage, esaminare i seguenti requisiti e limitazioni.
+
+
+
+== Protocolli supportati
+
+Sono supportati i seguenti protocolli:
+
+* iSCSI
+* IPv4
+
+
+Per informazioni aggiornate sul supporto e la configurazione di E-Series, consultare la  https://imt.netapp.com/matrix/#welcome["Tool NetApp Interoperability Matrix"^].
+
+
+
+== Requisiti hardware
+
+Il sistema storage E-Series deve includere:
+
+* Due controller (duplex mode)
+* Connessioni iSCSI per entrambi i controller E-Series per comunicare con il sistema storage remoto tramite una o più connessioni iSCSI
+* SANtricity OS 11.71 o superiore
+* Funzione Remote Storage abilitata nel Submodel ID (SMID)
+
+
+Il sistema remoto può essere un sistema storage E-Series o un sistema di un altro fornitore. Deve includere:
+
+* Interfacce compatibili con iSCSI
+
+
+
+
+== Restrizioni
+
+La funzionalità di archiviazione remota presenta le seguenti limitazioni:
+
+* Il mirroring deve essere disabilitato.
+* Il volume di destinazione sul sistema E-Series non deve avere Snapshot.
+* Il volume di destinazione sul sistema E-Series non deve essere mappato a nessun host prima dell'inizio dell'importazione.
+* Il volume di destinazione sul sistema E-Series deve avere la gestione delle risorse disabilitata.
+* La mappatura diretta del volume di storage remoto a un host o a più host non è supportata.
+* Web Services Proxy non è supportato.
+* I segreti CHAP iSCSI non sono supportati.
+* SMcli non è supportato.
+* VMware Datastore non è supportato.
+* Solo un sistema storage nella coppia relazione/import può essere aggiornato alla volta quando è presente una coppia di import.
+

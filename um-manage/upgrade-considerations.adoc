@@ -1,0 +1,42 @@
+---
+permalink: um-manage/upgrade-considerations.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, upgrade, considerations 
+summary: Prima di utilizzare Unified Manager per aggiornare più storage array, esaminare le considerazioni chiave come parte della pianificazione. 
+---
+= Scopri come aggiornare più array di storage con SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di utilizzare SANtricity Unified Manager per aggiornare più array di storage, esaminare le considerazioni chiave come parte della pianificazione.
+
+
+
+== Versioni attuali
+
+È possibile visualizzare le versioni correnti del software SANtricity OS dalla pagina Gestisci di Unified Manager per ogni array di storage rilevato. La versione è visualizzata nella colonna Software SANtricity OS. Le informazioni sul firmware del controller e sulla NVSRAM sono disponibili in una finestra di dialogo a comparsa quando si fa clic sulla versione di SANtricity OS in ciascuna riga.
+
+
+
+== Altri componenti che richiedono l'aggiornamento
+
+Nell'ambito del processo di aggiornamento, potrebbe essere necessario aggiornare anche il driver multipath/failover dell'host o il driver HBA affinché l'host possa interagire correttamente con i controller.
+
+Per informazioni sulla compatibilità, fare riferimento a https://imt.netapp.com/matrix/#welcome["Matrice di interoperabilità NetApp"^]. Consultare anche le procedure nelle Guide rapide per il proprio sistema operativo. Le Guide rapide sono disponibili su https://docs.netapp.com/us-en/e-series/index.html["Documentazione E-Series e SANtricity"^].
+
+
+
+== Doppio controller
+
+Se un array di storage contiene due controller ed è installato un driver multipath, l'array di storage può continuare a elaborare le operazioni di I/O durante l'upgrade. Durante l'upgrade, si verifica il seguente processo:
+
+. Il controller A esegue il failover di tutte le sue LUN sul controller B.
+. L'aggiornamento avviene sul controller A.
+. Il controller A riprende possesso delle proprie LUN e di tutte le LUN del controller B.
+. L'aggiornamento avviene sul controller B.
+
+
+Al termine dell'aggiornamento, potrebbe essere necessario ridistribuire manualmente i volumi tra i controller per garantire che i volumi vengano restituiti al controller proprietario corretto.

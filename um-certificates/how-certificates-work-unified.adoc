@@ -1,0 +1,58 @@
+---
+permalink: um-certificates/how-certificates-work-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, ca certificates, csr file, 
+summary: I certificati sono file digitali che identificano entità online, come siti web e server, per comunicazioni sicure su internet. 
+---
+= Come funzionano i certificati in SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I certificati sono file digitali che identificano entità online, come siti web e server, per comunicazioni sicure su internet.
+
+
+
+== Certificati firmati
+
+I certificati garantiscono che le comunicazioni web vengano trasmesse in forma crittografata, private e inalterate, esclusivamente tra il server e il client specificati. Utilizzando Unified Manager, puoi gestire i certificati per il browser su un sistema di gestione host e per i controller negli array di storage rilevati.
+
+Un certificato può essere firmato da un'autorità fidata, oppure può essere autofirmato. "Firmare" significa semplicemente che qualcuno ha convalidato l'identità del proprietario e ha stabilito che i suoi dispositivi possono essere considerati affidabili. Gli array di storage vengono forniti con un certificato autofirmato generato automaticamente su ciascun controller. Puoi continuare a utilizzare i certificati autofirmati oppure ottenere certificati firmati da una CA per una connessione più sicura tra i controller e i sistemi host.
+
+[NOTE]
+====
+Sebbene i certificati firmati da una CA offrano una maggiore protezione della sicurezza (ad esempio, prevenendo gli attacchi man-in-the-middle), comportano anche costi che possono essere elevati se si dispone di una rete di grandi dimensioni. Al contrario, i certificati autofirmati sono meno sicuri, ma sono gratuiti. Pertanto, i certificati autofirmati vengono utilizzati più spesso per ambienti di test interni, non in ambienti di produzione.
+
+====
+Un certificato firmato viene convalidato da un'autorità di certificazione (CA), ovvero un'organizzazione terza fidata. I certificati firmati includono dettagli sul proprietario dell'entità (in genere un server o un sito web), la data di emissione e di scadenza del certificato, i domini validi per l'entità e una firma digitale composta da lettere e numeri.
+
+Quando apri un browser e inserisci un indirizzo web, il tuo sistema esegue in background un processo di verifica del certificato per determinare se ti stai connettendo a un sito web che include un certificato valido, CA-signed. In genere, un sito protetto da un certificato firmato presenta un'icona a forma di lucchetto e una designazione https nell'indirizzo. Se tenti di connetterti a un sito web che non contiene un certificato CA-signed, il browser visualizza un avviso che il sito non è sicuro.
+
+L'autorità di certificazione (CA) adotta delle misure per verificare la tua identità durante il processo di richiesta. Potrebbe inviare un'e-mail alla tua azienda registrata, verificare l'indirizzo della tua azienda ed eseguire una verifica HTTP o DNS. Una volta completata la procedura di richiesta, la CA ti invia dei file digitali da caricare su un sistema di gestione host. In genere, questi file includono una catena di fiducia, come segue:
+
+* *Root* -- Al vertice della gerarchia si trova il certificato root, che contiene una chiave privata utilizzata per firmare altri certificati. Il root identifica una specifica organizzazione CA. Se si utilizza la stessa CA per tutti i dispositivi di rete, è necessario un solo certificato root.
+* *Intermedi* -- Dalla radice si diramano i certificati intermedi. La CA emette uno o più certificati intermedi che fungono da intermediari tra una radice protetta e i certificati del server.
+* *Server* -- Alla base della catena si trova il certificato del server, che identifica la tua entità specifica, come un sito web o un altro dispositivo. Ogni controller in un storage array richiede un certificato server separato.
+
+
+
+
+== Certificati autofirmati
+
+Ogni controller nell'array di storage include un certificato autofirmato preinstallato. Un certificato autofirmato è simile a un certificato firmato da una CA, con la differenza che viene convalidato dal proprietario dell'entità anziché da una terza parte. Come un certificato firmato da una CA, un certificato autofirmato contiene la propria chiave privata e garantisce inoltre che i dati siano crittografati e inviati tramite una connessione HTTPS tra un server e un client.
+
+I certificati autofirmati non sono "`trusted`" dai browser. Ogni volta che si tenta di connettersi a un sito web che contiene solo un certificato autofirmato, il browser visualizza un messaggio di avviso. È necessario fare clic su un collegamento nel messaggio di avviso che consente di procedere al sito web; così facendo, si accetta il certificato autofirmato.
+
+
+
+== Certificati per Unified Manager
+
+L'interfaccia di Unified Manager viene installata insieme al Web Services Proxy su un sistema host. Quando si apre un browser e si tenta di connettersi a Unified Manager, il browser cerca di verificare che l'host sia una fonte attendibile controllando la presenza di un certificato digitale. Se il browser non trova un certificato firmato da una CA per il server, visualizza un messaggio di avviso. Da lì, è possibile continuare al sito web per accettare il certificato autofirmato per quella sessione. Oppure, è possibile ottenere certificati digitali firmati da una CA così da non visualizzare più il messaggio di avviso.
+
+
+
+== Certificati per i controller
+
+Durante una sessione di Unified Manager, potrebbero essere visualizzati messaggi di sicurezza aggiuntivi quando si tenta di accedere a un controller privo di un certificato firmato da una CA. In tal caso, è possibile considerare attendibile in modo permanente il certificato autofirmato oppure importare i certificati firmati da una CA per i controller, in modo che il server Web Services Proxy possa autenticare le richieste client in entrata provenienti da questi controller.

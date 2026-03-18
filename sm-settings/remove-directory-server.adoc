@@ -1,0 +1,35 @@
+---
+permalink: sm-settings/remove-directory-server.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remove, directory, server, 
+summary: 'Per interrompere la connessione tra un server di directory e l"array di storage, è possibile rimuovere le informazioni del server dalla pagina Access Management. Potresti voler eseguire questa operazione se hai configurato un nuovo server e poi vuoi rimuovere quello vecchio.' 
+---
+= Rimuovere il server directory in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per interrompere la connessione tra un server di directory e l'array di storage, è possibile rimuovere le informazioni del server dalla pagina Access Management. Potresti voler eseguire questa operazione se hai configurato un nuovo server e poi vuoi rimuovere quello vecchio.
+
+.Prima di iniziare
+È necessario aver effettuato l'accesso con un profilo utente che includa le autorizzazioni di Security admin. In caso contrario, le funzioni di Access Management non vengono visualizzate.
+
+.Informazioni su questa attività
+Dopo aver completato questa operazione, tutte le sessioni utente attive verranno terminate. Solo la sessione utente corrente verrà mantenuta.
+
+.Passaggi
+. Selezionare menu:Settings[Access Management].
+. Seleziona la scheda *Directory Services*.
+. Dall'elenco, seleziona il server di directory che vuoi eliminare.
+. Fai clic su *Remove*.
++
+Si apre la finestra di dialogo Remove Directory Server.
+
+. Digita  `remove` nel campo e poi fai clic su *Rimuovi*.
++
+Le impostazioni di configurazione del server di directory, le impostazioni dei privilegi e le mappature dei ruoli vengono rimosse. Gli utenti non possono più accedere con le credenziali di questo server.
+
+

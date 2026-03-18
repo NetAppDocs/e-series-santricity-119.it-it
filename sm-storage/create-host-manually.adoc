@@ -1,0 +1,105 @@
+---
+permalink: sm-storage/create-host-manually.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, host, manually 
+summary: 'Per gli host che non possono essere rilevati automaticamente, è possibile creare un host manualmente. La creazione di un host è uno dei passaggi necessari per consentire all"array di storage di sapere quali host sono collegati e per autorizzare l"accesso I/O ai volumi.' 
+---
+= Creare manualmente un host in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per gli host che non possono essere rilevati automaticamente, è possibile creare un host manualmente. La creazione di un host è uno dei passaggi necessari per consentire all'array di storage di sapere quali host sono collegati e per autorizzare l'accesso I/O ai volumi.
+
+.Informazioni su questa attività
+Tieni a mente queste linee guida quando crei un host:
+
+* È necessario definire le porte identificative dell'host che sono associate all'host.
+* Assicurati di fornire lo stesso nome del nome di sistema assegnato all'host.
+* Questa operazione non avrà successo se il nome scelto è già in uso.
+* La lunghezza del nome non può superare 30 caratteri.
+
+
+.Passaggi
+. Seleziona menu:Storage[Hosts].
+. Fare clic su menu:Crea[Host].
++
+Viene visualizzata la finestra di dialogo Create Host.
+
+. Seleziona le impostazioni per l'host come appropriato.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Impostazione | Descrizione 
+
+
+ a| 
+Nome
+ a| 
+Digita un nome per il nuovo host.
+
+
+
+ a| 
+Tipo di sistema operativo host
+ a| 
+Seleziona il sistema operativo che è in esecuzione sul nuovo host dall'elenco a discesa.
+
+
+
+ a| 
+Tipo di interfaccia verso gli host
+ a| 
+(Facoltativo) Se l'array di storage supporta più di un tipo di interfaccia verso gli host, seleziona il tipo di interfaccia verso gli host che desideri utilizzare.
+
+
+
+ a| 
+Porte host
+ a| 
+Eseguire una delle seguenti operazioni:
+
+** *Seleziona l'interfaccia I/O*
++
+In genere, le porte host dovrebbero aver effettuato l'accesso ed essere disponibili nell'elenco a discesa. È possibile selezionare gli identificativi delle porte host dall'elenco.
+
+** *Aggiunta manuale*
++
+Se un identificatore di porta host non viene visualizzato nell'elenco, significa che la porta host non ha effettuato l'accesso. È possibile utilizzare un'utilità HBA o l'utilità iSCSI initiator per trovare gli identificatori di porta host e associarli all'host.
+
++
+È possibile inserire manualmente gli identificatori della porta host oppure copiarli/incollarli dall'utility (uno alla volta) nel campo *Host ports*.
+
++
+È necessario selezionare un identificatore di porta host alla volta per associarlo all'host, ma è possibile continuare a selezionare tutti gli identificatori che sono associati all'host. Ciascun identificatore viene visualizzato nel campo *Host ports*. Se necessario, è anche possibile rimuovere un identificatore selezionando la *X* accanto ad esso.
+
+
+
+
+
+ a| 
+CHAP initiator
+ a| 
+(Facoltativo) Se hai selezionato o inserito manualmente una porta host con un iSCSI IQN e desideri richiedere che un host che tenta di accedere all'array di storage si autentichi utilizzando il Challenge Handshake Authentication Protocol (CHAP), seleziona la check box *CHAP initiator*. Per ogni porta host iSCSI selezionata o inserita manualmente, procedi come segue:
+
+** Inserire lo stesso segreto CHAP impostato su ciascun iSCSI initiator per l'autenticazione CHAP. Se si utilizza il metodo di autenticazione CHAP reciproca (autenticazione bidirezionale che consente a un host di autenticarsi presso l'array di storage e a un array di storage di autenticarsi presso l'host), è necessario impostare il segreto CHAP anche per l'array di storage durante la configurazione iniziale o modificando le impostazioni.
+** Lascia il campo vuoto se non richiedi l'autenticazione dell'host.
+
+
+Attualmente, l'unico metodo di autenticazione iSCSI utilizzato da System Manager è CHAP.
+
+|===
+====
+. Fai clic su *Create*.
+
+
+.Risultati
+Dopo che l'host è stato creato correttamente, il sistema crea un nome predefinito per ogni porta host configurata per l'host (etichetta utente).
+
+L'alias predefinito è <``Hostname_Port Number``>. Ad esempio, l'alias predefinito per la prima porta creata per `host IPT is IPT_1`.

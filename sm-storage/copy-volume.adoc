@@ -1,0 +1,100 @@
+---
+permalink: sm-storage/copy-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, copy volume 
+summary: 'È possibile copiare i dati da un volume a un altro volume nello stesso array di storage e creare un duplicato fisico point-in-time (clone) di un volume di origine.' 
+---
+= Copia un volume in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile copiare i dati da un volume a un altro volume nello stesso array di storage e creare un duplicato fisico point-in-time (clone) di un volume di origine.
+
+.Prima di iniziare
+* Tutte le attività di I/O verso il volume di origine e il volume di destinazione devono essere interrotte.
+* Tutti i file system presenti sul volume di origine e sul volume di destinazione devono essere smontati.
+* Se hai utilizzato il volume di destinazione in un'operazione di copia del volume in precedenza, non hai più bisogno di quei dati o li hai già sottoposti a backup.
+
+
+.Informazioni su questa attività
+Il volume di origine è il volume che accetta le operazioni di I/O dell'host e memorizza i dati delle applicazioni. Quando si avvia una Copy Volume, i dati dal volume di origine vengono copiati integralmente nel volume di destinazione.
+
+Il volume di destinazione è un volume standard che mantiene una copia dei dati del volume di origine. Il volume di destinazione è identico al volume di origine al termine dell'operazione di copia del volume. Il volume di destinazione deve avere una capacità uguale o superiore a quella del volume di origine; tuttavia, può avere un livello RAID diverso.
+
+.Maggiori informazioni sulle copie online e offline
+[%collapsible]
+====
+*Copia online*
+
+Una copia online crea una copia point-in-time di qualsiasi volume all'interno di un array di storage, mentre è ancora possibile scrivere sul volume durante la copia in corso. Questa funzione viene ottenuta creando una Snapshot del volume e utilizzando la Snapshot come vero volume sorgente per la copia. Il volume per il quale viene creata l'immagine point-in-time è noto come base volume e può essere un volume standard o un thin volume nell'array di storage.
+
+*Copia offline*
+
+Una copia offline legge i dati dal volume di origine e li copia in un volume di destinazione, sospendendo tutti gli aggiornamenti al volume di origine durante la copia in corso. Tutti gli aggiornamenti al volume di origine vengono sospesi per evitare la creazione di incoerenze cronologiche sul volume di destinazione. La relazione di copia del volume offline è tra un volume di origine e un volume di destinazione.
+
+====
+[NOTE]
+====
+Un'operazione di copia del volume sovrascrive i dati sul volume di destinazione e rende non riusciti tutti i volumi Snapshot associati al volume di destinazione, se presenti.
+
+====
+.Passaggi
+. Selezionare menu:Storage[Volumes].
+. Seleziona il volume che desideri utilizzare come origine per l'operazione Copy Volume, quindi seleziona menu:Copy Services[Copy volume].
++
+Viene visualizzata la finestra di dialogo Copy Volume-Select Target.
+
+. Seleziona il volume di destinazione su cui desideri copiare i dati.
++
+La tabella visualizzata in questa finestra di dialogo elenca tutti i volume di destinazione idonei.
+
+. Utilizzare la barra di scorrimento per impostare la priorità di copia per l'operazione Copy Volume.
++
+La priorità di copia determina la quantità di risorse di sistema utilizzate per completare l'operazione Copy Volume rispetto alle richieste di I/O del servizio.
+
++
+.Ulteriori informazioni sui tassi di priorità di copia
+[%collapsible]
+====
+Esistono cinque tassi di priorità di copia:
+
+** Più basso
+** Basso
+** Medio
+** Alto
+** Più alto
+
+
+Se la priorità di copia è impostata sul tasso di trasferimento dei dati più basso, l'attività di I/O ha la priorità e l'operazione Copy Volume richiede più tempo. Se la priorità di copia è impostata sul tasso di trasferimento dei dati più alto, l'operazione Copy Volume ha la priorità, ma l'attività di I/O per lo storage array potrebbe essere influenzata.
+
+====
+. Seleziona se desideri creare una copia online o una copia offline. Per creare una copia online, seleziona la check box **Mantieni il volume di origine online durante l'operazione di copia**.
+. Eseguire una delle seguenti operazioni:
++
+** Per eseguire un'operazione di copia _online_, fare clic su *Avanti* per continuare alla finestra di dialogo *Riserva capacità*.
+** Per eseguire un'operazione di copia offline, fare clic su *Fine* per avviare la copia offline.
+
+
+. Se hai scelto di creare una copia online, imposta la capacità riservata necessaria per archiviare dati e altre informazioni per la copia online, quindi fai clic su *Fine* per avviare la copia online.
++
+La tabella dei volumi candidati visualizza solo i candidati che supportano la capacità riservata specificata. La capacità riservata è la capacità fisica allocata utilizzata per qualsiasi operazione di copy service e oggetto di storage. Non è direttamente leggibile dall'host.
+
++
+Assegnare la capacità riservata utilizzando le seguenti linee guida:
+
++
+** L'impostazione predefinita per la capacità riservata è il 40% della capacità del volume base e di solito questa capacità è sufficiente.
+** La capacità riservata, tuttavia, varia a seconda del numero di modifiche apportate ai dati originali. Più a lungo un oggetto di storage è attivo, maggiore dovrebbe essere la capacità riservata.
+
+
+
+
+.Risultati
+System Manager copia tutti i dati dal volume di origine al volume di destinazione. Al termine dell'operazione di copia del volume, il volume di destinazione diventa automaticamente di sola lettura per gli host.
+
+.Dopo aver finito
+Selezionare menu:Home[Visualizza operazioni in corso] per visualizzare l'avanzamento dell'operazione Copy Volume. Questa operazione può essere lunga e potrebbe influire sulle prestazioni del sistema.

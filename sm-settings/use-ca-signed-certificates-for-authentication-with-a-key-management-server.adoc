@@ -1,0 +1,96 @@
+---
+permalink: sm-settings/use-ca-signed-certificates-for-authentication-with-a-key-management-server.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, ca-signed, certificates, authentication, key, management, server, 
+summary: 'Per comunicazioni sicure tra un key management server e i controller dell"array di storage, è necessario configurare i set di certificati appropriati.' 
+---
+= Utilizzare certificati firmati da CA per l'autenticazione con un key management server in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per comunicazioni sicure tra un key management server e i controller dell'array di storage, è necessario configurare i set di certificati appropriati.
+
+.Prima di iniziare
+È necessario aver effettuato l'accesso con un profilo utente che includa le autorizzazioni di Security admin. In caso contrario, le funzioni dei certificati non vengono visualizzate.
+
+.Informazioni su questa attività
+L'autenticazione tra i controller e un key management server è una procedura in due fasi.
+
+
+
+== Passaggio 1: Completare e inviare la CSR per l'autenticazione con un key management server
+
+È necessario innanzitutto generare un file di richiesta di firma del certificato (CSR) e quindi utilizzare il CSR per richiedere un certificato client firmato a un'autorità di certificazione (CA) considerata attendibile dal key management server. È anche possibile creare e scaricare un certificato client dal key management server utilizzando il file CSR scaricato. Un certificato client convalida i controller dell'array di storage, così il key management server può considerare attendibili le loro richieste Key Management Interoperability Protocol (KMIP).
+
+
+NOTE: I file CSR generati esternamente tramite coppie di chiavi private e pubbliche possono essere importati tramite la finestra di dialogo Crea chiave di sicurezza esterna. Per ulteriori informazioni sull'importazione di un file CSR generato esternamente, vedere https://docs.netapp.com/us-en/e-series-santricity/sm-settings/use-ca-signed-certificates-for-authentication-with-a-key-management-server.html#step-2-import-certificates-for-the-key-management-server["Passaggio 2: Importa i certificati per il key management server"].
+
+.Passaggi
+. Selezionare menu:Impostazioni[Certificati].
+. Dalla scheda Key Management, selezionare *Complete CSR*.
+. Inserisci le seguenti informazioni:
++
+** *Nome comune* -- Un nome che identifica il client. È prassi comune far sì che il nome comune corrisponda ai requisiti del server KMS per le convenzioni di denominazione dei certificati client. Il nome comune in genere aiuta il KMS a identificare il certificato del client quando viene presentato durante una stretta di mano.
+** *Organizzazione* -- Il nome legale completo della tua azienda o organizzazione. Includi i suffissi, come Inc. o Corp.
+** *Unità organizzativa (facoltativa)* -- La divisione della tua organizzazione che si occupa del certificato.
+** *Città/Località* -- La città o località in cui ha sede la tua organizzazione.
+** *Stato/Regione (facoltativo)* -- Lo stato o la regione in cui si trova la tua organizzazione.
+** *Codice ISO del Paese* -- Il codice ISO (International Organization for Standardization) a due cifre, ad esempio US, dove si trova la tua organizzazione.
+
+
+. Fai clic su *Download*.
++
+Un file CSR viene salvato sul sistema locale.
+
+. Richiedi un certificato client firmato dalla CA considerata attendibile dal server di gestione delle chiavi.
++
+
+NOTE: È comune che il server di gestione delle chiavi disponga di una funzionalità che genera direttamente certificati firmati, poiché funge da propria CA.
+
+. Quando disponi di un certificato client, vai a <<Passaggio 2: Importa i certificati per il key management server>>.
+
+
+
+
+== Passaggio 2: Importa i certificati per il key management server
+
+Come passaggio successivo, si importano i certificati per l'autenticazione tra l'array di storage e il key management server. Esistono due tipi di certificati: il certificato client convalida i controller dell'array di storage, mentre il certificato del key management server convalida il server. È necessario caricare sia il file del certificato client per i controller sia il file del certificato del server per il key management server.
+
+.Prima di iniziare
+* Hai un file di certificato client firmato (vedi <<Passaggio 1: Completare e inviare la CSR per l'autenticazione con un key management server>>) e lo hai copiato sull'host da cui accedi a System Manager. Un certificato client convalida i controller dell'array di storage, così il server di gestione delle chiavi può considerare attendibili le loro richieste Key Management Interoperability Protocol (KMIP).
+* È necessario recuperare un file di certificato dal server di gestione delle chiavi e quindi copiarlo sull'host da cui si accede a System Manager. Un certificato del server di gestione delle chiavi convalida il server di gestione delle chiavi, quindi l'array di storage può considerare attendibile il suo indirizzo IP. È possibile utilizzare un certificato root, intermedio o server per il server di gestione delle chiavi.
++
+[NOTE]
+====
+Per ulteriori informazioni sul certificato del server, consultare la documentazione per il proprio key management server.
+
+====
+
+
+.Passaggi
+. Selezionare menu:Impostazioni[Certificati].
+. Dalla scheda Key Management, selezionare *Import*.
++
+Si apre una finestra di dialogo per l'importazione dei file del certificato.
+
+. Accanto a *Seleziona certificato client*, fai clic sul pulsante *Sfoglia* per selezionare il file del certificato client per i controller dell'array di storage.
++
+Il nome del file viene visualizzato nella finestra di dialogo.
+
+. Se hai generato un file di certificato esternamente utilizzando una coppia di chiavi privata e pubblica, fai clic sul pulsante *Sfoglia* accanto a *Seleziona file chiave privata* per selezionare il file di certificato per i controller dell'array di storage.
++
+Il nome del file viene visualizzato nella finestra di dialogo.
+
+. Accanto a *Select key management server's server certificate*, fai clic sul pulsante *Sfoglia* per selezionare il file del certificato del server per il tuo key management server. Puoi scegliere un certificato root, intermedio o server per il key management server.
++
+Il nome del file viene visualizzato nella finestra di dialogo.
+
+. Fai clic su *Import*.
++
+I file sono stati caricati e convalidati.
+
+

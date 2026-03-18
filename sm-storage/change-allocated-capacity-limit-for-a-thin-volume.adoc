@@ -1,0 +1,65 @@
+---
+permalink: sm-storage/change-allocated-capacity-limit-for-a-thin-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, allocated capacity, thin volume 
+summary: Per i volumi thin in grado di allocare spazio su richiesta, è possibile modificare il limite che limita la capacità allocata a cui un volume thin può espandersi automaticamente. 
+---
+= Modifica il limite di capacità allocata per un thin volume in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per i volumi thin in grado di allocare spazio su richiesta, è possibile modificare il limite che limita la capacità allocata a cui un volume thin può espandersi automaticamente.
+
+È inoltre possibile modificare la percentuale oltre la quale viene inviato un avviso (superamento della soglia di allarme) all'area Notifiche nella pagina iniziale quando un volume thin si avvicina al limite di capacità allocata. È possibile scegliere di attivare o disattivare questa notifica di avviso.
+
+[NOTE]
+====
+Questa funzionalità non è disponibile sui sistemi storage EF600/EF600C o EF300/EF300C.
+
+====
+Il sistema espande automaticamente la capacità allocata in base al limite di capacità allocata. Il limite di capacità allocata consente di limitare la crescita automatica del thin volume al di sotto della capacità riportata. Quando la quantità di dati scritti si avvicina alla capacità allocata, è possibile modificare il limite di capacità allocata.
+
+Quando si modificano il limite di capacità allocata e la soglia di avviso di un volume thin, è necessario tenere conto dello spazio che verrà consumato sia dai dati utente del volume sia dai dati dei servizi di copia.
+
+.Passaggi
+. Selezionare menu:Storage[Volumes].
+. Seleziona la scheda *Thin Volume Monitoring*.
++
+Viene visualizzata la vista Thin Volume Monitoring.
+
+. Seleziona il volume sottile che desideri modificare, quindi seleziona *Change Limit*.
++
+Viene visualizzata la finestra di dialogo Modifica limite. Il limite di capacità allocato e l'impostazione della soglia di avviso per il volume thin selezionato vengono visualizzati in questa finestra di dialogo.
+
+. Modifica il limite di capacità assegnata e la soglia di avviso secondo necessità.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Impostazione | Descrizione 
+
+
+ a| 
+Modifica il limite di capacità assegnata a...
+ a| 
+La soglia oltre la quale le operazioni di scrittura falliscono, impedendo al volume thin di consumare risorse aggiuntive. Questa soglia è una percentuale della capacità dichiarata del volume.
+
+
+
+ a| 
+Avvisami quando... (soglia di allarme)
+ a| 
+Seleziona la check box se desideri che il sistema generi un avviso quando un thin volume si avvicina al limite di capacità allocata. L'avviso viene inviato all'area Notifiche nella pagina iniziale. Questa soglia è una percentuale della dimensione di capacità dichiarata del volume.
+
+Deselezionare la check box per disattivare la notifica di avviso della soglia di avvertimento.
+
+|===
+====
+. Fare clic su *Save*.
+

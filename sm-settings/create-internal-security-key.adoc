@@ -1,0 +1,87 @@
+---
+permalink: sm-settings/create-internal-security-key.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, internal, security, key, 
+summary: 'Per utilizzare la funzionalità Drive Security, è possibile creare una chiave di sicurezza interna che viene condivisa dai controller e dalle unità compatibili con la sicurezza nell"array di storage. Le chiavi interne vengono mantenute nella memoria persistente del controller.' 
+---
+= Creare una chiave di sicurezza interna in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per utilizzare la funzionalità Drive Security, è possibile creare una chiave di sicurezza interna che viene condivisa dai controller e dalle unità compatibili con la sicurezza presenti nell'array di storage. Le chiavi interne vengono mantenute nella memoria persistente del controller.
+
+.Prima di iniziare
+* Nell'array di storage devono essere installate unità con funzionalità di sicurezza. Queste unità possono essere unità Full Disk Encryption (FDE) o unità Federal Information Processing Standard (FIPS).
+* La funzionalità Drive Security deve essere abilitata. In caso contrario, durante questa operazione verrà visualizzata la finestra di dialogo Cannot Create Security Key. Se necessario, contattare il proprio storage vendor per istruzioni su come abilitare la funzionalità Drive Security.
+
+
+[NOTE]
+====
+Se nell'array di storage sono installate sia unità FDE che FIPS, tutte condividono la stessa chiave di sicurezza.
+
+====
+.Informazioni su questa attività
+In questa attività, si definiscono un identificatore e una pass phrase da associare alla chiave di sicurezza interna.
+
+[NOTE]
+====
+La passphrase per Drive Security è indipendente dalla password dell'Administrator dell'array di storage.
+
+====
+.Passaggi
+. Selezionare menu:Impostazioni[Sistema].
+. In *Gestione chiavi di sicurezza*, selezionare *Crea chiave interna*.
++
+Se non hai ancora generato una chiave di sicurezza, si apre la finestra di dialogo Crea chiave di sicurezza.
+
+. Inserisci le informazioni nei seguenti campi:
++
+** *Definisci un identificatore per la chiave di sicurezza* -- Puoi accettare il valore predefinito (nome dell'array di storage e timestamp, generato dal firmware del controller) oppure inserire un valore personalizzato. Puoi inserire fino a 189 caratteri alfanumerici senza spazi, punteggiatura o simboli.
++
+[NOTE]
+====
+Vengono generati automaticamente dei caratteri aggiuntivi, aggiunti a entrambe le estremità della stringa inserita. I caratteri generati garantiscono che l'identificativo sia univoco.
+
+====
+** *Definisci una pass phrase/Reinserisci la pass phrase* -- Inserisci e conferma una pass phrase. Il valore può contenere da 8 a 32 caratteri e deve includere ciascuno dei seguenti:
++
+*** Una o più lettere maiuscole. Ricorda che la pass phrase distingue tra maiuscole e minuscole.
+*** Un numero (uno o più).
+*** Un carattere non alfanumerico, come !, *, @ (uno o più).
+
+
+
+
++
+[CAUTION]
+====
+*Assicurati di annotare le tue voci per un utilizzo successivo*. Se devi spostare un'unità protetta dall'array di storage, devi conoscere l'identificativo e la pass phrase per sbloccare i dati dell'unità.
+
+====
+. Fai clic su *Create*.
++
+La chiave di sicurezza è memorizzata sul controller in una posizione non accessibile. Insieme alla chiave effettiva, viene scaricato dal browser un file chiave crittografato.
+
++
+[NOTE]
+====
+Il percorso del file scaricato potrebbe dipendere dalla posizione di download predefinita del browser.
+
+====
+. Annota il tuo identificatore chiave, la pass phrase e la posizione del file chiave scaricato, quindi fai clic su *Chiudi*.
+
+
+.Risultati
+Ora puoi creare gruppi o pool di volumi con sicurezza abilitata, oppure puoi abilitare la sicurezza su gruppi e pool di volumi esistenti.
+
+[NOTE]
+====
+Ogni volta che l'alimentazione delle unità viene interrotta e poi riattivata, tutte le unità con sicurezza abilitata passano allo stato Security Locked. In questo stato, i dati sono inaccessibili finché il controller non applica la chiave di sicurezza corretta durante l'inizializzazione dell'unità. Se qualcuno rimuove fisicamente un'unità bloccata e la installa in un altro sistema, lo stato Security Locked impedisce l'accesso non autorizzato ai suoi dati.
+
+====
+.Dopo aver finito
+Dovresti convalidare la chiave di sicurezza per assicurarti che il file della chiave non sia danneggiato.

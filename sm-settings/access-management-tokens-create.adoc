@@ -1,0 +1,58 @@
+---
+permalink: sm-settings/access-management-tokens-create.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, access management, create tokens 
+summary: È possibile creare token di accesso, che vengono utilizzati per autenticarsi con la REST API o Command Line Interface al posto di nome utente e password. 
+---
+= Crea token di accesso in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile creare un access token per autenticarsi con la REST API o l'interfaccia a riga di comando (CLI) al posto di username e password.
+
+
+NOTE: I token non hanno password, quindi devi gestirli con attenzione.
+
+.Passaggi
+. Selezionare menu:Settings[Access Management].
+. Seleziona la scheda *Access Tokens*.
+. Seleziona *Visualizza/Modifica impostazioni token di accesso*. Nella finestra di dialogo, assicurati che la casella di controllo *Abilita token di accesso* sia selezionata. Fai clic su *Salva* per chiudere la finestra di dialogo.
+. Seleziona *Create Access Token*.
+. Nella finestra di dialogo, seleziona la durata per cui il token sarà valido.
++
+
+NOTE: Dopo la scadenza del token, i tentativi di autenticazione dell'utente falliranno.
+
+. Fai clic su *Create*.
+. Nella finestra di dialogo, selezionare una delle seguenti:
++
+** *Copia* per salvare il testo del token negli appunti.
+** *Download* per salvare il testo del token in un file.
++
+
+NOTE: Assicurati di salvare il testo del token. Questa è l'unica opportunità per visualizzare il testo prima di chiudere la finestra di dialogo.
+
+
+
+. Fare clic su *Close*.
+. Utilizzare il token come segue:
++
+** *REST API*: Per utilizzare un token in una richiesta REST API, aggiungi un'intestazione HTTP alle tue richieste. Ad esempio:
+`Authorization: Bearer _<access-token-value>_`
+** *Secure CLI*: Per utilizzare un token nella CLI, aggiungi il valore del token sulla riga di comando oppure usa il percorso di un file contenente il valore del token. Ad esempio:
++
+*** Valore del token sulla riga di comando: `-t _access-token-value_`
+*** Percorso di un file contenente il valore del token: `-T _access-token-file_`
++
+
+NOTE: L'CLI richiede all'utente un valore del token di accesso sulla riga di comando se non viene specificato alcun nome utente, password o token.
+
+
+
+
+
+

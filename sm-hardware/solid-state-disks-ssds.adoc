@@ -1,0 +1,48 @@
+---
+permalink: sm-hardware/solid-state-disks-ssds.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, solid, state, disk, SSD 
+summary: 'Le unità a stato solido (SSD) sono dispositivi di archiviazione dati che utilizzano memoria a stato solido (flash) per memorizzare i dati in modo permanente. Le SSD emulano i dischi rigidi tradizionali e sono disponibili con le stesse interfacce che i dischi rigidi utilizzano.' 
+---
+= Scopri i dischi a stato solido (SSD) in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le unità a stato solido (SSD) sono dispositivi di archiviazione dati che utilizzano memoria a stato solido (flash) per memorizzare i dati in modo permanente. Le SSD emulano i dischi rigidi tradizionali e sono disponibili con le stesse interfacce che i dischi rigidi utilizzano.
+
+
+
+== Vantaggi degli SSD
+
+I vantaggi delle SSD rispetto ai dischi rigidi includono:
+
+* Avvio più rapido (nessuna fase di spin up)
+* Latenza inferiore
+* Operazioni di I/O al secondo (IOPS) più elevate
+* Maggiore affidabilità con un minor numero di componenti mobili
+* Minore consumo energetico
+* Minore produzione di calore e minore necessità di raffreddamento
+
+
+
+
+== Identificazione degli SSD
+
+Dalla pagina Hardware, puoi individuare gli SSD nella vista frontale dello shelf. Cerca gli alloggiamenti per unità che mostrano un'icona a forma di fulmine, che indica che è installato un SSD.
+
+
+
+== Gruppi di volume
+
+Tutte le unità di un gruppo di volumi devono essere dello stesso tipo di supporto (tutte SSD o tutte unità rigide). I gruppi di volumi non possono contenere un mix di tipi di supporto o di tipi di interfaccia.
+
+
+
+== Caching
+
+La cache di scrittura del controller è sempre abilitata per gli SSD. La cache di scrittura migliora le prestazioni e prolunga la durata dell'SSD.
+
+Oltre alla cache del controller, è possibile implementare la funzionalità di cache SSD per migliorare le prestazioni complessive del sistema. Nella cache SSD, i dati vengono copiati dai volumi e archiviati su due volumi RAID interni (uno per controller).

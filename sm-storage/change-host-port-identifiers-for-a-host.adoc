@@ -1,0 +1,78 @@
+---
+permalink: sm-storage/change-host-port-identifiers-for-a-host.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, host port, identifiers, host 
+summary: 'Modifica gli identificatori di porta host quando desideri cambiare l"etichetta utente su un identificatore di porta host, aggiungere un nuovo identificatore di porta host all"host o eliminare un identificatore di porta host dall"host.' 
+---
+= Modificare gli identificatori della porta host per un host in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Modifica gli identificatori di porta host quando desideri cambiare l'etichetta utente su un identificatore di porta host, aggiungere un nuovo identificatore di porta host all'host o eliminare un identificatore di porta host dall'host.
+
+.Informazioni su questa attività
+Quando si modificano gli identificatori della porta host, tenere presenti le seguenti linee guida:
+
+* *Aggiungi* -- Quando aggiungi una porta host, associ l'identificativo della porta host all'host che hai creato per connetterti al tuo array di storage. Puoi inserire manualmente le informazioni sulla porta utilizzando un'utilità host bus adapter (HBA).
+* *Modifica* -- È possibile modificare le porte host per spostare (associare) una porta host a un host diverso. Potresti aver spostato l'adattatore bus host o l'iSCSI initiator su un host diverso, quindi devi spostare (associare) la porta host al nuovo host.
+* *Elimina* -- Puoi eliminare le porte host per rimuovere (disassociare) le porte host da un host.
+
+
+.Passaggi
+. Seleziona menu:Storage[Hosts].
+. Seleziona l'host a cui saranno associate le porte, quindi fai clic su *Visualizza/Modifica impostazioni*.
++
+Se si desidera aggiungere porte a un host in un cluster di host, espandere il cluster di host e selezionare l'host desiderato. Non è possibile aggiungere porte a livello di cluster di host.
+
++
+Viene visualizzata una finestra di dialogo che mostra le impostazioni host correnti.
+
+. Fai clic sulla scheda *Host Ports*.
++
+La finestra di dialogo mostra gli identificatori di porta host correnti.
+
+. Modificare le impostazioni dell'identificativo della porta host come appropriato.
++
+[cols="25h,~"]
+|===
+| Impostazione | Descrizione 
+
+
+ a| 
+Porta host
+ a| 
+Puoi scegliere una delle seguenti opzioni:
+
+** *Aggiungi* -- Utilizzare Aggiungi per associare un nuovo identificatore di porta host all'host. La lunghezza del nome dell'identificatore di porta host è determinata dalla tecnologia dell'interfaccia verso gli host. I nomi degli identificatori di porta host Fibre Channel e Infiniband devono avere 16 caratteri. I nomi degli identificatori di porta host iSCSI hanno una lunghezza massima di 223 caratteri. La porta deve essere univoca. Non è consentito un numero di porta già configurato.
+** *Cancella* -- Utilizzare Cancella per rimuovere (disassociare) un identificatore di porta host. L'opzione Cancella non rimuove fisicamente la porta host. Questa opzione rimuove l'associazione tra la porta host e l'host. A meno che non si rimuova l'adattatore bus host o l'iSCSI initiator, la porta host viene comunque riconosciuta dal controller.
++
+[NOTE]
+====
+Se si elimina un identificatore di porta host, questo non è più associato a tale host. Inoltre, l'host perde l'accesso a qualsiasi volume assegnato tramite questo identificatore di porta host.
+
+====
+
+
+
+
+ a| 
+Etichetta
+ a| 
+Per modificare il nome dell'etichetta della porta, fare clic sull'icona *Modifica* (matita). Il nome dell'etichetta della porta deve essere univoco. Non è consentito un nome di etichetta già configurato.
+
+
+
+ a| 
+Segreto CHAP
+ a| 
+Appare solo per host iSCSI. È possibile impostare o modificare il segreto CHAP per gli iniziatori (host iSCSI).
+
+System Manager utilizza il metodo Challenge Handshake Authentication Protocol (CHAP), che convalida l'identità dei target e degli initiator durante il collegamento iniziale. L'autenticazione si basa su una chiave di sicurezza condivisa chiamata segreto CHAP.
+
+|===
+. Fare clic su *Save*.
+

@@ -1,0 +1,32 @@
+---
+permalink: sm-settings/download-cli.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, download, command line interface, CLI, 
+summary: 'Da System Manager puoi scaricare il pacchetto della command line interface (CLI).' 
+---
+= Scarica l'interfaccia a riga di comando (CLI) SANtricity
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Da SANtricity System Manager, puoi scaricare il pacchetto della command line interface (CLI).
+
+La CLI fornisce un metodo testuale per configurare e monitorare gli array di storage. Comunica tramite https e utilizza la stessa sintassi della CLI disponibile nel pacchetto software di gestione installato esternamente. Non è necessaria alcuna chiave per scaricare la CLI.
+
+.Prima di iniziare
+Sul sistema di gestione in cui si intende eseguire i comandi CLI deve essere disponibile un Java Runtime Environment (JRE), versione 8 o superiore.
+
+.Passaggi
+. Selezionare menu:Impostazioni[Sistema].
+. In *Componenti aggiuntivi*, selezionare *Interfaccia a riga di comando*.
++
+Il pacchetto ZIP viene scaricato nel browser.
+
+. Salva il file ZIP nel sistema di gestione in cui intendi eseguire i comandi CLI per lo storage array, quindi estrai il file.
++
+Ora è possibile eseguire comandi CLI da un prompt del sistema operativo, come il prompt C: di DOS. Un riferimento ai comandi CLI è disponibile dal menu Guida in alto a destra dell'interfaccia utente di System Manager.
+
+

@@ -1,0 +1,30 @@
+---
+permalink: sm-hardware/change-shelf-ids.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, shelf, ids, 
+summary: 'L"ID dello scaffale è un numero che identifica in modo univoco uno scaffale nell"array di storage. Gli scaffali sono numerati consecutivamente, a partire da 00 o 01, in alto a sinistra di ciascuna visualizzazione dello scaffale.' 
+---
+= Modificare gli ID degli shelf in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'ID dello scaffale è un numero che identifica in modo univoco uno scaffale nell'array di storage. Gli scaffali sono numerati consecutivamente, a partire da 00 o 01, in alto a sinistra di ciascuna visualizzazione dello scaffale.
+
+.Informazioni su questa attività
+Il firmware del controller assegna automaticamente l'ID dello shelf, ma puoi modificare quel numero se vuoi creare uno schema di ordinamento diverso.
+
+.Passaggi
+. Seleziona *Hardware*.
+. Selezionare l'elenco a discesa per il Controller Shelf o il Drive Shelf, quindi selezionare *Change ID*.
+. Nella finestra di dialogo Change Shelf ID, seleziona l'elenco a discesa per visualizzare i numeri disponibili.
++
+Questa finestra di dialogo non visualizza gli ID attualmente assegnati agli shelf attivi.
+
+. Seleziona un numero disponibile, quindi fai clic su *Salva*.
++
+A seconda del numero selezionato, l'ordine degli scaffali potrebbe essere modificato nella pagina Hardware. Se desiderato, puoi utilizzare le frecce su/giù in alto a destra di ogni scaffale per riaggiustare l'ordine.
+
+

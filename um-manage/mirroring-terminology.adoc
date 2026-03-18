@@ -1,0 +1,81 @@
+---
+permalink: um-manage/mirroring-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, mirroring, terminology 
+summary: Scopri come si applicano i termini relativi al mirroring al tuo array di storage. 
+---
+= Scopri la terminologia del mirroring in SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scopri come si applicano i termini relativi al mirroring al tuo array di storage.
+
+[cols="25h,~"]
+|===
+| Termine | Descrizione 
+
+
+ a| 
+Array di archiviazione locale
+ a| 
+L'array di archiviazione locale è l'array di archiviazione su cui si sta operando.
+
+
+
+ a| 
+Gruppo di coerenza mirror
+ a| 
+Un mirror consistency group è un container per una o più coppie mirror. Per le operazioni di mirroring asincrono, è necessario creare un mirror consistency group. Tutte le coppie mirror in un gruppo vengono risincronizzate simultaneamente, preservando così un punto di ripristino coerente.
+
+Il mirroring sincrono non utilizza mirror consistency groups.
+
+
+
+ a| 
+Coppia specchiata
+ a| 
+Una coppia speculare è composta da due volumi, un volume primario e un volume secondario.
+
+Nel mirroring asincrono, una coppia mirrorata appartiene sempre a un mirror consistency group. Le operazioni di scrittura vengono eseguite prima sul volume primario e poi replicate sul volume secondario. Ogni coppia mirrorata in un mirror consistency group condivide le stesse impostazioni di sincronizzazione.
+
+
+
+ a| 
+Volume primario
+ a| 
+Il volume primario di una coppia speculare è il volume di origine da sottoporre a mirroring.
+
+
+
+ a| 
+array di storage remoto
+ a| 
+L'array di storage remoto viene solitamente designato come sito secondario, che di solito contiene una replica dei dati in una configurazione di mirroring.
+
+
+
+ a| 
+Capacità riservata
+ a| 
+La capacità riservata è la capacità fisica allocata utilizzata per qualsiasi operazione di copia del servizio e oggetto di archiviazione. Non è direttamente leggibile dall'host.
+
+Questi volumi sono necessari affinché il controller possa salvare in modo permanente le informazioni indispensabili per mantenere il mirroring in uno stato operativo. Contengono informazioni quali i log delta e i dati copy-on-write.
+
+
+
+ a| 
+Volume secondario
+ a| 
+Il volume secondario di una coppia speculare si trova solitamente in una sede secondaria e contiene una replica dei dati.
+
+
+
+ a| 
+Sincronizzazione
+ a| 
+La sincronizzazione avviene al momento della sincronizzazione iniziale tra l'array di storage locale e l'array di storage remoto. La sincronizzazione si verifica anche quando i volumi primario e secondario si desincronizzano a seguito di un'interruzione della comunicazione. Quando il collegamento di comunicazione viene ripristinato, tutti i dati non replicati vengono sincronizzati con l'array di storage del volume secondario.
+
+|===

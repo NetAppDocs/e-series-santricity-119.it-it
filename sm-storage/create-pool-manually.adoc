@@ -1,0 +1,144 @@
+---
+permalink: sm-storage/create-pool-manually.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, pool, manually 
+summary: 'È possibile creare un pool manualmente (da un insieme di candidati) se la funzione Pool Auto Configuration non fornisce un pool che soddisfa le proprie esigenze.' 
+---
+= Creare un pool manualmente in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile creare un pool manualmente (da un insieme di candidati) se la funzione Pool Auto Configuration non fornisce un pool che soddisfa le proprie esigenze.
+
+Un pool fornisce la capacità di archiviazione logica necessaria dalla quale è possibile creare volumi individuali che possono poi essere utilizzati per ospitare le tue applicazioni.
+
+.Prima di iniziare
+* È necessario disporre di un minimo di 11 dischi dello stesso tipo (HDD o SSD).
+* La protezione contro la perdita di shelf richiede che le unità che compongono il pool siano collocate in almeno sei diversi shelf di unità e che non vi siano più di due unità in un singolo shelf di unità.
+* La protezione contro la perdita di cassetto richiede che le unità che compongono il pool siano collocate in almeno cinque cassetti diversi e che il pool includa un numero uguale di alloggiamenti per unità provenienti da ciascun cassetto.
+* Quando si configura un array di storage EF600 o EF300, assicurarsi che ciascun controller abbia accesso a un numero uguale di drive nei primi 12 slot e a un numero uguale di drive negli ultimi 12 slot. Questa configurazione consente ai controller di utilizzare entrambi i bus PCIe lato drive in modo più efficace. Attualmente System Manager consente la selezione dei drive nella funzione Avanzate durante la creazione di un gruppo di volumi. Per la creazione di un pool, si consiglia di utilizzare tutti i drive presenti nell'array di storage.
+
+
+.Passaggi
+. Selezionare menu:Storage[Pool & Volume Groups].
+. Fare clic su menu:Create[Pool].
++
+Viene visualizzata la finestra di dialogo Create Pool.
+
+. Inserisci un nome per il pool.
+. *Facoltativo:* Se nel tuo array di archiviazione sono presenti più tipi di drive, seleziona il tipo di drive che desideri utilizzare.
++
+La tabella dei risultati elenca tutti i possibili pool che è possibile creare.
+
+. Seleziona il candidato del pool che desideri utilizzare in base alle seguenti caratteristiche, quindi fai clic su *Create*.
++
+[cols="25h,~"]
+|===
+| Caratteristica | Usa 
+
+
+ a| 
+Capacità libera
+ a| 
+Mostra la capacità libera del pool candidato in GiB. Seleziona un pool candidato con la capacità per le esigenze di archiviazione della tua applicazione.
+
+La capacità di riserva (spare) è anch'essa distribuita in tutto il pool e non fa parte della capacità libera.
+
+
+
+ a| 
+Dischi totali
+ a| 
+Mostra il numero di dischi disponibili nel pool candidate.
+
+System Manager riserva automaticamente il maggior numero possibile di dischi per la capacità di conservazione (per ogni sei dischi in un pool, System Manager riserva un disco per la capacità di conservazione).
+
+Quando si verifica un guasto di un disco, la capacità di conservazione viene utilizzata per contenere i dati ricostruiti.
+
+
+
+ a| 
+Dimensione blocco disco (solo EF300 e EF600)
+ a| 
+Indica la dimensione del blocco (dimensione del settore) che le unità del pool possono scrivere. I valori possibili includono:
+
+** 512 -- settore da 512 byte.
+** 4K -- dimensione settore 4.096 byte.
+
+
+
+
+ a| 
+Secure-Capable
+ a| 
+Indica se questo pool candidato è composto interamente da drive con funzionalità di sicurezza, che possono essere drive Full Disk Encryption (FDE) o drive Federal Information Processing Standard (FIPS).
+
+** È possibile proteggere il pool con Drive Security, ma tutte le unità devono essere secure-capable per utilizzare questa funzione.
+** Se si desidera creare un pool solo FDE, cercare *Sì - FDE* nella colonna Secure-Capable. Se si desidera creare un pool solo FIPS, cercare *Sì - FIPS* o *Sì - FIPS (Misto)*. "Misto" indica una combinazione di unità di livello 140-2 e 140-3. Se si utilizza una combinazione di questi livelli, tenere presente che il pool opererà al livello di sicurezza inferiore (140-2).
+** È possibile creare un pool composto da dischi che possono essere o meno secure-capable oppure da una combinazione di livelli di sicurezza. Se i dischi nel pool includono dischi che non sono secure-capable, non è possibile rendere il pool sicuro.
+
+
+
+
+ a| 
+Abilitare la sicurezza?
+ a| 
+Offre la possibilità di abilitare la funzionalità Drive Security con dischi compatibili con la sicurezza. Se il pool è compatibile con la sicurezza e hai creato una chiave di sicurezza, puoi abilitare la sicurezza selezionando la check box.
+
+[NOTE]
+====
+L'unico modo per rimuovere Drive Security dopo averlo attivato è eliminare il pool e cancellare i dischi.
+
+====
+
+
+ a| 
+Compatibile con DA
+ a| 
+Indica se Data Assurance (DA) è disponibile per questo pool candidato. DA verifica e corregge gli errori che potrebbero verificarsi durante il trasferimento dei dati dai controller alle unità.
+
+DA è abilitato se tutte le unità sono compatibili con DA. DA può essere disabilitato dopo la creazione del volume selezionando menu:Storage[Volumes > View/Edit Settings > Advanced > Permanently disable data assurance]. Se DA è disabilitato su un volume, non può essere riabilitato.
+
+
+
+ a| 
+Resource Provisioning Capable (solo EF300 e EF600)
+ a| 
+Indica se Resource Provisioning è disponibile per questo pool candidate. Resource Provisioning è una funzionalità disponibile negli array di storage EF300 e EF600, che consente di mettere in uso i volumi immediatamente senza alcun processo di inizializzazione in background.
+
+
+
+ a| 
+Protezione perdita shelf
+ a| 
+Indica se la protezione contro la perdita dello shelf è disponibile.
+
+La protezione contro la perdita di shelf garantisce l'accessibilità ai dati sui volumi in un pool in caso di perdita totale della comunicazione con una shelf di dischi singola.
+
+
+
+ a| 
+Protezione contro la perdita del cassetto
+ a| 
+Indica se è disponibile la protezione contro la perdita dei cassetti, che viene fornita solo se si utilizza un drive shelf che contiene cassetti.
+
+La protezione contro la perdita di un singolo cassetto garantisce l'accessibilità ai dati sui volumi in un pool se si verifica una perdita totale di comunicazione con un singolo cassetto in una drive shelf.
+
+
+
+ a| 
+Dimensioni dei blocchi volume supportate (EF300 e EF600 only)
+ a| 
+Mostra le dimensioni dei blocchi che possono essere creati per i volumi nel pool:
+
+** 512n -- 512 byte nativi.
+** 512e -- 512 byte emulati.
+** 4K -- 4,096 byte.
+
+
+|===
+

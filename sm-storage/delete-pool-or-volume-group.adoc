@@ -1,0 +1,42 @@
+---
+permalink: sm-storage/delete-pool-or-volume-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, pool, volume, group 
+summary: 'È possibile eliminare un pool o un gruppo di volumi per creare più capacità non assegnata, che è possibile riconfigurare per soddisfare le esigenze di archiviazione dell"applicazione.' 
+---
+= Eliminare un pool o un gruppo di volumi in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eliminare un pool o un gruppo di volumi per creare più capacità non assegnata, che è possibile riconfigurare per soddisfare le esigenze di archiviazione dell'applicazione.
+
+.Prima di iniziare
+* È necessario aver eseguito il backup dei dati su tutti i volumi nel pool o nel gruppo di volumi.
+* È necessario aver interrotto tutte le operazioni di input/output (I/O).
+* È necessario smontare tutti i file system sui volumi.
+* È necessario aver eliminato tutte le relazioni mirror nel pool o nel gruppo di volumi.
+* È necessario aver interrotto qualsiasi operazione di copia di volume in corso per il pool o il gruppo di volumi.
+* Il pool o il gruppo di volumi non deve partecipare a un'operazione di mirroring asincrono.
+* Le unità del gruppo di volumi non devono avere una prenotazione permanente.
+
+
+.Passaggi
+. Selezionare menu:Storage[Pool & Volume Groups].
+. Seleziona un pool o un gruppo di volumi dall'elenco.
++
+È possibile selezionare un solo pool o gruppo di volumi alla volta. Scorri l'elenco per visualizzare altri pool o gruppi di volumi.
+
+. Seleziona menu:Uncommon Tasks[Delete] e conferma.
+
+
+.Risultati
+System Manager esegue le seguenti azioni:
+
+* Elimina tutti i dati nel pool o nel gruppo di volumi.
+* Elimina tutte le unità associate al pool o al volume group.
+* Rimuove l'assegnazione delle unità associate, il che consente di riutilizzarle in nuovi o esistenti pool o gruppi di volumi.
+

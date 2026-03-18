@@ -1,0 +1,41 @@
+---
+permalink: sm-settings/edit-syslog-server-settings-for-audit-log-records.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, edit, syslog, server, settings, audit, log, records, 
+summary: 'È possibile modificare le impostazioni del syslog server utilizzato per l"archiviazione dei log di controllo e caricare anche un nuovo certificato di autorità di certificazione (CA) per il server.' 
+---
+= Modifica le impostazioni del server syslog per i record del registro di controllo in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare le impostazioni del syslog server utilizzato per l'archiviazione dei log di controllo e caricare anche un nuovo certificato di autorità di certificazione (CA) per il server.
+
+.Prima di iniziare
+* È necessario aver effettuato l'accesso con un profilo utente che includa le autorizzazioni di Security admin. In caso contrario, le funzioni di Access Management non vengono visualizzate.
+* L'indirizzo del server syslog, il protocollo e il numero di porta devono essere disponibili. L'indirizzo del server può essere un fully qualified domain name, un indirizzo IPv4 o un indirizzo IPv6.
+* Se si sta caricando un nuovo certificato CA, il certificato deve essere disponibile sul sistema locale.
+
+
+.Passaggi
+. Selezionare menu:Settings[Access Management].
+. Dalla scheda Audit Log, selezionare *Configure Syslog Servers*.
++
+I server syslog configurati vengono visualizzati nella pagina.
+
+. Per modificare le informazioni del server, seleziona l'icona *Edit* (matita) a destra del nome del server, quindi apporta le modifiche desiderate nei seguenti campi:
++
+** *Indirizzo del server* -- Inserire un fully qualified domain name, un indirizzo IPv4 o un indirizzo IPv6.
+** *Protocollo* -- Seleziona un protocollo dall'elenco a discesa (ad esempio, TLS, UDP o TCP).
+** *Porta* -- Inserire il numero di porta per il syslog receiver.
+
+
+. Se hai modificato il protocollo passando al protocollo sicuro TLS (da UDP o TCP), fai clic su *Import Trusted Certificate* per caricare un certificato CA.
+. Per testare la nuova connessione con l'array di archiviazione, selezionare *Test All*.
+
+
+.Risultati
+Dopo la configurazione, tutti i nuovi log di controllo vengono inviati al syslog server. I log precedenti non vengono trasferiti.

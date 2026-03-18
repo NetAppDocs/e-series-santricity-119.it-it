@@ -1,0 +1,61 @@
+---
+permalink: sm-storage/remove-capacity-from-a-pool-or-ssd-cache.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remove, capacity, pool, ssd cache 
+summary: È possibile rimuovere le unità per ridurre la capacità di un pool esistente o della Cache SSD. 
+---
+= Rimuovere la capacità da un pool o dalla Cache SSD in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile rimuovere le unità per ridurre la capacità di un pool esistente o della Cache SSD.
+
+Dopo aver rimosso le unità, i dati presenti in ciascun volume del pool o Cache SSD vengono ridistribuiti alle unità rimanenti. Le unità rimosse diventano non assegnate e la loro capacità diventa parte della capacità libera totale dell'array di storage.
+
+.Informazioni su questa attività
+Segui queste linee guida quando rimuovi capacità:
+
+* Non è possibile rimuovere l'ultima unità in una Cache SSD senza prima eliminare la Cache SSD.
+* Non è possibile ridurre il numero di dischi in un pool a meno di 11 dischi.
+* È possibile rimuovere un massimo di 12 unità alla volta. Se è necessario rimuovere più di 12 unità, ripetere la procedura.
+* Non è possibile rimuovere le unità se non c'è spazio libero sufficiente nel pool o nella Cache SSD per contenere i dati, quando questi dati vengono ridistribuiti alle unità rimanenti nel pool o nella Cache SSD.
+
+
+.Leggi i potenziali impatti sulle prestazioni
+[%collapsible]
+====
+* La rimozione delle unità da un pool o Cache SSD potrebbe comportare una riduzione delle prestazioni del volume.
+* La capacità di conservazione non viene consumata quando si rimuove capacità da un pool o SSD Cache. Tuttavia, la capacità di conservazione potrebbe diminuire in base al numero di unità rimanenti nel pool o SSD Cache.
+
+
+====
+.Leggi gli impatti sulle unità compatibili con la sicurezza
+[%collapsible]
+====
+* Se si rimuove l'ultima unità che non è secure-capable, il pool rimane con tutte unità secure-capable. In questa situazione, viene offerta la possibilità di abilitare la sicurezza per il pool.
+* Se si rimuove l'ultima unità che non è compatibile con Data Assurance (DA), il pool rimane composto solo da unità compatibili con DA.
+
+
+
+NOTE: Tutti i nuovi volumi creati sul pool saranno compatibili con DA. Se si desidera che i volumi esistenti siano compatibili con DA, è necessario eliminarli e quindi ricrearli.
+
+====
+.Passaggi
+. Selezionare menu:Storage[Pool & Volume Groups].
+. Seleziona il pool o la Cache SSD, quindi fai clic su menu:More[Rimuovi capacità].
++
+Viene visualizzata la finestra di dialogo Remove Capacity.
+
+. Seleziona una o più unità nell'elenco.
++
+Quando si selezionano o deselezionano unità nell'elenco, il campo *Capacità totale selezionata* si aggiorna. Questo campo mostra la capacità totale del pool o della Cache SSD che risulta dopo la rimozione delle unità selezionate.
+
+. Fai clic su *Remove* e poi conferma di voler rimuovere le unità.
++
+La nuova capacità ridotta del pool o della Cache SSD si riflette nella vista Pool e gruppi di volumi.
+
+

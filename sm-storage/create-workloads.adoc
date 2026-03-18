@@ -1,0 +1,31 @@
+---
+permalink: sm-storage/create-workloads.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, workloads 
+summary: È possibile creare workload per qualsiasi tipo di applicazione. 
+---
+= Crea carichi di lavoro in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile creare workload per qualsiasi tipo di applicazione.
+
+.Informazioni su questa attività
+Un carico di lavoro è un oggetto di archiviazione che supporta un'applicazione. Puoi definire uno o più carichi di lavoro, o istanze, per applicazione.
+
+.Passaggi
+. Selezionare menu:Storage[Volumes].
+. Selezionare menu:Create[Workload].
++
+Viene visualizzata la finestra di dialogo Crea Application Workload.
+
+. Utilizza l'elenco a discesa per selezionare il tipo di applicazione per cui desideri creare il workload e quindi digita un nome per il workload.
+. Fai clic su *Create*.
+
+
+.Dopo aver finito
+Ora sei pronto per aggiungere capacità di storage al workload che hai creato. Utilizza l'opzione *Create Volume* per creare uno o più volumi per un'applicazione e per allocare quantità specifiche di capacità a ciascun volume.

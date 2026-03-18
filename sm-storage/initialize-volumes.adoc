@@ -1,0 +1,59 @@
+---
+permalink: sm-storage/initialize-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, initialize, volumes 
+summary: Un volume viene inizializzato automaticamente al momento della sua creazione. Tuttavia, il Recovery Guru potrebbe consigliare di inizializzare manualmente un volume per ripristinare determinate condizioni di errore. Utilizzare questa opzione solo sotto la guida del supporto tecnico. È possibile selezionare uno o più volumi da inizializzare. 
+---
+= Inizializzare i volumi in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un volume viene inizializzato automaticamente al momento della sua creazione. Tuttavia, il Recovery Guru potrebbe consigliare di inizializzare manualmente un volume per ripristinare determinate condizioni di errore. Utilizzare questa opzione solo sotto la guida del supporto tecnico. È possibile selezionare uno o più volumi da inizializzare.
+
+.Prima di iniziare
+* Tutte le operazioni di I/O sono state interrotte.
+* Tutti i dispositivi o i file system sui volumi che si desidera inizializzare devono essere smontati.
+* Il volume si trova in stato ottimale e non sono in corso operazioni di modifica sul volume.
+
+
+[CAUTION]
+====
+Non è possibile annullare l'operazione una volta avviata. Tutti i dati del volume vengono cancellati. Non tentare questa operazione a meno che il Recovery Guru non lo consigli. Contatta il supporto tecnico prima di iniziare questa procedura.
+
+====
+.Informazioni su questa attività
+Quando si inizializza un volume, il volume mantiene il proprio WWN, le assegnazioni host, la capacità allocata e le impostazioni di capacità riservata. Mantiene inoltre le stesse impostazioni di Data Assurance (DA) e di sicurezza.
+
+I seguenti tipi di volumi _non_ possono essere inizializzati:
+
+* Volume base di un volume snapshot
+* Volume primario in una relazione speculare
+* Volume secondario in una relazione speculare
+* Volume di origine in una copia volume
+* Volume di destinazione in una copia del volume
+* Volume che ha già un'inizializzazione in corso
+
+
+Questo argomento si applica solo ai volumi standard creati da pool o gruppi di volumi.
+
+.Passaggi
+. Selezionare menu:Storage[Volumes].
+. Seleziona un volume qualsiasi, quindi seleziona menu:More[Initialize volumes].
++
+Viene visualizzata la finestra di dialogo Inizializza volumi. Tutti i volumi sull'array di storage vengono visualizzati in questa finestra di dialogo.
+
+. Seleziona uno o più volumi che desideri inizializzare e conferma che vuoi eseguire l'operazione.
+
+
+.Risultati
+System Manager esegue le seguenti azioni:
+
+* Cancella tutti i dati dai volumi che sono stati inizializzati.
+* Cancella gli indici dei blocchi, il che fa sì che i blocchi non scritti vengano letti come se fossero riempiti di zeri (il volume appare completamente vuoto).
+
+
+Selezionare menu:Home[Visualizza operazioni in corso] per visualizzare l'avanzamento dell'operazione di inizializzazione attualmente in esecuzione per il volume selezionato. Questa operazione può essere lunga e potrebbe influire sulle prestazioni del sistema.

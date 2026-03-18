@@ -1,0 +1,140 @@
+---
+permalink: sm-storage/create-snapshot-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, snapshot, consistency group 
+summary: Per garantire di avere copie coerenti, è possibile creare un set di più volumi denominato gruppo di coerenza snapshot. 
+---
+= Crea un gruppo di coerenza snapshot in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per garantire di avere copie coerenti, è possibile creare un set di più volumi denominato _gruppo di coerenza snapshot_.
+
+Questo gruppo consente di creare snapshot di tutti i volumi contemporaneamente per garantire la coerenza. Ogni volume che appartiene a un gruppo di coerenza snapshot viene definito _volume membro_. Quando si aggiunge un volume a un gruppo di coerenza snapshot, il sistema crea automaticamente un nuovo gruppo di snapshot che corrisponde a questo volume membro.
+
+.Informazioni su questa attività
+La sequenza di creazione del gruppo di coerenza Snapshot consente di selezionare i volumi membri del gruppo e di allocare capacità ai volumi membri.
+
+La procedura per creare un gruppo di coerenza Snapshot si articola in più fasi.
+
+
+
+== Passaggio 1: Aggiungi membri al gruppo di coerenza Snapshot
+
+Seleziona i membri per specificare una raccolta di volumi che compongono il gruppo di coerenza Snapshot. Qualsiasi azione eseguita sul gruppo di coerenza Snapshot si estende uniformemente ai volumi membri selezionati.
+
+.Prima di iniziare
+I volumi dei membri devono essere Optimal.
+
+.Passaggi
+. Selezionare menu:Storage[Snapshots].
+. Fai clic sulla scheda *Snapshot Consistency Groups*.
+. Selezionare menu:Crea [Snapshot consistency group].
++
+Viene visualizzata la finestra di dialogo Crea gruppo di coerenza Snapshot.
+
+. Selezionare il/i volume/i da aggiungere come volumi membri al gruppo di coerenza Snapshot.
+. Fai clic su *Avanti* e vai a <<Passaggio 2: Riserva la capacità per il gruppo di coerenza Snapshot>>.
+
+
+
+
+== Passaggio 2: Riserva la capacità per il gruppo di coerenza Snapshot
+
+Associa la capacità riservata al gruppo di coerenza Snapshot. System Manager suggerisce i volumi e la capacità in base alle proprietà del gruppo di coerenza Snapshot. Puoi accettare la configurazione di capacità riservata consigliata o personalizzare lo storage allocato.
+
+.Informazioni su questa attività
+Nella finestra di dialogo Capacità riservata, la tabella dei volumi candidati visualizza solo i candidati che supportano la capacità riservata specificata. La capacità riservata è la capacità fisica allocata utilizzata per qualsiasi operazione di copy service e oggetto di storage. Non è direttamente leggibile dall'host.
+
+.Passaggi
+. Utilizzare la casella di selezione per allocare la capacità riservata per il gruppo di coerenza Snapshot. Eseguire una delle seguenti azioni:
++
+** *Accetta le impostazioni predefinite*.
++
+Utilizza questa opzione consigliata per allocare la capacità riservata per ciascun volume membro con le impostazioni predefinite.
+
+** *Assegna le tue impostazioni di capacità riservata per soddisfare le tue esigenze di archiviazione dati.*
++
+Assegna la capacità riservata utilizzando le seguenti linee guida.
+
++
+*** L'impostazione predefinita per la capacità riservata è il 40% della capacità del volume base. Di solito questa capacità è sufficiente.
+*** La capacità necessaria varia a seconda della frequenza e della dimensione delle scritture di I/O sui volumi e della quantità e durata della raccolta delle immagini Snapshot.
+
+
+
+
+. *Facoltativo:* Se modifichi l'impostazione predefinita della capacità riservata, fai clic su *Aggiorna candidati* per aggiornare l'elenco dei candidati per la capacità riservata specificata.
+. Fai clic su *Avanti* e vai a <<Passaggio 3: Modifica delle impostazioni per il gruppo di coerenza Snapshot>>.
+
+
+
+
+== Passaggio 3: Modifica delle impostazioni per il gruppo di coerenza Snapshot
+
+Accetta o scegli le impostazioni di eliminazione automatica e le soglie di avviso della capacità riservata per il gruppo di coerenza Snapshot.
+
+.Informazioni su questa attività
+La sequenza di creazione del gruppo di coerenza Snapshot consente di selezionare i volumi membri del gruppo e di allocare capacità ai volumi membri.
+
+.Passaggi
+. Accetta o modifica le impostazioni predefinite per il gruppo di coerenza Snapshot, secondo necessità.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Impostazione | Descrizione 
+
+
+ a| 
+*Impostazioni del gruppo di coerenza Snapshot*
+
+
+
+ a| 
+Nome
+ a| 
+Specificare il nome per il gruppo di coerenza Snapshot.
+
+
+
+ a| 
+Abilita l'eliminazione automatica delle immagini Snapshot quando...
+ a| 
+Mantieni selezionata la check box se desideri che le immagini Snapshot vengano eliminate automaticamente dopo il limite specificato; usa la spinner box per modificare il limite. Se deselezioni questa check box, la creazione di immagini Snapshot si interrompe dopo 32 immagini.
+
+
+
+ a| 
+*Impostazioni di capacità riservata*
+
+
+
+ a| 
+Avvisami quando...
+ a| 
+Utilizzare il selettore a rotella per regolare la percentuale al punto in cui il sistema invia una notifica di avviso quando la capacità riservata per un gruppo di coerenza Snapshot sta per esaurirsi.
+
+Quando la capacità riservata per il gruppo di coerenza Snapshot supera la soglia specificata, utilizzare la notifica preventiva per aumentare la capacità riservata o per eliminare gli oggetti non necessari prima che lo spazio rimanente si esaurisca.
+
+
+
+ a| 
+Politica per la piena capacità riservata
+ a| 
+Scegli una delle seguenti policy:
+
+** *Elimina l'immagine snapshot più vecchia* -- Il sistema elimina automaticamente l'immagine snapshot più vecchia nel gruppo di coerenza snapshot, liberando la capacità riservata all'immagine snapshot per il riutilizzo all'interno del gruppo.
+** *Rifiuta le scritture sul volume base* -- Quando la capacità riservata raggiunge la percentuale massima definita, il sistema rifiuta qualsiasi richiesta di scrittura I/O sul volume base che ha attivato l'accesso alla capacità riservata.
+
+
+|===
+====
+. Dopo aver verificato la configurazione del gruppo di coerenza Snapshot, fare clic su *Fine*.
+

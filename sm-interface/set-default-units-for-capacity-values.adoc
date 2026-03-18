@@ -1,0 +1,44 @@
+---
+permalink: sm-interface/set-default-units-for-capacity-values.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, capacity values 
+summary: 'System Manager può visualizzare i valori di capacità in gibibyte (GiB) o tebibyte (TiB).' 
+---
+= Imposta le unità predefinite per i valori di capacità in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity System Manager può visualizzare i valori di capacità in gibibyte (GiB) o tebibyte (TiB).
+
+Le preferenze vengono memorizzate nella memoria locale del browser, così tutti gli utenti possono avere le proprie impostazioni.
+
+.Passaggi
+. Seleziona menu:Preferenze[Imposta preferenze].
+. Fai clic sul pulsante di opzione per *Gibibytes* o *Tebibytes* e conferma di voler eseguire l'operazione.
++
+Consultare la tabella seguente per abbreviazioni e valori.
+
++
+[cols="1a,1a"]
+|===
+| Abbreviazione | Valore 
+
+
+ a| 
+GiB
+ a| 
+1.024^3^ byte
+
+
+
+ a| 
+TiB
+ a| 
+1,024^4^ byte
+
+|===
+

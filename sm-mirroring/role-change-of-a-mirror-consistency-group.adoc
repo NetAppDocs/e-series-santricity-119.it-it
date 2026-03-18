@@ -1,0 +1,61 @@
+---
+permalink: sm-mirroring/role-change-of-a-mirror-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, role, change, mirror, consistency, group, secondary, mirror, consistency, group, 
+summary: È possibile modificare il ruolo tra coppie mirrorate in un mirror consistency group. È possibile farlo declassando il mirror consistency group primario al ruolo secondario oppure promuovendo il mirror consistency group secondario al ruolo primario. 
+---
+= Modificare i ruoli del gruppo di coerenza mirror nel software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare il ruolo tra coppie mirrorate in un mirror consistency group. È possibile farlo declassando il mirror consistency group primario al ruolo secondario oppure promuovendo il mirror consistency group secondario al ruolo primario.
+
+Esamina le seguenti informazioni relative all'operazione di cambio di ruolo:
+
+* Il cambio di ruolo interessa tutte le coppie mirrorate all'interno del gruppo di coerenza mirror selezionato.
+* Quando un mirror consistency group viene declassato al ruolo secondario, tutte le mirrored pairs all'interno di quel mirror consistency group vengono anch'esse declassate al ruolo secondario e viceversa.
+* Quando il gruppo di coerenza mirror primario viene declassato al ruolo secondario, gli host a cui sono stati assegnati i volumi membri all'interno di tale gruppo non hanno più accesso in scrittura a tali volumi.
+* Quando un gruppo di coerenza mirror viene promosso al ruolo primario, qualsiasi host che accede ai volumi membri all'interno di tale gruppo è ora in grado di scrivervi.
+* Se l'array di storage locale non riesce a comunicare con l'array di storage remoto, puoi forzare il cambio di ruolo sull'array di storage locale.
+
+
+
+
+== Forza cambio di ruolo
+
+È possibile forzare un cambio di ruolo tra mirror consistency groups quando un problema di comunicazione tra l'array di storage locale e l'array di storage remoto impedisce la promozione dei volumi membri all'interno del secondary mirror consistency group o la retrocessione dei volumi membri all'interno del primary mirror consistency group.
+
+È possibile forzare il gruppo di coerenza mirror sul lato secondario a passare al ruolo primario. Quindi l'host di ripristino può accedere ai volumi membri appena promossi all'interno di quel gruppo di coerenza mirror e le operazioni di business possono continuare.
+
+
+
+== Quando è consentita una promozione forzata e quando non è consentita?
+
+La promozione forzata di un mirror consistency group è consentita solo se tutti i volumi membri del mirror consistency group sono stati sincronizzati e dispongono di punti di ripristino coerenti.
+
+La promozione forzata di un gruppo di coerenza mirror non è consentita alle seguenti condizioni:
+
+* Uno qualsiasi dei volumi membri di un mirror consistency group è in fase di sincronizzazione iniziale.
+* Nessuno dei volumi membri di un gruppo di coerenza mirror possiede un'immagine point-in-time del punto di ripristino (ad esempio, a causa di un errore di capacità riservata piena).
+* Il gruppo di coerenza mirror non contiene volumi membro.
+* Il gruppo di coerenza mirror si trova negli stati Non riuscito, Cambio ruolo in sospeso o Cambio ruolo in corso, oppure se uno qualsiasi dei volumi membro associati o dei volumi di capacità riservata è non riuscito.
+
+
+
+
+== Conflitto di ruolo nel gruppo mirror
+
+Quando viene risolto un problema di comunicazione tra gli array di storage locali e remoti, si verifica una condizione di Mirror Group Role Conflict. Utilizzare il Recovery Guru per ripristinare da questo errore. Non è consentita una promozione forzata durante la risoluzione di un conflitto di doppio ruolo.
+
+Per evitare la condizione di Mirror Group Role Conflict e le conseguenti procedure di ripristino, attendere che la connessione tra gli array di storage sia operativa prima di forzare il cambio di ruolo.
+
+
+
+== Stato di avanzamento del cambio di ruolo
+
+Se due array di storage in una configurazione di mirroring si disconnettono, e il lato primario di un mirror consistency group viene forzatamente declassato a ruolo secondario, e il lato secondario di un mirror consistency group viene forzatamente promosso a ruolo primario, allora, al ripristino della comunicazione, i mirror consistency group su entrambi gli array di storage vengono posti nello stato Role-Change-In-Progress.
+
+Il sistema completerà il processo di cambio ruolo trasferendo i registri delle modifiche, risincronizzando, impostando lo stato del gruppo di coerenza mirror a uno stato operativo normale e continuando con sincronizzazioni periodiche.

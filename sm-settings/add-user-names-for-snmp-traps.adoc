@@ -1,0 +1,36 @@
+---
+permalink: sm-settings/add-user-names-for-snmp-traps.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add, users, snmpv3, traps, 
+summary: È possibile aggiungere fino a 256 utenti per le trap SNMPv3. 
+---
+= Aggiungi utenti per le trap SNMPv3 in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile aggiungere fino a 256 utenti per le trap SNMPv3.
+
+.Passaggi
+. Seleziona menu:Impostazioni[Avvisi].
+. Seleziona la scheda *SNMP*.
++
+Le destinazioni delle trappole e i nomi utente vengono visualizzati nella tabella.
+
+. Seleziona *Configure Users*.
++
+Si apre la finestra di dialogo Configura SNMPv3 Users.
+
+. Seleziona *Aggiungi*.
+. Inserisci le seguenti informazioni, quindi fai clic su *Aggiungi*.
++
+** *Nome utente* -- Inserire un nome per identificare l'utente, che può essere lungo fino a 31 caratteri.
+** *ID motore* -- Selezionare l'ID motore, utilizzato per generare le chiavi di autenticazione e crittografia per i messaggi, e che deve essere univoco nel dominio amministrativo. Nella maggior parte dei casi, si dovrebbe selezionare *Locale*. Se si dispone di una configurazione non standard, selezionare *Personalizzata*; verrà visualizzato un altro campo in cui è necessario immettere l'ID motore autorevole come stringa esadecimale, con un numero pari di caratteri compreso tra 10 e 32.
+** *Credenziali di autenticazione* -- Seleziona un protocollo di autenticazione, che garantisce l'identità degli utenti. Successivamente, inserisci una password di autenticazione, necessaria quando il protocollo di autenticazione viene impostato o modificato. La password deve essere lunga tra 8 e 128 caratteri.
+** *Credenziali di privacy* -- Seleziona un protocollo di privacy, che viene utilizzato per crittografare il contenuto dei messaggi. Successivamente, inserisci una password di privacy, richiesta quando il protocollo di privacy viene impostato o modificato. La password deve essere compresa tra 8 e 128 caratteri.
+
+
+

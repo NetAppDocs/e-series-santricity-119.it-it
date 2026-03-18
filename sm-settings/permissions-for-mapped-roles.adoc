@@ -1,0 +1,27 @@
+---
+permalink: sm-settings/permissions-for-mapped-roles.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, permissions, mapped, roles, 
+summary: 'Le funzionalità RBAC (controllo degli accessi in base al ruolo) applicate sull"array di storage includono profili utente predefiniti con uno o più ruoli associati. Ciascun ruolo include le autorizzazioni per accedere alle attività in SANtricity System Manager.' 
+---
+= Scopri le autorizzazioni per i ruoli mappati in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le funzionalità RBAC (controllo degli accessi in base al ruolo) applicate sull'array di storage includono profili utente predefiniti con uno o più ruoli associati. Ciascun ruolo include le autorizzazioni per accedere alle attività in SANtricity System Manager.
+
+I profili utente e i ruoli mappati sono accessibili dal menu:Impostazioni[Gestione accessi > Ruoli utente locali] nell'interfaccia utente di entrambi i System Manager.
+
+I ruoli forniscono agli utenti l'accesso alle attività, come segue:
+
+* *Amministratore dello storage* -- Accesso completo in lettura/scrittura agli oggetti di storage (ad esempio, volumi e pool di dischi), ma nessun accesso alla configurazione di sicurezza.
+* *Amministratore della sicurezza* -- Accesso alla configurazione della sicurezza in Access Management, gestione certificati, gestione audit log e possibilità di attivare o disattivare l'interfaccia di gestione legacy (SYMbol).
+* *Support admin* -- Accesso a tutte le risorse hardware sull'array di storage, ai dati di errore, agli eventi MEL e agli aggiornamenti del firmware del controller. Nessun accesso agli oggetti di storage o alla configurazione di sicurezza.
+* *Monitor* -- Accesso in sola lettura a tutti gli oggetti di archiviazione, ma nessun accesso alla configurazione di sicurezza.
+
+
+Se un utente non dispone delle autorizzazioni per una determinata attività, tale attività viene visualizzata in grigio oppure non viene mostrata nell'interfaccia utente.

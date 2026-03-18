@@ -1,0 +1,47 @@
+---
+permalink: sm-settings/enable-feature-pack.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, feature, pack, 
+summary: 'Un feature pack è un pacchetto che modifica gli attributi di un array di storage (ad esempio, cambiando il protocollo da Fibre Channel a iSCSI). I feature pack richiedono una chiave speciale per l"abilitazione.' 
+---
+= Abilita il pacchetto di funzionalità in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un feature pack è un pacchetto che modifica gli attributi di un array di storage (ad esempio, cambiando il protocollo da Fibre Channel a iSCSI). I feature pack richiedono una chiave speciale per l'abilitazione.
+
+.Prima di iniziare
+* Hai seguito le istruzioni appropriate relative alla conversione e alla preparazione per i nuovi attributi dell'array di storage. Per le istruzioni sulla conversione del protocollo host, consulta la guida alla manutenzione hardware del tuo modello di controller.
+* L'array di storage è offline, quindi nessun host o applicazione vi sta accedendo.
+* Tutti i dati sono sottoposti a backup.
+* Hai ottenuto un file feature pack.
++
+Il file del pacchetto di funzionalità viene caricato sul client di gestione (il sistema dotato di un browser per accedere a System Manager).
+
+
+
+[NOTE]
+====
+È necessario pianificare una finestra di manutenzione di downtime e interrompere tutte le operazioni di I/O tra l'host e i controller. Inoltre, si tenga presente che non sarà possibile accedere ai dati sull'array di storage fino al completamento con successo della conversione.
+
+====
+.Informazioni su questa attività
+Questa procedura descrive come utilizzare System Manager per abilitare un pacchetto di funzionalità. Al termine, è necessario riavviare il storage array.
+
+.Passaggi
+. Selezionare menu:Impostazioni[Sistema].
+. In *Componenti aggiuntivi*, selezionare *Cambia Feature Pack*.
+. Fai clic su *Sfoglia*, quindi seleziona il file chiave.
++
+Il nome del file viene visualizzato nella finestra di dialogo.
+
+. Digita  `change` nel campo.
+. Fai clic su *Change*.
++
+La migrazione del pacchetto di funzionalità ha inizio e i controller vengono riavviati. I dati della cache non ancora scritti vengono eliminati, il che garantisce l'assenza di attività di I/O. Entrambi i controller si riavviano automaticamente affinché il nuovo pacchetto di funzionalità abbia effetto. L'array di storage torna a uno stato reattivo al termine del riavvio.
+
+

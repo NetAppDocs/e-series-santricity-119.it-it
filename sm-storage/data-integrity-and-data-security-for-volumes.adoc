@@ -1,0 +1,59 @@
+---
+permalink: sm-storage/data-integrity-and-data-security-for-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, data, integrity, security, volumes 
+summary: 'È possibile abilitare i volumi all"utilizzo della funzionalità Data Assurance (DA) e della funzionalità Drive Security. Queste funzionalità sono presentate a livello di pool e di gruppo di volumi.' 
+---
+= Scopri l'integrità e la sicurezza dei dati per i volumi nel software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile abilitare i volumi all'utilizzo della funzionalità Data Assurance (DA) e della funzionalità Drive Security. Queste funzionalità sono presentate a livello di pool e di gruppo di volumi.
+
+
+
+== Data Assurance
+
+Data Assurance (DA) implementa lo standard T10 Protection Information (PI), che aumenta l'integrità dei dati verificando e correggendo gli errori che potrebbero verificarsi durante il trasferimento dei dati lungo il percorso I/O. L'utilizzo tipico della funzionalità Data Assurance prevede il controllo della porzione del percorso I/O compresa tra i controller e le unità. Le funzionalità DA sono disponibili a livello di pool e di gruppo di volumi.
+
+Quando questa funzionalità è abilitata, l'array di storage aggiunge codici di controllo degli errori (noti anche come controlli di ridondanza ciclica o CRC) a ciascun blocco di dati nel volume. Dopo che un blocco di dati è stato spostato, l'array di storage utilizza questi codici CRC per determinare se si sono verificati errori durante la trasmissione. I dati potenzialmente corrotti non vengono né scritti su disco né restituiti all'host. Se si desidera utilizzare la funzionalità DA, selezionare un pool o un gruppo di volumi compatibile con DA durante la creazione di un nuovo volume (verificare la presenza di "Sì" accanto a "DA" nella tabella dei pool e dei gruppi di volumi candidati).
+
+
+
+== Sicurezza del drive
+
+La sicurezza delle unità è una funzionalità che impedisce l'accesso non autorizzato ai dati sulle unità protette quando vengono rimosse dall'array di storage. Queste unità possono essere unità Full Disk Encryption (FDE) o unità certificate conformi ai Federal Information Processing Standards 140-2 livello 2 (unità FIPS).
+
+
+
+=== Come funziona Drive Security a livello di drive
+
+Un'unità con funzionalità di sicurezza, FDE o FIPS, crittografa i dati durante la scrittura e li decrittografa durante la lettura. Questa crittografia e decrittografia non influisce sulle prestazioni o sul flusso di lavoro dell'utente. Ogni unità ha la propria chiave di crittografia univoca, che non può mai essere trasferita dall'unità.
+
+
+
+=== Come funziona Drive Security a livello di volume
+
+Quando si crea un pool o un gruppo di volumi da unità secure-capable, è anche possibile abilitare Drive Security per tali pool o gruppi di volumi. L'opzione Drive Security rende le unità e i gruppi di volumi e pool associati secure-enabled. Un pool o un gruppo di volumi può contenere sia unità secure-capable che non secure-capable, ma tutte le unità devono essere secure-capable per poter utilizzare le loro capacità di crittografia.
+
+
+
+=== Come implementare Drive Security
+
+Per implementare Drive Security, eseguire i seguenti passaggi.
+
+. Dotate il vostro storage array di unità compatibili con la sicurezza, ovvero unità FDE o unità FIPS. (Per i volumi che richiedono il supporto FIPS, utilizzate solo unità FIPS. La combinazione di unità FIPS e FDE in un gruppo o pool di volumi comporterà il trattamento di tutte le unità come unità FDE. Inoltre, un'unità FDE non può essere aggiunta o utilizzata come unità di riserva in un gruppo o pool di volumi interamente composto da unità FIPS.)
+. Crea una chiave di sicurezza, ovvero una stringa di caratteri condivisa tra il controller e le unità per l'accesso in lettura/scrittura. Puoi creare una chiave interna dalla memoria persistente del controller oppure una chiave esterna da un key management server. Per la gestione delle chiavi esterne, è necessario stabilire l'autenticazione con il key management server.
+. Abilita la sicurezza delle unità per pool e gruppi di volumi:
++
+** Crea un pool o un gruppo di volumi (cerca *Yes* nella colonna *Secure-capable* nella tabella Candidates).
+** Selezionate un pool o un gruppo di volumi quando create un nuovo volume (cercate *Sì* accanto a *Compatibile con Secure* nella tabella dei candidati per pool e gruppi di volumi).
++
+Con la funzione Drive Security, si crea una chiave di sicurezza che viene condivisa tra le unità abilitate alla sicurezza e i controller in un array di storage. Ogni volta che l'alimentazione delle unità viene interrotta e riattivata, le unità abilitate alla sicurezza passano a uno stato Security Locked finché il controller non applica la chiave di sicurezza.
+
+
+
+

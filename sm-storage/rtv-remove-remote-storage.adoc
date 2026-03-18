@@ -1,0 +1,34 @@
+---
+permalink: sm-storage/rtv-remove-remote-storage.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remove, remote, storage, 
+summary: 'Al termine di un"importazione, è possibile rimuovere un oggetto di storage remoto se non si desidera più che i dati vengano copiati tra i dispositivi locali e remoti.' 
+---
+= Rimuovere un oggetto storage remoto in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al termine di un'importazione, è possibile rimuovere un oggetto di storage remoto se non si desidera più che i dati vengano copiati tra i dispositivi locali e remoti.
+
+.Prima di iniziare
+Assicurati che non siano presenti importazioni associate all'oggetto di storage remoto che intendi rimuovere.
+
+.Informazioni su questa attività
+Quando si rimuove un oggetto storage remoto, le connessioni tra i dispositivi locali e remoti vengono rimosse.
+
+.Passaggi
+. Selezionare menu:Storage[Remote storage].
+. Dall'elenco, seleziona l'oggetto storage remoto che desideri rimuovere.
+. Fai clic su *Remove*.
++
+Viene visualizzata la finestra di dialogo Conferma rimozione connessione storage remota.
+
+. Conferma l'operazione digitando  `remove` e quindi facendo clic su *Rimuovi*.
++
+L'oggetto storage remoto selezionato viene rimosso.
+
+

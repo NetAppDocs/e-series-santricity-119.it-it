@@ -1,0 +1,43 @@
+---
+permalink: sm-hardware/unassign-hot-spares.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, hot, spare, unassign, 
+summary: 'È possibile riportare un hot spare a un"unità non assegnata.' 
+---
+= Annulla l'assegnazione degli hot spare in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile riportare un hot spare a un'unità non assegnata.
+
+.Prima di iniziare
+Il hot spare deve trovarsi nello stato Optimal, Standby.
+
+.Informazioni su questa attività
+Non è possibile rimuovere l'assegnazione di un hot spare che sta attualmente sostituendo un'unità guasta. Se l'hot spare non si trova nello stato Optimal, seguire le procedure di Recovery Guru per risolvere eventuali problemi prima di tentare di rimuovere l'assegnazione dell'unità.
+
+.Passaggi
+. Seleziona *Hardware*.
+. Se il grafico mostra i controller, fai clic sulla scheda *Drives*.
++
+La grafica cambia per mostrare le unità invece dei controller.
+
+. Seleziona l'hot spare (visualizzato in rosa) che desideri disassegnare.
++
+Se sul vano unità rosa sono presenti linee diagonali, la hot spare è attualmente in uso e non può essere disassegnata.
+
++
+Si apre il menu contestuale dell'unità.
+
+. Dall'elenco a discesa dell'unità, selezionare *Annulla assegnazione hot spare*.
++
+La finestra di dialogo mostra i gruppi di volumi interessati dalla rimozione di questo hot spare e se altri hot spare li stanno proteggendo.
+
+. Confermare l'operazione di annullamento dell'assegnazione.
+
+
+.Risultati
+L'unità viene restituita a Unassigned (visualizzata in grigio).

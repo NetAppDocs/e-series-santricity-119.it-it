@@ -1,0 +1,130 @@
+---
+permalink: sm-storage/performance-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, performance, terms 
+summary: Scopri come i termini relativi alle prestazioni si applicano al tuo storage array. 
+---
+= Scopri la terminologia relativa alle prestazioni nel software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scopri come i termini relativi alle prestazioni si applicano al tuo storage array.
+
+[cols="25h,~"]
+|===
+| Termine | Descrizione 
+
+
+ a| 
+Applicazione
+ a| 
+Un'applicazione è un programma software, come SQL o Exchange.
+
+
+
+ a| 
+CPU
+ a| 
+CPU è l'acronimo di "unità centrale di elaborazione". CPU indica la percentuale di capacità di elaborazione dell'array di storage utilizzata.
+
+
+
+ a| 
+Host
+ a| 
+Un host è un server che invia I/O a un volume su un array di storage.
+
+
+
+ a| 
+IOPS
+ a| 
+IOPS è l'acronimo di operazioni di input/output al secondo.
+
+
+
+ a| 
+Latenza
+ a| 
+La latenza è l'intervallo di tempo tra una richiesta, come un comando di lettura o scrittura, e la risposta dell'host o dell'array di storage.
+
+
+
+ a| 
+LUN
+ a| 
+Un numero di unità logica (LUN) è il numero assegnato allo spazio di indirizzi che un host utilizza per accedere a un volume. Il volume viene presentato all'host come capacità sotto forma di LUN.
+
+Ogni host dispone di un proprio spazio di indirizzamento LUN. Pertanto, lo stesso LUN può essere utilizzato da host diversi per accedere a volumi differenti.
+
+
+
+ a| 
+MiB
+ a| 
+MiB è l'abbreviazione di mebibyte (mega binary byte). Un MiB equivale a 220, ovvero 1.048.576 byte. Confronta con MB, che indica un valore in base 10. Un MB equivale a 1.024 byte.
+
+
+
+ a| 
+Oggetto
+ a| 
+Un oggetto è qualsiasi componente di storage logico o fisico.
+
+Gli oggetti logici includono gruppi di volumi, pool e volumi. Gli oggetti fisici includono lo storage array, i controller di array, gli host e le unità.
+
+
+
+ a| 
+Pool
+ a| 
+Un pool è un insieme di unità disco raggruppate logicamente. È possibile utilizzare un pool per creare uno o più volumi accessibili a un host. (È possibile creare volumi da un pool o da un gruppo di volumi.)
+
+
+
+ a| 
+Leggi
+ a| 
+Read è l'abbreviazione di "operazione di lettura", che si verifica quando l'host richiede dati dall'array di storage.
+
+
+
+ a| 
+Volume
+ a| 
+Un volume è un container in cui applicazioni, database e file system memorizzano i dati. È il componente logico creato per consentire all'host di accedere allo storage sull'array di storage.
+
+Un volume viene creato a partire dalla capacità disponibile in un pool o in un gruppo di volumi. Un volume ha una capacità definita. Sebbene un volume possa essere costituito da più unità, un volume appare come un singolo componente logico per l'host.
+
+
+
+ a| 
+Nome volume
+ a| 
+Il nome di un volume è una stringa di caratteri assegnata al volume al momento della sua creazione. È possibile accettare il nome predefinito oppure specificare un nome più descrittivo che indichi il tipo di dati memorizzato nel volume.
+
+
+
+ a| 
+Gruppo di volumi
+ a| 
+Un gruppo di volumi è un container per volumi con caratteristiche condivise. Un gruppo di volumi ha una capacità definita e livello RAID. È possibile utilizzare un gruppo di volumi per creare uno o più volumi accessibili a un host. (È possibile creare volumi da un gruppo di volumi o da un pool.)
+
+
+
+ a| 
+Carico di lavoro
+ a| 
+Un carico di lavoro è un oggetto di archiviazione che supporta un'applicazione. Puoi definire uno o più carichi di lavoro, o istanze, per applicazione. Per alcune applicazioni, il sistema configura il carico di lavoro per contenere volumi con caratteristiche di volume sottostanti simili. Queste caratteristiche di volume sono ottimizzate in base al tipo di applicazione che il carico di lavoro supporta. Ad esempio, se crei un carico di lavoro che supporta un'applicazione Microsoft SQL Server e poi crei volumi per quel carico di lavoro, le caratteristiche di volume sottostanti sono ottimizzate per supportare Microsoft SQL Server.
+
+
+
+ a| 
+Scrivi
+ a| 
+Write è l'abbreviazione di "write operation", quando i dati vengono inviati dall'host all'array per lo storage.
+
+|===

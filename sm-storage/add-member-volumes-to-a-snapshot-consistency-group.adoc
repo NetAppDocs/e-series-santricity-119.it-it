@@ -1,0 +1,61 @@
+---
+permalink: sm-storage/add-member-volumes-to-a-snapshot-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add, member, volume, snapshot consistency group 
+summary: È possibile aggiungere un nuovo volume membro a un gruppo di coerenza snapshot esistente. Quando si aggiunge un nuovo volume membro, è necessario riservare la capacità anche per il volume membro. 
+---
+= Aggiungi un volume membro a un gruppo di coerenza Snapshot in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile aggiungere un nuovo volume membro a un gruppo di coerenza snapshot esistente. Quando si aggiunge un nuovo volume membro, è necessario riservare la capacità anche per il volume membro.
+
+.Prima di iniziare
+* Il volume membro deve essere Optimal.
+* Il gruppo di coerenza snapshot deve avere meno del numero massimo di volumi consentiti (come definito dalla configurazione).
+* Ciascun volume di capacità riservata deve avere le stesse impostazioni di Data Assurance (DA) e sicurezza del volume membro associato.
+
+
+.Informazioni su questa attività
+È possibile aggiungere volumi standard o volumi thin al gruppo di coerenza snapshot. Il volume di base può risiedere in un pool o in un gruppo di volumi.
+
+.Passaggi
+. Selezionare menu:Storage[Snapshots].
+. Selezionare la scheda *Snapshot Consistency Groups*.
++
+La tabella viene visualizzata e mostra tutti i gruppi di coerenza snapshot associati all'array di storage.
+
+. Seleziona il gruppo di coerenza snapshot che desideri modificare, quindi fai clic su *Add Members*.
++
+Viene visualizzata la finestra di dialogo Add Members.
+
+. Seleziona il/i volume/i membro/i che vuoi aggiungere, quindi fai clic su *Next*.
++
+Viene visualizzata la fase Reserve Capacity. La tabella Volume Candidate mostra solo i candidati che supportano la reserved capacity specificata.
+
+. Utilizzare la casella di selezione per allocare la capacità riservata per il volume membro. Eseguire una delle seguenti azioni:
++
+** *Accetta le impostazioni predefinite.*
++
+Utilizza questa opzione consigliata per allocare la capacità riservata al volume membro con le impostazioni predefinite.
+
+** *Assegna le tue impostazioni di capacità riservata per soddisfare le tue esigenze di archiviazione dati.*
++
+Se modifichi l'impostazione predefinita della capacità riservata, fai clic su *Aggiorna candidati* per aggiornare l'elenco dei candidati per la capacità riservata che hai specificato.
+
++
+Assegna la capacità riservata utilizzando le seguenti linee guida.
+
++
+*** L'impostazione predefinita per la capacità riservata è il 40% della capacità del volume base e di solito questa capacità è sufficiente.
+*** La capacità necessaria varia a seconda della frequenza e della dimensione delle scritture di I/O sui volumi e della quantità e durata della raccolta delle immagini Snapshot.
+
+
+
+
+. Fai clic su *Fine* per aggiungere i volumi member.
+

@@ -1,0 +1,66 @@
+---
+permalink: sm-mirroring/change-synchronization-settings-for-a-mirror-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, synchronization, settings, mirror, consistency, group, 
+summary: 'È possibile modificare le impostazioni di sincronizzazione e le soglie di avviso che il gruppo di coerenza mirror sull"array di archiviazione locale utilizza quando i dati vengono inizialmente sincronizzati o quando i dati vengono risincronizzati durante le operazioni di mirroring asincrono.' 
+---
+= Modifica le impostazioni di sincronizzazione per un gruppo di coerenza mirror in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare le impostazioni di sincronizzazione e le soglie di avviso che il gruppo di coerenza mirror sull'array di archiviazione locale utilizza quando i dati vengono inizialmente sincronizzati o quando i dati vengono risincronizzati durante le operazioni di mirroring asincrono.
+
+.Informazioni su questa attività
+La modifica delle impostazioni di sincronizzazione influisce sulle operazioni di sincronizzazione di tutte le coppie speculari all'interno del mirror consistency group.
+
+.Passaggi
+. Selezionare menu:Storage[Asynchronous Mirroring].
+. Seleziona la scheda *Mirror Consistency Groups*.
++
+Viene visualizzata la tabella dei gruppi di coerenza mirror e vengono mostrati tutti i gruppi di coerenza mirror associati all'array di storage.
+
+. Seleziona il mirror consistency group che desideri modificare, quindi seleziona menu:More[Edit Settings].
++
+Il sistema visualizza la finestra di dialogo Edit Settings.
+
+. Modifica le impostazioni di sincronizzazione e di avviso come appropriato, quindi fai clic su *Salva*.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Sincronizza le coppie speculari...
+ a| 
+Specifica se desideri sincronizzare le coppie mirrorate sull'array di storage remoto manualmente o automaticamente.
+
+** **Manualmente** – Selezionare questa opzione per sincronizzare manualmente le coppie mirrorate sull'array di storage remoto.
+** **Automaticamente, ogni** – Seleziona questa opzione per sincronizzare automaticamente le coppie replicate sull'array di storage remoto specificando l'intervallo di tempo dall'inizio dell'aggiornamento precedente all'inizio del successivo aggiornamento. L'intervallo predefinito è 10 minuti.
+
+
+
+
+ a| 
+Avvisami...
+ a| 
+Se si imposta il metodo di sincronizzazione per avvenire automaticamente, configurare i seguenti avvisi:
+
+** **Sincronizzazione** – Imposta la durata di tempo dopo la quale System Manager invia un avviso che la sincronizzazione non è stata completata.
+** **Punto di ripristino remoto** – Imposta un limite di tempo trascorso il quale System Manager invia un avviso indicando che i dati del punto di ripristino sull'array di storage remoto sono precedenti al limite di tempo definito. Definisci il limite di tempo a partire dalla fine dell'aggiornamento precedente.
+** **Soglia di capacità riservata** – Definisci un valore di capacità riservata al quale System Manager invia un avviso che ti stai avvicinando alla soglia di capacità riservata. Definisci la soglia in percentuale rispetto alla capacità rimanente.
+
+
+|===
+====
+
+
+.Risultati
+System Manager modifica le impostazioni di sincronizzazione per ogni coppia mirrorata nel mirror consistency group.

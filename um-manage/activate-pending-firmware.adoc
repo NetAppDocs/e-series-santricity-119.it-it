@@ -1,0 +1,45 @@
+---
+permalink: um-manage/activate-pending-firmware.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, activate, staged, os, software 
+summary: È possibile scegliere di attivare il file del software immediatamente oppure attendere un momento più opportuno. Questa procedura presuppone che si scelga di attivare il file del software in un secondo momento. 
+---
+= Attivare il software del sistema operativo in staging in SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile scegliere di attivare il file del software immediatamente oppure attendere un momento più opportuno. Questa procedura presuppone che si scelga di attivare il file del software in un secondo momento.
+
+.Informazioni su questa attività
+È possibile trasferire i file del firmware senza attivarli. Potresti scegliere di attivare in seguito per questi motivi:
+
+* *Orario della giornata* -- L'attivazione del software può richiedere molto tempo, quindi potresti voler attendere che i carichi di I/O siano più leggeri. I controller si riavviano e passano in modalità failover durante l'attivazione, quindi le prestazioni potrebbero essere inferiori al solito fino al completamento dell'aggiornamento.
+* *Tipo di pacchetto* -- Potresti voler testare il nuovo software e firmware su un array di storage prima di aggiornare i file su altri storage array.
+
+
+[NOTE]
+====
+Non è possibile interrompere il processo di attivazione dopo che è iniziato.
+
+====
+.Passaggi
+. Dalla schermata principale, selezionare *Gestisci*. Se necessario, fare clic sulla colonna Stato per ordinare, nella parte superiore della pagina, tutti gli array di storage con stato "Aggiornamento del sistema operativo (in attesa di attivazione)".
+. Seleziona uno o più array di storage per i quali desideri attivare il software, quindi seleziona menu:Upgrade Center[Activate Staged OS Software].
++
+Durante l'operazione di aggiornamento si verificano le seguenti azioni:
+
++
+** Un controllo preliminare dello stato di salute viene eseguito come parte del processo di attivazione. Il controllo preliminare dello stato di salute valuta tutti i componenti dell'array di storage per assicurarsi che l'attivazione possa procedere.
+** Se un controllo di integrità per un array di storage non riesce, l'attivazione si interrompe. Puoi fare clic sui puntini di sospensione (...) e selezionare *Salva registro* per esaminare gli errori. Puoi anche scegliere di ignorare l'errore del controllo di integrità e quindi fare clic su *Continua* per procedere con l'attivazione.
+** È possibile annullare l'operazione di attivazione dopo il controllo di integrità pre-aggiornamento. Al completamento con successo del controllo di integrità pre-aggiornamento, l'attivazione avviene. Il tempo necessario per l'attivazione dipende dalla configurazione dell'array di storage e dai componenti che si stanno attivando.
+
+
+. *Facoltativo:* Dopo il completamento dell'attivazione, puoi vedere un elenco di ciò che è stato attivato per uno specifico storage array facendo clic sui puntini di sospensione (...) e poi selezionando *Salva registro*.
++
+Il file viene salvato nella cartella Downloads del tuo browser con il nome `activate_log-<date>.json`.
+
+

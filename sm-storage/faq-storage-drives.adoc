@@ -1,0 +1,58 @@
+---
+permalink: sm-storage/faq-storage-drives.html 
+sidebar: sidebar 
+keywords:  
+summary: Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda. 
+---
+= Domande frequenti sui dischi di storage per SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda.
+
+
+
+== Che cos'è un hot spare?
+
+Gli hot spare fungono da unità di standby nei gruppi di volumi RAID 1, RAID 5 o RAID 6. Sono unità perfettamente funzionanti che non contengono dati. Se un'unità si guasta nel gruppo di volumi, il controller ricostruisce automaticamente i dati dall'unità guasta su un hot spare.
+
+Se un drive si guasta nell'array di storage, il drive hot spare viene automaticamente sostituito al drive guasto senza richiedere una sostituzione fisica. Se il drive hot spare è disponibile quando un drive si guasta, il controller utilizza i dati di ridondanza per ricostruire i dati dal drive guasto al drive hot spare.
+
+Un'unità hot spare non è dedicata a uno specifico gruppo di volumi. Al contrario, puoi utilizzare un'unità hot spare per qualsiasi unità guasta nell'array di storage con la stessa capacità o una capacità inferiore. Un'unità hot spare deve essere dello stesso tipo di supporto (HDD o SSD) delle unità che protegge.
+
+[NOTE]
+====
+Le unità hot spare non sono supportate nei pool. Invece delle unità hot spare, i pool utilizzano la capacità di preservazione all'interno di ciascuna unità che compone il pool.
+
+====
+
+
+== Che cos'è la capacità di conservazione?
+
+La capacità di conservazione è la quantità di capacità (numero di unità) che viene riservata in un pool per supportare potenziali guasti delle unità.
+
+Quando viene creato un pool, il sistema riserva automaticamente una quantità predefinita di capacità di conservazione a seconda del numero di unità nel pool.
+
+I pool utilizzano la capacità di conservazione durante la ricostruzione, mentre i gruppi di volumi utilizzano hot spare drive per lo stesso scopo. Il metodo della capacità di conservazione rappresenta un miglioramento rispetto agli hot spare drive perché consente una ricostruzione più rapida. La capacità di conservazione è distribuita su più drive nel pool anziché su un solo drive nel caso di un hot spare drive, quindi non si è limitati dalla velocità o dalla disponibilità di un singolo drive.
+
+
+
+== Perché dovrei sostituire logicamente un'unità disco?
+
+Se un'unità si guasta o si desidera sostituirla per qualsiasi altro motivo, e si dispone di un'unità non assegnata nell'array di storage, è possibile sostituire logicamente l'unità guasta con l'unità non assegnata. Se non si dispone di un'unità non assegnata, è possibile sostituire fisicamente l'unità.
+
+I dati dall'unità originale vengono copiati o ricostruiti sull'unità sostitutiva.
+
+
+
+== Dove posso visualizzare lo stato di un drive in fase di ricostruzione?
+
+È possibile visualizzare lo stato di ricostruzione dell'unità dalla dashboard Operations in Progress.
+
+Dalla Home page, fai clic sul collegamento *Visualizza operazioni in corso* in alto a destra.
+
+A seconda dell'unità, la ricostruzione completa potrebbe richiedere un tempo considerevole. Se la proprietà di un volume è cambiata, potrebbe essere necessaria una ricostruzione completa anziché una ricostruzione rapida.

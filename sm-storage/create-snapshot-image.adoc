@@ -1,0 +1,99 @@
+---
+permalink: sm-storage/create-snapshot-image.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, snapshot, image 
+summary: 'È possibile creare manualmente un"immagine Snapshot da un volume di base o da un gruppo di coerenza Snapshot. Questa operazione è anche detta instant snapshot o instant image.' 
+---
+= Crea un'immagine Snapshot in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile creare manualmente un'immagine Snapshot da un volume di base o da un gruppo di coerenza Snapshot. Questa operazione è anche chiamata _instant snapshot_ o _instant image_.
+
+.Prima di iniziare
+* Il volume di base deve essere ottimale.
+* Il disco deve essere ottimale.
+* Il gruppo di snapshot non può essere designato come "`reserved.`"
+* Il volume di capacità riservata deve avere le stesse impostazioni di Data Assurance (DA) del volume base associato per il gruppo di Snapshot.
+
+
+.Passaggi
+. Esegui una delle seguenti azioni per creare un'immagine Snapshot:
++
+** Selezionare menu:Storage[Volumes]. Selezionare l'oggetto (base volume o snapshot consistency group), quindi selezionare menu:Copy Services[Create instant snapshot].
+** Selezionare menu:Storage[Snapshots]. Selezionare la scheda *Snapshot Images* e quindi selezionare menu:Create[Instant snapshot].
++
+Viene visualizzata la finestra di dialogo Crea Snapshot Image. Selezionare l'oggetto (volume di base o gruppo di coerenza snapshot), quindi fare clic su *Avanti*. Se è già stata creata una precedente immagine snapshot per il volume o il gruppo di coerenza snapshot, il sistema crea immediatamente la snapshot istantanea. Altrimenti, se questa è la prima volta che viene creata un'immagine snapshot per il volume o il gruppo di coerenza snapshot, viene visualizzata la finestra di dialogo Conferma creazione Snapshot Image.
+
+
+
+. Fai clic su *Crea* per accettare la notifica che è necessaria la capacità riservata e per procedere alla fase Reserve Capacity.
++
+Viene visualizzata la finestra di dialogo Reserve Capacity.
+
+. Utilizza la casella di selezione per regolare la percentuale di capacità, quindi fai clic su *Next* per accettare il volume candidato evidenziato nella tabella.
++
+Viene visualizzata la finestra di dialogo Edit Settings.
+
+. Seleziona le impostazioni per l'immagine Snapshot come appropriato e conferma di voler eseguire l'operazione.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Impostazione | Descrizione 
+
+
+ a| 
+*Impostazioni dell'immagine Snapshot*
+
+
+
+ a| 
+Limite delle immagini Snapshot
+ a| 
+Mantieni selezionata la check box se desideri che le immagini Snapshot vengano eliminate automaticamente dopo il limite specificato; usa la spinner box per modificare il limite. Se deselezioni questa check box, la creazione di immagini Snapshot si interrompe dopo 32 immagini.
+
+
+
+ a| 
+*Impostazioni di capacità riservata*
+
+
+
+ a| 
+Avvisami quando...
+ a| 
+Utilizzare il selettore a rotella per regolare la percentuale al punto in cui il sistema invia una notifica di avviso quando la capacità riservata per un gruppo di Snapshot sta per essere piena.
+
+Quando la capacità riservata per il gruppo di Snapshot supera la soglia specificata, utilizzare la notifica anticipata per aumentare la capacità riservata o per eliminare gli oggetti non necessari prima che lo spazio rimanente si esaurisca.
+
+
+
+ a| 
+Politica per la piena capacità riservata
+ a| 
+Scegli una delle seguenti policy:
+
+** *Elimina l'immagine Snapshot più vecchia* -- Il sistema elimina automaticamente l'immagine Snapshot più vecchia nel gruppo di Snapshot, liberando la capacità riservata dell'immagine Snapshot per il riutilizzo all'interno del gruppo.
+** *Rifiuta le scritture sul volume base* -- Quando la capacità riservata raggiunge la percentuale massima definita, il sistema rifiuta qualsiasi richiesta di scrittura I/O sul volume base che ha attivato l'accesso alla capacità riservata.
+
+
+|===
+====
+
+
+.Risultati
+* System Manager visualizza la nuova immagine Snapshot nella tabella Immagini Snapshot. La tabella elenca la nuova immagine in base al timestamp e al volume di base o al gruppo di coerenza Snapshot associato.
+* La creazione di Snapshot potrebbe rimanere nello stato "In sospeso" a causa delle seguenti condizioni:
++
+** Il volume di base che contiene questa immagine Snapshot è membro di un gruppo mirror asincrono.
+** Il volume di base è attualmente in fase di sincronizzazione. La creazione dell'immagine Snapshot viene completata non appena l'operazione di sincronizzazione è terminata.
+
+
+

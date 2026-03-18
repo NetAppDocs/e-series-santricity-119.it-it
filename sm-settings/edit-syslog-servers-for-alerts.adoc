@@ -1,0 +1,28 @@
+---
+permalink: sm-settings/edit-syslog-servers-for-alerts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, edit, syslog, servers, alerts, 
+summary: 'È possibile modificare l"indirizzo del server utilizzato per ricevere gli avvisi syslog.' 
+---
+= Modifica i server syslog per gli avvisi in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare l'indirizzo del server utilizzato per ricevere gli avvisi syslog.
+
+.Passaggi
+. Seleziona menu:Impostazioni[Avvisi].
+. Seleziona la scheda *Syslog*.
+. Dalla tabella, seleziona un indirizzo del server syslog e poi fai clic sull'icona *Modifica* (matita) all'estrema destra.
++
+La riga diventa un campo modificabile.
+
+. Modifica l'indirizzo del server e il numero di porta UDP, quindi fai clic sull'icona *Save* (segno di spunta).
+
+
+.Risultati
+L'indirizzo del server aggiornato compare nella tabella.

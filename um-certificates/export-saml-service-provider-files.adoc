@@ -1,0 +1,45 @@
+---
+permalink: um-certificates/export-saml-service-provider-files.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, export, saml, Service Provider, files, 
+summary: 'Se necessario, è possibile esportare i metadati del Service Provider per l"array di archiviazione e reimportare il file nel sistema dell"Identity Provider (IdP).' 
+---
+= Esporta i file Service Provider SAML in SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se necessario, è possibile esportare i metadati del Service Provider per l'array di archiviazione e reimportare il file nel sistema dell'Identity Provider (IdP).
+
+.Prima di iniziare
+* È necessario aver effettuato l'accesso con un profilo utente che includa le autorizzazioni di Security admin. In caso contrario, le funzioni di Access Management non vengono visualizzate.
+* SAML è configurato e abilitato.
+
+
+.Informazioni su questa attività
+In questa attività, si esportano i metadati dal controller. L'IdP necessita di questi metadati per stabilire una relazione di fiducia con il controller e per elaborare le richieste di autenticazione. Il file include informazioni come il domain name o l'indirizzo IP del controller che l'IdP può utilizzare per inviare le richieste.
+
+.Passaggi
+. Selezionare menu:Settings[Access Management].
+. Seleziona la scheda *SAML*.
+. Seleziona *Export*.
++
+Si apre la finestra di dialogo Export Service Provider Files.
+
+. Fai clic su *Esporta* per salvare il file di metadati sul tuo sistema locale.
++
+[NOTE]
+====
+Il campo domain name è di sola lettura.
+
+====
++
+Prendi nota di dove è memorizzato il file.
+
+. Dal sistema locale, individua il file di metadati del Service Provider in formato XML che hai esportato.
+. Dal server IdP, importa il file di metadati del Service Provider. Puoi importare il file direttamente oppure inserire manualmente le informazioni del controller.
+. Fare clic su *Close*.
+

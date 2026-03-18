@@ -1,0 +1,29 @@
+---
+permalink: sm-settings/default-host-operating-system-type.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, default, host, operating, system, 
+summary: 'Il tipo di host predefinito viene utilizzato dall"array di storage quando gli host sono inizialmente connessi. Definisce come i controller dell"array di storage lavorano con il sistema operativo dell"host quando si accede ai volumi.' 
+---
+= Scopri il tipo di sistema operativo host predefinito nel software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il tipo di host predefinito viene utilizzato dall'array di storage quando gli host sono inizialmente connessi. Definisce come i controller dell'array di storage lavorano con il sistema operativo dell'host quando si accede ai volumi.
+
+È possibile modificare il tipo di host se è necessario cambiare il modo in cui l'array di storage opera in relazione agli host ad esso collegati. In genere, si modifica il tipo di host predefinito prima di collegare gli host all'array di storage o quando si collegano host aggiuntivi.
+
+Tenete a mente queste linee guida:
+
+* Se tutti gli host che si intende connettere all'array di storage hanno lo stesso sistema operativo (ambiente host omogeneo), allora modificare il tipo di host per farlo corrispondere al sistema operativo.
+* Se si prevede di connettere all'array di storage host con sistemi operativi diversi (ambiente host eterogeneo), modificare il tipo di host in modo che corrisponda al sistema operativo della maggior parte degli host.
++
+Ad esempio, se si collegano otto host diversi all'array di storage e sei di questi host eseguono un sistema operativo Windows, è necessario selezionare Windows come tipo di sistema operativo host predefinito.
+
+* Se la maggior parte degli host connessi ha una combinazione di diversi sistemi operativi, modificare il tipo di host in Factory Default.
++
+Ad esempio, se si collegano otto host diversi all'array di storage e due di questi host eseguono un sistema operativo Windows, tre eseguono un sistema operativo VMware e altri tre eseguono un sistema operativo Linux, è necessario selezionare Factory Default come tipo di sistema operativo host predefinito.
+
+

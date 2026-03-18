@@ -1,0 +1,66 @@
+---
+permalink: sm-support/configure-autosupport-delivery-method.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, autosupport, ASUP, delivery, method 
+summary: 'La funzionalità AutoSupport supporta i protocolli HTTPS e SMTP per l"invio di comunicazioni al supporto tecnico.' 
+---
+= Configurare il metodo di consegna AutoSupport in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La funzionalità AutoSupport supporta i protocolli HTTPS e SMTP per l'invio di comunicazioni al supporto tecnico.
+
+.Prima di iniziare
+* La funzione AutoSupport deve essere abilitata. Puoi verificare se è abilitata nella pagina AutoSupport.
+* È necessario installare e configurare un DNS server nella rete. L'indirizzo del DNS server deve essere configurato in System Manager (questa operazione è disponibile nella pagina Hardware).
+
+
+.Informazioni su questa attività
+Esamina i diversi protocolli:
+
+* *HTTPS* -- Consente di connettersi direttamente al server di supporto tecnico di destinazione utilizzando HTTPS. Se si desidera abilitare AutoSupport OnDemand o la diagnostica remota, il metodo di consegna AutoSupport deve essere impostato su HTTPS.
+* *Email* -- Consente di utilizzare un server di posta elettronica come metodo di consegna per l'invio di AutoSupport dispatches.
+
+
+[NOTE]
+====
+*Differenze tra i metodi HTTPS ed Email*. Il metodo di consegna Email, che utilizza SMTP, presenta alcune importanti differenze rispetto al metodo di consegna HTTPS. In primo luogo, la dimensione degli invii per il metodo Email è limitata a 5MB, il che significa che alcune raccolte di dati ASUP non verranno inviate. In secondo luogo, la funzionalità AutoSupport OnDemand è disponibile solo con il metodo di consegna HTTPS.
+
+====
+.Passaggi
+. Selezionare menu:Supporto[Support Center > AutoSupport] scheda.
+. Seleziona *Configura AutoSupport Delivery Method*.
++
+Viene visualizzata una finestra di dialogo che elenca i metodi di consegna della spedizione.
+
+. Seleziona il metodo di consegna desiderato, quindi seleziona i parametri per tale metodo. Esegui una delle seguenti operazioni:
++
+** Se hai selezionato HTTPS, seleziona uno dei seguenti parametri di consegna:
++
+*** *Direttamente* -- Questo parametro di consegna è la selezione predefinita. Scegliendo questa opzione è possibile connettersi direttamente al sistema di supporto tecnico di destinazione utilizzando il protocollo HTTPS.
+*** *Tramite proxy server* -- Scegliendo questa opzione è possibile specificare i dettagli del proxy server HTTP necessari per stabilire la connessione con il sistema di supporto tecnico di destinazione. È necessario specificare l'indirizzo host e il numero di porta. Tuttavia, è necessario inserire i dettagli di autenticazione dell'host (nome utente e password) solo se richiesto.
+*** *Tramite script di autoconfigurazione proxy (PAC)* -- Specificare il percorso di un file di script di autoconfigurazione proxy (PAC). Un file PAC consente al sistema di scegliere automaticamente il proxy server appropriato per stabilire una connessione con il sistema di supporto tecnico di destinazione.
+
+
+** Se hai selezionato Email, inserisci le seguenti informazioni:
++
+*** L'indirizzo del server di posta come fully qualified domain name, indirizzo IPv4 o indirizzo IPv6.
+*** L'indirizzo email che compare nel campo Da dell'email di invio AutoSupport.
+*** *Facoltativo; se si desidera eseguire un test di configurazione*: L'indirizzo e-mail a cui viene inviata una conferma quando il AutoSupport system riceve la richiesta di test.
+*** Se si desidera crittografare i messaggi, selezionare *SMTPS* o *STARTTLS* come tipo di crittografia, quindi selezionare il numero di porta per i messaggi crittografati. In caso contrario, selezionare *None*.
+*** Se necessario, inserire un nome utente e una password per l'autenticazione con il mittente in uscita e il server di posta.
+
+
+
+
+. Se hai un firewall che blocca la consegna di questi ASUP dispatches, aggiungi il seguente URL alla tua whitelist: `\https://support.netapp.com/put/AsupPut/`
+. Fai clic su *Verifica configurazione* per testare la connessione al server di supporto tecnico utilizzando i parametri di consegna specificati. Se hai abilitato la funzione AutoSupport On-Demand, il sistema testerà anche la connessione per la consegna di AutoSupport OnDemand.
++
+Se il test di configurazione non riesce, verifica le impostazioni di configurazione ed esegui nuovamente il test. Se il test continua a non riuscire, contatta il supporto tecnico.
+
+. Fare clic su *Save*.
+

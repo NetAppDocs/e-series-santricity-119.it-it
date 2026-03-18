@@ -1,0 +1,61 @@
+---
+permalink: sm-storage/comparison-between-thick-volumes-and-thin-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, comparison, thick volumes, thin volumes 
+summary: Un volume thick è sempre fully-provisioned, il che significa che tutta la capacità viene assegnata al momento della creazione del volume. Un volume thin è sempre con thin provisioning, il che significa che la capacità viene assegnata man mano che i dati vengono scritti sul volume. 
+---
+= Scopri i volumi thick e thin nel software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un volume thick è sempre fully-provisioned, il che significa che tutta la capacità viene assegnata al momento della creazione del volume. Un volume thin è sempre con thin provisioning, il che significa che la capacità viene assegnata man mano che i dati vengono scritti sul volume.
+
+[NOTE]
+====
+System Manager non offre la possibilità di creare volumi con thin provisioning. Se si desidera creare volumi con thin provisioning, utilizzare la Command Line Interface (CLI).
+
+====
+[cols="25h,~"]
+|===
+| Tipo di volume | Descrizione 
+
+
+ a| 
+Volumi thick
+ a| 
+* I volumi thick vengono creati da un pool o da un gruppo di volumi.
+* Con i volumi spessi, una grande quantità di spazio di storage viene fornita in anticipo in previsione delle future esigenze di storage.
+* I volumi thick vengono creati con l'intera dimensione del volume pre-allocata sullo storage fisico al momento della creazione del volume. Questa pre-allocazione significa che la creazione di un volume da 100 GiB consuma effettivamente 100 GiB di capacità allocata sulle unità. Tuttavia, lo spazio potrebbe rimanere inutilizzato, causando un sotto-utilizzo della capacità di storage.
+* Quando si creano volumi thick, assicurarsi di non allocare una capacità eccessiva per un singolo volume. Un'allocazione eccessiva di capacità per un singolo volume può rapidamente esaurire tutto lo storage fisico nel sistema.
+* Tieni presente che la capacità di storage è necessaria anche per i servizi di copia (immagini Snapshot, volumi Snapshot, copie di volumi e mirroring asincrono), quindi non allocare tutta la capacità ai volumi thick. Uno spazio insufficiente può bloccare le scritture sul pool o sul gruppo di volumi. Ricevi un avviso di soglia di capacità libera se si verifica questa situazione.
+
+
+
+
+ a| 
+Volumi con thin provisioning
+ a| 
+* I volumi con thin provisioning vengono creati solo da un pool, non da un gruppo di volumi.
+* I volumi thin devono essere RAID 6.
+* I volumi con thin provisioning non sono disponibili sui sistemi storage EF600/EF600C o EF300/EF300C.
+* È necessario utilizzare la CLI per creare volumi con thin provisioning.
+* A differenza dei volumi spessi, lo spazio necessario per il volume con thin provisioning non viene allocato durante la creazione, ma viene fornito su richiesta in un secondo momento.
+* Un volume con thin provisioning consente di sovra-allocare le sue dimensioni. Cioè, è possibile assegnare una dimensione LUN maggiore rispetto alla dimensione del volume. È quindi possibile espandere il volume secondo necessità (aggiungendo, se necessario, unità disco) senza espandere la dimensione della LUN e quindi senza disconnettere gli utenti.
+* È possibile utilizzare la space reclamation dei blocchi con thin provisioning (UNMAP) per recuperare blocchi di un volume con thin provisioning sull'array di storage tramite un comando SCSI UNMAP emesso dall'host. Un array di storage che supporta il thin provisioning può riutilizzare lo spazio recuperato per soddisfare le richieste di allocazione per un altro volume con thin provisioning all'interno dello stesso array di storage, consentendo una migliore rendicontazione del consumo di spazio su disco e un utilizzo più efficiente delle risorse.
+
+
+|===
+
+
+== Limitazioni dei volumi con thin provisioning
+
+I volumi con thin provisioning supportano tutte le operazioni dei volumi thick, con le seguenti eccezioni:
+
+* Non è possibile modificare la dimensione del segmento di un volume con thin provisioning.
+* Non è possibile abilitare il controllo di ridondanza prelettura per un volume con thin provisioning.
+* Non è possibile utilizzare un volume con thin provisioning come volume di destinazione in un'operazione Copy Volume.
+* È possibile modificare il limite di capacità allocata e la soglia di avviso di un volume con thin provisioning solo sul lato primario di una coppia mirror asincrona. Qualsiasi modifica a questi parametri sul lato primario viene propagata automaticamente al lato secondario.
+

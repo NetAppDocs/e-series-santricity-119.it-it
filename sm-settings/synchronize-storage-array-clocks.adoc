@@ -1,0 +1,46 @@
+---
+permalink: sm-settings/synchronize-storage-array-clocks.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, synchronize, storage, array, clocks, 
+summary: 'Se il Network Time Protocol (NTP) non è abilitato, puoi impostare manualmente gli orologi sui controller in modo che siano sincronizzati con il client di gestione (il sistema utilizzato per eseguire il browser che accede a SANtricity System Manager).' 
+---
+= Sincronizza gli orologi degli array di storage in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se il Network Time Protocol (NTP) non è abilitato, puoi impostare manualmente gli orologi sui controller in modo che siano sincronizzati con il client di gestione (il sistema utilizzato per eseguire il browser che accede a SANtricity System Manager).
+
+.Informazioni su questa attività
+La sincronizzazione garantisce che i time stamp degli eventi nel registro eventi corrispondano ai time stamp scritti nei file di registro dell'host. Durante il processo di sincronizzazione, i controller rimangono disponibili e operativi.
+
+[NOTE]
+====
+Se NTP è abilitato in System Manager, non utilizzare questa opzione per sincronizzare gli orologi. Invece, NTP sincronizza automaticamente gli orologi con un host esterno utilizzando SNTP (Simple Network Time Protocol).
+
+====
+[NOTE]
+====
+Dopo la sincronizzazione, potresti notare che le statistiche sulle prestazioni sono perse o distorte, le pianificazioni (ASUP, snapshot, ecc.) sono influenzate e i time stamp nei dati di log sono distorti. L'utilizzo di NTP evita questo problema.
+
+====
+.Passaggi
+. Selezionare menu:Impostazioni[Sistema].
+. In *Generale*, fare clic su *Sincronizza gli orologi dell'array di storage*.
++
+Si apre la finestra di dialogo Sincronizza orologi array di storage. Mostra la data e l'ora correnti per il/i controller e il computer utilizzato come client di gestione.
+
++
+[NOTE]
+====
+Per gli array di storage simplex, viene mostrato solo un controller.
+
+====
+. Se gli orari visualizzati nella finestra di dialogo non corrispondono, fai clic su *Sincronizza*.
+
+
+.Risultati
+Dopo che la sincronizzazione è stata completata con successo, i timestamp degli eventi sono gli stessi sia per il registro eventi che per i registri host.

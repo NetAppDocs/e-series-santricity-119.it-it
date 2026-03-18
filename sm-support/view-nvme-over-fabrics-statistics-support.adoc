@@ -1,0 +1,33 @@
+---
+permalink: sm-support/view-nvme-over-fabrics-statistics-support.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, nvme, over, fabrics, statistics 
+summary: È possibile visualizzare i dati sulle connessioni NVMe over Fabrics al proprio storage array. 
+---
+= Visualizza le statistiche NVMe over Fabrics in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile visualizzare i dati sulle connessioni NVMe over Fabrics al proprio storage array.
+
+.Informazioni su questa attività
+System Manager mostra questi tipi di statistiche NVMe over Fabrics. Tutte le statistiche sono di sola lettura e non possono essere impostate.
+
+* *Statistiche del sottosistema NVMe* -- Mostra statistiche per il controller NVMe e la relativa coda. Il controller NVMe fornisce un percorso di accesso tra un host e i namespace nell'array di storage. È possibile esaminare le statistiche del sottosistema NVMe per elementi quali errori di connessione, ripristini e arresti.
+* *Statistiche interfaccia RDMA* -- Fornisce statistiche per tutte le porte NVMe over Fabrics sull'interfaccia RDMA, incluse statistiche sulle prestazioni e informazioni sugli errori di collegamento associate a ciascuna porta dello switch. Questa scheda viene visualizzata solo quando sono disponibili porte NVMe over Fabrics.
+
+
+È possibile visualizzare ciascuna di queste statistiche come raw statistiche o come statistiche baseline. Le raw statistiche sono tutte le statistiche raccolte dall'avvio dei controller. Le statistiche baseline sono point-in-time statistiche raccolte a partire dal momento in cui è stato impostato il tempo di riferimento.
+
+.Passaggi
+. Selezionare menu:Support[Support Center > Diagnostics] scheda.
+. Selezionare *Visualizza statistiche NVMe over Fabrics*.
+. Per impostare la baseline, fai clic su *Set new baseline*.
++
+L'impostazione della linea di base definisce un nuovo punto di partenza per la raccolta delle statistiche. La stessa linea di base viene utilizzata per tutte le statistiche NVMe.
+
+

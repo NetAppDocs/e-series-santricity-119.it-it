@@ -1,0 +1,14 @@
+---
+permalink: sm-support/take-recovery-action-on-storage-array-status.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, take, recovery, action, storage, array, status 
+summary: 'È possibile intervenire sullo stato attuale dell"array di storage esaminando il registro dei settori illeggibili, riattivando le porte delle unità e cancellando la modalità di ripristino.' 
+---
+= Eseguire azioni di ripristino sullo stato dell'array di storage in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile intervenire sullo stato attuale dell'array di storage esaminando il registro dei settori illeggibili, riattivando le porte delle unità e cancellando la modalità di ripristino.

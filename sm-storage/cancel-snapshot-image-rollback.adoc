@@ -1,0 +1,43 @@
+---
+permalink: sm-storage/cancel-snapshot-image-rollback.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, cancel, snapshot, image, rollback 
+summary: 'È possibile annullare un rollback attivo in corso (che sta copiando dati), un rollback in sospeso (in una coda in attesa delle risorse per iniziare) o un rollback che è stato messo in pausa a causa di un errore.' 
+---
+= Annulla il rollback dell'immagine Snapshot in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile annullare un rollback attivo in corso (che sta copiando dati), un rollback in sospeso (in una coda in attesa delle risorse per iniziare) o un rollback che è stato messo in pausa a causa di un errore.
+
+.Informazioni su questa attività
+Quando si annulla un'operazione di rollback in corso, il volume di base torna a uno stato inutilizzabile e appare come failed. Pertanto, considera di annullare un'operazione di rollback solo quando esistono opzioni di ripristino per il ripristino del contenuto del volume di base.
+
+[NOTE]
+====
+Se il gruppo di snapshot in cui risiede l'immagine snapshot contiene una o più immagini snapshot eliminate automaticamente, l'immagine snapshot utilizzata per l'operazione di rollback potrebbe non essere disponibile per rollback futuri.
+
+====
+.Passaggi
+. Selezionare menu:Storage[Snapshots].
+. Fai clic sulla scheda *Snapshot Images*.
+. Seleziona il rollback attivo o in pausa, quindi seleziona menu:Rollback[Cancel].
++
+Viene visualizzata la finestra di dialogo Confirm Cancel Rollback.
+
+. Fai clic su *Yes* per confermare.
+
+
+.Risultati
+System Manager interrompe l'operazione di rollback. Il volume di base è utilizzabile ma potrebbe contenere dati incoerenti o non integri.
+
+.Dopo aver finito
+Dopo aver annullato un'operazione di rollback, è necessario eseguire una delle seguenti azioni:
+
+* Reinizializza il contenuto del volume base.
+* Eseguire una nuova operazione di rollback per ripristinare il volume di base utilizzando la stessa immagine Snapshot utilizzata nell'operazione di Cancel Rollback oppure un'immagine Snapshot diversa per eseguire la nuova operazione di rollback.
+

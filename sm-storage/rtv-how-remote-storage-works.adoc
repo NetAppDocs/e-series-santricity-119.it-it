@@ -1,0 +1,65 @@
+---
+permalink: sm-storage/rtv-how-remote-storage-works.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remote, storage 
+summary: La funzione Archiviazione remota consente di importare dati da un sistema storage remoto a un sistema storage E-Series locale. Questa funzione è utile quando si desidera semplificare la migrazione dei dati riducendo al minimo i tempi di inattività, ad esempio durante gli aggiornamenti delle apparecchiature. 
+---
+= Come funziona lo storage remoto nel software SANtricity
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La funzione Archiviazione remota consente di importare dati da un sistema storage remoto a un sistema storage E-Series locale. Questa funzione è utile quando si desidera semplificare la migrazione dei dati riducendo al minimo i tempi di inattività, ad esempio durante gli aggiornamenti delle apparecchiature.
+
+Per configurare la funzionalità Remote Storage, è necessario impostare l'hardware e quindi utilizzare System Manager per creare un oggetto remote storage. Una volta completata questa configurazione, il processo di importazione avrà inizio.
+
+
+
+== Configurazione hardware
+
+Utilizzare il seguente workflow per preparare i collegamenti hardware.
+
+Questi passaggi sono descritti in dettaglio nella guida utente per la funzionalità Remote Storage, disponibile dal centro di documentazione E-Series e SANtricity all' https://docs.netapp.com/us-en/e-series/remote-storage-volumes/index.html["Panoramica dei volumi storage remoti"^], e nel https://www.netapp.com/pdf.html?item=/media/28697-tr-4893-deploy.pdf["Rapporto tecnico sul sistema storage remoto"^].
+
+
+NOTE: SANtricity Remote Storage Volumes non è attualmente supportato sui sistemi E4000.
+
+Sul sistema storage E-Series:
+
+. Assicurarsi che ogni controller disponga di una connessione iSCSI al sistema storage remoto. Con questa connessione, il sistema E-Series locale agisce come un iSCSI initiator che può essere configurato come host sul sistema remoto.
+. Crea un volume di destinazione per l'operazione di importazione. Assicurati che il volume abbia una capacità pari o superiore a quella del volume di origine sul sistema storage remoto, abbia una dimensione del blocco corrispondente e non sia mappato. Vedi link:create-volumes.html["Crea volumi"].
+. Recupera l'iSCSI Qualified Name (IQN) per il sistema E-Series locale dalla sua interfaccia System Manager. L'IQN verrà utilizzato successivamente per configurare il sistema E-Series locale come host sul sistema storage remoto. In System Manager, vai a: menu:Settings[System > iSCSI settings > Target IQN].
+
+
+Sul sistema storage remoto:
+
+. Configurare il sistema E-Series locale come host sul sistema remoto, utilizzando il suo IQN. Assicurarsi di impostare il tipo di host appropriato, come segue:
++
+** Se il sistema remoto è un modello E-Series, vedere link:overview-hosts.html["Panoramica degli host e dei cluster di host"]. Utilizzare un tipo host "Factory Default."
+** Se il sistema remoto è di un altro fornitore, selezionare un tipo di host appropriato in base alle opzioni disponibili.
+
+
+. Interrompere tutte le operazioni di I/O, smontare tutti i file system e rimuovere qualsiasi assegnazione a host o applicazioni per il volume di origine.
+. Assegna il volume al nuovo host locale del sistema storage E-Series appena creato.
+. Per il volume di origine selezionato, raccogliere le seguenti informazioni dal sistema storage remoto in modo che sia possibile creare l'importazione:
++
+** iSCSI Qualified Name (IQN)
+** Indirizzo IP iSCSI
+** Numero LUN del volume sorgente
+
+
+
+
+
+
+== Configurazione di System Manager
+
+Utilizzare il seguente flusso di lavoro per creare un oggetto di storage remoto per l'importazione:
+
+. Utilizzando la procedura guidata Remote Storage nell'interfaccia System Manager, mappare un dispositivo di storage remoto (l'origine per l'importazione dei dati) a un volume di destinazione sul sistema E-Series. Quando si seleziona *Fine*, il processo di importazione ha inizio.
+. Monitora l'importazione dalla finestra di dialogo Visualizza operazioni o dal pannello Operazioni in corso. Se necessario, puoi anche mettere in pausa e riprendere il processo.
+. Facoltativamente, interrompere la connessione tra il volume di origine e il volume di destinazione al termine dell'importazione oppure mantenerla per importazioni future.
+

@@ -1,0 +1,98 @@
+---
+permalink: sm-hardware/configure-management-ports.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, management, port, 
+summary: Il controller include una porta Ethernet utilizzata per la gestione del sistema. Se necessario, è possibile modificarne i parametri di trasmissione e gli indirizzi IP. 
+---
+= Configura la porta di gestione in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il controller include una porta Ethernet utilizzata per la gestione del sistema. Se necessario, è possibile modificarne i parametri di trasmissione e gli indirizzi IP.
+
+.Informazioni su questa attività
+Durante questa procedura, si seleziona la porta 1 e si determinano la velocità e il metodo di indirizzamento della porta. La porta 1 si connette alla rete dove il client di gestione può accedere al controller e System Manager.
+
+[NOTE]
+====
+Non utilizzare la porta 2 su nessuno dei due controller. La porta 2 è riservata per il supporto tecnico.
+
+====
+.Passaggi
+. Seleziona *Hardware*.
+. Se il grafico mostra le unità, fare clic sulla scheda *Controllers & Components*.
++
+La grafica cambia per mostrare i controller anziché le unità.
+
+. Fai clic sul controller con la porta di gestione che desideri configurare.
++
+Viene visualizzato il menu contestuale del controller.
+
+. Seleziona *Configura porte di gestione*.
++
+Si apre la finestra di dialogo Configure Management Ports.
+
+. Assicurati che la porta 1 sia visualizzata, quindi fai clic su *Avanti*.
+. Seleziona le impostazioni della porta di configurazione, quindi fai clic su *Next*.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Velocità e duplex mode
+ a| 
+Mantieni l'impostazione Auto-negotiate se desideri che System Manager determini i parametri di trasmissione tra l'array di storage e la rete; oppure, se conosci la velocità e la modalità della tua rete, seleziona i parametri dall'elenco a discesa. Solo le combinazioni valide di velocità e duplex mode appaiono nell'elenco.
+
+
+
+ a| 
+Abilita IPv4 / Abilita IPv6
+ a| 
+Seleziona una o entrambe le opzioni per abilitare il supporto per le reti IPv4 e IPv6.
+
+|===
+====
++
+Se si seleziona *Abilita IPv4*, si apre una finestra di dialogo per la selezione delle impostazioni IPv4 dopo aver fatto clic su *Avanti*. Se si seleziona *Abilita IPv6*, si apre una finestra di dialogo per la selezione delle impostazioni IPv6 dopo aver fatto clic su *Avanti*. Se si selezionano entrambe le opzioni, si apre prima la finestra di dialogo per le impostazioni IPv4 e poi, dopo aver fatto clic su *Avanti*, si apre la finestra di dialogo per le impostazioni IPv6.
+
+. Configura le impostazioni IPv4 e/o IPv6, automaticamente o manualmente.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Ottieni automaticamente la configurazione dal server DHCP
+ a| 
+Seleziona questa opzione per ottenere la configurazione automaticamente.
+
+
+
+ a| 
+Specificare manualmente la configurazione statica
+ a| 
+Seleziona questa opzione e poi inserisci l'indirizzo IP del controller. (Se desiderato, puoi tagliare e incollare gli indirizzi nei campi.) Per IPv4, includi la subnet mask di rete e il gateway. Per IPv6, includi l'indirizzo IP instradabile e l'indirizzo IP del router.
+
+
+NOTE: Se si modifica la configurazione dell'indirizzo IP, si perde il percorso di gestione verso l'array di storage. Se si utilizza SANtricity Unified Manager per gestire globalmente gli array nella rete, aprire l'interfaccia utente e andare al menu:Manage[Discover]. Se si utilizza SANtricity Storage Manager, è necessario rimuovere il dispositivo dalla Enterprise Management Window (EMW), aggiungerlo nuovamente all'EMW selezionando menu:Edit[Add Storage Array] e quindi immettere il nuovo indirizzo IP.
+
+|===
+====
+. Fare clic su *Fine*.
+
+
+.Risultati
+La configurazione della porta di gestione viene visualizzata nelle impostazioni del controller, scheda Management Ports.

@@ -1,0 +1,49 @@
+---
+permalink: um-certificates/access-management-with-directory-services-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, access management, directory services, 
+summary: 'Gli amministratori possono utilizzare un server LDAP (Lightweight Directory Access Protocol) e un servizio di directory, come Microsoft Active Directory.' 
+---
+= Gestione degli accessi con servizi di directory in SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Gli amministratori possono utilizzare un server LDAP (Lightweight Directory Access Protocol) e un servizio di directory, come Microsoft's Active Directory.
+
+
+
+== Flusso di lavoro di configurazione
+
+Se nella rete vengono utilizzati un LDAP server e un servizio di directory, la configurazione funziona come segue:
+
+. Un amministratore accede a Unified Manager con un profilo utente che include le autorizzazioni di Security admin.
++
+[NOTE]
+====
+L' `admin`utente ha pieno accesso a tutte le funzioni del sistema.
+
+====
+. L'amministratore inserisce le impostazioni di configurazione per il LDAP server. Le impostazioni includono il domain name, l'URL e le informazioni sull'account Bind.
+. Se il LDAP server utilizza un protocollo sicuro (LDAPS), l'amministratore carica una catena di certificati di un'autorità di certificazione (CA) per l'autenticazione tra il LDAP server e il sistema host in cui è installato il Web Services Proxy.
+. Una volta stabilita la connessione al server, l'amministratore associa i gruppi di utenti ai ruoli utente locali. Questi ruoli sono predefiniti e non possono essere modificati.
+. L'amministratore verifica la connessione tra il LDAP server e il Web Services Proxy.
+. Gli utenti accedono al sistema con le credenziali LDAP/Directory Services loro assegnate.
+
+
+
+
+== Gestione
+
+Quando si utilizzano i servizi di directory per l'autenticazione, gli amministratori possono eseguire le seguenti attività di gestione:
+
+* Aggiungi un server di directory.
+* Modifica le impostazioni del server di directory.
+* Associa gli utenti LDAP ai ruoli utente locali.
+* Rimuovi un server di directory.
+* Cambia password.
+* Imposta una lunghezza minima per le password.
+* Consenti agli utenti di accedere senza password.
+

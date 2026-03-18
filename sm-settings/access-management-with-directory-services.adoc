@@ -1,0 +1,46 @@
+---
+permalink: sm-settings/access-management-with-directory-services.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, access management, directory services, 
+summary: 'Per Access Management, gli amministratori possono utilizzare un LDAP server (Lightweight Directory Access Protocol) e un servizio di directory, come Microsoft’s Active Directory.' 
+---
+= Configura la gestione degli accessi con i servizi di directory in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per Access Management, gli amministratori possono utilizzare un server LDAP (Lightweight Directory Access Protocol) e un servizio di directory, come Microsoft Active Directory.
+
+
+
+== Flusso di lavoro di configurazione
+
+Se nella rete vengono utilizzati un LDAP server e un servizio di directory, la configurazione funziona come segue:
+
+. Un amministratore accede a System Manager con un profilo utente che include le autorizzazioni Security Admin.
++
+[NOTE]
+====
+L' `admin`utente ha pieno accesso a tutte le funzioni del sistema.
+
+====
+. L'amministratore inserisce le impostazioni di configurazione per il LDAP server. Le impostazioni includono il domain name, l'URL e le informazioni sull'account Bind.
+. Se il LDAP server utilizza un protocollo sicuro (LDAPS), l'amministratore carica una catena di certificati di una Certificate Authority (CA) per l'autenticazione tra il LDAP server e lo storage array.
+. Una volta stabilita la connessione al server, l'amministratore associa i gruppi di utenti ai ruoli dell'array di storage. Questi ruoli sono predefiniti e non possono essere modificati.
+. L'amministratore verifica la connessione tra il LDAP server e lo storage array.
+. Gli utenti accedono al sistema con le credenziali LDAP/Directory Services loro assegnate.
+
+
+
+
+== Gestione
+
+Quando si utilizzano i servizi di directory per l'autenticazione, gli amministratori possono eseguire le seguenti attività di gestione:
+
+* Aggiungi un server di directory.
+* Modifica le impostazioni del server di directory.
+* Associa gli utenti LDAP ai ruoli utente locali.
+* Rimuovi un server di directory.
+

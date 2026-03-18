@@ -1,0 +1,47 @@
+---
+permalink: sm-storage/change-the-reserved-capacity-settings-for-a-mirrored-pair-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, reserved capacity, settings, mirrored pair volume 
+summary: È possibile modificare le impostazioni di un volume con mirroring per regolare la percentuale al raggiungimento della quale System Manager invia una notifica di avviso quando la capacità riservata per un volume con mirroring sta per esaurirsi. 
+---
+= Modificare le impostazioni di capacità riservata per un volume di coppia mirror in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare le impostazioni di un volume con mirroring per regolare la percentuale di soglia oltre la quale SANtricity System Manager invia una notifica di avviso quando la capacità riservata per un volume con mirroring sta per esaurirsi.
+
+.Passaggi
+. Selezionare menu:Storage[Pool & Volume Groups].
+. Seleziona la scheda *Reserved Capacity*.
+. Seleziona il volume della coppia mirrored che desideri modificare, quindi fai clic su *Visualizza/Modifica impostazioni*.
++
+Viene visualizzata la finestra di dialogo Impostazioni capacità riservata Mirrored Pair Volume.
+
+. Modificare le impostazioni di capacità riservata per il volume della coppia mirrorata, se necessario.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Impostazione | Descrizione 
+
+
+ a| 
+Avvisami quando...
+ a| 
+Utilizzare il selettore a rotella per regolare il punto percentuale al quale System Manager invia una notifica di avviso quando la capacità riservata per una coppia mirror sta per esaurirsi.
+
+Quando la capacità riservata per la coppia mirror supera la soglia specificata, System Manager invia un avviso, consentendoti di aumentare la capacità riservata.
+
+
+NOTE: La modifica dell'impostazione di avviso per una coppia mirrorata modifica l'impostazione di avviso per tutte le coppie mirrorate che appartengono allo stesso mirror consistency group.
+
+|===
+====
+. Fai clic su *Salva* per applicare le modifiche.
+

@@ -1,0 +1,60 @@
+---
+permalink: sm-storage/assign-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, assign volumes 
+summary: 'È necessario assegnare un volume a un host o a un cluster di host affinché possa essere utilizzato per le operazioni di I/O. Tale assegnazione garantisce a un host o a un cluster di host l"accesso a uno o più volumi in un array di storage.' 
+---
+= Assegna i volumi agli host in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario assegnare un volume a un host o a un cluster di host affinché possa essere utilizzato per le operazioni di I/O. Tale assegnazione garantisce a un host o a un cluster di host l'accesso a uno o più volumi in un array di storage.
+
+.Informazioni su questa attività
+Tenete presenti queste linee guida quando assegnate i volumi agli host:
+
+* È possibile assegnare un volume a un solo host o host cluster alla volta.
+* I volumi assegnati sono condivisi tra i controller nell'array di storage.
+* Lo stesso numero di unità logica (LUN) non può essere utilizzato due volte da un host o da un host cluster per accedere a un volume. È necessario utilizzare un LUN univoco.
+* Per i nuovi gruppi di volumi, se si attende che tutti i volumi siano stati creati e inizializzati prima di assegnarli a un host, il tempo di inizializzazione dei volumi si riduce. Tenere presente che, una volta mappato un volume associato al gruppo di volumi,  i volumi torneranno alla procedura di inizializzazione più lenta. È possibile verificare l'avanzamento dell'inizializzazione dal menu:Home[Operazioni in corso].
+
+
+L'assegnazione di un volume non riesce in queste condizioni:
+
+* Tutti i volumi sono assegnati.
+* Il volume è già assegnato a un altro host o host cluster.
+
+
+La possibilità di assegnare un volume non è disponibile in queste condizioni:
+
+* Non esistono host o host cluster validi.
+* Non sono stati definiti identificatori di porta host per l'host.
+* Tutte le assegnazioni di volume sono state definite.
+
+
+Tutti i volumi non assegnati vengono visualizzati durante questa operazione, ma le funzioni per gli host con o senza Data Assurance (DA) si applicano come segue:
+
+* Per un host compatibile con DA, puoi selezionare volumi che sono abilitati DA o non abilitati DA.
+* Per un host che non è compatibile con DA, se si seleziona un volume che è abilitato DA, viene visualizzato un avviso che indica che il sistema deve disattivare automaticamente DA sul volume prima di assegnare il volume all'host.
+
+
+.Passaggi
+. Seleziona menu:Storage[Hosts].
+. Seleziona l'host o il cluster a cui desideri assegnare i volumi, quindi fai clic su *Assign Volumes*.
++
+Viene visualizzata una finestra di dialogo che elenca tutti i volumi che possono essere assegnati. È possibile ordinare una qualsiasi delle colonne o digitare qualcosa nella casella *Filtro* per facilitare la ricerca di volumi specifici.
+
+. Seleziona la check box accanto a ciascun volume che desideri assegnare o seleziona la check box nell'intestazione della tabella per selezionare tutti i volumi.
+. Fai clic su *Assign* per completare l'operazione.
+
+
+.Risultati
+Dopo aver assegnato correttamente uno o più volumi a un host o a un host cluster, il sistema esegue le seguenti azioni:
+
+* Il volume assegnato riceve il prossimo numero LUN disponibile. L'host utilizza il numero LUN per accedere al volume.
+* Il nome del volume fornito dall'utente viene visualizzato negli elenchi dei volumi associati all'host. Se applicabile, il volume di accesso configurato in fabbrica viene visualizzato negli elenchi dei volumi associati all'host.
+

@@ -1,0 +1,103 @@
+---
+permalink: sm-storage/performance-graphs-guidelines.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, performance, 
+summary: La pagina Performance fornisce grafici e tabelle di dati che consentono di valutare le prestazioni dell’array di storage in diverse aree chiave. 
+---
+= Scopri i grafici delle prestazioni e le linee guida in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La pagina Prestazioni fornisce grafici e tabelle di dati che consentono di valutare le prestazioni dello storage array in diverse aree chiave.
+
+Le funzioni di performance consentono di svolgere questi compiti:
+
+* Visualizza i dati sulle prestazioni in near real-time per aiutarti a determinare se un array di storage sta riscontrando problemi.
+* Esporta i dati sulle prestazioni per costruire una vista storica di un array di storage e identificare quando è iniziato un problema o cosa ha causato un problema.
+* Seleziona gli oggetti, le metriche sulle prestazioni e l'intervallo di tempo che desideri visualizzare.
+* Confronta metriche.
+
+
+È possibile visualizzare i dati sulle prestazioni in tre formati:
+
+* *Rappresentazione grafica in real-time* -- Visualizza i dati sulle prestazioni su un grafico in quasi real-time.
+* *Tabellare quasi real-time* -- Elenca i dati sulle prestazioni in una tabella in quasi real-time.
+* *File CSV esportato* -- Consente di salvare i dati sulle prestazioni in formato tabellare in un file di valori separati da virgole per ulteriori visualizzazioni e analisi.
+
+
+
+
+== Caratteristiche dei formati dei dati sulle prestazioni
+
+[cols="1a,1a,1a,1a,1a"]
+|===
+| *Tipologia di monitoraggio delle prestazioni* | *Intervallo di campionamento* | *Durata visualizzata* | *Numero massimo di oggetti visualizzati* | *Possibilità di salvare i dati* 
+
+
+ a| 
+Grafica in tempo reale, live
+
+Grafico in tempo reale, storico
+ a| 
+10 sec (live)
+
+5 min (storico)
+
+I punti dati visualizzati dipendono dall'intervallo di tempo selezionato
+ a| 
+L'intervallo di tempo predefinito è 1 ora.
+
+Scelte:
+
+* 5 minuti
+* 1 ora
+* 8 ore
+* 1 giorno
+* 7 giorni
+* 30 giorni
+
+ a| 
+5
+ a| 
+No
+
+
+
+ a| 
+Visualizzazione tabellare (vista tabella) quasi in real-time
+ a| 
+10 sec -1 ora
+ a| 
+Valore più recente
+ a| 
+Illimitato
+ a| 
+Sì
+
+
+
+ a| 
+File di valori separati da virgole (CSV)
+ a| 
+Dipende dall'intervallo di tempo selezionato
+ a| 
+Dipende dall'intervallo di tempo selezionato
+ a| 
+Illimitato
+ a| 
+Sì
+
+|===
+
+
+== Linee guida per la visualizzazione dei dati sulle prestazioni
+
+* La raccolta di dati sulle prestazioni è sempre attiva. Non è possibile disattivarla.
+* Ogni volta che trascorre l'intervallo di campionamento, l'array di storage viene interrogato e i dati vengono aggiornati.
+* Per i dati grafici, l'intervallo di 5 minuti supporta aggiornamenti ogni 10 secondi, mediati su 5 minuti. Tutti gli altri intervalli di tempo vengono aggiornati ogni 5 minuti, mediati sull'intervallo di tempo selezionato.
+* I dati sulle prestazioni nelle visualizzazioni grafiche vengono aggiornati in tempo reale. I dati sulle prestazioni nella visualizzazione tabellare vengono aggiornati quasi in tempo reale.
+* Se un oggetto monitorato cambia durante il periodo di raccolta di dati, potrebbe non disporre di un set completo di punti dati relativi all'intervallo di tempo selezionato. Ad esempio, i set di volumi possono cambiare quando i volumi vengono creati, eliminati, assegnati o non assegnati; oppure le unità disco possono essere aggiunte, rimosse o guastarsi.
+

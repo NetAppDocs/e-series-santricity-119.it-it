@@ -1,0 +1,110 @@
+---
+permalink: sm-settings/certificate-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, certificate, terms, 
+summary: I seguenti termini si applicano alla gestione dei certificati. 
+---
+= Scopri la terminologia relativa ai certificati nel software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I seguenti termini si applicano alla gestione dei certificati.
+
+[cols="25h,~"]
+|===
+| Termine | Descrizione 
+
+
+ a| 
+CA
+ a| 
+Un'autorità di certificazione (CA) è un'entità fidata che rilascia documenti elettronici, chiamati certificati digitali, per la sicurezza di Internet. Questi certificati identificano i proprietari dei siti web, il che consente connessioni sicure tra client e server.
+
+
+
+ a| 
+CSR
+ a| 
+Una richiesta di firma del certificato (CSR) è un messaggio inviato da un richiedente a un'autorità di certificazione (CA). La CSR convalida le informazioni richieste dalla CA per rilasciare un certificato.
+
+
+
+ a| 
+Certificato
+ a| 
+Un certificato identifica il proprietario di un sito per motivi di sicurezza, impedendo agli aggressori di impersonare il sito. Il certificato contiene informazioni sul proprietario del sito e sull'identità dell'entità di fiducia che certifica (firma) queste informazioni.
+
+
+
+ a| 
+Catena di certificati
+ a| 
+Una gerarchia di file che aggiunge un livello di sicurezza ai certificati. In genere, la catena include un certificato radice al vertice della gerarchia, uno o più certificati intermedi e i certificati del server che identificano le entità.
+
+
+
+ a| 
+Certificato client
+ a| 
+Per la gestione delle chiavi di sicurezza, un certificato client convalida i controller dell'array di storage, così il server di gestione delle chiavi può fidarsi dei loro indirizzi IP.
+
+
+
+ a| 
+Certificato intermedio
+ a| 
+Uno o più certificati intermedi si diramano dal certificato radice nella catena di certificati. La CA emette uno o più certificati intermedi che fungono da intermediari tra un certificato radice protetto e i certificati del server.
+
+
+
+ a| 
+Certificato del server di gestione delle chiavi
+ a| 
+Per la gestione delle chiavi di sicurezza, un certificato del server di gestione delle chiavi convalida il server, così il sistema storage può considerare attendibile il suo indirizzo IP.
+
+
+
+ a| 
+Keystore
+ a| 
+Un keystore è un repository sul sistema di gestione host che contiene chiavi private, insieme alle corrispondenti chiavi pubbliche e certificati. Queste chiavi e certificati identificano le proprie entità, come i controller.
+
+
+
+ a| 
+Server OCSP
+ a| 
+Il server Online Certificate Status Protocol (OCSP) determina se l'autorità di certificazione (CA) ha revocato dei certificati prima della loro data di scadenza prevista e quindi blocca l'utente dall'accedere a un server se il certificato è stato revocato.
+
+
+
+ a| 
+Certificato radice
+ a| 
+Il certificato radice si trova al vertice della gerarchia nella catena di certificati e contiene una chiave privata utilizzata per firmare altri certificati. Il root identifica una particolare organizzazione CA. Se si utilizza la stessa CA per tutti i dispositivi di rete, è necessario un solo certificato radice.
+
+
+
+ a| 
+Certificato firmato
+ a| 
+Un certificato convalidato da un'autorità di certificazione (CA). Questo file di dati contiene una chiave privata e garantisce che i dati vengano inviati in forma crittografata tra un server e un client tramite una connessione HTTPS. Inoltre, un certificato firmato include dettagli relativi al proprietario dell'entità (in genere, un server o un sito web) e una firma digitale composta da lettere e numeri. Un certificato firmato utilizza una catena di fiducia e pertanto viene utilizzato più spesso in ambienti di produzione. È anche noto come "CA-signed certificate" o "management certificate".
+
+
+
+ a| 
+Certificato autofirmato
+ a| 
+Un certificato autofirmato viene convalidato dal proprietario dell'entità. Questo file di dati contiene una chiave privata e garantisce che i dati vengano inviati in forma crittografata tra un server e un client tramite una connessione HTTPS. Include anche una firma digitale composta da lettere e numeri. Un certificato autofirmato non utilizza la stessa catena di fiducia di un certificato firmato da una CA e pertanto viene spesso utilizzato in ambienti di test. Viene anche definito come certificato "preinstallato".
+
+
+
+ a| 
+Certificato del server
+ a| 
+Il certificato del server si trova alla base della catena di certificati. Identifica la tua entità specifica, come un sito web o un altro dispositivo. Ogni controller in un sistema storage richiede un certificato server separato.
+
+|===

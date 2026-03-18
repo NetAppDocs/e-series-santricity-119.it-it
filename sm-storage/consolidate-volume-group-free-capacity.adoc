@@ -1,0 +1,56 @@
+---
+permalink: sm-storage/consolidate-volume-group-free-capacity.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, consolidate, free capacity, volume group 
+summary: 'Utilizza l"opzione Consolidate Free Capacity per consolidare gli extent liberi esistenti su un gruppo di volumi selezionato. Eseguendo questa azione, puoi creare volumi aggiuntivi dalla quantità massima di capacità libera in un gruppo di volumi.' 
+---
+= Consolidare la capacità libera per un gruppo di volumi in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilizza l'opzione Consolidate Free Capacity per consolidare gli extent liberi esistenti su un gruppo di volumi selezionato. Eseguendo questa azione, puoi creare volumi aggiuntivi dalla quantità massima di capacità libera in un gruppo di volumi.
+
+.Prima di iniziare
+* Il gruppo di volumi deve contenere almeno un'area di capacità libera.
+* Tutti i volumi del gruppo di volumi devono essere online e in stato Optimal.
+* Non devono essere in corso operazioni di modifica del volume, come cambiare la dimensione del segmento di un volume.
+
+
+.Informazioni su questa attività
+Non è possibile annullare l'operazione una volta avviata. I dati rimangono accessibili durante l'operazione di consolidamento.
+
+È possibile avviare la finestra di dialogo Consolidate Free Capacity utilizzando uno dei seguenti metodi:
+
+* Quando viene rilevata almeno un'area di capacità libera per un gruppo di volumi, il suggerimento "Consolida capacità libera" viene visualizzato nella pagina iniziale, nell'area Notifiche. Fai clic sul collegamento *Consolida capacità libera* per avviare la finestra di dialogo.
+* È inoltre possibile avviare la finestra di dialogo Consolidate Free Capacity dalla pagina Pools & Volume Groups, come descritto nell'attività seguente.
+
+
+.Ulteriori informazioni sulle aree a capacità libera
+[%collapsible]
+====
+Un'area di capacità libera è la capacità libera che può risultare dall'eliminazione di un volume o dal mancato utilizzo di tutta la capacità libera disponibile durante la creazione di un volume. Quando crei un volume in un gruppo di volumi che dispone di una o più aree di capacità libera, la capacità del volume è limitata all'area di capacità libera più grande in quel gruppo di volumi. Ad esempio, se un gruppo di volumi ha una capacità libera totale di 15 GiB e l'area di capacità libera più grande è di 10 GiB, il volume più grande che puoi creare è di 10 GiB.
+
+Si consolida la capacità libera su un gruppo di volumi per migliorare le prestazioni di scrittura. La capacità libera del gruppo di volumi si frammenterà nel tempo man mano che l'host scrive, modifica ed elimina file. Alla fine, la capacità disponibile non sarà situata in un singolo blocco contiguo, ma sarà dispersa in piccoli frammenti all'interno del gruppo di volumi. Questo causa un'ulteriore frammentazione dei file, poiché l'host deve scrivere i nuovi file come frammenti per adattarli agli intervalli disponibili di cluster liberi.
+
+Consolidando la capacità libera su un gruppo di volumi selezionato, si noterà un miglioramento delle prestazioni del file system ogni volta che l'host scrive nuovi file. Il processo di consolidamento contribuirà anche a prevenire che i nuovi file vengano frammentati in futuro.
+
+====
+.Passaggi
+. Selezionare menu:Storage[Pool & Volume Groups].
+. Seleziona il gruppo di volumi con capacità libera che desideri consolidare, quindi seleziona menu:Attività non comuni[Consolida la capacità libera del gruppo di volumi].
++
+Viene visualizzata la finestra di dialogo Consolidate Free Capacity.
+
+. Digita  `consolidate` per confermare che vuoi eseguire questa operazione.
+. Fai clic su *Consolidate*.
++
+System Manager avvia il consolidamento (deframmentazione) delle aree di capacità libera del gruppo di volumi in un'unica quantità contigua per le successive attività di configurazione dello storage.
+
+
+
+.Dopo aver finito
+Selezionare menu:Home[Visualizza operazioni in corso] per visualizzare l'avanzamento dell'operazione Consolidate Free Capacity. Questa operazione può essere lunga e potrebbe influire sulle prestazioni del sistema.

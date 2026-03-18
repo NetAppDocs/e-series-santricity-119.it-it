@@ -1,0 +1,313 @@
+---
+permalink: sm-support/faq-autosupport.html 
+sidebar: sidebar 
+keywords:  
+summary: Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda. 
+---
+= AutoSupport FAQ per SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda.
+
+
+
+== Quali dati sto raccogliendo?
+
+La funzionalità AutoSupport e la funzionalità manuale di raccolta dati di supporto forniscono modi per raccogliere dati in un pacchetto di supporto clienti per la risoluzione remota dei problemi e l'analisi dei problemi da parte del supporto tecnico.
+
+Il pacchetto di assistenza clienti raccoglie tutti i tipi di informazioni relative all'array di storage in un unico file compresso. Le informazioni raccolte includono la configurazione fisica, la configurazione logica, le informazioni sulla versione, gli eventi, i file di log e i dati sulle prestazioni. Le informazioni vengono utilizzate solo dal supporto tecnico per risolvere i problemi relativi all'array di storage.
+
+
+
+== Cosa mostrano i dati dei settori illeggibili?
+
+È possibile visualizzare dati dettagliati sui settori illeggibili rilevati sulle unità nel proprio storage array.
+
+Il registro dei settori illeggibili mostra per primo il settore illeggibile più recente. Il registro contiene le seguenti informazioni sui volumi che contengono i settori illeggibili. I campi sono ordinabili.
+
+[cols="25h,~"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Volume interessato
+ a| 
+Mostra l'etichetta del volume. Se un volume mancante contiene settori illeggibili, viene visualizzato il World Wide Identifier per il volume mancante.
+
+
+
+ a| 
+Logical Unit Number (LUN)
+ a| 
+Mostra il LUN del volume. Se il volume non ha un LUN, la finestra di dialogo mostra NA.
+
+
+
+ a| 
+Assegnato a
+ a| 
+Mostra gli host o i cluster di host che hanno accesso al volume. Se il volume non è accessibile da un host, cluster di host o anche da un Default Cluster, la finestra di dialogo mostra NA.
+
+|===
+Per visualizzare ulteriori informazioni sui settori illeggibili, fare clic sul segno più (+) accanto a un volume.
+
+[cols="25h,~"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Data/Ora
+ a| 
+Mostra la data e l'ora in cui è stato rilevato il settore illeggibile.
+
+
+
+ a| 
+Indirizzo del blocco logico del volume
+ a| 
+Mostra l'indirizzo del blocco logico (LBA) del volume.
+
+
+
+ a| 
+Posizione dell'unità
+ a| 
+Mostra il drive shelf, il drawer (se il drive shelf è dotato di drawer) e la posizione del bay.
+
+
+
+ a| 
+Indirizzo del blocco logico dell'unità
+ a| 
+Mostra l'LBA dell'unità.
+
+
+
+ a| 
+Tipo di guasto
+ a| 
+Mostra uno dei seguenti tipi di errore:
+
+* *Fisico* -- Un errore del supporto fisico.
+* *Logico* -- Un errore di lettura in un altro punto della striscia che causa dati illeggibili. Ad esempio, un settore illeggibile a causa di errori del supporto in un altro punto del volume.
+* *Incoerente* -- dati di ridondanza incoerenti.
+* *Data Assurance* -- Errore di Data Assurance.
+
+
+|===
+
+
+== Che cos'è una health image?
+
+Un health image è un dump di dati raw della memoria del processore del controller che il supporto tecnico può utilizzare per diagnosticare un problema con un controller.
+
+Il firmware genera automaticamente un'immagine di stato quando rileva determinati errori. In alcune situazioni di risoluzione dei problemi, il supporto tecnico potrebbe richiedere di recuperare il file dell'immagine di stato e di inviarlo.
+
+
+
+== A cosa servono le funzionalità di AutoSupport?
+
+La funzionalità AutoSupport è composta da tre funzionalità individuali che si abilitano separatamente.
+
+* *Base AutoSupport* -- Consente al tuo array di storage di raccogliere e inviare automaticamente i dati al supporto tecnico.
+* *AutoSupport OnDemand* -- Consente al supporto tecnico di richiedere la ritrasmissione di una precedente spedizione AutoSupport quando necessario per la risoluzione di un problema. Tutte le trasmissioni vengono avviate dall'array di storage, non dal server AutoSupport. L'array di storage si connette periodicamente al server AutoSupport per determinare se sono presenti richieste di ritrasmissione in sospeso e risponde di conseguenza.
+* *Diagnostica remota* -- Consente al supporto tecnico di richiedere una nuova, aggiornata AutoSupport dispatch quando necessario per la risoluzione di un problema. Tutte le trasmissioni vengono avviate dall'array di storage, non dal server AutoSupport. L'array di storage si connette periodicamente al server AutoSupport per determinare se ci sono nuove richieste in sospeso e risponde di conseguenza.
+
+
+
+
+== Che tipo di dati vengono raccolti tramite la funzionalità AutoSupport?
+
+La funzionalità AutoSupport contiene tre tipologie standard di invio: invii per eventi, invii programmati e invii di diagnostica su richiesta e da remoto.
+
+I dati AutoSupport non contengono alcun dato utente.
+
+* *Invio degli eventi*
++
+Quando si verificano eventi sul sistema che richiedono una notifica proattiva al supporto tecnico, la funzionalità AutoSupport invia automaticamente una segnalazione attivata dall'evento.
+
++
+** Inviato quando si verifica un evento di supporto sull'array di storage gestito.
+** Include un'istantanea completa di ciò che stava accadendo con l'array di storage al momento in cui si è verificato l'evento.
+
+
+* *Spedizioni programmate*
++
+La funzione AutoSupport invia automaticamente diversi messaggi a intervalli regolari.
+
++
+** *Rapporti giornalieri* -- Inviati una volta al giorno durante un intervallo di tempo configurabile dall'utente. Includono i registri eventi di sistema e i dati sulle prestazioni correnti.
+** *Comunicazioni settimanali* -- Inviate una volta a settimana durante un intervallo di tempo e un giorno configurabili dall'utente. Include informazioni sulla configurazione e sullo stato del sistema.
+
+
+* *AutoSupport OnDemand e interventi di diagnostica a distanza*
++
+** *AutoSupport OnDemand* -- Consente al supporto tecnico di richiedere la ritrasmissione di una precedente spedizione AutoSupport quando necessario per la risoluzione di un problema. Tutte le trasmissioni vengono avviate dall'array di storage, non dal server AutoSupport. L'array di storage si connette periodicamente al server AutoSupport per determinare se sono presenti richieste di ritrasmissione in sospeso e risponde di conseguenza.
+** *Diagnostica remota* -- Consente al supporto tecnico di richiedere una nuova, aggiornata AutoSupport dispatch quando necessario per la risoluzione di un problema. Tutte le trasmissioni vengono avviate dall'array di storage, non dal server AutoSupport. L'array di storage si connette periodicamente al server AutoSupport per determinare se ci sono nuove richieste in sospeso e risponde di conseguenza.
+
+
+
+
+
+
+== Come configuro il metodo di consegna per la funzionalità AutoSupport?
+
+La funzionalità AutoSupport supporta i protocolli HTTPS e SMTP per la consegna delle comunicazioni AutoSupport al supporto tecnico.
+
+.Prima di iniziare
+* La funzione AutoSupport deve essere abilitata. Puoi verificare se è abilitata nella pagina AutoSupport.
+* È necessario installare e configurare un DNS server nella rete. L'indirizzo del DNS server deve essere configurato in System Manager (questa operazione è disponibile nella pagina Hardware).
+
+
+.Informazioni su questa attività
+Esamina i diversi protocolli:
+
+* *HTTPS* -- Consente di connettersi direttamente al server di supporto tecnico di destinazione utilizzando HTTPS. Se si desidera abilitare AutoSupport OnDemand o la diagnostica remota, il metodo di consegna AutoSupport deve essere impostato su HTTPS.
+* *Email* -- Consente di utilizzare un server di posta elettronica come metodo di consegna per l'invio di AutoSupport dispatches.
+
+
+[NOTE]
+====
+*Differenze tra i metodi HTTPS ed Email*. Il metodo di consegna Email, che utilizza SMTP, presenta alcune importanti differenze rispetto al metodo di consegna HTTPS. In primo luogo, la dimensione degli invii per il metodo Email è limitata a 5MB, il che significa che alcune raccolte di dati ASUP non verranno inviate. In secondo luogo, la funzionalità AutoSupport OnDemand è disponibile solo con il metodo di consegna HTTPS.
+
+====
+.Passaggi
+. Selezionare menu:Supporto[Support Center > AutoSupport] scheda.
+. Seleziona *Configura AutoSupport Delivery Method*.
++
+Viene visualizzata una finestra di dialogo che elenca i metodi di consegna della spedizione.
+
+. Seleziona il metodo di consegna desiderato, quindi seleziona i parametri per tale metodo. Esegui una delle seguenti operazioni:
++
+** Se hai selezionato HTTPS, seleziona uno dei seguenti parametri di consegna:
++
+*** *Direttamente* -- Questo parametro di consegna è la selezione predefinita. Scegliendo questa opzione è possibile connettersi direttamente al sistema di supporto tecnico di destinazione utilizzando il protocollo HTTPS.
+*** *Tramite proxy server* -- Scegliendo questa opzione è possibile specificare i dettagli del proxy server HTTP necessari per stabilire la connessione con il sistema di supporto tecnico di destinazione. È necessario specificare l'indirizzo host e il numero di porta. Tuttavia, è necessario inserire i dettagli di autenticazione dell'host (nome utente e password) solo se richiesto.
+*** *Tramite script di autoconfigurazione proxy (PAC)* -- Specificare il percorso di un file di script di autoconfigurazione proxy (PAC). Un file PAC consente al sistema di scegliere automaticamente il proxy server appropriato per stabilire una connessione con il sistema di supporto tecnico di destinazione.
+
+
+** Se hai selezionato Email, inserisci le seguenti informazioni:
++
+*** L'indirizzo del server di posta come fully qualified domain name, indirizzo IPv4 o indirizzo IPv6.
+*** L'indirizzo email che compare nel campo Da dell'email di invio AutoSupport.
+*** *Facoltativo; se si desidera eseguire un test di configurazione.* L'indirizzo e-mail a cui viene inviata una conferma quando il AutoSupport system riceve la richiesta di test.
+*** Se si desidera crittografare i messaggi, selezionare *SMTPS* o *STARTTLS* come tipo di crittografia, quindi selezionare il numero di porta per i messaggi crittografati. In caso contrario, selezionare *None*.
+*** Se necessario, inserire un nome utente e una password per l'autenticazione con il mittente in uscita e il server di posta.
+
+
+
+
+. Fai clic su *Verifica configurazione* per testare la connessione al server di supporto tecnico utilizzando i parametri di consegna specificati. Se hai abilitato la funzione AutoSupport On-Demand, il sistema testerà anche la connessione per la consegna di AutoSupport OnDemand.
++
+Se il test di configurazione non riesce, verifica le impostazioni di configurazione ed esegui nuovamente il test. Se il test continua a non riuscire, contatta il supporto tecnico.
+
+. Fare clic su *Save*.
+
+
+
+
+== Che cosa sono i dati di configurazione?
+
+Quando si seleziona Collect Configuration Data, il sistema salva lo stato corrente del database di configurazione RAID.
+
+Il database di configurazione RAID include tutti i dati relativi ai gruppi di volumi e ai pool di dischi sul controller. La funzione Raccogli dati di configurazione salva le stesse informazioni del comando CLI per `save storageArray dbmDatabase`.
+
+
+
+== Cosa devo sapere prima di aggiornare il software SANtricity OS?
+
+Prima di aggiornare il software e il firmware del controller, tieni presente questi elementi.
+
+* Hai letto il documento e il `readme.txt` file e hai deciso di procedere con l'aggiornamento.
+* Sai già se vuoi aggiornare il firmware IOM.
++
+Normalmente, dovresti aggiornare tutti i componenti contemporaneamente. Tuttavia, potresti decidere di non aggiornare il firmware IOM se non vuoi aggiornarlo come parte dell'aggiornamento del software del controller SANtricity OS o se il supporto tecnico ti ha istruito a eseguire il downgrade del firmware IOM (puoi eseguire il downgrade del firmware solo utilizzando l'interfaccia a riga di comando).
+
+* Sai se vuoi aggiornare il file NVSRAM del controller.
++
+Normalmente, dovresti aggiornare tutti i componenti contemporaneamente. Tuttavia, potresti decidere di non aggiornare il file NVSRAM del controller se il tuo file è stato patchato o è una versione personalizzata e non vuoi sovrascriverlo.
+
+* Sai se vuoi attivare ora o più tardi.
++
+I motivi per attivare in un secondo momento potrebbero includere:
+
++
+** *Orario della giornata* -- L'attivazione del software e del firmware può richiedere molto tempo, quindi potresti voler attendere che i carichi di I/O siano più leggeri. I controller effettuano un failover durante l'attivazione, quindi le prestazioni potrebbero essere inferiori al solito fino al completamento dell'aggiornamento.
+** *Tipo di pacchetto* -- Potresti voler testare il nuovo software e firmware su un array di storage prima di aggiornare i file su altri storage array.
+
+
+
+
+Questi componenti fanno parte dell'aggiornamento del software del controller SANtricity OS:
+
+* *Software di gestione* -- System Manager è il software che gestisce l'array di storage.
+* *Controller firmware* -- Il firmware del controller gestisce l'I/O tra host e volumi.
+* *Controller NVSRAM* -- Controller NVSRAM è un file che specifica le impostazioni predefinite per i controller.
+* *IOM firmware* -- Il firmware del modulo I/O (IOM) gestisce la connessione tra un controller e uno shelf di dischi. Monitora inoltre lo stato dei componenti.
+* *Software di supervisione* -- Il software di supervisione è la macchina virtuale su un controller in cui viene eseguito il software.
+
+
+Nell'ambito del processo di aggiornamento, potrebbe essere necessario aggiornare anche il driver multipath/failover e/o il driver HBA dell'host, affinché quest'ultimo possa interagire correttamente con i controller.
+
+[NOTE]
+====
+Per determinare se questo è il caso, vedere il https://mysupport.netapp.com/matrix["Tool NetApp Interoperability Matrix"^].
+
+====
+Se l'array di storage contiene un solo controller o non hai installato un driver multipath, interrompi l'attività di I/O verso l'array di storage per evitare errori dell'applicazione. Se l'array di storage ha due controller e hai installato un driver multipath, non è necessario interrompere l'attività di I/O.
+
+
+CAUTION: Non apportare modifiche all'array di archiviazione durante l'aggiornamento.
+
+
+
+== Cosa devo sapere prima di sospendere la sincronizzazione automatica dell'IOM?
+
+La sospensione della sincronizzazione automatica dell'IOM impedisce l'aggiornamento del firmware dell'IOM al successivo aggiornamento del software del controller SANtricity OS.
+
+Normalmente, il software del controller e il firmware IOM vengono aggiornati come un pacchetto. È possibile sospendere la sincronizzazione automatica dell'IOM se si dispone di una build speciale del firmware IOM che si desidera conservare sull'enclosure. Altrimenti, verrà ripristinato il firmware IOM incluso nel software del controller la prossima volta che si esegue un aggiornamento del software del controller.
+
+
+
+== Perché l'aggiornamento del firmware procede così lentamente?
+
+L'avanzamento dell'aggiornamento del firmware dipende dal carico complessivo del sistema.
+
+Durante un aggiornamento online del firmware del disco, se si verifica un trasferimento di volume durante il processo di ricostruzione rapida, il sistema avvia una ricostruzione completa sul volume che è stato trasferito. Questa operazione potrebbe richiedere un tempo considerevole. Il tempo effettivo di ricostruzione completa dipende da diversi fattori, tra cui la quantità di attività di I/O che si verifica durante l'operazione di ricostruzione, il numero di dischi nel gruppo di volumi, l'impostazione della priorità di ricostruzione e le prestazioni del disco.
+
+
+
+== Cosa devo sapere prima di aggiornare il firmware del disco?
+
+Prima di aggiornare il firmware del disco, tieni presente questi elementi.
+
+* A titolo precauzionale, esegui il backup dei dati utilizzando un backup da disco a disco, una copia del volume (su un gruppo di volumi non interessato dall'aggiornamento del firmware pianificato) o un mirror remoto.
+* Potresti voler aggiornare solo alcune unità per testare il comportamento del nuovo firmware per assicurarti che funzioni correttamente. Se il nuovo firmware funziona correttamente, aggiorna le unità rimanenti.
+* Se hai delle unità disco guaste, riparale prima di iniziare l'aggiornamento del firmware.
+* Se le unità possono eseguire un aggiornamento offline, interrompere l'attività di I/O su tutti i volumi associati alle unità. Quando l'attività di I/O è interrotta, non è possibile eseguire operazioni di configurazione associate a tali volumi.
+* Non rimuovere alcuna unità durante l'aggiornamento del firmware del disco.
+* Non apportare alcuna modifica alla configurazione dell'array di storage durante l'aggiornamento del firmware del disco.
+
+
+
+
+== Come faccio a scegliere quale tipo di aggiornamento eseguire?
+
+Si sceglie il tipo di aggiornamento da eseguire sul disco a seconda dello stato del pool o del gruppo di volumi.
+
+* *Online*
++
+Se il pool o il gruppo di volumi supporta la ridondanza ed è Ottimale, puoi utilizzare il metodo Online per aggiornare il firmware del disco. Il metodo Online scarica il firmware _mentre l'array di storage sta elaborando I/O_ sui volumi associati che utilizzano questi dischi. Non è necessario interrompere l'I/O sui volumi associati che utilizzano questi dischi. Questi dischi vengono aggiornati uno alla volta sui volumi associati ai dischi. Se il disco non è assegnato a un pool o a un gruppo di volumi, il suo firmware può essere aggiornato tramite il metodo Online o Offline. Le prestazioni del sistema potrebbero essere influenzate quando utilizzi il metodo Online per aggiornare il firmware del disco.
+
+* *Offline*
++
+Se il pool o il gruppo di volumi non supporta la ridondanza (RAID 0), o è degradato, è necessario utilizzare il metodo Offline per l'aggiornamento del firmware del disco. Il metodo Offline aggiornerà il firmware  sui volumi associati che utilizzano questi dischi. È necessario interrompere tutta l'attività di I/O su qualsiasi volume associato che utilizza questi dischi. Se il disco non è assegnato a un pool o a un gruppo di volumi, il suo firmware può essere aggiornato tramite il metodo Online o Offline.
+
+

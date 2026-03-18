@@ -1,0 +1,36 @@
+---
+permalink: sm-settings/change-default-host-type.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, default, host, type, 
+summary: 'Utilizzare l"impostazione "Cambia sistema operativo host predefinito" per modificare il tipo di host predefinito a livello di storage array. In genere, si modifica il tipo di host predefinito prima di connettere host allo storage array o quando si connettono host aggiuntivi.' 
+---
+= Modificare il tipo di host predefinito in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilizzare l'impostazione "Cambia sistema operativo host predefinito" per modificare il tipo di host predefinito a livello di storage array. In genere, si modifica il tipo di host predefinito prima di connettere host allo storage array o quando si connettono host aggiuntivi.
+
+.Informazioni su questa attività
+Tenete a mente queste linee guida:
+
+* Se tutti gli host che si intende connettere all'array di storage hanno lo stesso sistema operativo (ambiente host omogeneo), allora modificare il tipo di host per farlo corrispondere al sistema operativo.
+* Se si prevede di connettere all'array di storage host con sistemi operativi diversi (ambiente host eterogeneo), modificare il tipo di host in modo che corrisponda al sistema operativo della maggior parte degli host.
++
+Ad esempio, se si collegano otto host diversi all'array di storage e sei di questi host eseguono un sistema operativo Windows, è necessario selezionare Windows come tipo di sistema operativo host predefinito.
+
+* Se la maggior parte degli host connessi ha una combinazione di diversi sistemi operativi, modificare il tipo di host in Factory Default.
++
+Ad esempio, se si collegano otto host diversi all'array di storage e due di questi host eseguono un sistema operativo Windows, tre eseguono un sistema operativo VMware e altri tre eseguono un sistema operativo Linux, è necessario selezionare Factory Default come tipo di sistema operativo host predefinito.
+
+
+
+.Passaggi
+. Selezionare menu:Impostazioni[Sistema].
+. Scorri verso il basso fino a *Impostazioni aggiuntive* e poi fai clic su *Modifica tipo di sistema operativo host predefinito*.
+. Seleziona il tipo di sistema operativo host che vuoi utilizzare come predefinito.
+. Fai clic su *Change*.
+

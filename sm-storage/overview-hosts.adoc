@@ -1,0 +1,55 @@
+---
+permalink: sm-storage/overview-hosts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, hosts 
+summary: 'È possibile configurare host e cluster di host, che definiscono le connessioni tra l"array di storage e i server di dati.' 
+---
+= Scopri host e cluster di host nel software SANtricity
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile configurare host e cluster di host, che definiscono le connessioni tra l'array di storage e i server di dati.
+
+
+
+== Che cosa sono gli host e i cluster di host?
+
+Un host è un server che invia I/O a un volume su un array di storage. Un host cluster è un gruppo di host, che puoi creare per assegnare gli stessi volumi a più host.
+
+Per saperne di più:
+
+* link:host-terminology.html["Terminologia host"]
+* link:access-volumes.html["Accesso ai volumi"]
+* link:maximum-number-of-luns.html["Numero massimo di LUN"]
+
+
+
+
+== Come si configurano gli host e i cluster di host?
+
+Per definire le connessioni host, puoi andare su menu:Storage[Hosts] per configurare manualmente l'host. Se desideri che due o più host condividano l'accesso allo stesso set di volumi, puoi quindi definire un cluster e assegnare i volumi a quel cluster.
+
+Per saperne di più:
+
+* link:manual-host-creation.html["Creazione manuale host"]
+* link:how-volumes-are-assigned-to-hosts-and-host-clusters.html["Come vengono assegnati i volumi agli host e ai cluster di host"]
+* link:workflow-for-creating-hosts-and-assigning-volumes.html["Flusso di lavoro per la creazione dell'host e l'assegnazione del volume"]
+* link:create-host-manually.html["Crea host manualmente"]
+* link:create-host-cluster.html["Crea cluster host"]
+* link:assign-volumes.html["Assegna volumi agli host"]
+
+
+
+
+== Informazioni correlate
+
+Scopri di più sulle attività relative agli host:
+
+* link:../sm-settings/set-automatic-load-balancing.html["Imposta bilanciamento del carico automatico"]
+* link:../sm-settings/set-host-connectivity-reporting.html["Imposta la segnalazione della connettività host"]
+* link:../sm-settings/change-default-host-type.html["Modifica il tipo host predefinito"]
+

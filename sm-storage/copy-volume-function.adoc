@@ -1,0 +1,141 @@
+---
+permalink: sm-storage/copy-volume-function.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, copy, volume, 
+summary: La funzione Copia volume consente di creare una copia point-in-time di un volume creando due volumi separati, il volume di origine e il volume di destinazione, sullo stesso storage array. 
+---
+= Scopri di più su Copy Volume in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La funzione Copia volume consente di creare una copia point-in-time di un volume creando due volumi separati, il volume di origine e il volume di destinazione, sullo stesso storage array.
+
+Questa funzione esegue una copia byte per byte dal volume di origine al volume di destinazione, rendendo i dati sul volume di destinazione identici ai dati sul volume di origine.
+
+
+
+== Copia dei dati per un accesso più ampio
+
+Quando cambiano i requisiti di storage per un volume, è possibile utilizzare la funzione Copy Volume per copiare i dati da pool o gruppi di volumi che utilizzano drive di capacità inferiore a pool o gruppi di volumi che utilizzano drive di capacità superiore. Ad esempio, è possibile utilizzare la funzione Copy Volume per eseguire le seguenti operazioni:
+
+* Sposta i dati su drive più grandi.
+* Passa a unità con un tasso di trasferimento dei dati più elevato.
+* Passa a unità che utilizzano nuove tecnologie per prestazioni superiori.
+* Modificare un volume sottile in un volume spesso.
+
+
+I volumi di origine e di destinazione della copia devono avere le stesse dimensioni dei blocchi logici/indirizzabili dall'host (dimensione del settore) riportate.
+
+Le dimensioni dei blocchi di volume segnalate sono:
+
+* *Dimensione del blocco nativo* – la dimensione del blocco del volume corrisponde alla dimensione del blocco dell'unità, ovvero 512 o 4K.
+* *Dimensione del blocco emulata 512* - le unità sono da 4K ma la dimensione del blocco riportata è 512.
+
+
+
+
+== Modificare un volume thin in un volume thick
+
+Se si desidera convertire un volume sottile in un volume spesso, utilizzare l'operazione Copy Volume per creare una copia del volume sottile. La destinazione di un'operazione Copy Volume è sempre un volume spesso.
+
+[NOTE]
+====
+System Manager non offre la possibilità di creare volumi con thin provisioning. Se si desidera creare volumi con thin provisioning, utilizzare la Command Line Interface (CLI).
+
+====
+
+
+== Backup dei dati
+
+La funzione Copia volume consente di eseguire il backup di un volume copiando i dati da un volume a un altro volume sullo stesso storage array. È possibile utilizzare il volume di destinazione come backup del volume di origine, per testare il sistema o per eseguire il backup su un altro dispositivo, come un disco a nastro.
+
+
+
+== Ripristina i dati del volume Snapshot nel volume base
+
+Se è necessario ripristinare i dati sul volume di base dal volume Snapshot associato, è possibile utilizzare la funzione Copy Volume per copiare i dati dal volume Snapshot al volume di base. È possibile creare una copia del volume dei dati presenti sul volume Snapshot e quindi copiare i dati sul volume di base.
+
+
+
+== Volumi di origine e di destinazione
+
+La tabella seguente specifica i tipi di volumi che possono essere utilizzati come volume di origine e volume di destinazione con la funzione Copy Volume.
+
+[cols="1a,1a,1a,1a"]
+|===
+| Tipo di volume | Volume sorgente della copia del volume offline | Volume di origine della copia volume online | Volume di destinazione online e offline 
+
+
+ a| 
+Volume thick in un pool
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+ a| 
+Volume thick in un gruppo di volumi
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+ a| 
+Volume sottile
+ a| 
+Sì^1^
+ a| 
+Sì
+ a| 
+No
+
+
+
+ a| 
+Volume Snapshot
+ a| 
+Sì^2^
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Volume base Snapshot
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+No
+
+
+
+ a| 
+volume primario dello specchio remoto
+ a| 
+Sì^3^
+ a| 
+Sì
+ a| 
+No
+
+|===
+^1^ Il volume di destinazione deve avere una capacità pari o superiore alla capacità riportata del volume sottile.
+
+^2^ Non è possibile utilizzare la copia del volume Snapshot fino al completamento dell'operazione di copia online.
+
+^3^ Se il volume di origine è un volume primario, la capacità del volume di destinazione deve essere uguale o superiore alla capacità utilizzabile del volume di origine.

@@ -1,0 +1,87 @@
+---
+permalink: sm-mirroring/requirements-for-using-synchronous-mirroring.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, requirements, synchronous, mirroring, 
+summary: Se si intende utilizzare il mirroring sincrono, è necessario tenere presenti i seguenti requisiti. 
+---
+= Requisiti per l'utilizzo del mirroring sincrono nel software SANtricity
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si intende utilizzare il mirroring sincrono, è necessario tenere presenti i seguenti requisiti.
+
+
+
+== Unified Manager
+
+Per abilitare e configurare il mirroring tra due array, è necessario utilizzare l'interfaccia di Unified Manager. Unified Manager viene installato su un sistema host insieme al Web Services Proxy.
+
+* Il servizio Web Services Proxy deve essere in esecuzione.
+* Unified Manager deve essere in esecuzione sul tuo host locale tramite una connessione HTTPS.
+* Unified Manager deve visualizzare certificati SSL validi per lo storage array. È possibile accettare un certificato autofirmato o installare un certificato di sicurezza personalizzato tramite Unified Manager e accedendo a menu:Certificate[Certificate Management].
+
+
+
+
+== Array di archiviazione
+
+[NOTE]
+====
+Il mirroring sincrono non è disponibile sugli array di storage EF300/EF300C o EF600/EF600C.
+
+====
+* È necessario disporre di due storage array.
+* Ogni array di storage deve avere due controller.
+* I due array di storage devono essere rilevati in Unified Manager.
+* Ciascun controller, sia nell'array primario che in quello secondario, deve avere una porta di gestione Ethernet configurata e deve essere connesso alla rete.
+* Gli array di storage hanno una versione minima del firmware pari a 7.84. (Ciascuno può eseguire diverse versioni del sistema operativo.)
+* È necessario conoscere la password per gli array di storage locali e remoti.
+* È necessario disporre di una capacità libera sufficiente sull'array di storage remoto per creare un volume secondario uguale o superiore al volume primario che si desidera replicare.
+* I tuoi array di storage locali e remoti sono collegati tramite una fabric Fibre Channel.
+
+
+
+
+== Connessioni supportate
+
+La comunicazione per il mirroring sincrono è supportata solo sui controller con porte host Fibre Channel (FC).
+
+Il mirroring sincrono utilizza la porta host con il numero più alto su ciascun controller sia sull'array di storage locale che su quello remoto. La porta host 4 dell'adattatore bus host (HBA) del controller è in genere riservata alla trasmissione dei dati mirrorati.
+
+
+
+== Candidati al volume mirrorato
+
+* Il livello RAID, i parametri di caching e la dimensione dei segmenti possono essere diversi sui volumi primario e secondario di una coppia di volumi con mirroring sincrono.
+* I volumi primario e secondario in una coppia con mirroring sincrono devono essere volumi standard. Non possono essere volumi thin o volumi snapshot.
+* Il volume secondario deve essere almeno grande quanto il volume primario.
+* Solo il volume primario può avere snapshot associati e/o essere il volume di origine o di destinazione in un'operazione di copia del volume.
+* Un volume può partecipare a una sola relazione mirror.
+* Esistono dei limiti al numero di volumi supportati su un determinato array di storage. Assicurati che il numero di volumi configurati sul tuo array di storage sia inferiore al limite supportato. Quando il mirroring sincrono è attivo, i due volumi di capacità riservata che vengono creati vengono conteggiati nel limite dei volumi.
+
+
+
+
+== Capacità riservata
+
+* La capacità riservata è necessaria per un volume primario e per un volume secondario per registrare le informazioni di scrittura e recuperare dai reset del controller e altre interruzioni temporanee.
+* I volumi con capacità riservata vengono creati automaticamente quando il mirroring sincrono è attivato. Poiché sia il volume primario che il volume secondario in una coppia con mirroring richiedono capacità riservata, è necessario assicurarsi di disporre di capacità libera sufficiente su entrambi gli array di storage che partecipano alla relazione di mirroring sincrono.
+
+
+
+
+== Funzione di sicurezza dell'unità
+
+* Se si utilizzano unità con funzionalità di sicurezza, il volume primario e il volume secondario devono avere impostazioni di sicurezza compatibili. Questa restrizione non viene applicata; pertanto, è necessario verificarla autonomamente.
+* Se si utilizzano unità compatibili con Secure, il volume primario e il volume secondario devono utilizzare lo stesso tipo di unità. Questa restrizione non è applicata; pertanto, è necessario verificarla autonomamente.
++
+** Se il volume primario utilizza unità FDE (Full Disk Encryption), il volume secondario dovrebbe utilizzare unità FDE.
+** Se il volume primario utilizza unità convalidate secondo il Federal Information Processing Standards 140-2 (FIPS), il volume secondario dovrebbe utilizzare unità convalidate secondo il FIPS 140-2.
+
+
+* Se si utilizza Data Assurance (DA), il volume primario e il volume secondario devono avere le stesse impostazioni DA.
+

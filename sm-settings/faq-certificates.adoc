@@ -1,0 +1,66 @@
+---
+permalink: sm-settings/faq-certificates.html 
+sidebar: sidebar 
+keywords:  
+summary: Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda. 
+---
+= Domande frequenti sui certificati firmati da CA e autofirmati per SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda.
+
+
+
+== Perché viene visualizzata la finestra di dialogo Cannot Access Other Controller?
+
+Quando si eseguono determinate operazioni relative ai certificati CA (ad esempio, importare un certificato), potrebbe apparire una finestra di dialogo che richiede di accettare un certificato self-signed per il secondo controller.
+
+Negli array di storage con due controller (configurazioni duplex), questa finestra di dialogo viene talvolta visualizzata se SANtricity System Manager non riesce a comunicare con il secondo controller o se il browser non può accettare il certificato durante un determinato punto di un'operazione.
+
+Se viene visualizzata questa finestra di dialogo, fare clic su *Accetta certificato autofirmato* per procedere. Se viene visualizzata un'altra finestra di dialogo che richiede una password, immettere la password di Administrator utilizzata per accedere a System Manager.
+
+Se questa finestra di dialogo viene visualizzata di nuovo e non è possibile completare un'attività relativa al certificato, prova una delle seguenti procedure:
+
+* Utilizza un tipo di browser diverso per accedere a questo controller, accetta il certificato e continua.
+* Accedere al secondo controller withSystem Manager, accettare il certificato autofirmato, quindi tornare al primo controller e continuare.
+
+
+
+
+== Come faccio a sapere quali certificati devono essere caricati su SANtricity System Manager per l'external key management?
+
+Per la gestione delle chiavi esterne, importi due tipi di certificati per l'autenticazione tra l'array di storage e il key management server, così che le due entità possano fidarsi l'una dell'altra.
+
+Un certificato client convalida i controller dell'array di storage, così il server di gestione delle chiavi può considerare attendibili le loro richieste Key Management Interoperability Protocol (KMIP).
+
+Per ottenere un certificato client, si utilizza System Manager per completare una CSR per lo storage array. È anche possibile generare una CSR esternamente utilizzando una coppia di chiavi privata e pubblica.
+
+A questo punto, è possibile caricare la CSR su un server di gestione delle chiavi e generare un certificato client da lì. Una volta ottenuto un certificato client, copiare quel file sull'host da cui si accede a System Manager.
+
+Un certificato del server di gestione delle chiavi convalida il server di gestione delle chiavi, quindi il sistema storage può considerare attendibile il suo indirizzo IP. Recupera il file del certificato del server dal server di gestione delle chiavi e poi copia quel file sull'host da cui accedi a System Manager.
+
+
+
+== Cosa devo sapere sulla verifica della revoca dei certificati?
+
+SANtricity System Manager consente di verificare la presenza di certificati revocati utilizzando un server Online Certificate Status Protocol (OCSP), invece di caricare Certificate Revocation Lists (CRL).
+
+I certificati revocati non dovrebbero più essere considerati affidabili. Un certificato può essere revocato per diversi motivi; ad esempio, se l'Autorità di Certificazione (CA) ha emesso il certificato in modo improprio, se una chiave privata è stata compromessa o se l'entità identificata non ha rispettato i requisiti delle policy.
+
+Dopo aver stabilito una connessione a un server OCSP in System Manager, l'array di storage esegue un controllo di revoca ogni volta che si connette a un AutoSupport server, a un server External Key Management Server (EKMS), a un server Lightweight Directory Access Protocol over SSL (LDAPS) o a un server Syslog. L'array di storage tenta di convalidare i certificati di questi server per assicurarsi che non siano stati revocati. Il server restituisce quindi un valore tra "good", "revoked" o "unknown" per quel certificato. Se il certificato è revocato o l'array non riesce a contattare il server OCSP, la connessione viene rifiutata.
+
+[NOTE]
+====
+Specificando un indirizzo di responder OCSP in System Manager o nella command line interface (CLI), si sovrascrive l'indirizzo OCSP presente nel file del certificato.
+
+====
+
+
+== Per quali tipi di server sarà abilitato il controllo della revoca?
+
+L'array di storage esegue un controllo di revoca ogni volta che si connette a un AutoSupport server, a un External Key Management Server (EKMS), a un server Lightweight Directory Access Protocol over SSL (LDAPS) o a un server Syslog.

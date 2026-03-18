@@ -1,0 +1,14 @@
+---
+permalink: um-certificates/index.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= SANtricity Unified Manager 7
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La gestione dei certificati consente di creare richieste di firma dei certificati (CSRs), importare certificati e gestire i certificati esistenti.

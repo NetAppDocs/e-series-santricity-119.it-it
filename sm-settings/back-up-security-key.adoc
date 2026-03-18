@@ -1,0 +1,56 @@
+---
+permalink: sm-settings/back-up-security-key.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, backup, security, key, 
+summary: 'Dopo aver creato o modificato una chiave di sicurezza, è possibile creare una copia di backup del file della chiave nel caso in cui l"originale venga danneggiato.' 
+---
+= Eseguire il backup delle chiavi di sicurezza in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver creato o modificato una chiave di sicurezza, è possibile creare una copia di backup del file della chiave nel caso in cui l'originale venga danneggiato.
+
+.Informazioni su questa attività
+Questa procedura descrive come eseguire il backup di una chiave di sicurezza creata in precedenza. Durante questa procedura, si crea una nuova pass phrase per il backup. Questa pass phrase non deve necessariamente corrispondere a quella utilizzata al momento della creazione o dell'ultima modifica della chiave originale. La pass phrase viene applicata solo al backup che si sta creando.
+
+.Passaggi
+. Selezionare menu:Impostazioni[Sistema].
+. In *Gestione chiave di sicurezza*, selezionare *Back Up Key*.
++
+Si apre la finestra di dialogo Back Up Security Key.
+
+. Nei campi *Definisci una pass phrase/Reinserisci la pass phrase*, inserisci e conferma una pass phrase per questo backup.
++
+Il valore può avere tra 8 e 32 caratteri e deve includere ciascuno dei seguenti:
+
++
+** Una o più lettere maiuscole
+** Un numero (uno o più)
+** Un carattere non alfanumerico, come !, *, @ (uno o più)
+
+
++
+[CAUTION]
+====
+*Assicurati di annotare la tua voce per un utilizzo futuro*. Ti serve la passphrase per accedere al backup di questa chiave di sicurezza.
+
+====
+. Fai clic su *Back Up*.
++
+Una copia di backup della chiave di sicurezza viene scaricata sull'host locale, e quindi si apre la finestra di dialogo *Conferma/Registra backup chiave di sicurezza*.
+
++
+[NOTE]
+====
+Il percorso per il file della chiave di sicurezza scaricato potrebbe dipendere dalla posizione di download predefinita del browser.
+
+====
+. Annota la tua pass phrase in un luogo sicuro, quindi fai clic su *Chiudi*.
+
+
+.Dopo aver finito
+Dovresti convalidare la chiave di sicurezza di backup.

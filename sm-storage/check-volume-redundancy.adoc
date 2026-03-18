@@ -1,0 +1,116 @@
+---
+permalink: sm-storage/check-volume-redundancy.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, check, volume, redundancy 
+summary: 'Con la guida del supporto tecnico o seguendo le istruzioni del Recovery Guru, puoi verificare la ridondanza su un volume in un pool o gruppo di volumi per determinare se i dati su quel volume sono coerenti. I dati di ridondanza vengono utilizzati per ricostruire rapidamente le informazioni su un"unità sostitutiva se una delle unità nel pool o gruppo di volumi si guasta.' 
+---
+= Verifica la ridondanza del volume in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Con la guida del supporto tecnico o come indicato dal Recovery Guru, puoi verificare la ridondanza su un volume in un pool o gruppo di volumi per determinare se i dati su quel volume sono coerenti.
+
+I dati di ridondanza vengono utilizzati per ricostruire rapidamente le informazioni su un'unità sostitutiva se una delle unità nel pool o nel gruppo di volumi si guasta.
+
+.Prima di iniziare
+* Lo stato del pool o del gruppo di volumi deve essere Optimal.
+* Il pool o il gruppo di volumi non deve avere operazioni di modifica del volume in corso.
+* È possibile verificare la ridondanza su qualsiasi livello RAID, ad eccezione del RAID 0, perché il RAID 0 non offre alcuna ridondanza.
+
+
+[NOTE]
+====
+Verificare la ridondanza del volume solo quando indicato dal Recovery Guru e sotto la guida del supporto tecnico.
+
+====
+.Informazioni su questa attività
+È possibile eseguire questo controllo solo su un pool o gruppo di volumi alla volta. Un controllo di ridondanza dei volumi esegue le seguenti azioni:
+
+* Esegue la scansione dei blocchi di dati in un volume RAID 3, un volume RAID 5 o un volume RAID 6 e verifica le informazioni di ridondanza per ciascun blocco. (RAID 3 può essere assegnato ai gruppi di volumi solo tramite l'interfaccia a riga di comando.)
+* Confronta i blocchi di dati sui dischi RAID 1 mirrorati.
+* Restituisce errori di ridondanza se il firmware determina che i dati non sono coerenti.
+
+
+[NOTE]
+====
+L'esecuzione immediata di un controllo di ridondanza sullo stesso pool o gruppo di volumi potrebbe causare un errore. Per evitare questo problema, attendere da uno a due minuti prima di eseguire un altro controllo di ridondanza sullo stesso pool o gruppo di volumi.
+
+====
+.Passaggi
+. Selezionare menu:Storage[Pool & Volume Groups].
+. Selezionare menu:Attività non comuni[Verifica ridondanza volume].
++
+Viene visualizzata la finestra di dialogo Check Redundancy.
+
+. Seleziona i volumi che desideri controllare, quindi digita  `check` per confermare che vuoi eseguire questa operazione.
+. Fai clic su *Check*.
++
+L'operazione di verifica della ridondanza dei volumi ha inizio. I volumi nel pool o nel gruppo di volumi vengono analizzati in sequenza, partendo dall'alto della tabella nella finestra di dialogo. Queste azioni si verificano durante la scansione di ciascun volume:
+
++
+** Il volume è selezionato nella tabella dei volumi.
+** Lo stato della verifica della ridondanza è indicato nella colonna *Stato*.
+** Il controllo si interrompe su qualsiasi errore relativo al supporto di memorizzazione o alla parità riscontrato e quindi segnala l'errore.
++
+.Maggiori informazioni sullo stato della verifica della ridondanza
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Stato | Descrizione 
+
+
+ a| 
+In attesa
+ a| 
+Questo è il primo volume da scansionare e non hai fatto clic su Avvia per iniziare il controllo di ridondanza.
+
+o
+
+L'operazione di verifica della ridondanza viene eseguita su altri volumi nel pool o nel gruppo di volumi.
+
+
+
+ a| 
+Verifica
+ a| 
+Il volume è sottoposto al controllo di ridondanza.
+
+
+
+ a| 
+Superato
+ a| 
+Il volume ha superato il controllo di ridondanza. Non sono state rilevate incongruenze nelle informazioni di ridondanza.
+
+
+
+ a| 
+Fallito
+ a| 
+Il volume non ha superato il controllo di ridondanza. Sono state rilevate incongruenze nelle informazioni di ridondanza.
+
+
+
+ a| 
+Errore multimediale
+ a| 
+L'unità disco è difettosa e illeggibile. Segui le istruzioni visualizzate in Recovery Guru.
+
+
+
+ a| 
+Errore di parità
+ a| 
+La parità non è quella prevista per una determinata porzione di dati. Un errore di parità è potenzialmente grave e potrebbe causare una perdita permanente di dati.
+
+|===
+====
+
+
+. Fare clic su *Fine* dopo che l'ultimo volume nel pool o gruppo di volumi è stato controllato.
+

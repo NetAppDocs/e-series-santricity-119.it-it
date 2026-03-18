@@ -1,0 +1,34 @@
+---
+permalink: sm-support/view-iser-over-infiniband-statistics-support.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, iser, over, infiniband, statistics 
+summary: Se il controller del tuo array di storage include una porta iSER su InfiniBand, puoi visualizzare i dati relativi alle connessioni host. 
+---
+= Visualizza statistiche iSER over InfiniBand in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se il controller del tuo array di storage include una porta iSER su InfiniBand, puoi visualizzare i dati relativi alle connessioni host.
+
+.Informazioni su questa attività
+System Manager mostra i seguenti tipi di statistiche iSER su InfiniBand. Tutte le statistiche sono di sola lettura e non possono essere impostate.
+
+* *Statistiche Local Target (Protocollo)* -- Fornisce statistiche per l'iSER su InfiniBand target, che mostrano l'accesso a livello di blocco ai suoi supporti di memorizzazione.
+* *iSER over InfiniBand Interface statistiche* -- Fornisce statistiche per tutte le porte iSER sull'interfaccia InfiniBand, che include statistiche sulle prestazioni e informazioni sugli errori di collegamento associate a ciascuna porta dello switch.
+
+
+È possibile visualizzare ciascuna di queste statistiche come raw statistiche o come statistiche baseline. Le raw statistiche sono tutte le statistiche raccolte dall'avvio dei controller. Le statistiche baseline sono point-in-time statistiche raccolte a partire dal momento in cui è stato impostato il tempo di riferimento.
+
+.Passaggi
+. Selezionare menu:Support[Support Center > Diagnostics] scheda.
+. Seleziona *Visualizza statistiche iSER su InfiniBand*.
+. Fai clic su una scheda per visualizzare i diversi set di statistiche.
+. Per impostare la baseline, fai clic su *Set new baseline*.
++
+L'impostazione della linea di base definisce un nuovo punto di partenza per la raccolta delle statistiche. La stessa linea di base viene utilizzata per tutte le statistiche iSER su InfiniBand.
+
+

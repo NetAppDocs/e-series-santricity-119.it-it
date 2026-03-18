@@ -1,0 +1,135 @@
+---
+permalink: sm-hardware/drive-states.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, drive, states, 
+summary: System Manager segnala vari stati per le unità. 
+---
+= Scopri gli stati delle unità in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity System Manager segnala vari stati per le unità.
+
+
+
+== Stati di accessibilità
+
+[cols="25h,~"]
+|===
+| Stato | Definizione 
+
+
+ a| 
+Bypassato
+ a| 
+L'unità è fisicamente presente, ma il controller non può comunicare con essa su nessuna delle due porte.
+
+
+
+ a| 
+Incompatibile
+ a| 
+Si verifica una delle seguenti condizioni:
+
+* L'unità non è certificata per l'uso nell'array di archiviazione.
+* L'unità ha una dimensione del settore diversa.
+* L'unità contiene dati di configurazione inutilizzabili provenienti da una versione del firmware precedente o successiva.
+
+
+
+
+ a| 
+Rimosso
+ a| 
+L'unità è stata rimossa in modo improprio dallo storage array.
+
+
+
+ a| 
+Presente
+ a| 
+Il controller può comunicare con l'unità su entrambe le porte.
+
+
+
+ a| 
+Non risponde
+ a| 
+L'unità non risponde ai comandi.
+
+|===
+
+
+== Stati di ruolo
+
+[cols="25h,~"]
+|===
+| Stato | Definizione 
+
+
+ a| 
+Assegnato
+ a| 
+L'unità è un membro di un pool o di un gruppo di volumi.
+
+
+
+ a| 
+Hot spare in uso
+ a| 
+L'unità viene attualmente utilizzata come sostituzione di un'unità che ha avuto un guasto. Gli hot spare vengono utilizzati solo nei gruppi di volumi, non nei pool.
+
+
+
+ a| 
+Hot spare di standby
+ a| 
+L'unità è pronta per essere utilizzata come sostituto di un'unità che ha avuto un guasto. Gli hot spare vengono utilizzati solo nei gruppi di volumi, non nei pool.
+
+
+
+ a| 
+Non assegnato
+ a| 
+L'unità non è membro di un pool o di un gruppo di volumi.
+
+|===
+
+
+== Stati di disponibilità
+
+[cols="25h,~"]
+|===
+| Stato | Definizione 
+
+
+ a| 
+Fallito
+ a| 
+L'unità non funziona. I dati sull'unità non sono disponibili.
+
+
+
+ a| 
+Guasto imminente
+ a| 
+È stato rilevato che l'unità potrebbe guastarsi a breve. I dati sull'unità sono ancora disponibili.
+
+
+
+ a| 
+Offline
+ a| 
+L'unità non è disponibile per l'archiviazione dei dati solitamente perché fa parte di un gruppo di volumi in fase di esportazione o perché è in corso un aggiornamento del firmware.
+
+
+
+ a| 
+Ottimale
+ a| 
+L'unità funziona normalmente.
+
+|===

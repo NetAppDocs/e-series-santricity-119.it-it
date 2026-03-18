@@ -1,0 +1,195 @@
+---
+permalink: sm-support/upgrade-drive-firmware.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, upgrade, drive, firmware 
+summary: È possibile aggiornare il firmware dei dischi per assicurarsi di disporre di tutte le funzionalità più recenti e delle correzioni di bug. 
+---
+= Aggiorna il firmware del disco in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile aggiornare il firmware dei dischi per assicurarsi di disporre di tutte le funzionalità più recenti e delle correzioni di bug.
+
+.Prima di iniziare
+* Hai eseguito il backup dei tuoi dati utilizzando un backup da disco a disco, una copia del volume (su un gruppo di volumi non interessato dall'aggiornamento del firmware pianificato) o un mirror remoto.
+* L'array di archiviazione ha uno stato ottimale.
+* Tutti i dischi hanno uno stato Optimal.
+* Non sono in corso modifiche di configurazione sull'array di storage.
+* Se le unità sono in grado di eseguire solo un aggiornamento offline, l'attività di I/O su tutti i volumi associati alle unità viene interrotta.
+
+
+.Passaggi
+. Selezionare menu:Support[Upgrade Center].
+. Scarica i nuovi file dal sito di Support sul tuo client di gestione.
+. In Aggiornamento del firmware del disco, fare clic su *Begin Upgrade*.
++
+Viene visualizzata una finestra di dialogo che elenca i file del firmware dell'unità attualmente in uso.
+
+. Estrai (decomprimi) i file che hai scaricato dal sito Support.
+. Fai clic su *Sfoglia* e seleziona i nuovi file del firmware dell'unità che hai scaricato dal sito di Support.
++
+I file del firmware dell'unità hanno un nome file simile a  `D_HUC101212CSS600_30602291_MS01_2800_0002` con l'estensione di  `.dlp`.
+
++
+È possibile selezionare fino a quattro file di firmware del disco, uno alla volta. Se più di un file di firmware del disco è compatibile con la stessa unità, viene visualizzato un errore di conflitto di file. Decidere quale file di firmware del disco utilizzare per l'aggiornamento e rimuovere l'altro.
+
+. Fai clic su *Avanti*.
++
+Viene visualizzata la finestra di dialogo *Select Drives*, che elenca le unità che è possibile aggiornare con i file selezionati.
+
++
+Vengono visualizzati solo i dischi compatibili.
+
++
+Il firmware selezionato per l'unità viene visualizzato nell'area Informazioni sul firmware proposto. Se è necessario modificare il firmware, fare clic su *Back* per tornare alla finestra di dialogo precedente.
+
+. Seleziona il tipo di aggiornamento che desideri eseguire:
++
+** *Online (predefinito)* -- Mostra le unità che possono supportare un download del firmware _mentre l'array di storage sta elaborando I/O_. Non è necessario interrompere l'I/O sui volumi associati che utilizzano queste unità quando si seleziona questo metodo di aggiornamento. Queste unità vengono aggiornate una alla volta mentre l'array di storage sta elaborando I/O su tali unità.
+** *Offline (parallelo)* -- Mostra le unità che possono supportare un download del firmware _solo mentre tutte le attività di I/O sono interrotte_ su qualsiasi volume che utilizza tali unità. È necessario interrompere tutte le attività di I/O su qualsiasi volume che utilizza le unità che si stanno aggiornando quando si seleziona questo metodo di aggiornamento. Le unità che non dispongono di ridondanza devono essere elaborate come un'operazione offline. Questo requisito include qualsiasi unità associata a cache SSD, a un gruppo di volumi RAID 0 o a qualsiasi pool o gruppo di volumi degradato. L'aggiornamento offline (parallelo) è in genere più veloce del metodo online (predefinito).
+
+
+. Nella prima colonna della tabella, seleziona il disco o i dischi che desideri aggiornare.
+. Fai clic su *Start* e conferma di voler eseguire l'operazione.
++
+Se devi interrompere l'aggiornamento, fai clic su *Interrompi*. Tutti i download del firmware attualmente in corso vengono completati. Tutti i download del firmware non ancora avviati vengono annullati.
+
++
+[CAUTION]
+====
+L'interruzione dell'aggiornamento del firmware del disco potrebbe comportare la perdita di dati o rendere le unità non disponibili.
+
+====
+. *Facoltativo:* Per vedere un elenco di ciò che è stato aggiornato, fare clic su *Salva registro*.
++
+Il file viene salvato nella cartella Downloads del tuo browser con il nome `drive_upgrade_log-timestamp.txt`.
+
+. Se si verifica uno dei seguenti errori durante la procedura di aggiornamento, adottare la relativa azione consigliata.
+
+
+.Errori e azioni consigliate
+[%collapsible]
+====
+[cols="40h,~"]
+|===
+| Se riscontri questo errore durante il download del firmware... | Quindi procedi come segue... 
+
+
+ a| 
+Unità assegnate non riuscite
+ a| 
+Una delle cause del problema potrebbe essere che l'unità non ha la firma appropriata. Assicurati che l'unità interessata sia un'unità autorizzata. Contatta il supporto tecnico per ulteriori informazioni.
+
+Quando si sostituisce un drive, assicurarsi che il drive sostitutivo abbia una capacità pari o superiore a quella del drive guasto che si sta sostituendo.
+
+È possibile sostituire l'unità guasta mentre l'array di storage riceve I/O.
+
+
+
+ a| 
+Verifica l'array di archiviazione
+ a| 
+* Assicurarsi che a ciascun controller sia stato assegnato un indirizzo IP.
+* Assicurarsi che tutti i cavi collegati al controller non siano danneggiati.
+* Assicurati che tutti i cavi siano collegati saldamente.
+
+
+
+
+ a| 
+Unità hot spare integrate
+ a| 
+Questa condizione di errore deve essere corretta prima di poter aggiornare il firmware. Avvia System Manager e utilizza il Recovery Guru per risolvere il problema.
+
+
+
+ a| 
+Gruppi di volumi incompleti
+ a| 
+Se uno o più gruppi di volumi o pool di dischi risultano incompleti, è necessario correggere questo errore prima di poter aggiornare il firmware. Avviare System Manager e utilizzare il Recovery Guru per risolvere il problema.
+
+
+
+ a| 
+Operazioni esclusive (diverse dalla scansione di supporto/parità in background) attualmente in esecuzione su qualsiasi gruppo di volumi
+ a| 
+Se sono in corso una o più operazioni esclusive, le operazioni devono essere completate prima che il firmware possa essere aggiornato. Utilizzare System Manager per monitorare l'avanzamento delle operazioni.
+
+
+
+ a| 
+Volumi mancanti
+ a| 
+È necessario correggere il problema del volume mancante prima che il firmware possa essere aggiornato. Avviare System Manager e utilizzare il Recovery Guru per risolvere il problema.
+
+
+
+ a| 
+Uno dei due controller si trova in uno stato diverso da Ottimale
+ a| 
+Uno dei controller dell'array di storage necessita di attenzione. Questo problema deve essere risolto prima che il firmware possa essere aggiornato. Avvia System Manager e utilizza Recovery Guru per risolvere il problema.
+
+
+
+ a| 
+Informazioni sulle partizioni di archiviazione non corrispondenti tra i grafici degli oggetti del controller
+ a| 
+Si è verificato un errore durante la convalida dei dati sui controller. Contattare il supporto tecnico per risolvere questo problema.
+
+
+
+ a| 
+SPM Verify Database Controller check non riesce
+ a| 
+Si è verificato un errore nel database di mappatura delle partizioni di archiviazione su un controller. Contattare il supporto tecnico per risolvere questo problema.
+
+
+
+ a| 
+Convalida del database di configurazione \(se supportata dalla versione del controller dell'array di storage\)
+ a| 
+Si è verificato un errore nel database di configurazione di un controller. Contattare il supporto tecnico per risolvere il problema.
+
+
+
+ a| 
+Verifiche relative al MEL
+ a| 
+Contatta il supporto tecnico per risolvere questo problema.
+
+
+
+ a| 
+Negli ultimi 7 giorni sono stati segnalati più di 10 eventi DDE Informational o Critical MEL.
+ a| 
+Contatta il supporto tecnico per risolvere questo problema.
+
+
+
+ a| 
+Negli ultimi 7 giorni sono stati segnalati più di 2 eventi MEL critici di livello 2C
+ a| 
+Contatta il supporto tecnico per risolvere questo problema.
+
+
+
+ a| 
+Negli ultimi 7 giorni sono stati segnalati più di 2 eventi MEL critici di canale di unità degradato
+ a| 
+Contatta il supporto tecnico per risolvere questo problema.
+
+
+
+ a| 
+Più di 4 voci critiche MEL negli ultimi 7 giorni
+ a| 
+Contatta il supporto tecnico per risolvere questo problema.
+
+|===
+====
+.Dopo aver finito
+L'aggiornamento del firmware del disco è stato completato. È possibile riprendere le normali operazioni.

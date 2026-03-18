@@ -1,0 +1,37 @@
+---
+permalink: sm-settings/delete-events-from-the-audit-log.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, events, audit, log, 
+summary: 'È possibile cancellare gli eventi meno recenti dal registro di controllo, semplificando la ricerca tra gli eventi. È possibile salvare gli eventi meno recenti in un file CSV (comma-separated values) al momento dell"eliminazione.' 
+---
+= Eliminare gli eventi dal registro di audit in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile cancellare gli eventi meno recenti dal registro di controllo, semplificando la ricerca tra gli eventi. È possibile salvare gli eventi meno recenti in un file CSV (comma-separated values) al momento dell'eliminazione.
+
+.Prima di iniziare
+È necessario aver effettuato l'accesso con un profilo utente che includa le autorizzazioni di Security admin. In caso contrario, le funzioni di Access Management non vengono visualizzate.
+
+.Passaggi
+. Selezionare menu:Settings[Access Management].
+. Seleziona la scheda *Audit Log*.
+. Seleziona *Delete*.
++
+Si apre la finestra di dialogo Delete Audit Log.
+
+. Seleziona o inserisci il numero di eventi meno recenti che desideri eliminare.
+. Se desideri esportare gli eventi eliminati in un file CSV (consigliato), mantieni selezionata la casella di controllo. Ti verrà richiesto di inserire un nome file e una posizione quando fai clic su *Elimina* nel passaggio successivo. Altrimenti, se non desideri salvare gli eventi in un file CSV, fai clic sulla casella di controllo per deselezionarla.
+. Fai clic su *Delete*.
++
+Si apre una finestra di dialogo di conferma.
+
+. Digita  `delete` nel campo e poi fai clic su *Cancella*.
++
+Gli eventi più vecchi vengono rimossi dalla pagina Audit Log.
+
+

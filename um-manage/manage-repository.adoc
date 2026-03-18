@@ -1,0 +1,58 @@
+---
+permalink: um-manage/manage-repository.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, manage, software, repository 
+summary: Il repository software elenca tutti i file software associati al Web Services Proxy. 
+---
+= Gestire il repository SANtricity in Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il repository software elenca tutti i file software associati al Web Services Proxy.
+
+Se non visualizzi il file che desideri utilizzare, puoi usare l'opzione Gestisci repository software per importare uno o più file SANtricity OS nel sistema host in cui Web Services Proxy e Unified Manager sono in esecuzione. Puoi anche scegliere di eliminare uno o più file SANtricity OS disponibili nel repository software.
+
+.Prima di iniziare
+Se stai aggiungendo file di SANtricity OS, assicurati che i file OS siano disponibili sul tuo sistema locale.
+
+.Passaggi
+. Dalla schermata principale, selezionare *Gestisci* e quindi selezionare menu:Upgrade Center[Manage Software Repository].
++
+Viene visualizzata la finestra di dialogo Manage Software Repository.
+
+. Eseguire una delle seguenti azioni:
++
+[cols="25h,~"]
+|===
+| Opzione | Fai così.... 
+
+
+ a| 
+Importare
+ a| 
+.. Fai clic su *Import*.
+.. Fai clic su *Sfoglia* e quindi naviga fino alla posizione in cui si trovano i file del sistema operativo che desideri aggiungere.
++
+I file del sistema operativo hanno un nome file simile a `N2800-830000-000.dlp`.
+
+.. Seleziona uno o più file del sistema operativo che desideri aggiungere, quindi fai clic su *Import*.
+
+
+
+
+ a| 
+Elimina
+ a| 
+.. Seleziona uno o più file del sistema operativo che desideri rimuovere dal repository software.
+.. Fai clic su *Delete*.
+
+
+|===
+
+
+.Risultati
+Se hai selezionato import, i file vengono caricati e convalidati. Se hai selezionato delete, i file vengono rimossi dal repository del software.

@@ -1,0 +1,68 @@
+---
+permalink: sm-storage/take-action-on-a-copy-volume-operation.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, copy, volume, 
+summary: 'È possibile visualizzare un"operazione di Copy Volume in corso e interrompere, modificare la priorità, ricopiare o cancellare un"operazione di Copy Volume.' 
+---
+= Eseguire un'operazione di copia del volume in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile visualizzare un'operazione di Copy Volume in corso e interrompere, modificare la priorità, ricopiare o cancellare un'operazione di Copy Volume.
+
+.Passaggi
+. Seleziona menu:Home[Visualizza operazioni in corso].
++
+Viene visualizzata la finestra di dialogo Operations in Progress.
+
+. Individua l'operazione Copy Volume su cui desideri intervenire, quindi fai clic sul collegamento nella colonna *Actions* per eseguire una delle seguenti azioni.
++
+Leggere tutti i testi di avviso forniti nelle finestre di dialogo, in particolare quando si interrompe un'operazione.
+
++
+[cols="25h,~"]
+|===
+| Azione | Descrizione 
+
+
+ a| 
+Arresta
+ a| 
+È possibile interrompere un'operazione Copy Volume mentre lo stato dell'operazione è In Progress, Pending o Failed.
+
+Quando la Copy Volume viene interrotta, tutti gli host mappati hanno accesso in scrittura al volume di origine. Se vengono scritti dati sul volume di origine, i dati sul target volume non corrispondono più ai dati sul volume di origine.
+
+
+
+ a| 
+Modifica priorità
+ a| 
+È possibile modificare la priorità di un'operazione Copy Volume mentre l'operazione ha uno stato di In corso per selezionare la velocità con cui un'operazione Copy Volume viene completata.
+
+
+
+ a| 
+Ricopia
+ a| 
+È possibile ricopiare un volume quando si è interrotta un'operazione di Copy Volume e si desidera riavviarla oppure quando un'operazione di Copy Volume non è riuscita o si è interrotta. L'operazione di Copy Volume ricomincia dall'inizio.
+
+L'azione di ricopia sovrascrive i dati esistenti sul volume di destinazione e rende non riusciti tutti i volumi Snapshot associati al volume di destinazione, se presenti.
+
+
+
+ a| 
+Chiaro
+ a| 
+È possibile rimuovere l'operazione Copia volume mentre l'operazione ha uno stato di In corso, In sospeso o Non riuscito.
+
+[NOTE]
+====
+Assicurati di voler eseguire questa operazione prima di selezionare *Cancella*. Non viene visualizzata alcuna finestra di dialogo di conferma.
+
+====
+|===
+

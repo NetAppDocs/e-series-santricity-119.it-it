@@ -1,0 +1,31 @@
+---
+permalink: sm-support/view-software-and-firmware-inventory.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, software, firmware, inventory 
+summary: 'L"inventario del software e del firmware elenca le versioni del firmware per ciascun componente del tuo array di storage.' 
+---
+= Visualizza l'inventario del software e del firmware in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'inventario del software e del firmware elenca le versioni del firmware per ciascun componente del tuo array di storage.
+
+.Informazioni su questa attività
+Un array di storage è composto da numerosi componenti, che possono includere controller, unità, cassetti e moduli di input/output (IOM). Ciascuno di questi componenti contiene firmware. Alcune versioni di firmware dipendono da altre versioni di firmware. Per acquisire informazioni su tutte le versioni di firmware presenti nell'array di storage, visualizza l'inventario del software e del firmware. Il supporto tecnico può analizzare l'inventario del software e del firmware per rilevare eventuali incongruenze del firmware.
+
+.Passaggi
+. Selezionare menu:Support[Support Center > Support Resources] scheda.
+. Scorri verso il basso fino a *Launch detailed storage array information*, quindi seleziona *Software and Firmware Inventory*.
++
+Il report dell'inventario del software e del firmware viene visualizzato sullo schermo.
+
+. Per salvare l'inventario del software e del firmware, fare clic su *Salva*.
++
+Il file viene salvato nella cartella Downloads del tuo browser con il nome file `firmware-inventory.txt`.
+
+. Segui le istruzioni fornite dal supporto tecnico per inviare loro il file.
+

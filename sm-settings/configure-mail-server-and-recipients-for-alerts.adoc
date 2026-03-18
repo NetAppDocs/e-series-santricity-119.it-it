@@ -1,0 +1,77 @@
+---
+permalink: sm-settings/configure-mail-server-and-recipients-for-alerts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, mail, server, recipients, alerts, 
+summary: 'Per configurare gli avvisi via email, è necessario specificare l"indirizzo del server di posta e gli indirizzi email dei destinatari. Sono consentiti fino a 20 indirizzi email.' 
+---
+= Configura il server di posta e i destinatari degli avvisi in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per configurare gli avvisi via email, è necessario specificare l'indirizzo del server di posta e gli indirizzi email dei destinatari. Sono consentiti fino a 20 indirizzi email.
+
+.Prima di iniziare
+* L'indirizzo del server di posta deve essere disponibile. L'indirizzo può essere un indirizzo IPv4 o IPv6, oppure un fully qualified domain name.
++
+[NOTE]
+====
+Per utilizzare un fully qualified domain name, è necessario configurare un DNS server su entrambi i controller. È possibile configurare un DNS server dalla pagina Hardware.
+
+====
+* L'indirizzo email da utilizzare come mittente dell'avviso deve essere disponibile. Questo è l'indirizzo che compare nel campo "Da" del messaggio di avviso. Un indirizzo del mittente è richiesto nel protocollo SMTP; senza di esso, si verifica un errore.
+* L'indirizzo e-mail o gli indirizzi e-mail del destinatario o dei destinatari dell'avviso devono essere disponibili. Il destinatario è in genere un indirizzo per un amministratore di rete o un amministratore di storage. È possibile inserire fino a 20 indirizzi e-mail.
+
+
+.Informazioni su questa attività
+Questa procedura descrive come configurare il mail server, inserire gli indirizzi email del mittente e dei destinatari e testare tutti gli indirizzi email inseriti dalla pagina Alerts.
+
+[NOTE]
+====
+Gli avvisi e-mail possono anche essere configurati dalla procedura guidata di configurazione iniziale.
+
+====
+.Passaggi
+. Seleziona menu:Impostazioni[Avvisi].
+. Seleziona la scheda *Email*.
++
+Se un server di posta elettronica non è ancora configurato, la scheda E-mail visualizza "Configura server di posta".
+
+. Seleziona *Configura Mail Server*.
++
+Si apre la finestra di dialogo Configure Mail Server.
+
+. Inserisci le informazioni del server di posta, quindi fai clic su *Salva*.
++
+** *Indirizzo del server di posta* -- Inserire un fully qualified domain name, un indirizzo IPv4 o un indirizzo IPv6 del server di posta.
++
+[NOTE]
+====
+Per utilizzare un fully qualified domain name, è necessario configurare un DNS server su entrambi i controller. È possibile configurare un DNS server dalla pagina Hardware.
+
+====
+** *Indirizzo del mittente email* -- Inserisci un indirizzo email valido da utilizzare come mittente dell'email. Questo indirizzo appare nel campo "Da" del messaggio email.
+** *Crittografia* -- Se si desidera crittografare i messaggi, selezionare *SMTPS* o *STARTTLS* come tipo di crittografia, quindi selezionare il numero di porta per i messaggi crittografati. Altrimenti, selezionare *None*.
+** *Nome utente e password* -- Se necessario, inserire un nome utente e una password per l'autenticazione con il mittente in uscita e il server di posta.
+** *Includi le informazioni di contatto nell'email* -- Per includere le informazioni di contatto del mittente con il messaggio di avviso, seleziona questa opzione e poi inserisci un nome e un numero di telefono.
++
+Dopo aver cliccato su *Salva*, gli indirizzi email appaiono nella scheda Email della pagina Avvisi.
+
+
+
+. Seleziona *Add Emails*.
++
+Si apre la finestra di dialogo Add Emails.
+
+. Inserisci uno o più indirizzi email per i destinatari dell'avviso, quindi fai clic su *Aggiungi*.
++
+Gli indirizzi email compaiono nella pagina Alerts.
+
+. Se vuoi assicurarti che gli indirizzi email siano validi, fai clic su *Test All Emails* per inviare messaggi di prova ai destinatari.
+
+
+.Risultati
+Dopo aver configurato gli avvisi e-mail, il monitor degli eventi invia messaggi e-mail ai destinatari specificati ogni volta che si verifica un evento segnalabile.

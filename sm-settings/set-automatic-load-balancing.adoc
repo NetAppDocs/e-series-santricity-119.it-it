@@ -1,0 +1,49 @@
+---
+permalink: sm-settings/set-automatic-load-balancing.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, set, automatic, load, balancing, 
+summary: La funzione di bilanciamento automatico del carico garantisce che il traffico I/O in entrata dagli host venga gestito e bilanciato dinamicamente tra entrambi i controller. Questa funzione è abilitata per impostazione predefinita, ma puoi disabilitarla da System Manager. 
+---
+= Imposta il bilanciamento automatico del carico in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La funzione di bilanciamento automatico del carico garantisce che il traffico I/O in entrata dagli host venga gestito e bilanciato dinamicamente tra entrambi i controller. Questa funzione è abilitata per impostazione predefinita, ma puoi disabilitarla da SANtricity System Manager.
+
+.Informazioni su questa attività
+Quando il bilanciamento automatico del carico è abilitato, esegue le seguenti funzioni:
+
+* Monitora e bilancia automaticamente l'utilizzo delle risorse del controller.
+* Regola automaticamente la proprietà del controller di volume quando necessario, ottimizzando così la larghezza di banda tra gli host e l'array di storage.
+
+
+Potresti voler disabilitare il bilanciamento automatico del carico sul tuo array di storage per i seguenti motivi:
+
+* Non si desidera modificare automaticamente la proprietà del controller di un particolare volume per bilanciare il carico di lavoro.
+* State operando in un ambiente altamente ottimizzato, dove la distribuzione del carico è configurata appositamente per ottenere una specifica distribuzione tra i controller.
+
+
+.Passaggi
+. Selezionare menu:Impostazioni[Sistema].
+. Scorri verso il basso fino a *Impostazioni aggiuntive*, quindi fai clic su *Attiva/Disattiva bilanciamento automatico del carico*.
++
+Il testo sotto questa opzione indica se la funzione è attualmente abilitata o disabilitata.
+
++
+Si apre una finestra di dialogo di conferma.
+
+. Conferma facendo clic su *Sì* per continuare.
++
+Selezionando questa opzione, si alterna la funzione tra abilitata/disabilitata.
+
++
+[NOTE]
+====
+Se questa funzione passa dallo stato disabilitato a quello abilitato, anche la funzione Host Connectivity Reporting viene abilitata automaticamente.
+
+====
+

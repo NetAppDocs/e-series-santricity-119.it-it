@@ -1,0 +1,33 @@
+---
+permalink: sm-support/schedule-autosupport-dispatches.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, schedule, autosupport, dispatches 
+summary: System Manager crea automaticamente una pianificazione predefinita per le spedizioni di AutoSupport. Se preferisci, puoi specificare la tua pianificazione. 
+---
+= Pianifica le spedizioni AutoSupport in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity System Manager crea automaticamente una pianificazione predefinita per le spedizioni di AutoSupport. Se preferisci, puoi specificare la tua pianificazione.
+
+.Prima di iniziare
+La funzione AutoSupport deve essere abilitata. Puoi verificare se è abilitata nella pagina AutoSupport.
+
+.Informazioni su questa attività
+* *Orario giornaliero* -- I messaggi giornalieri vengono raccolti e inviati ogni giorno nell'intervallo di tempo specificato. System Manager seleziona un orario casuale all'interno di tale intervallo. Tutti gli orari sono espressi in Coordinated Universal Time (UTC), che potrebbe essere diverso dall'ora locale dell'array di storage. È necessario convertire l'ora locale dell'array di storage in UTC.
+* *Giorno settimanale* -- Le spedizioni settimanali vengono raccolte e inviate una volta a settimana. System Manager seleziona un giorno casuale tra quelli che specifichi. Deseleziona i giorni in cui non desideri consentire una spedizione settimanale. System Manager seleziona un giorno casuale tra quelli che consenti.
+* *Orario settimanale* -- Le spedizioni settimanali vengono raccolte e inviate una volta a settimana nell'intervallo di tempo che si specifica. System Manager seleziona un orario casuale all'interno dell'intervallo. Tutti gli orari sono in Coordinated Universal Time (UTC), che potrebbe essere diverso dall'ora locale dell'array di storage. È necessario convertire l'ora locale dell'array di storage in UTC.
+
+
+.Passaggi
+. Selezionare menu:Supporto[Support Center > AutoSupport] scheda.
+. Selezionare *Schedule AutoSupport Dispatches*.
++
+Viene visualizzata la procedura guidata di pianificazione delle spedizioni AutoSupport.
+
+. Segui i passaggi della procedura guidata.
+

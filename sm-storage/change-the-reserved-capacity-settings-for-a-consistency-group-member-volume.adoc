@@ -1,0 +1,64 @@
+---
+permalink: sm-storage/change-the-reserved-capacity-settings-for-a-consistency-group-member-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, reserved capacity, settings, consistency group, member volume 
+summary: È possibile modificare le impostazioni per un volume membro di un gruppo di coerenza per regolare il punto percentuale in cui System Manager invia una notifica di avviso quando la capacità riservata per un volume membro sta per esaurirsi e per modificare il criterio da utilizzare quando la capacità riservata raggiunge la percentuale massima definita. 
+---
+= Modificare le impostazioni della capacità riservata per un volume membro di un gruppo di coerenza in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare le impostazioni per un volume membro di un gruppo di coerenza per regolare la percentuale al raggiungimento della quale SANtricity System Manager invia una notifica di avviso quando la capacità riservata per un volume membro sta per esaurirsi e per modificare la policy da utilizzare quando la capacità riservata raggiunge la percentuale massima definita.
+
+.Informazioni su questa attività
+La modifica delle impostazioni di capacità riservata per un singolo volume membro modifica anche le impostazioni di capacità riservata per tutti i volumi membri associati a un gruppo di coerenza.
+
+.Passaggi
+. Selezionare menu:Storage[Pool & Volume Groups].
+. Fai clic sulla scheda *Reserved Capacity*.
+. Seleziona il volume del membro del gruppo di coerenza che desideri modificare, quindi fai clic su *Visualizza/Modifica Settings*.
++
+Viene visualizzata la finestra di dialogo Impostazioni capacità riservata Member Volume.
+
+. Modificare le impostazioni della capacità riservata per il volume membro come appropriato.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Impostazione | Descrizione 
+
+
+ a| 
+Avvisami quando...
+ a| 
+Utilizzare il selettore a rotella per regolare il punto percentuale al quale System Manager invia una notifica di avviso quando la capacità riservata per un volume membro sta per esaurirsi.
+
+Quando la capacità riservata per il volume membro supera la soglia specificata, System Manager invia un avviso, consentendoti di aumentare la capacità riservata o di eliminare oggetti non necessari.
+
+
+NOTE: La modifica dell'impostazione di Alert per un volume membro comporterà la modifica per _tutti_ i volumi membri appartenenti allo stesso consistency group.
+
+
+
+ a| 
+Politica per la piena capacità riservata
+ a| 
+È possibile scegliere una delle seguenti policy:
+
+** *Elimina l'immagine snapshot più vecchia* -- System Manager elimina automaticamente l'immagine snapshot più vecchia nel gruppo di coerenza, liberando la capacità riservata al membro per il riutilizzo all'interno del gruppo.
+** *Rifiuta le scritture sul volume base* -- Quando la capacità riservata raggiunge la percentuale massima definita, System Manager rifiuta qualsiasi richiesta di scrittura I/O sul volume base che ha attivato l'accesso alla capacità riservata.
+
+
+|===
+====
+. Fai clic su *Salva* per applicare le modifiche.
+
+
+.Risultati
+System Manager modifica le impostazioni della capacità riservata per il volume membro, così come le impostazioni della capacità riservata per tutti i volumi membri nel gruppo di coerenza.

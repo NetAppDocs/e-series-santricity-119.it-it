@@ -1,0 +1,43 @@
+---
+permalink: sm-hardware/place-controller-offline.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, place, controller, offline, 
+summary: Se richiesto, è possibile mettere un controller offline. 
+---
+= Metti un controller offline in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se richiesto, è possibile mettere un controller offline.
+
+.Prima di iniziare
+* Il tuo array di storage deve avere due controller. Il controller che non stai mettendo offline deve essere online (nello stato ottimale).
+* Assicurati che nessun volume sia in uso o che tu abbia installato un driver multipath su tutti gli host che utilizzano questi volumi.
+
+
+.Informazioni su questa attività
+++ ++
+
+[CAUTION]
+====
+Non mettere un controller offline a meno che non ti venga richiesto dal Recovery Guru o dal supporto tecnico.
+
+====
+.Passaggi
+. Seleziona *Hardware*.
+. Se il grafico mostra le unità, fare clic sulla scheda *Controllers & Components*.
++
+La grafica cambia per mostrare i controller anziché le unità.
+
+. Fai clic sul controller che desideri mettere offline.
++
+Viene visualizzato il menu contestuale del controller.
+
+. Seleziona *Place offline* e conferma di voler eseguire l'operazione.
+
+
+.Risultati
+Potrebbero essere necessari diversi minuti prima che System Manager aggiorni lo stato del controller a offline. Non avviare altre operazioni finché lo stato non sarà stato aggiornato.

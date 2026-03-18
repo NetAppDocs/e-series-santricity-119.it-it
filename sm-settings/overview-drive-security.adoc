@@ -1,0 +1,64 @@
+---
+permalink: sm-settings/overview-drive-security.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, system, security, key, management, 
+summary: La gestione delle chiavi di sicurezza è disponibile dalla pagina System. 
+---
+= Scopri la sicurezza delle unità disco in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile configurare Drive Security e la gestione delle chiavi dalla pagina Security Key Management.
+
+
+
+== Che cos'è Drive Security?
+
+La funzione _Drive Security_ impedisce l'accesso non autorizzato ai dati sulle unità con sicurezza abilitata quando vengono rimosse dall'array di storage. Queste unità possono essere unità Full Disk Encryption (FDE) o unità Federal Information Processing Standard (FIPS). Quando le unità FDE o FIPS vengono rimosse fisicamente dall'array, non possono funzionare finché non vengono installate in un altro array; a quel punto, le unità saranno in uno stato di Security Locked finché non viene fornita la corretta security key. Una _security key_ è una stringa di caratteri condivisa tra questi tipi di unità e i controller in un array di storage.
+
+Per saperne di più:
+
+* link:how-the-drive-security-feature-works.html["Come funziona la funzione Drive Security"]
+* link:how-security-key-management-works.html["Come funziona la gestione delle chiavi di sicurezza"]
+* link:drive-security-terminology.html["Terminologia della sicurezza delle unità"]
+
+
+
+
+== Come si configura la gestione delle chiavi?
+
+Per implementare Drive Security, è necessario che siano installate nell'array unità FDE o FIPS. Per configurare la gestione delle chiavi per queste unità, vai su menu:Settings[System > Security key management] dove puoi creare una chiave interna dalla memoria persistente del controller o una chiave esterna da un server di gestione delle chiavi. Infine, abiliti Drive Security per pool e gruppi di volumi selezionando "secure-capable" nelle impostazioni del volume.
+
+Per saperne di più:
+
+* link:create-internal-security-key.html["Crea chiave di sicurezza interna"]
+* link:create-external-security-key.html["Crea chiave di sicurezza esterna"]
+* link:../sm-storage/create-pool-manually.html["Crea pool manualmente"]
+* link:../sm-storage/create-volume-group.html["Crea gruppi di volume"]
+
+
+
+
+== Come si sbloccano le unità?
+
+Se hai configurato la gestione delle chiavi e successivamente sposti le unità secure-enabled da un array di storage a un altro, devi riassegnare la chiave di sicurezza al nuovo array di storage per accedere ai dati crittografati sulle unità.
+
+Per saperne di più:
+
+* link:unlock-drives-using-an-internal-security-key.html["Sblocca le unità quando utilizzi la gestione interna delle chiavi"]
+* link:unlock-drives-using-an-external-security-key.html["Sblocca le unità quando utilizzi la gestione delle chiavi esterna"]
+
+
+
+
+== Informazioni correlate
+
+Scopri di più sulle attività relative alla gestione delle chiavi:
+
+* link:use-ca-signed-certificates-for-authentication-with-a-key-management-server.html["Utilizzare certificati firmati da CA per l'autenticazione con un server di gestione delle chiavi"]
+* link:back-up-security-key.html["Esegui il backup della chiave di sicurezza"]
+

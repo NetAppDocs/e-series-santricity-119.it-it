@@ -1,0 +1,42 @@
+---
+permalink: sm-support/view-iscsi-statistics-packages-support.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, iscsi, statistics, packages 
+summary: È possibile visualizzare i dati sulle connessioni iSCSI al proprio array di storage. 
+---
+= Visualizza i pacchetti di statistiche iSCSI in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile visualizzare i dati sulle connessioni iSCSI al proprio array di storage.
+
+.Informazioni su questa attività
+System Manager mostra questi tipi di statistiche iSCSI. Tutte le statistiche sono di sola lettura e non possono essere impostate.
+
+
+NOTE: I tipi di statistiche visualizzati in System Manager si basano sulle statistiche disponibili per il tuo storage array.
+
+* *Ethernet MAC statistiche* -- Fornisce statistiche per il media access control (MAC). MAC fornisce anche un meccanismo di indirizzamento chiamato indirizzo fisico o indirizzo MAC. L'indirizzo MAC è un indirizzo univoco assegnato a ciascun network adapter. L'indirizzo MAC aiuta a recapitare i pacchetti di dati a una destinazione all'interno della subnetwork.
+* *Ethernet TCP/IP statistiche* -- Fornisce statistiche per il TCP/IP, ovvero il Transmission Control Protocol (TCP) e l'Internet Protocol (IP) per il dispositivo iSCSI. Con TCP, le applicazioni sugli host di rete possono creare connessioni tra loro, tramite le quali possono scambiare dati in pacchetti. L'IP è un protocollo orientato ai dati che comunica dati attraverso una rete interconnessa a commutazione di pacchetto. Le statistiche IPv4 e le statistiche IPv6 vengono mostrate separatamente.
+* *Ethernet Kernel statistics* -- Fornisce statistiche per i driver del kernel della piattaforma del dispositivo iSCSI. Le statistiche del kernel visualizzano dati di rete simili a quelli dell'opzione statistiche TCP/IP. Tuttavia, i dati delle statistiche del kernel vengono raccolti dai driver del kernel della piattaforma anziché direttamente dall'hardware iSCSI.
+* *Statistiche Local Target/Initiator (Protocollo)* -- Mostra le statistiche per l'iSCSI target, che fornisce accesso a livello di blocco ai suoi supporti di archiviazione, e mostra le statistiche iSCSI per l'array di storage quando viene utilizzato come initiator in operazioni di mirroring asincrone.
+* *Statistiche degli stati operativi DCBX* -- Visualizza gli stati operativi delle varie funzionalità di Data Center Bridging Exchange (DCBX).
+* *LLDP TLV statistiche* -- Visualizza le statistiche LLDP Type Length Value (TLV).
+* *DCBX TLV statistiche* -- Visualizza le informazioni che identificano le porte host dell'array di storage in un ambiente Data Center Bridging (DCB). Queste informazioni vengono condivise con i peer di rete a scopo di identificazione e verifica delle funzionalità.
+
+
+È possibile visualizzare ciascuna di queste statistiche come raw statistiche o come statistiche baseline. Le raw statistiche sono tutte le statistiche raccolte dall'avvio dei controller. Le statistiche baseline sono point-in-time statistiche raccolte a partire dal momento in cui è stato impostato il tempo di riferimento.
+
+.Passaggi
+. Selezionare menu:Support[Support Center > Diagnostics] scheda.
+. Selezionare *Visualizza pacchetti di statistiche iSCSI*.
+. Fai clic su una scheda per visualizzare i diversi set di statistiche.
+. Per impostare la baseline, fai clic su *Set new baseline*.
++
+L'impostazione della baseline definisce un nuovo punto di partenza per la raccolta delle statistiche. La stessa baseline viene utilizzata per tutte le statistiche iSCSI.
+
+

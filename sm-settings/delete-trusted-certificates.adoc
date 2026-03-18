@@ -1,0 +1,42 @@
+---
+permalink: sm-settings/delete-trusted-certificates.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, trusted, certificates, 
+summary: 'È possibile eliminare i certificati installati dall"utente precedentemente importati dalla scheda Trusted.' 
+---
+= Eliminare i certificati attendibili in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eliminare i certificati installati dall'utente precedentemente importati dalla scheda Trusted.
+
+.Prima di iniziare
+* È necessario aver effettuato l'accesso con un profilo utente che includa le autorizzazioni di Security admin. In caso contrario, le funzioni dei certificati non vengono visualizzate.
+* Se si aggiorna un certificato attendibile con una nuova versione, il certificato aggiornato deve essere importato prima di eliminare il vecchio certificato.
+
+
+[CAUTION]
+====
+Potresti perdere l'accesso a un sistema se elimini un certificato utilizzato per autenticare i controller e un altro server, come un LDAP server, prima di importare un certificato sostitutivo.
+
+====
+.Informazioni su questa attività
+Questa procedura descrive come eliminare i certificati installati dall'utente. I certificati autofirmati preinstallati non possono essere eliminati.
+
+.Passaggi
+. Selezionare menu:Impostazioni[Certificati].
+. Seleziona la scheda *Trusted*.
++
+La tabella mostra i certificati attendibili dell'array di storage.
+
+. Dalla tabella, seleziona il certificato che vuoi rimuovere.
+. Fare clic su menu:Uncommon Tasks[Elimina].
++
+Si apre una finestra di dialogo Conferma eliminazione certificato attendibile.
+
+. Digita  `delete` nel campo e poi fai clic su *Cancella*.
+

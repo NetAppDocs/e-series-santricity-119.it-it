@@ -1,0 +1,32 @@
+---
+permalink: sm-hardware/reconstruct-drive-manually.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, reconstruct, drive, manually, 
+summary: La ricostruzione del disco singolo si avvia normalmente in automatico dopo la sostituzione di un disco singolo. Se la ricostruzione del disco singolo non si avvia automaticamente, puoi avviare la ricostruzione manualmente. 
+---
+= Ricostruire manualmente un disco in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La ricostruzione del disco singolo si avvia normalmente in automatico dopo la sostituzione di un disco singolo. Se la ricostruzione del disco singolo non si avvia automaticamente, puoi avviare la ricostruzione manualmente.
+
+[NOTE]
+====
+Eseguire questa operazione solo quando richiesto dal supporto tecnico o dal Recovery Guru.
+
+====
+.Passaggi
+. Seleziona *Hardware*.
+. Se il grafico mostra i controller, fai clic sulla scheda *Drives*.
++
+La grafica cambia per mostrare le unità invece dei controller.
+
+. Fai clic sul disco che desideri ricostruire manualmente.
++
+Viene visualizzato il menu contestuale dell'unità.
+
+. Seleziona *Reconstruct* e conferma di voler eseguire l'operazione.
+

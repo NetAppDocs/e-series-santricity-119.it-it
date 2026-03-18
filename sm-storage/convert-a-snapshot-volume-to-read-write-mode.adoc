@@ -1,0 +1,68 @@
+---
+permalink: sm-storage/convert-a-snapshot-volume-to-read-write-mode.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, convert, snapshot, volume, read-write mode 
+summary: È possibile convertire un volume Snapshot di sola lettura o un volume Snapshot di un gruppo di coerenza Snapshot in modalità di lettura-scrittura, se necessario. 
+---
+= Converti il volume Snapshot in modalità di lettura/scrittura in SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile convertire un volume Snapshot di sola lettura o un volume Snapshot di un gruppo di coerenza Snapshot in modalità di lettura-scrittura, se necessario.
+
+Un volume Snapshot convertito in modalità di lettura e scrittura contiene una propria capacità riservata. Questa capacità viene utilizzata per salvare eventuali modifiche successive apportate dall'applicazione host al volume di base, senza influire sull'immagine Snapshot di riferimento.
+
+.Passaggi
+. Selezionare menu:Storage[Snapshots].
+. Selezionare la scheda *Snapshot Volumes*.
++
+Viene visualizzata la tabella Snapshot Volumes, che mostra tutti i volumi snapshot associati all'array di storage.
+
+. Seleziona il volume Snapshot di sola lettura che desideri convertire, quindi fai clic su *Converti in lettura/scrittura*.
++
+La finestra di dialogo Convert to Read/Write viene visualizzata con il passaggio *Reserve Capacity* attivato. La tabella Volume Candidate mostra solo i candidati che supportano la reserved capacity specificata.
+
+. Per allocare la capacità riservata per il volume Snapshot di lettura/scrittura, eseguire una delle seguenti operazioni:
++
+** *Accetta le impostazioni predefinite* -- Utilizza questa opzione consigliata per allocare la capacità riservata per il volume Snapshot con le impostazioni predefinite.
+** *Assegna le tue impostazioni di capacità riservata per soddisfare le tue esigenze di archiviazione dati* -- Assegna la capacità riservata seguendo le seguenti linee guida.
++
+*** L'impostazione predefinita per la capacità riservata è il 40% della capacità del volume base e di solito questa capacità è sufficiente.
+*** La capacità necessaria varia a seconda della frequenza e della dimensione delle scritture di I/O sul volume.
+
+
+
+
+. Seleziona *Avanti* per rivedere o modificare le impostazioni.
++
+Viene visualizzata la finestra di dialogo Edit Settings.
+
+. Accetta o specifica le impostazioni per il volume Snapshot come appropriato, quindi seleziona *Fine* per convertire il volume Snapshot.
++
+.Dettagli del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Impostazione | Descrizione 
+
+
+ a| 
+*Impostazioni di capacità riservata*
+
+
+
+ a| 
+Avvisami quando...
+ a| 
+Utilizzare il selettore a rotella per regolare la percentuale al punto in cui il sistema invia una notifica di avviso quando la capacità riservata per un gruppo di Snapshot sta per essere piena.
+
+Quando la capacità riservata per il volume Snapshot supera la soglia specificata, il sistema invia un avviso, permettendoti di aumentare la capacità riservata o di eliminare oggetti non necessari.
+
+|===
+====
+

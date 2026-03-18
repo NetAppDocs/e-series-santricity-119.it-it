@@ -1,0 +1,50 @@
+---
+permalink: sm-hardware/controller-states.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, controller, states, 
+summary: 'È possibile impostare un controller in tre stati diversi: online, offline e service mode.' 
+---
+= Scopri gli stati del controller in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile impostare un controller in tre stati diversi: online, offline e service mode.
+
+
+
+== Stato online
+
+Lo stato online è il normale stato operativo del controller. Significa che il controller funziona normalmente ed è disponibile per le operazioni di I/O.
+
+Quando si mette un controller online, il suo stato viene impostato su optimal.
+
+
+
+== Stato offline
+
+Lo stato offline viene in genere utilizzato per preparare un controller alla sostituzione quando sono presenti due controller nell'array di storage. Un controller può entrare nello stato offline in due modi: è possibile emettere un comando esplicito oppure il controller può guastarsi. Un controller può uscire dallo stato offline solo emettendo un altro comando esplicito o sostituendo il controller guasto. È possibile mettere un controller offline solo se sono presenti due controller nell'array di storage.
+
+Quando un controller si trova nello stato offline, si verificano le seguenti condizioni:
+
+* Il controller non è disponibile per I/O.
+* Non è possibile gestire l'array di storage tramite quel controller.
+* Tutti i volumi attualmente di proprietà di quel controller vengono spostati sull'altro controller.
+* Il mirroring della cache è disabilitato e tutti i volumi sono impostati in modalità cache write through.
+
+
+
+
+== Modalità di servizio
+
+La Service Mode viene in genere utilizzata solo dal supporto tecnico per spostare tutti i volumi dell'array di storage su un controller, in modo che l'altro controller possa essere diagnosticato. Un controller deve essere messo manualmente in Service Mode e deve essere rimesso manualmente online al termine dell'operazione di servizio.
+
+Quando un controller è in modalità di servizio, si verificano le seguenti condizioni:
+
+* Il controller non è disponibile per I/O.
+* Il supporto tecnico può accedere al controller tramite la porta seriale o la connessione di rete per analizzare potenziali problemi.
+* Tutti i volumi attualmente di proprietà di quel controller vengono spostati sull'altro controller.
+* Il mirroring della cache è disabilitato e tutti i volumi sono impostati in modalità cache write through.
+

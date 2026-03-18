@@ -1,0 +1,61 @@
+---
+permalink: sm-storage/replace-drive-logically-storage.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, replace, drive, logically 
+summary: 'Se un"unità si guasta o si desidera sostituirla per qualsiasi altro motivo, e si dispone di un"unità non assegnata nell"array di storage, è possibile sostituire logicamente l"unità guasta con l"unità non assegnata. Se non si dispone di un"unità non assegnata, è possibile sostituire fisicamente l"unità.' 
+---
+= Sostituire un drive logicamente in SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se un'unità si guasta o si desidera sostituirla per qualsiasi altro motivo, e si dispone di un'unità non assegnata nell'array di storage, è possibile sostituire logicamente l'unità guasta con l'unità non assegnata. Se non si dispone di un'unità non assegnata, è possibile sostituire fisicamente l'unità.
+
+.Informazioni su questa attività
+Quando si sostituisce logicamente un'unità con un'unità non assegnata, quest'ultima viene assegnata e diventa un membro permanente del pool o del gruppo di volumi associato. Si utilizza l'opzione di sostituzione logica per sostituire i seguenti tipi di unità:
+
+* Unità disco guaste
+* Unità mancanti
+* Unità SSD per le quali il Recovery Guru ti ha notificato che stanno per raggiungere la fine del loro ciclo di vita
+* Dischi rigidi per i quali il Recovery Guru ti ha notificato un imminente guasto dell'unità
+* Unità assegnate (disponibili solo per le unità in un gruppo di volumi, non in un pool)
+
+
+L'unità di ricambio deve possedere le seguenti caratteristiche:
+
+* Nello stato ottimale
+* Nello stato Non assegnato
+* Stesse caratteristiche dell'unità che viene sostituita (tipo di supporto, tipo di interfaccia e così via)
+* La stessa funzionalità FDE (consigliata, ma non obbligatoria)
+* La stessa funzionalità DA (consigliata, ma non obbligatoria)
+
+
+.Passaggi
+. Seleziona *Hardware*.
+. Se il grafico mostra i controller, fai clic sulla scheda *Drives*.
++
+La grafica cambia per mostrare le unità invece dei controller.
+
+. Fai clic sull'unità che desideri sostituire logicamente.
++
+Viene visualizzato il menu contestuale dell'unità.
+
+. Fai clic su *Sostituisci logicamente*.
+. *Opzionale:* Seleziona la check box *Fail drive after it is replaced* per contrassegnare come non valida l'unità originale dopo la sua sostituzione.
++
+Questa check box è abilitata solo se l'unità assegnata originariamente non è guasta o mancante.
+
+. Dalla tabella *Select a replacement drive*, seleziona l'unità sostitutiva che desideri utilizzare.
++
+La tabella elenca solo le unità compatibili con l'unità che si sta sostituendo. Se possibile, selezionare un'unità che mantenga shelf loss protection e drawer loss protection.
+
+. Fai clic su *Replace*.
++
+Se l'unità originale è guasta o mancante, i dati vengono ricostruiti sull'unità sostitutiva utilizzando le informazioni di parità. Questa ricostruzione si avvia automaticamente. Le spie di segnalazione di guasto dell'unità si spengono e le spie di attività delle unità nel pool o nel gruppo di volumi iniziano a lampeggiare.
+
++
+Se l'unità originale non è guasta o mancante, i suoi dati vengono copiati sull'unità sostitutiva. Questa operazione di copia si avvia automaticamente. Al termine dell'operazione di copia, il sistema imposta l'unità originale sullo stato Non assegnata oppure, se la check box è stata selezionata, sullo stato Guasta.
+
+

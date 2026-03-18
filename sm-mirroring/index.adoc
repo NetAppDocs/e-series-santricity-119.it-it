@@ -1,0 +1,14 @@
+---
+permalink: sm-mirroring/index.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= SANtricity System Manager 11.9
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile gestire Asynchronous Mirroring e Synchronous Mirroring tramite SANtricity System Manager.
