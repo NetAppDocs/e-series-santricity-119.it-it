@@ -16,6 +16,7 @@ Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda
 
 
 
+[[why-cant-i-log-in]]
 == Perché non posso accedere?
 
 Se ricevi un errore durante il tentativo di accesso, verifica queste possibili cause.
@@ -30,6 +31,7 @@ Gli errori di accesso possono verificarsi per uno dei seguenti motivi:
 
 
 
+[[what-do-i-need-to-know-before-adding-a-directory-server]]
 == Cosa devo sapere prima di aggiungere un server di directory?
 
 Prima di aggiungere un server di directory in Access Management, è necessario soddisfare determinati requisiti.
@@ -41,6 +43,7 @@ Prima di aggiungere un server di directory in Access Management, è necessario s
 
 
 
+[[what-do-i-need-to-know-about-mapping-to-storage-array-roles]]
 == Cosa devo sapere sulla mappatura ai ruoli degli array di storage?
 
 Prima di associare i gruppi ai ruoli, rivedere le linee guida.
@@ -66,6 +69,7 @@ Se si utilizza un server LDAP (Lightweight Directory Access Protocol) e Director
 
 
 
+[[saml]]
 === SAML
 
 Se si utilizzano le funzionalità Security Assertion Markup Language (SAML) incorporate nell'array di storage, assicurarsi che:
@@ -83,12 +87,14 @@ Se si utilizzano le funzionalità Security Assertion Markup Language (SAML) inco
 
 
 
+[[what-do-i-need-to-know-before-configuring-and-enabling-saml]]
 == Cosa devo sapere prima di configurare e abilitare SAML?
 
 Prima di configurare e abilitare le funzionalità Security Assertion Markup Language (SAML) per l'autenticazione, assicurati di soddisfare i seguenti requisiti e di comprendere le restrizioni SAML.
 
 
 
+[[requirements]]
 === Requisiti
 
 Prima di iniziare, assicurati che:
@@ -103,6 +109,7 @@ Prima di iniziare, assicurati che:
 
 
 
+[[restrictions]]
 === Restrizioni
 
 Oltre ai requisiti sopra indicati, assicurati di comprendere le seguenti restrizioni:
@@ -124,6 +131,7 @@ Oltre ai requisiti sopra indicati, assicurati di comprendere le seguenti restriz
 
 
 
+[[what-are-the-local-users]]
 == Quali sono gli utenti locali?
 
 Gli utenti locali sono predefiniti nel sistema e includono autorizzazioni specifiche.

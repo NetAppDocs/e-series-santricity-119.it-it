@@ -16,6 +16,7 @@ Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda
 
 
 
+[[what-are-hosts-and-host-clusters]]
 == Che cosa sono gli host e i cluster di host?
 
 Un host è un server che invia operazioni di I/O a un volume su un array di storage. Un cluster di host è un gruppo di host. Si crea un cluster di host per semplificare l'assegnazione degli stessi volumi a più host.
@@ -26,12 +27,14 @@ Il cluster host è un'entità logica che si crea in SANtricity System Manager. �
 
 
 
+[[why-would-i-need-to-create-a-host-cluster]]
 == Perché dovrei creare un cluster host?
 
 È necessario creare un cluster di host se si desidera che due o più host condividano l'accesso allo stesso set di volumi. Normalmente, sui singoli host è installato un software di clustering per coordinare l'accesso ai volumi.
 
 
 
+[[how-do-i-know-which-host-operating-system-type-is-correct]]
 == Come faccio a sapere quale tipo di sistema operativo host è corretto?
 
 Il campo Tipo di sistema operativo host contiene il sistema operativo dell'host. Puoi selezionare il tipo di host consigliato dall'elenco a discesa.
@@ -135,6 +138,7 @@ Se il tipo di sistema operativo host è impostato su questo valore, utilizzare i
 |===
 
 
+[[what-are-hbas-and-adapter-ports]]
 == Cosa sono gli HBA e le porte adapter?
 
 Un adattatore bus host (HBA) è una scheda che risiede in un host e contiene una o più porte host. Una porta host è una porta su un adattatore bus host (HBA) che fornisce la connessione fisica a un controller e viene utilizzata per le operazioni di I/O.
@@ -143,6 +147,7 @@ Le porte dell'adattatore sull'HBA sono chiamate porte host. La maggior parte deg
 
 
 
+[[how-do-i-match-the-host-ports-to-a-host]]
 == Come faccio ad associare le porte host a un host?
 
 Se si crea manualmente un host, è necessario innanzitutto utilizzare l'apposita utility per l'host bus adapter (HBA) disponibile sull'host per determinare gli identificatori della porta host associati a ciascun HBA installato nell'host.
@@ -156,6 +161,7 @@ Assicurati di selezionare gli identificatori di porta host appropriati per l'hos
 ====
 
 
+[[how-do-i-create-chap-secrets]]
 == Come si creano i segreti CHAP?
 
 Se si configura l'autenticazione Challenge Handshake Authentication Protocol (CHAP) su qualsiasi host iSCSI connesso all'array di storage, è necessario reinserire quel segreto CHAP dell'initiator per ciascun host iSCSI.
@@ -166,6 +172,7 @@ Se si utilizza l'autenticazione reciproca CHAP, è necessario definire anche un 
 
 
 
+[[what-is-the-default-cluster]]
 == Qual è il cluster predefinito?
 
 Il cluster predefinito è un'entità definita dal sistema che consente a qualsiasi identificatore di porta host non associato che abbia effettuato l'accesso all'array di storage di accedere ai volumi assegnati al cluster predefinito. Un identificatore di porta host non associato è una porta host che non è logicamente associata a un host specifico, ma è fisicamente installata in un host e ha effettuato l'accesso all'array di storage.
@@ -181,6 +188,7 @@ Inizialmente, è possibile assegnare volumi solo al cluster predefinito tramite 
 
 
 
+[[what-is-host-connectivity-reporting]]
 == Che cos'è la segnalazione della connettività host?
 
 Quando la segnalazione della connettività host è abilitata, l'array di storage monitora continuamente la connessione tra i controller e gli host configurati e ti avvisa se la connessione viene interrotta.

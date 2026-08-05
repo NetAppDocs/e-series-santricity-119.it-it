@@ -50,6 +50,7 @@ Volumi con thin provisioning
 |===
 
 
+[[thin-volume-restrictions]]
 == Limitazioni dei volumi con thin provisioning
 
 I volumi con thin provisioning supportano tutte le operazioni dei volumi thick, con le seguenti eccezioni:

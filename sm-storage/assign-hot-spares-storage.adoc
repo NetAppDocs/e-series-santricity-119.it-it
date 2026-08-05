@@ -64,6 +64,7 @@ L'unità viene visualizzata in rosa nella pagina Hardware, il che indica che ora
 
 
 
+[[results]]
 == Risultati
 
 Se un'unità all'interno di un gruppo di volumi RAID 1, RAID 5 o RAID 6 si guasta, il controller utilizza automaticamente i dati di ridondanza per ricostruire i dati dall'unità guasta all'hot spare.

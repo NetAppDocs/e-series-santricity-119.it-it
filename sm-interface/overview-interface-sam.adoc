@@ -15,6 +15,7 @@ SANtricity System Manager è un'interfaccia basata su web che consente di gestir
 
 
 
+[[home-page]]
 == Pagina iniziale
 
 La pagina iniziale fornisce una vista dalla dashboard per la gestione quotidiana del tuo array di storage. Quando accedi a System Manager, la pagina iniziale è la prima schermata visualizzata.
@@ -55,6 +56,7 @@ L'area Gerarchia di archiviazione fornisce una visualizzazione organizzata dei v
 |===
 
 
+[[interface-settings]]
 == Impostazioni dell'interfaccia
 
 È possibile modificare le preferenze di visualizzazione e altre impostazioni dall'interfaccia principale.
@@ -86,6 +88,7 @@ Accedi alla documentazione di Help e ad altre risorse dal menu a tendina nell'an
 |===
 
 
+[[user-logins-and-passwords]]
 == Accessi utente e password
 
 L'utente attualmente connesso al sistema viene visualizzato in alto a destra dell'interfaccia.

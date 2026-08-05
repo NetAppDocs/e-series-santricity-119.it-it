@@ -24,6 +24,7 @@ Ogni volta che l'alimentazione delle unità viene interrotta e riattivata, le un
 
 
 
+[[internal-key-management]]
 == Gestione interna delle chiavi
 
 Le chiavi interne vengono gestite e "nasconste" in una posizione non accessibile nella memoria persistente del controller. Per implementare la gestione delle chiavi interne, eseguire i seguenti passaggi:
@@ -37,6 +38,7 @@ La chiave di sicurezza viene memorizzata sul controller in una posizione nascost
 
 
 
+[[external-key-management]]
 == Gestione delle chiavi esterne
 
 Le chiavi esterne vengono gestite su un server di gestione delle chiavi separato, utilizzando un Key Management Interoperability Protocol (KMIP). Per implementare la gestione delle chiavi esterne, eseguire i seguenti passaggi:

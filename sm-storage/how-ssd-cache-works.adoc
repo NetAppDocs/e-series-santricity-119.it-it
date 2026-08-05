@@ -15,6 +15,7 @@ La funzionalità Cache SSD è una soluzione basata sul controller che memorizza 
 
 
 
+[[ssd-cache-versus-primary-cache]]
 == Cache SSD rispetto alla cache primaria
 
 Cache SSD è una cache secondaria da utilizzare insieme alla cache primaria nella memoria ad accesso casuale dinamica (DRAM) del controller.
@@ -35,6 +36,7 @@ I volumi RAID interni vengono utilizzati per l'elaborazione interna della cache.
 
 
 
+[[how-ssd-cache-is-used]]
 == Come viene utilizzata la Cache SSD
 
 La memorizzazione intelligente nella cache posiziona i dati su un'unità a bassa latenza, così le risposte alle future richieste di tali dati possono avvenire molto più rapidamente. Se un programma richiede dati presenti nella cache (chiamato un "cache hit"), allora l'unità a bassa latenza può gestire quella transazione. Altrimenti, si verifica un "cache miss" e i dati devono essere recuperati dall'unità originale, più lenta. Man mano che si verificano più cache hit, le prestazioni complessive migliorano.
@@ -52,6 +54,7 @@ Quando la CPU deve elaborare i dati di lettura, segue i passaggi seguenti:
 
 
 
+[[improved-performance]]
 == Prestazioni migliorate
 
 Copiare i dati più utilizzati (hot spot) nella Cache SSD consente un funzionamento più efficiente del disco rigido, una latenza ridotta e velocità di lettura e scrittura accelerate. L'utilizzo di SSD ad alte prestazioni per memorizzare nella cache i dati dai volumi HDD migliora le prestazioni I/O e i tempi di risposta.
@@ -60,12 +63,14 @@ Vengono utilizzati semplici meccanismi di I/O del volume per spostare i dati da 
 
 
 
+[[ssd-cache-and-the-drive-security-feature]]
 == Cache SSD e la funzione Drive Security
 
 Per utilizzare Cache SSD su un volume che utilizza anche Drive Security (is secure-enabled), le funzionalità di Drive Security del volume e della Cache SSD devono corrispondere. Se non corrispondono, il volume non sarà secure-enabled.
 
 
 
+[[implement-ssd-cache]]
 == Implementare Cache SSD
 
 Per implementare Cache SSD, procedi come segue:

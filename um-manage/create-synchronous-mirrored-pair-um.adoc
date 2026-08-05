@@ -46,6 +46,7 @@ Il processo per creare coppie mirrorate sincrone è una procedura in più fasi.
 
 
 
+[[step-1-select-the-primary-volume]]
 == Passaggio 1: Selezionare il volume primario
 
 In questa fase, si seleziona il volume primario da utilizzare nella relazione di mirroring sincrono. Quando si seleziona un volume primario sull'array di storage locale, il sistema visualizza un elenco di tutti i volumi idonei per quella coppia mirrorata. I volumi che non sono idonei per l'uso non vengono visualizzati in tale elenco. Il volume selezionato assume il ruolo primario nella relazione di mirroring.
@@ -62,6 +63,7 @@ Si apre la procedura guidata Create Synchronous Mirrored Pair.
 
 
 
+[[step-2-select-the-secondary-volume]]
 == Passaggio 2: selezionare il volume secondario
 
 In questa fase, si seleziona il volume secondario da utilizzare nella relazione di mirror. Quando si seleziona un volume secondario sull'array di storage remoto, il sistema visualizza un elenco di tutti i volumi idonei per quella coppia mirrorata. I volumi che non sono idonei per l'uso non vengono visualizzati in tale elenco. Il volume selezionato assumerà il ruolo di volume secondario nella relazione di mirror.
@@ -91,6 +93,7 @@ Se si sceglie un volume secondario con una capacità maggiore rispetto al volume
 
 
 
+[[step-3-select-synchronization-settings]]
 == Passaggio 3: Seleziona le impostazioni di sincronizzazione
 
 In questa fase, si selezionano le impostazioni che determinano come i dati vengono sincronizzati dopo un'interruzione della comunicazione. È possibile impostare la priorità con cui il controller proprietario del volume primario risincronizza i dati con il volume secondario dopo un'interruzione della comunicazione. È inoltre necessario selezionare la politica di risincronizzazione, manuale o automatica.

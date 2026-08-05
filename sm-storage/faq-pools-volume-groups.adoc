@@ -16,12 +16,14 @@ Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda
 
 
 
+[[what-is-a-volume-group]]
 == Che cos'è un gruppo di volume?
 
 Un gruppo di volumi è un container per volumi con caratteristiche condivise. Un gruppo di volumi ha una capacità definita e livello RAID. È possibile utilizzare un gruppo di volumi per creare uno o più volumi accessibili a un host. (È possibile creare volumi da un gruppo di volumi o da un pool.)
 
 
 
+[[what-is-a-pool]]
 == Che cos'è un pool?
 
 Un pool è un insieme di unità disco raggruppate logicamente. È possibile utilizzare un pool per creare uno o più volumi accessibili a un host. (È possibile creare volumi da un pool o da un gruppo di volumi.)
@@ -32,6 +34,7 @@ Con i pool, i dati vengono ridistribuiti automaticamente per mantenere l'equilib
 
 
 
+[[what-is-reserved-capacity]]
 == Che cos'è la capacità riservata?
 
 La capacità riservata è la capacità fisicamente allocata che memorizza i dati per oggetti del servizio di copia come le immagini snapshot, i volumi dei membri del gruppo di coerenza e i volumi delle coppie mirror.
@@ -40,6 +43,7 @@ Il volume di capacità riservata associato a un'operazione del servizio di copia
 
 
 
+[[what-is-fdefips-security]]
 == Che cos'è la sicurezza FDE/FIPS?
 
 La sicurezza FDE/FIPS si riferisce alle unità compatibili con la crittografia che crittografano i dati durante la scrittura e decrittografano i dati durante la lettura utilizzando una chiave di crittografia univoca. Queste unità compatibili con la crittografia impediscono l'accesso non autorizzato ai dati su un'unità fisicamente rimossa dall'array di storage.
@@ -53,6 +57,7 @@ Per i volumi che richiedono il supporto FIPS, utilizzare solo unità FIPS. La co
 ====
 
 
+[[what-is-redundancy-check]]
 == Che cos'è un controllo di ridondanza?
 
 Un controllo di ridondanza determina se i dati su un volume in un pool o in un gruppo di volumi sono coerenti. I dati di ridondanza vengono utilizzati per ricostruire rapidamente le informazioni su un disco sostitutivo se uno dei dischi nel pool o nel gruppo di volumi si guasta.
@@ -71,6 +76,7 @@ L'esecuzione immediata di un controllo di ridondanza sullo stesso pool o gruppo 
 ====
 
 
+[[what-are-the-differences-between-pools-and-volume-groups]]
 == Quali sono le differenze tra pool e gruppi di volume?
 
 Un pool è simile a un gruppo di volumi, con le seguenti differenze.
@@ -84,6 +90,7 @@ Un pool è simile a un gruppo di volumi, con le seguenti differenze.
 
 
 
+[[why-would-i-want-to-manually-configure-a-pool]]
 == Perché dovrei voler configurare manualmente un pool?
 
 I seguenti esempi descrivono perché si potrebbe voler configurare manualmente un pool.
@@ -103,6 +110,7 @@ Per aggiungere manualmente dischi a un pool esistente: dalla pagina Pools & Volu
 
 
 
+[[why-are-capacity-alerts-important]]
 == Perché gli avvisi di capacità sono importanti?
 
 Gli avvisi di capacità indicano quando aggiungere unità a un pool. Un pool necessita di una capacità libera sufficiente per eseguire correttamente le operazioni sull'array di storage. È possibile evitare interruzioni a queste operazioni configurando SANtricity System Manager in modo che invii avvisi quando la capacità libera di un pool raggiunge o supera una percentuale specificata.
@@ -116,6 +124,7 @@ Quando la capacità libera nel pool raggiunge la percentuale specificata, viene 
 ====
 
 
+[[why-cant-i-increase-my-preservation-capacity]]
 == Perché non posso aumentare la mia capacità di conservazione?
 
 Se hai creato volumi su tutta la capacità utilizzabile disponibile, potresti non essere in grado di aumentare la capacità di preservazione.
@@ -131,6 +140,7 @@ La capacità di conservazione viene specificata come numero di dischi, anche se 
 ====
 
 
+[[is-there-a-limit-on-the-number-of-drives-i-can-remove-from-a-pool]]
 == Esiste un limite al numero di dischi che posso rimuovere da un pool?
 
 SANtricity System Manager imposta dei limiti su quante unità è possibile rimuovere da un pool.
@@ -142,12 +152,14 @@ SANtricity System Manager imposta dei limiti su quante unità è possibile rimuo
 
 
 
+[[what-media-types-are-supported-for-a-drive]]
 == Quali tipi di media sono supportati per un drive?
 
 Sono supportati i seguenti tipi di media: Hard Disk Drive (HDD) e Solid State Disk (SSD).
 
 
 
+[[why-are-some-drives-not-showing-up]]
 == Perché alcuni dischi non vengono visualizzati?
 
 Nella finestra di dialogo Aggiungi capacità, non tutte le unità sono disponibili per aggiungere capacità a un pool o a un gruppo di volumi esistente.
@@ -176,6 +188,7 @@ La capacità del tuo array di storage può essere aumentata aggiungendo nuovi di
 ====
 
 
+[[how-do-i-maintain-shelfdrawer-loss-protection]]
 == Come posso mantenere la protezione dalla perdita di shelf/cassetto?
 
 Per mantenere la protezione contro la perdita di shelf/cassetto per un pool o un gruppo di volumi, utilizzare i criteri specificati nella tabella seguente.
@@ -240,6 +253,7 @@ La protezione contro la perdita di shelf/cassetto non viene mantenuta se un disc
 ====
 
 
+[[what-is-the-optimal-drive-positioning-for-pools-and-volume-groups]]
 == Qual è il posizionamento ottimale dei dischi per pool e gruppi di volumi?
 
 Quando si creano pool e gruppi di volumi, assicurarsi di bilanciare la selezione dei dischi tra gli slot dei dischi superiori e inferiori.
@@ -248,12 +262,14 @@ Per i controller EF600 e EF300, gli slot per unità da 0 a 11 sono collegati a u
 
 
 
+[[what-raid-level-is-best-for-my-application]]
 == Quale livello RAID è il più adatto alla mia applicazione?
 
 Per massimizzare le performance di un gruppo di volumi, è necessario selezionare il livello RAID appropriato. È possibile determinare il livello RAID appropriato conoscendo le percentuali di lettura e scrittura delle applicazioni che accedono al gruppo di volumi. Utilizzare la pagina Performance per ottenere queste percentuali.
 
 
 
+[[raid-levels-and-application-performance]]
 === Livelli RAID e prestazioni delle applicazioni
 
 RAID si basa su una serie di configurazioni, chiamate livelli, per determinare come i dati utente e di ridondanza vengono scritti e recuperati dalle unità. Ogni livello RAID offre caratteristiche di performance diverse. Le applicazioni con un'elevata percentuale di lettura otterranno buone performance utilizzando volumi RAID 5 o volumi RAID 6 grazie all'eccellente performance di lettura delle configurazioni RAID 5 e RAID 6.
@@ -382,6 +398,7 @@ Non è possibile modificare il livello RAID di un pool. L'interfaccia utente con
 ====
 
 
+[[raid-levels-and-data-protection]]
 === Livelli RAID e protezione dei dati
 
 RAID 1, RAID 5 e RAID 6 scrivono i dati di ridondanza sul supporto del disco per la tolleranza ai guasti. I dati di ridondanza possono essere una copia dei dati (mirrorati) o un codice di correzione degli errori derivato dai dati. È possibile utilizzare i dati di ridondanza per ricostruire rapidamente le informazioni su un disco sostitutivo in caso di guasto di un disco.
@@ -390,6 +407,7 @@ Si configura un singolo livello RAID su un singolo gruppo di volumi. Tutti i dat
 
 
 
+[[what-is-data-assurance]]
 == Che cos'è Data Assurance?
 
 Data Assurance (DA) implementa lo standard T10 Protection Information (PI), che aumenta l'integrità dei dati verificando e correggendo gli errori che potrebbero verificarsi durante il trasferimento dei dati lungo il percorso di I/O.
@@ -402,12 +420,14 @@ Assicurati di assegnare questi volumi abilitati DA a un host utilizzando un'inte
 
 
 
+[[what-is-secure-capable-drive-security]]
 == Che cos'è secure-capable (Drive Security)?
 
 Drive Security è una funzionalità che impedisce l'accesso non autorizzato ai dati sulle unità abilitate alla sicurezza quando vengono rimosse dall'array di storage. Queste unità possono essere Full Disk Encryption (FDE) o Federal Information Processing Standard (FIPS).
 
 
 
+[[what-do-i-need-to-know-about-increasing-reserved-capacity]]
 == Cosa devo sapere sull'aumento della capacità riservata?
 
 In genere, dovresti aumentare la capacità quando ricevi un avviso che la capacità riservata rischia di esaurirsi. Puoi aumentare la capacità riservata solo in incrementi di 8 GiB.
@@ -425,6 +445,7 @@ Per le operazioni di snapshot, la capacità riservata è in genere pari al 40 pe
 
 
 
+[[why-cant-i-choose-another-amount-to-decrease-by]]
 == Perché non posso scegliere un altro importo da cui diminuire?
 
 È possibile ridurre la capacità riservata solo della stessa quantità utilizzata per aumentarla. La capacità riservata per i volumi dei membri può essere rimossa solo nell'ordine inverso rispetto a quello in cui è stata aggiunta.
@@ -443,6 +464,7 @@ Non è possibile ridurre la capacità riservata per un volume snapshot di sola l
 
 
 
+[[why-do-i-need-reserved-capacity-for-each-member-volume]]
 == Perché ho bisogno di capacità riservata per ogni volume membro?
 
 Ciascun volume membro di un gruppo di coerenza snapshot deve disporre di una propria capacità riservata per salvare le modifiche apportate dall'applicazione host al volume base senza influire sull'immagine snapshot del gruppo di coerenza di riferimento. La capacità riservata fornisce all'applicazione host l'accesso in scrittura a una copia dei dati contenuti nel volume membro designata come di lettura-scrittura.
@@ -453,6 +475,7 @@ Durante la creazione di un volume snapshot di un gruppo di coerenza designato co
 
 
 
+[[how-do-i-view-and-interpret-all-ssd-cache-statistics]]
 == Come posso visualizzare e interpretare tutte le statistiche della Cache SSD?
 
 È possibile visualizzare le statistiche nominali e le statistiche dettagliate per la Cache SSD. Le statistiche nominali sono un sottoinsieme delle statistiche dettagliate.
@@ -461,6 +484,7 @@ Le statistiche dettagliate possono essere visualizzate solo quando si esportano 
 
 
 
+[[nominal-statistics]]
 === Statistiche nominali
 
 Per visualizzare le statistiche della Cache SSD, selezionare menu:Storage[Pools & Volume Groups]. Selezionare la Cache SSD per cui si desidera visualizzare le statistiche, quindi selezionare menu:More[View Statistics]. Le statistiche nominali vengono mostrate nella finestra di dialogo View SSD Cache Statistics.
@@ -513,6 +537,7 @@ La quantità di storage della Cache SSD che contiene dati provenienti da volumi 
 |===
 
 
+[[detailed-statistics]]
 === Statistiche dettagliate
 
 Le statistiche dettagliate consistono nelle statistiche nominali, più statistiche aggiuntive. Queste statistiche aggiuntive vengono salvate insieme alle statistiche nominali, ma a differenza delle statistiche nominali, non vengono visualizzate nella finestra di dialogo Visualizza statistiche Cache SSD. È possibile visualizzare le statistiche dettagliate solo dopo aver esportato le statistiche in un `.csv` file.
@@ -637,6 +662,7 @@ Il numero di byte allocati nella Cache SSD che contengono dati provenienti dai v
 |===
 
 
+[[what-is-optimization-capacity-for-pools]]
 == Che cos'è la capacità di ottimizzazione per i pool?
 
 Le unità SSD avranno una durata maggiore e prestazioni di scrittura massime migliori quando una parte della loro capacità non è allocata.
@@ -652,6 +678,7 @@ Il cursore Capacità di ottimizzazione aggiuntiva è disponibile solo per i sist
 ====
 
 
+[[what-is-optimization-capacity-for-volume-groups]]
 == Che cos'è la capacità di ottimizzazione per i gruppi di volumi?
 
 Le unità SSD avranno una durata maggiore e prestazioni di scrittura massime migliori quando una parte della loro capacità non è allocata.
@@ -667,6 +694,7 @@ Il cursore Capacità di ottimizzazione aggiuntiva è disponibile solo per i sist
 ====
 
 
+[[what-is-resource-provisioning-capable]]
 == Cosa può fare il provisioning delle risorse?
 
 Il provisioning delle risorse è una funzionalità disponibile negli array di storage EF300 e EF600, che consente di mettere in uso i volumi immediatamente senza alcun processo di inizializzazione in background.
@@ -680,6 +708,7 @@ NOTE: DULBE non è supportato sugli array di storage EF300C o EF600C al momento.
 
 
 
+[[what-do-i-need-to-know-about-the-resource-provisioned-volumes-feature]]
 == Cosa devo sapere sulla funzionalità dei volumi con provisioning delle risorse?
 
 Il provisioning delle risorse è una funzionalità disponibile negli array di storage EF300 e EF600, che consente di mettere in uso i volumi immediatamente senza alcun processo di inizializzazione in background.

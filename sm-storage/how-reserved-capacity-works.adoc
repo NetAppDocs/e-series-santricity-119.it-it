@@ -17,6 +17,7 @@ Lo scopo della capacità riservata è memorizzare le modifiche ai dati su questi
 
 
 
+[[copy-service-objects-that-use-reserved-capacity]]
 == Copia gli oggetti del servizio che utilizzano la capacità riservata
 
 La capacità riservata è lo storage sottostante utilizzato da questi oggetti del servizio di copia:
@@ -31,6 +32,7 @@ Quando si creano o si espandono questi oggetti del servizio di copia, è necessa
 
 
 
+[[thin-volumes-and-reserved-capacity]]
 == Volumi thin e capacità riservata
 
 Per un volume thin, se è stata raggiunta la capacità massima dichiarata di 256 TiB, non è possibile aumentarne la capacità. Assicurati che la capacità riservata del volume thin sia impostata su una dimensione superiore alla capacità massima dichiarata. (Un volume thin è sempre thinly-provisioned, il che significa che la capacità viene allocata man mano che i dati vengono scritti sul volume.)
@@ -43,6 +45,7 @@ Se si crea capacità riservata utilizzando un volume thin in un pool, esaminare 
 
 
 
+[[capacity-alerts]]
 == Avvisi di capacità
 
 L'oggetto del servizio di copia dispone di una soglia di avviso e di allarme di capacità configurabile, nonché di una risposta configurabile quando la capacità riservata è piena.
@@ -51,6 +54,7 @@ Quando la capacità riservata di un volume oggetto copy service si sta avvicinan
 
 
 
+[[orphaned-reserved-capacity-volumes]]
 == Volumi di capacità riservata orfani
 
 Un volume di capacità riservata orfano è un volume che non memorizza più dati per le operazioni del servizio di copia perché il suo oggetto del servizio di copia associato è stato eliminato. Quando l'oggetto del servizio di copia è stato eliminato, anche il suo volume di capacità riservata avrebbe dovuto essere eliminato. Tuttavia, il volume di capacità riservata non è stato eliminato.
@@ -61,6 +65,7 @@ System Manager ti avvisa della presenza di volumi di capacità riservata orfani 
 
 
 
+[[characteristics-of-reserved-capacity]]
 == Caratteristiche della capacità di riserva
 
 * La capacità allocata alla capacità riservata deve essere considerata durante la creazione del volume per mantenere sufficiente capacità libera.

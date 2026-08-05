@@ -15,6 +15,7 @@ Per Access Management, gli amministratori possono utilizzare le funzionalità Se
 
 
 
+[[configuration-workflow]]
 == Flusso di lavoro di configurazione
 
 La configurazione SAML funziona come segue:
@@ -49,6 +50,7 @@ Una volta abilitato SAML, _non è possibile_ disabilitarlo tramite l'interfaccia
 
 
 
+[[management]]
 == Gestione
 
 Quando si utilizza SAML per l'autenticazione, gli amministratori possono eseguire le seguenti attività di gestione:
@@ -59,6 +61,7 @@ Quando si utilizza SAML per l'autenticazione, gli amministratori possono eseguir
 
 
 
+[[access-restrictions]]
 == Restrizioni di accesso
 
 Quando SAML è abilitato, gli utenti non possono individuare o gestire lo storage per quell'array da Unified Manager o dall'interfaccia legacy Storage Manager.
@@ -73,6 +76,7 @@ Inoltre, i seguenti client non possono accedere ai servizi e alle risorse dell'a
 
 
 
+[[limited-connectivity-with-saml-enabled]]
 === Connettività limitata con SAML abilitato
 
 Le seguenti funzionalità degli array di storage presentano una connettività limitata con l'autenticazione JSON Web Token ogni volta che SAML è abilitato.

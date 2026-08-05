@@ -24,6 +24,7 @@ L'utilizzo di certificati firmati da una CA è una procedura in tre fasi.
 
 
 
+[[step-1-complete-csrs-for-the-controllers]]
 == Passaggio 1: Completare i CSR per i controller
 
 Per prima cosa, è necessario generare un file di richiesta di firma del certificato (CSR) per ciascun controller nell'array di archiviazione.
@@ -85,6 +86,7 @@ Per un singolo controller, un file CSR viene scaricato sul sistema locale. Per d
 
 
 
+[[step-2-submit-the-csr-files]]
 == Passaggio 2: invia i file CSR
 
 Dopo aver creato i file di richiesta di firma del certificato (CSR), invia i file a un'autorità di certificazione (CA). I sistemi E-Series richiedono il formato PEM (codifica Base64 ASCII) per i certificati firmati, che include i seguenti tipi di file: .pem, .crt, .cer o .key.
@@ -103,6 +105,7 @@ Dopo aver creato i file di richiesta di firma del certificato (CSR), invia i fil
 
 
 
+[[step-3-import-signed-certificates-for-controllers]]
 == Passaggio 3: Importa i certificati firmati per i controller
 
 Dopo aver ricevuto i certificati firmati dall'Certificate Authority (CA), importa i file per i controller.

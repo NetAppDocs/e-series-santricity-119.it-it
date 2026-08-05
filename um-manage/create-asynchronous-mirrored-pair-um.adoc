@@ -40,6 +40,7 @@ Il processo per creare una coppia mirror asincrona è una procedura in più fasi
 
 
 
+[[step-1-create-or-select-a-mirror-consistency-group]]
 == Passaggio 1: crea o seleziona un gruppo di coerenza speculare
 
 In questa fase, si crea un nuovo gruppo di coerenza mirror o se ne seleziona uno esistente. Un gruppo di coerenza mirror è un container per i volumi primario e secondario (la coppia mirror) e specifica il metodo di risincronizzazione desiderato (manuale o automatico) per tutte le coppie nel gruppo.
@@ -95,6 +96,7 @@ Se Unified Manager crea correttamente il gruppo di coerenza mirror sull'array di
 
 
 
+[[step-2-select-the-primary-volume]]
 == Passaggio 2: Seleziona il volume primario
 
 In questa fase, si seleziona il volume primario da utilizzare nella relazione di mirroring e si alloca la sua capacità riservata. Quando si seleziona un volume primario sull'array di storage locale, il sistema visualizza un elenco di tutti i volumi idonei per quella coppia con mirroring. I volumi che non sono idonei per l'uso non vengono visualizzati in tale elenco.
@@ -123,6 +125,7 @@ Tenete presenti le seguenti linee guida:
 
 
 
+[[step-3-select-the-secondary-volume]]
 == Passaggio 3: Seleziona il volume secondario
 
 In questa fase, si seleziona il volume secondario da utilizzare nella relazione di mirroring e si alloca la sua capacità riservata. Quando si seleziona un volume secondario sull'array di storage remoto, il sistema visualizza un elenco di tutti i volumi idonei per quella coppia con mirroring. I volumi che non sono idonei all'uso non vengono visualizzati in tale elenco.

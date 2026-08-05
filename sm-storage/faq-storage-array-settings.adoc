@@ -16,6 +16,7 @@ Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda
 
 
 
+[[what-is-automatic-load-balancing]]
 == Che cos'è il bilanciamento automatico del carico?
 
 La funzione Automatic Load Balancing fornisce un bilanciamento I/O automatizzato e garantisce che il traffico I/O in entrata dagli host venga gestito e bilanciato dinamicamente tra entrambi i controller.
@@ -37,6 +38,7 @@ Qualsiasi volume assegnato all'utilizzo della Cache SSD di un controller non è 
 ====
 
 
+[[what-is-controller-cache]]
 == Che cos'è la cache del controller?
 
 La cache del controller è uno spazio di memoria fisica che ottimizza due tipi di operazioni di I/O (input/output): tra i controller e gli host e tra i controller e i dischi.
@@ -60,6 +62,7 @@ La cache del controller influisce sulle prestazioni complessive dell'array di st
 ====
 
 
+[[what-is-cache-flushing]]
 == Che cos'è lo svuotamento della cache?
 
 Quando la quantità di dati non ancora scritti nella cache raggiunge un certo livello, il controller scrive periodicamente i dati memorizzati nella cache su un'unità. Questo processo di scrittura è chiamato "flushing".
@@ -79,6 +82,7 @@ L'algoritmo basato sull'età specifica il periodo di tempo durante il quale i da
 ====
 
 
+[[what-is-cache-block-size]]
 == Che cos'è la dimensione del blocco della cache?
 
 Il controller dell'array di storage organizza la sua cache in "blocchi", che sono porzioni di memoria che possono essere di 8, 16 o 32 KiB. Tutti i volumi sul sistema storage condividono lo stesso spazio di cache; pertanto, i volumi possono avere una sola dimensione del blocco cache.
@@ -87,6 +91,7 @@ Le applicazioni utilizzano diverse dimensioni di blocco, che possono avere un im
 
 
 
+[[when-should-i-synchronize-storage-array-clocks]]
 == Quando devo sincronizzare gli orologi degli array di storage?
 
 È necessario sincronizzare manualmente gli orologi del controller nell'array di storage se si nota che i time stamp visualizzati in SANtricity System Manager non sono allineati con i time stamp visualizzati nel client di gestione (il computer che accede a SANtricity System Manager tramite browser). Questa operazione è necessaria solo se NTP (Network Time Protocol) non è abilitato in SANtricity System Manager.

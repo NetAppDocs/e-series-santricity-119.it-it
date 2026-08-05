@@ -15,6 +15,7 @@ Le unità a stato solido (SSD) sono dispositivi di archiviazione dati che utiliz
 
 
 
+[[advantages-of-ssds]]
 == Vantaggi degli SSD
 
 I vantaggi delle SSD rispetto ai dischi rigidi includono:
@@ -29,18 +30,21 @@ I vantaggi delle SSD rispetto ai dischi rigidi includono:
 
 
 
+[[identifying-ssds]]
 == Identificazione degli SSD
 
 Dalla pagina Hardware, puoi individuare gli SSD nella vista frontale dello shelf. Cerca gli alloggiamenti per unità che mostrano un'icona a forma di fulmine, che indica che è installato un SSD.
 
 
 
+[[volume-groups]]
 == Gruppi di volume
 
 Tutte le unità di un gruppo di volumi devono essere dello stesso tipo di supporto (tutte SSD o tutte unità rigide). I gruppi di volumi non possono contenere un mix di tipi di supporto o di tipi di interfaccia.
 
 
 
+[[caching]]
 == Caching
 
 La cache di scrittura del controller è sempre abilitata per gli SSD. La cache di scrittura migliora le prestazioni e prolunga la durata dell'SSD.

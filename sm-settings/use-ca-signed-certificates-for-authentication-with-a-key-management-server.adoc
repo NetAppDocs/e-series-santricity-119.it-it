@@ -22,6 +22,7 @@ L'autenticazione tra i controller e un key management server è una procedura in
 
 
 
+[[step-1-complete-and-submit-csr-for-authentication-with-a-key-management-server]]
 == Passaggio 1: Completare e inviare la CSR per l'autenticazione con un key management server
 
 È necessario innanzitutto generare un file di richiesta di firma del certificato (CSR) e quindi utilizzare il CSR per richiedere un certificato client firmato a un'autorità di certificazione (CA) considerata attendibile dal key management server. È anche possibile creare e scaricare un certificato client dal key management server utilizzando il file CSR scaricato. Un certificato client convalida i controller dell'array di storage, così il key management server può considerare attendibili le loro richieste Key Management Interoperability Protocol (KMIP).
@@ -56,6 +57,7 @@ NOTE: È comune che il server di gestione delle chiavi disponga di una funzional
 
 
 
+[[step-2-import-certificates-for-the-key-management-server]]
 == Passaggio 2: Importa i certificati per il key management server
 
 Come passaggio successivo, si importano i certificati per l'autenticazione tra l'array di storage e il key management server. Esistono due tipi di certificati: il certificato client convalida i controller dell'array di storage, mentre il certificato del key management server convalida il server. È necessario caricare sia il file del certificato client per i controller sia il file del certificato del server per il key management server.

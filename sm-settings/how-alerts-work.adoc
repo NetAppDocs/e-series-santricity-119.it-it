@@ -29,6 +29,7 @@ Il processo di allerta funziona come segue:
 
 
 
+[[alerts-configuration]]
 == Configurazione degli avvisi
 
 È possibile configurare gli avvisi tramite la procedura guidata di configurazione iniziale (solo per gli avvisi via e-mail) oppure dalla pagina Avvisi. Per verificare la configurazione corrente, andare su menu:Settings[Alerts].
@@ -41,6 +42,7 @@ Il riquadro Avvisi visualizza la configurazione degli avvisi, che può essere un
 
 
 
+[[alerts-information]]
 == Informazioni sugli avvisi
 
 Gli avvisi possono includere i seguenti tipi di informazioni:

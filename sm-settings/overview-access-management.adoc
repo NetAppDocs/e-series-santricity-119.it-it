@@ -16,6 +16,7 @@ Access Management è un metodo per stabilire l'autenticazione degli utenti in SA
 
 
 
+[[what-authentication-methods-are-available]]
 == Quali metodi di autenticazione sono disponibili?
 
 I metodi di autenticazione includono RBAC (in base al ruolo), Directory Services e Security Assertion Markup Language (SAML):
@@ -37,6 +38,7 @@ Per saperne di più:
 
 
 
+[[how-do-i-configure-authentication]]
 == Come si configura l'autenticazione?
 
 L'array di storage è preconfigurato per utilizzare i ruoli utente locali, che rappresentano un'implementazione delle funzionalità RBAC. Se si desidera configurare un metodo diverso, andare su menu:Settings[Access Management].
@@ -49,6 +51,7 @@ Per saperne di più:
 
 
 
+[[related-information]]
 == Informazioni correlate
 
 Scopri di più sulle attività relative alla gestione degli accessi:

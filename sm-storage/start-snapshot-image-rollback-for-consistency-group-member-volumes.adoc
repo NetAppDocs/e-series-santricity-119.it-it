@@ -34,6 +34,7 @@ La procedura per avviare il rollback di un'immagine Snapshot di un gruppo di coe
 
 
 
+[[step-1-select-members]]
 == Passaggio 1: Seleziona i membri
 
 È necessario selezionare i volumi membro da ripristinare.
@@ -56,6 +57,7 @@ Viene visualizzata la finestra di dialogo Start Rollback.
 
 
 
+[[step-2-review-capacity]]
 == Fase 2: Revisione della capacità
 
 Se hai selezionato volumi membro associati a più di un oggetto di capacità riservata, come un gruppo di Snapshot e un volume di capacità riservata, puoi rivedere e aumentare la capacità riservata per il/i volume/i ripristinato/i.
@@ -77,6 +79,7 @@ Viene visualizzata la finestra di dialogo Edit Priority.
 
 
 
+[[step-3-edit-priority]]
 == Passaggio 3: Modifica priorità
 
 È possibile modificare la priorità dell'operazione di rollback, se necessario.

@@ -15,6 +15,7 @@ summary: 'È possibile impostare un controller in tre stati diversi: online, off
 
 
 
+[[online-state]]
 == Stato online
 
 Lo stato online è il normale stato operativo del controller. Significa che il controller funziona normalmente ed è disponibile per le operazioni di I/O.
@@ -23,6 +24,7 @@ Quando si mette un controller online, il suo stato viene impostato su optimal.
 
 
 
+[[offline-state]]
 == Stato offline
 
 Lo stato offline viene in genere utilizzato per preparare un controller alla sostituzione quando sono presenti due controller nell'array di storage. Un controller può entrare nello stato offline in due modi: è possibile emettere un comando esplicito oppure il controller può guastarsi. Un controller può uscire dallo stato offline solo emettendo un altro comando esplicito o sostituendo il controller guasto. È possibile mettere un controller offline solo se sono presenti due controller nell'array di storage.
@@ -37,6 +39,7 @@ Quando un controller si trova nello stato offline, si verificano le seguenti con
 
 
 
+[[service-mode]]
 == Modalità di servizio
 
 La Service Mode viene in genere utilizzata solo dal supporto tecnico per spostare tutti i volumi dell'array di storage su un controller, in modo che l'altro controller possa essere diagnosticato. Un controller deve essere messo manualmente in Service Mode e deve essere rimesso manualmente online al termine dell'operazione di servizio.

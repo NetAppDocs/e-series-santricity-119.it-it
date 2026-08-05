@@ -15,6 +15,7 @@ Prima di importare una configurazione dello storage da un array di storage a un 
 
 
 
+[[shelves]]
 == Shelf di espansione
 
 * Gli alloggiamenti in cui risiedono i controller devono essere identici nell'array di origine e in quello di destinazione.
@@ -24,6 +25,7 @@ Prima di importare una configurazione dello storage da un array di storage a un 
 
 
 
+[[controllers]]
 == Controllori
 
 * Il tipo di controller può essere diverso tra gli array di origine e di destinazione (ad esempio, importando da un E2800 a un E5700), ma il tipo di enclosure RBOD deve essere identico.
@@ -34,6 +36,7 @@ Prima di importare una configurazione dello storage da un array di storage a un 
 
 
 
+[[status]]
 == Stato
 
 * Gli array di destinazione devono trovarsi in stato Optimal.
@@ -42,6 +45,7 @@ Prima di importare una configurazione dello storage da un array di storage a un 
 
 
 
+[[storage]]
 == Storage
 
 * La capacità delle unità può variare tra gli array di origine e di destinazione, purché la capacità dei volumi sulla destinazione sia maggiore di quella dell'origine. (Un array di destinazione potrebbe avere unità più recenti e con maggiore capacità che non verrebbero configurate completamente in volumi dall'operazione di replica.)

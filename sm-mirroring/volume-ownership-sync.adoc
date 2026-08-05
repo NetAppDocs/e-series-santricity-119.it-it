@@ -24,6 +24,7 @@ Ad esempio, un volume primario è di proprietà del controller A, e poi si cambi
 
 
 
+[[controller-resets]]
 == Reset del controller
 
 Il ripristino di un controller provoca un cambio di proprietà del volume sul lato primario, dal proprietario del controller preferito al controller alternativo nel sistema storage.

@@ -16,6 +16,7 @@ Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda
 
 
 
+[[what-if-alerts-are-disabled]]
 == Cosa succede se gli avvisi sono disattivati?
 
 Se si desidera che gli amministratori ricevano notifiche relative a eventi importanti che si verificano nell'array di storage, è necessario configurare un metodo di avviso.
@@ -24,6 +25,7 @@ Per gli array di storage gestiti con SANtricity System Manager, configuri gli av
 
 
 
+[[how-do-i-configure-snmp-or-syslog-alerts]]
 == Come configuro gli avvisi SNMP o syslog?
 
 Oltre agli avvisi via e-mail, è possibile configurare gli avvisi da inviare tramite trap Simple Network Management Protocol (SNMP) o tramite messaggi syslog.
@@ -32,6 +34,7 @@ Per configurare gli avvisi SNMP o syslog, vai al menu:Impostazioni[Avvisi].
 
 
 
+[[why-are-timestamps-inconsistent-between-the-array-and-alerts]]
 == Perché i timestamp non sono coerenti tra l'array e gli avvisi?
 
 Quando l'array di storage invia avvisi, non corregge il fuso orario del server o host di destinazione che riceve gli avvisi. Al contrario, l'array di storage utilizza l'ora locale (GMT) per creare il timestamp utilizzato per il record di avviso. Di conseguenza, potresti vedere delle incongruenze tra i timestamp dell'array di storage e quelli del server o host che riceve un avviso.

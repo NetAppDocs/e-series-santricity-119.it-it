@@ -16,6 +16,7 @@ summary: 'È possibile eseguire diverse azioni su un volume: aumentare la capaci
 
 
 
+[[increase-capacity]]
 == Aumenta la capacità
 
 È possibile espandere la capacità di un volume in due modi:
@@ -37,6 +38,7 @@ Dopo aver espanso la capacità del volume, è necessario aumentare manualmente l
 
 
 
+[[delete]]
 == Elimina
 
 In genere, si eliminano i volumi se sono stati creati con parametri o capacità errati, non soddisfano più le esigenze di configurazione dello storage o sono immagini snapshot non più necessarie per il backup o il test delle applicazioni. L'eliminazione di un volume aumenta la capacità libera nel pool o nel gruppo di volumi.
@@ -45,12 +47,14 @@ L'eliminazione dei volumi comporta la perdita di tutti i dati su tali volumi. L'
 
 
 
+[[copy]]
 == Copia
 
 Quando si copiano i volumi, si crea una copia point-in-time di due volumi distinti, il volume di origine e il volume di destinazione, sullo stesso storage array. È possibile copiare i volumi selezionando menu:Storage[Volumes > Copy Services > Copy volume].
 
 
 
+[[initialize]]
 == Inizializzare
 
 L'inizializzazione di un volume cancella tutti i dati dal volume. Un volume viene inizializzato automaticamente quando viene creato per la prima volta. Tuttavia, Recovery Guru potrebbe consigliare di inizializzare manualmente un volume per recuperare da determinate condizioni di errore. Quando si inizializza un volume, il volume mantiene il proprio WWN, le assegnazioni host, la capacità allocata e le impostazioni di capacità riservata. Mantiene inoltre le stesse impostazioni di Data Assurance (DA) e di sicurezza.
@@ -59,6 +63,7 @@ L'inizializzazione di un volume cancella tutti i dati dal volume. Un volume vien
 
 
 
+[[redistribute]]
 == Ridistribuire
 
 Si ridistribuiscono i volumi per riportarli ai rispettivi controller proprietari preferiti. In genere, i driver multipath spostano i volumi dal controller proprietario preferito quando si verifica un problema lungo il percorso dei dati tra l'host e l'array di storage.
@@ -69,6 +74,7 @@ La maggior parte dei driver multipath host tenta di accedere a ciascun volume su
 
 
 
+[[change-volume-ownership]]
 == Modifica proprietà del volume
 
 La modifica della proprietà di un volume modifica il controller proprietario preferito del volume. Il controller proprietario preferito di un volume è elencato nel menu:Storage[Volumes > View/Edit Settings > Advanced tab].
@@ -77,6 +83,7 @@ La modifica della proprietà di un volume modifica il controller proprietario pr
 
 
 
+[[mirroring-and-volume-ownership]]
 === Mirroring e proprietà del volume
 
 Se il volume primario della coppia con mirroring è di proprietà del controller A, allora anche il volume secondario sarà di proprietà del controller A dell'array di storage remoto. La modifica del proprietario del volume primario modificherà automaticamente il proprietario del volume secondario per garantire che entrambi i volumi siano di proprietà dello stesso controller. Le modifiche di proprietà correnti sul lato primario si propagano automaticamente alle corrispondenti modifiche di proprietà correnti sul lato secondario.
@@ -85,6 +92,7 @@ Se un mirror consistency group contiene un volume secondario locale e la proprie
 
 
 
+[[copy-volume-and-volume-ownership]]
 === Copia volume e proprietà del volume
 
 Durante un'operazione di copia volume, lo stesso controller deve possedere sia il volume di origine che il volume di destinazione. Talvolta, all'avvio dell'operazione di copia volume, i due volumi non hanno lo stesso controller preferito. Pertanto, la proprietà del volume di destinazione viene automaticamente trasferita al controller preferito del volume di origine. Quando la copia volume è completata o viene interrotta, la proprietà del volume di destinazione viene ripristinata al suo controller preferito.
@@ -93,6 +101,7 @@ Se la proprietà del volume di origine viene modificata durante l'operazione di 
 
 
 
+[[change-cache-settings]]
 == Modifica le impostazioni della cache
 
 La cache memory è un'area di memoria volatile temporanea (RAM) sul controller che ha un tempo di accesso più rapido rispetto al supporto del drive. Se si utilizza la cache memory, è possibile aumentare le prestazioni I/O complessive per i seguenti motivi:
@@ -120,6 +129,7 @@ Per un volume thin, il precaricamento dinamico della cache di lettura è sempre 
 
 
 
+[[change-media-scan-settings]]
 == Modifica le impostazioni della scansione dei supporti
 
 Le scansioni dei supporti rilevano e riparano gli errori sui blocchi del disco che vengono letti raramente dalle applicazioni. Questa scansione può prevenire la perdita di dati se altre unità nel pool o nel gruppo di volumi si guastano, poiché i dati delle unità guaste vengono ricostruiti utilizzando le informazioni di ridondanza e i dati provenienti da altre unità del pool o del gruppo di volumi.

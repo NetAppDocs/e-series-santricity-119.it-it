@@ -18,6 +18,7 @@ La configurazione dei gruppi è una procedura in due fasi.
 
 
 
+[[step-1-create-group]]
 == Passaggio 1: Crea gruppo
 
 Per prima cosa, si crea un gruppo. Il gruppo di archiviazione definisce quali unità forniscono lo storage che costituisce il volume.
@@ -31,6 +32,7 @@ Per prima cosa, si crea un gruppo. Il gruppo di archiviazione definisce quali un
 
 
 
+[[step-2-add-storage-array-to-group]]
 == Passaggio 2: Aggiungi l'array di storage al gruppo
 
 È possibile aggiungere uno o più array di archiviazione a un gruppo creato dall'utente.

@@ -21,12 +21,14 @@ Per gestire facilmente le operazioni di Snapshot per i volumi di base, puoi util
 
 
 
+[[snapshot-schedule]]
 == calendario di Snapshot
 
 Se si desidera acquisire automaticamente snapshot per un volume di base, è possibile creare un calendario. Ad esempio, è possibile definire un calendario che acquisisca immagini snapshot ogni sabato a mezzanotte, il primo di ogni mese o in qualsiasi data e ora si decida. Dopo che è stato raggiunto il massimo di 32 snapshot per un singolo calendario, è possibile sospendere gli snapshot pianificati, creare ulteriore capacità riservata o eliminare gli snapshot. Gli snapshot possono essere eliminati manualmente o automatizzando il processo di eliminazione. Dopo che un'immagine snapshot viene eliminata, ulteriore capacità riservata sarà disponibile per il riutilizzo.
 
 
 
+[[snapshot-consistency-group]]
 == Gruppo di coerenza Snapshot
 
 Si crea un gruppo di coerenza snapshot quando si desidera garantire che le immagini snapshot vengano acquisite contemporaneamente su più volumi. Le azioni sulle immagini snapshot vengono eseguite sull'intero gruppo di coerenza snapshot. Ad esempio, è possibile pianificare snapshot sincronizzati di tutti i volumi con lo stesso timestamp. I gruppi di coerenza snapshot sono ideali per le applicazioni che si estendono su più volumi, come le applicazioni di database che memorizzano i log su un volume e i file del database su un altro volume.

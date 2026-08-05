@@ -15,6 +15,7 @@ Dalla pagina Manage Groups, è possibile creare un set di gruppi di array di sto
 
 
 
+[[what-are-array-groups]]
 == Che cosa sono i gruppi di array?
 
 È possibile gestire l'infrastruttura fisica e virtualizzata raggruppando un insieme di array di storage. Potresti voler raggruppare gli array di storage per semplificare l'esecuzione di attività di monitoraggio o di reporting.
@@ -27,6 +28,7 @@ Esistono due tipi di gruppi:
 
 
 
+[[how-do-i-configure-groups]]
 == Come si configurano i gruppi?
 
 Dalla pagina Manage Groups, è possibile creare un gruppo e quindi aggiungere array a tale gruppo.

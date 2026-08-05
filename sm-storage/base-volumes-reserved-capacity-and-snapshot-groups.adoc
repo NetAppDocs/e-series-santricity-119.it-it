@@ -15,6 +15,7 @@ La funzionalità Snapshot utilizza volumi di base, capacità riservata e gruppi 
 
 
 
+[[base-volumes]]
 == Volumi di base
 
 Un _volume di base_ è il volume utilizzato come sorgente per un'immagine Snapshot. Un volume di base può essere un volume spesso o un volume sottile e può risiedere in un pool o in un gruppo di volumi.
@@ -29,6 +30,7 @@ image::../media/sam1130-dwg-snapshots-images-overview.gif[Oggetti Snapshot e vol
 
 
 
+[[reserved-capacity-and-snapshot-groups]]
 == Capacità riservata e gruppi di Snapshot
 
 System Manager organizza le immagini snapshot in _gruppi di snapshot_. Quando System Manager stabilisce il gruppo di snapshot, crea automaticamente la _capacità riservata_ associata per contenere le immagini snapshot del gruppo e per tenere traccia delle modifiche successive agli snapshot aggiuntivi.
@@ -43,6 +45,7 @@ I gruppi di Snapshot non richiedono alcuna azione da parte dell'utente, ma è po
 
 
 
+[[auto-deletion]]
 == Eliminazione automatica
 
 Quando si lavora con gli snapshot, utilizzare l'opzione predefinita per avere l'eliminazione automatica attivata. L'eliminazione automatica cancella automaticamente l'immagine snapshot più vecchia quando il gruppo di snapshot raggiunge il limite di 32 immagini. Se si disattiva l'eliminazione automatica, i limiti del gruppo di snapshot verranno eventualmente superati e sarà necessario intervenire manualmente per configurare le impostazioni del gruppo di snapshot e gestire la capacità riservata.

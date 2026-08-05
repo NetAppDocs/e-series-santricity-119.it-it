@@ -16,6 +16,7 @@ Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda
 
 
 
+[[why-dont-i-see-all-my-volumes-hosts-or-host-clusters]]
 == Perché non vedo tutti i miei volumi, host o cluster di host?
 
 I volumi Snapshot con un volume base abilitato DA non possono essere assegnati a un host che non è Data Assurance (DA) compatibile. È necessario disabilitare DA sul volume base prima che un volume Snapshot possa essere assegnato a un host che non è DA compatibile.
@@ -33,6 +34,7 @@ Non è possibile disabilitare DA su un volume associato a snapshot (gruppi di co
 ====
 
 
+[[what-is-a-snapshot-image]]
 == Che cos'è un'immagine Snapshot?
 
 Un'immagine Snapshot è una copia logica del contenuto di un volume, acquisita in un determinato momento. Le immagini Snapshot utilizzano uno spazio di storage minimo.
@@ -45,6 +47,7 @@ I dati delle immagini Snapshot vengono memorizzati come segue:
 
 
 
+[[why-use-snapshot-images]]
 == Perché utilizzare immagini Snapshot?
 
 È possibile utilizzare gli snapshot per proteggere da e consentire il ripristino dopo la perdita o la corruzione accidentale o dolosa dei dati.
@@ -61,12 +64,14 @@ Il sistema conserva più immagini Snapshot come punti di ripristino che puoi uti
 
 
 
+[[what-kinds-of-volumes-can-be-used-for-snapshots]]
 == Che tipo di volumi possono essere utilizzati per le Snapshot?
 
 Solo i volumi standard e i volumi thin possono essere utilizzati per archiviare le immagini Snapshot. I volumi non standard non possono essere utilizzati. Il volume di base può risiedere su un pool o un gruppo di volumi.
 
 
 
+[[why-would-i-create-a-snapshot-consistency-group]]
 == Perché dovrei creare un gruppo di coerenza Snapshot?
 
 Si crea un gruppo di coerenza Snapshot quando si desidera garantire che le immagini Snapshot vengano acquisite contemporaneamente su più volumi.
@@ -85,6 +90,7 @@ I volumi inclusi in un gruppo di coerenza Snapshot sono chiamati _volumi membri_
 
 
 
+[[what-is-a-snapshot-volume-and-when-does-it-need-reserved-capacity]]
 == Che cos'è un volume Snapshot e quando necessita di capacità riservata?
 
 Un volume Snapshot consente all'host di accedere ai dati nell'immagine Snapshot. Il volume Snapshot contiene una propria capacità riservata, che salva eventuali modifiche al volume di base senza influire sull'immagine Snapshot originale. Le immagini Snapshot non sono accessibili in lettura o scrittura dagli host. Se si desidera leggere o scrivere sui dati Snapshot, creare un volume Snapshot e assegnarlo a un host.
@@ -97,6 +103,7 @@ Un volume Snapshot consente all'host di accedere ai dati nell'immagine Snapshot.
 
 
 
+[[what-is-a-snapshot-group]]
 == Che cos'è un gruppo di Snapshot?
 
 Un gruppo di Snapshot è una raccolta di immagini Snapshot point-in-time di un singolo volume di base associato.
@@ -109,6 +116,7 @@ System Manager organizza le immagini Snapshot in _gruppi di Snapshot_. I gruppi 
 
 
 
+[[why-would-i-disable-a-snapshot-volume]]
 == Perché dovrei disabilitare un volume Snapshot?
 
 È possibile disabilitare un volume Snapshot quando si desidera assegnare un volume Snapshot diverso all'immagine Snapshot. È possibile riservare il volume Snapshot disabilitato per un utilizzo successivo.
@@ -117,6 +125,7 @@ Se non hai più bisogno del volume Snapshot o del volume Snapshot del gruppo di 
 
 
 
+[[what-is-the-disabled-state]]
 == Che cos'è lo stato Disabilitato?
 
 Un volume Snapshot con stato Disabilitato non è attualmente assegnato a un'immagine Snapshot. Per abilitare il volume Snapshot, è necessario utilizzare l'operazione di re-create per assegnare una nuova immagine Snapshot al volume Snapshot disabilitato.
@@ -125,6 +134,7 @@ Le caratteristiche del volume Snapshot sono definite dall'immagine Snapshot ad e
 
 
 
+[[why-would-i-suspend-a-snapshot-schedule]]
 == Perché dovrei sospendere una pianificazione di Snapshot?
 
 Quando una pianificazione viene sospesa, la creazione delle immagini Snapshot programmate non viene eseguita. È possibile mettere in pausa una pianificazione di Snapshot per risparmiare spazio di storage e quindi riprendere le Snapshot programmate in un secondo momento.

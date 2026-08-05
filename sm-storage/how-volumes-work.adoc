@@ -19,6 +19,7 @@ I volumi rappresentano l'unico livello dati visibile agli host. In un ambiente S
 
 
 
+[[volume-types-you-can-create-from-pools-and-volume-groups]]
 == Tipi di volume che puoi creare da pool e gruppi di volumi
 
 I volumi traggono la loro capacità da pool o gruppi di volumi. È possibile creare i seguenti tipi di volumi dai pool o gruppi di volumi presenti nel proprio storage array.
@@ -48,6 +49,7 @@ I sistemi di storage EF600/EF600C e EF300/EF300C non supportano thin provisionin
 ====
 
 
+[[characteristics-of-volumes]]
 == Caratteristiche dei volumi
 
 Ciascun volume in un pool o gruppo di volumi può avere caratteristiche individuali in base al tipo di dati che vi verranno memorizzati. Alcune di queste caratteristiche includono:

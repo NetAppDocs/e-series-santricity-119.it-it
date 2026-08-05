@@ -15,6 +15,7 @@ Lo stato dello specchio definisce lo stato dei gruppi di coerenza dello specchio
 
 
 
+[[status-for-mirror-consistency-groups]]
 == Stato dei gruppi di coerenza mirror
 
 [cols="25h,~"]
@@ -97,6 +98,7 @@ Non è consentita una promozione forzata quando si risolve un conflitto di ruoli
 |===
 
 
+[[status-for-mirrored-pairs]]
 == Stato delle coppie mirrorate
 
 Lo stato di una coppia mirrorata indica se i dati sul volume primario e sul volume secondario sono sincronizzati.

@@ -15,6 +15,7 @@ Scopri come i termini relativi al volume si applicano al tuo array di storage.
 
 
 
+[[all-volume-types]]
 == Tutti i tipi di volume
 
 [cols="25h,~"]
@@ -215,6 +216,7 @@ L'impostazione cache di scrittura senza batterie consente alla cache di scrittur
 |===
 
 
+[[specific-to-thin-volumes]]
 == Specifico per volumi thin
 
 [NOTE]

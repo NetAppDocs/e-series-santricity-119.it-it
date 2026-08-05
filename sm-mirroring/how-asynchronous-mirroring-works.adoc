@@ -24,6 +24,7 @@ Questo tipo di mirroring è ideale per soddisfare la domanda di operazioni non-s
 
 
 
+[[asynchronous-mirroring-session]]
 == Sessione di mirroring asincrono
 
 Il mirroring asincrono cattura lo stato del volume primario in un determinato momento e copia solo i dati che sono cambiati dall'ultima acquisizione dell'immagine. Il mirroring asincrono consente di aggiornare immediatamente il sito primario e di aggiornare il sito secondario man mano che la larghezza di banda lo consente. Le informazioni vengono memorizzate nella cache e inviate in un secondo momento, quando le risorse di rete diventano disponibili.
@@ -46,6 +47,7 @@ Gli array di storage devono avere una versione minima del firmware pari a 7.84. 
 
 
 
+[[mirror-consistency-groups-and-mirrored-pairs]]
 == Gruppi di coerenza mirror e coppie mirror
 
 Si crea un gruppo di coerenza mirror per stabilire la relazione di mirroring tra l'array di storage locale e l'array di storage remoto. La relazione di mirroring asincrono consiste in una coppia mirror: un volume primario su un array di storage e un volume secondario su un altro array di storage.
@@ -54,6 +56,7 @@ L'array di storage contenente il volume primario si trova solitamente nel sito p
 
 
 
+[[synchronization-settings]]
 == Impostazioni di sincronizzazione
 
 Quando si crea una coppia speculare, si definiscono anche la priorità di sincronizzazione e la politica di risincronizzazione che la coppia speculare utilizza per completare l'operazione di risincronizzazione dopo un'interruzione della comunicazione.
@@ -72,6 +75,7 @@ In una coppia con mirroring, i volumi primario e secondario possono desincronizz
 
 
 
+[[reserved-capacity-and-asynchronous-mirroring]]
 == Capacità riservata e mirroring asincrono
 
 La capacità riservata viene utilizzata per tenere traccia delle differenze tra il volume primario e il volume secondario quando la sincronizzazione non è in corso. Inoltre, tiene traccia delle statistiche di sincronizzazione per ciascuna coppia di volumi mirrorati.
@@ -80,6 +84,7 @@ Ogni volume in una coppia con mirroring richiede la propria capacità riservata.
 
 
 
+[[configuration-and-management]]
 == Configurazione e gestione
 
 Per abilitare e configurare il mirroring tra due array, è necessario utilizzare l'interfaccia di Unified Manager. Una volta abilitato il mirroring, è possibile gestire le coppie mirrorate e le impostazioni di sincronizzazione in System Manager.

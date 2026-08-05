@@ -16,6 +16,7 @@ Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda
 
 
 
+[[what-is-auto-negotiation]]
 == Che cos'è l'auto-negotiation?
 
 L'autonegoziazione è la capacità di un'interfaccia di rete di coordinare automaticamente i propri parametri di connessione (velocità e duplex) con un'altra interfaccia di rete.
@@ -29,6 +30,7 @@ Se la negoziazione automatica fallisce, il controller tenta di stabilire una con
 ====
 
 
+[[what-is-ipv6-stateless-address-auto-configuration]]
 == Che cos'è l'autoconfigurazione degli indirizzi IPv6 senza stato?
 
 Con l'autoconfigurazione stateless, gli host non ottengono indirizzi e altre informazioni di configurazione da un server.
@@ -49,12 +51,14 @@ I dispositivi eseguono questi passaggi quando utilizzano l'autoconfigurazione st
 
 
 
+[[which-do-i-choose-dhcp-or-manual-configuration]]
 == Quale devo scegliere: DHCP o configurazione manuale?
 
 Il metodo predefinito per la configurazione di rete è il Dynamic Host Configuration Protocol (DHCP). Utilizzare sempre questa opzione, a meno che la rete non disponga di un server DHCP.
 
 
 
+[[what-is-a-dhcp-server]]
 == Che cos'è un server DHCP?
 
 Il Dynamic Host Configuration Protocol (DHCP) è un protocollo che automatizza l'assegnazione di un indirizzo Internet Protocol (IP).
@@ -65,6 +69,7 @@ Senza DHCP, un amministratore di rete inserisce manualmente questi indirizzi IP.
 
 
 
+[[how-do-i-configure-my-dhcp-server]]
 == Come configuro il mio server DHCP?
 
 È necessario configurare un server Dynamic Host Configuration Protocol (DHCP) per utilizzare indirizzi Internet Protocol (IP) statici per i controller nel sistema storage.
@@ -75,6 +80,7 @@ Per informazioni su come assegnare indirizzi statici, consultare la documentazio
 
 
 
+[[why-do-i-need-to-change-the-controller-network-configuration]]
 == Perché devo modificare la configurazione di rete del controller?
 
 È necessario impostare la configurazione di rete per ciascun controller--il suo indirizzo Internet Protocol (IP), la maschera di sottorete (subnet mask) e il gateway--quando si utilizza out-of-band management.
@@ -83,6 +89,7 @@ Per informazioni su come assegnare indirizzi statici, consultare la documentazio
 
 
 
+[[where-do-i-get-the-network-configuration]]
 == Dove posso trovare la configurazione di rete?
 
 È possibile ottenere l'indirizzo Internet Protocol (IP), la maschera di sottorete (subnet mask) e le informazioni sul gateway dal proprio amministratore di rete.
@@ -91,6 +98,7 @@ Queste informazioni sono necessarie quando si configurano le porte sui controlle
 
 
 
+[[what-are-icmp-ping-responses]]
 == Che cosa sono le risposte ICMP PING?
 
 Internet Control Message Protocol (ICMP) è uno dei protocolli della suite TCP/IP.
@@ -99,6 +107,7 @@ I  `ICMP echo request` e i (`ICMP echo reply` messaggi sono comunemente noti com
 
 
 
+[[when-should-i-refresh-the-port-configuration]]
 == Quando devo aggiornare la configurazione della porta?
 
 Aggiorna il server DHCP ogni volta che il server viene modificato o aggiornato e le informazioni DHCP relative all'array di storage corrente e all'array di storage che si desidera utilizzare sono cambiate.
@@ -112,6 +121,7 @@ L'aggiornamento della configurazione di una porta è distruttivo per tutte le co
 ====
 
 
+[[what-should-i-do-after-configuring-the-management-ports]]
 == Cosa devo fare dopo aver configurato le porte di management?
 
 Se hai modificato l'indirizzo IP dell'array di storage, potresti voler aggiornare la vista globale dell'array in SANtricity Unified Manager.
@@ -122,6 +132,7 @@ Se stai ancora utilizzando il SANtricity Storage Manager, vai alla Enterprise Ma
 
 
 
+[[why-is-the-storage-system-in-non-optimal-mode]]
 == Perché il sistema storage è in modalità non ottimale?
 
 Un sistema storage in modalità non ottimale è dovuto a uno stato di configurazione di sistema non valido. Nonostante questo stato, il normale accesso I/O ai volumi esistenti è pienamente supportato; tuttavia, SANtricity System Manager proibirà alcune operazioni.

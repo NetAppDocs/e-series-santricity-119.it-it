@@ -17,6 +17,7 @@ Questa funzione esegue una copia byte per byte dal volume di origine al volume d
 
 
 
+[[data-copying-for-greater-access]]
 == Copia dei dati per un accesso più ampio
 
 Quando cambiano i requisiti di storage per un volume, è possibile utilizzare la funzione Copy Volume per copiare i dati da pool o gruppi di volumi che utilizzano drive di capacità inferiore a pool o gruppi di volumi che utilizzano drive di capacità superiore. Ad esempio, è possibile utilizzare la funzione Copy Volume per eseguire le seguenti operazioni:
@@ -37,6 +38,7 @@ Le dimensioni dei blocchi di volume segnalate sono:
 
 
 
+[[change-a-thin-volume-to-a-thick-volume]]
 == Modificare un volume thin in un volume thick
 
 Se si desidera convertire un volume sottile in un volume spesso, utilizzare l'operazione Copy Volume per creare una copia del volume sottile. La destinazione di un'operazione Copy Volume è sempre un volume spesso.
@@ -48,18 +50,21 @@ System Manager non offre la possibilità di creare volumi con thin provisioning.
 ====
 
 
+[[backup-data]]
 == Backup dei dati
 
 La funzione Copia volume consente di eseguire il backup di un volume copiando i dati da un volume a un altro volume sullo stesso storage array. È possibile utilizzare il volume di destinazione come backup del volume di origine, per testare il sistema o per eseguire il backup su un altro dispositivo, come un disco a nastro.
 
 
 
+[[restore-snapshot-volume-data-to-the-base-volume]]
 == Ripristina i dati del volume Snapshot nel volume base
 
 Se è necessario ripristinare i dati sul volume di base dal volume Snapshot associato, è possibile utilizzare la funzione Copy Volume per copiare i dati dal volume Snapshot al volume di base. È possibile creare una copia del volume dei dati presenti sul volume Snapshot e quindi copiare i dati sul volume di base.
 
 
 
+[[source-and-target-volumes]]
 == Volumi di origine e di destinazione
 
 La tabella seguente specifica i tipi di volumi che possono essere utilizzati come volume di origine e volume di destinazione con la funzione Copy Volume.

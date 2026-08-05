@@ -24,6 +24,7 @@ Esamina le seguenti informazioni relative all'operazione di cambio di ruolo:
 
 
 
+[[force-role-change]]
 == Forza cambio di ruolo
 
 È possibile forzare un cambio di ruolo tra mirror consistency groups quando un problema di comunicazione tra l'array di storage locale e l'array di storage remoto impedisce la promozione dei volumi membri all'interno del secondary mirror consistency group o la retrocessione dei volumi membri all'interno del primary mirror consistency group.
@@ -32,6 +33,7 @@ Esamina le seguenti informazioni relative all'operazione di cambio di ruolo:
 
 
 
+[[when-is-a-forced-promotion-allowed-and-not-allowed]]
 == Quando è consentita una promozione forzata e quando non è consentita?
 
 La promozione forzata di un mirror consistency group è consentita solo se tutti i volumi membri del mirror consistency group sono stati sincronizzati e dispongono di punti di ripristino coerenti.
@@ -46,6 +48,7 @@ La promozione forzata di un gruppo di coerenza mirror non è consentita alle seg
 
 
 
+[[mirror-group-role-conflict]]
 == Conflitto di ruolo nel gruppo mirror
 
 Quando viene risolto un problema di comunicazione tra gli array di storage locali e remoti, si verifica una condizione di Mirror Group Role Conflict. Utilizzare il Recovery Guru per ripristinare da questo errore. Non è consentita una promozione forzata durante la risoluzione di un conflitto di doppio ruolo.
@@ -54,6 +57,7 @@ Per evitare la condizione di Mirror Group Role Conflict e le conseguenti procedu
 
 
 
+[[role-change-in-progress-state]]
 == Stato di avanzamento del cambio di ruolo
 
 Se due array di storage in una configurazione di mirroring si disconnettono, e il lato primario di un mirror consistency group viene forzatamente declassato a ruolo secondario, e il lato secondario di un mirror consistency group viene forzatamente promosso a ruolo primario, allora, al ripristino della comunicazione, i mirror consistency group su entrambi gli array di storage vengono posti nello stato Role-Change-In-Progress.

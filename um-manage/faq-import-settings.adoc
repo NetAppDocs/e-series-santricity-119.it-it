@@ -16,6 +16,7 @@ Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda
 
 
 
+[[what-settings-will-be-imported]]
 == Quali impostazioni verranno importate?
 
 La funzione Import Settings è un'operazione batch che carica le configurazioni da un array di storage a più array di storage. Le impostazioni che vengono importate durante questa operazione dipendono da come è configurato l'array di storage di origine in SANtricity System Manager.
@@ -33,6 +34,7 @@ Le seguenti impostazioni possono essere importate in più storage array:
 
 
 
+[[why-dont-i-see-all-of-my-storage-arrays]]
 == Perché non vedo tutti i miei storage array?
 
 Durante l'operazione Import Settings, alcuni dei tuoi storage array potrebbero non essere disponibili nella finestra di dialogo di selezione della destinazione.

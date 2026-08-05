@@ -15,6 +15,7 @@ La funzionalità di mirroring asincrono fornisce un meccanismo a livello di cont
 
 
 
+[[what-is-asynchronous-mirroring]]
 == Che cos'è il mirroring asincrono?
 
 La _mirroring asincrona_ cattura lo stato del volume primario in un determinato momento e copia solo i dati che sono cambiati dall'ultima acquisizione dell'immagine. Il sito primario può essere aggiornato immediatamente e il sito secondario può essere aggiornato man mano che la larghezza di banda lo consente. Le informazioni vengono memorizzate nella cache e inviate in un secondo momento, non appena le risorse di rete diventano disponibili.
@@ -32,6 +33,7 @@ Per saperne di più:
 
 
 
+[[how-do-i-configure-asynchronous-mirroring]]
 == Come si configura il mirroring asincrono?
 
 È necessario utilizzare l'interfaccia di Unified Manager per eseguire la configurazione iniziale del mirroring tra gli array. Una volta configurato, è possibile gestire le coppie mirrorate e i gruppi di coerenza in System Manager.
@@ -45,6 +47,7 @@ Per saperne di più:
 
 
 
+[[related-information]]
 == Informazioni correlate
 
 Scopri di più sui concetti relativi al mirroring asincrono:

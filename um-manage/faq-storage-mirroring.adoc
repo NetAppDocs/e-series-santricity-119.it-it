@@ -16,6 +16,7 @@ Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda
 
 
 
+[[what-do-i-need-to-know-before-creating-a-mirror-consistency-group]]
 == Cosa devo sapere prima di creare un mirror consistency group?
 
 Segui queste linee guida prima di creare un mirror consistency group.
@@ -44,6 +45,7 @@ La funzione di mirroring sincrono non è disponibile sui sistemi storage EF600/E
 ====
 
 
+[[what-do-i-need-to-know-before-creating-a-mirrored-pair]]
 == Cosa devo sapere prima di creare una coppia speculare?
 
 Prima di creare una coppia speculare, seguire queste linee guida.
@@ -65,6 +67,7 @@ La funzione di mirroring sincrono non è disponibile sui sistemi storage EF600/E
 ====
 
 
+[[why-would-i-change-this-percentage]]
 == Perché dovrei cambiare questa percentuale?
 
 La capacità riservata corrisponde in genere al 20 percento del volume di base per le operazioni di mirroring asincrono. Di solito questa capacità è sufficiente.
@@ -77,6 +80,7 @@ La capacità necessaria varia a seconda della frequenza e delle dimensioni delle
 
 
 
+[[why-do-i-see-more-than-one-reserved-capacity-candidate]]
 == Perché vedo più di un candidato a capacità riservata?
 
 Se in un pool o in un gruppo di volumi sono presenti più volumi che soddisfano la percentuale di capacità selezionata per lo storage object, verranno visualizzati più candidati.
@@ -85,6 +89,7 @@ Se in un pool o in un gruppo di volumi sono presenti più volumi che soddisfano 
 
 
 
+[[why-dont-i-see-all-my-volumes]]
 == Perché non vedo tutti i miei volumi?
 
 Quando si seleziona un volume primario per una coppia con mirroring, un elenco mostra tutti i volumi idonei.
@@ -102,6 +107,7 @@ NOTE: Per i controller EF600 e EF300, i volumi primari e secondari di una coppia
 
 
 
+[[why-dont-i-see-all-the-volumes-on-the-remote-storage-array]]
 == Perché non vedo tutti i volumi sull'array di storage remoto?
 
 Quando si seleziona un volume secondario sull'array di storage remoto, un elenco mostra tutti i volumi idonei per quella coppia di mirroring.
@@ -129,6 +135,7 @@ I volumi che non sono idonei all'utilizzo non vengono visualizzati in tale elenc
 
 
 
+[[what-impact-does-synchronization-priority-have-on-synchronization-rates]]
 == Che impatto ha la priorità di sincronizzazione sulle velocità di sincronizzazione?
 
 La priorità di sincronizzazione definisce la quantità di tempo di elaborazione allocata alle attività di sincronizzazione rispetto alle prestazioni del sistema.
@@ -186,6 +193,7 @@ Le dimensioni del volume e i carichi di I/O dell'host influenzano i confronti de
 
 
 
+[[why-is-it-recommended-to-use-a-manual-synchronization-policy]]
 == Perché è consigliato utilizzare una policy di sincronizzazione manuale?
 
 Si consiglia la risincronizzazione manuale perché consente di gestire il processo di risincronizzazione in modo da offrire la migliore opportunità per il recupero dei dati.

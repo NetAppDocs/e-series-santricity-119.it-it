@@ -16,12 +16,14 @@ Dall'Upgrade Center, è possibile gestire gli aggiornamenti del software SANtric
 
 
 
+[[how-do-upgrades-work]]
 == Come funzionano gli aggiornamenti?
 
 Si scarica il software OS più recente e si aggiorna uno o più array.
 
 
 
+[[upgrade-workflow]]
 === Aggiornamento del workflow
 
 I seguenti passaggi forniscono un high-level workflow per l'esecuzione degli aggiornamenti software.
@@ -46,6 +48,7 @@ I seguenti passaggi forniscono un high-level workflow per l'esecuzione degli agg
 
 
 
+[[immediate-or-staged-upgrade]]
 === Aggiornamento immediato o graduale
 
 È possibile attivare l'aggiornamento immediatamente oppure programmarlo per un secondo momento. Potresti scegliere di attivarlo in un secondo momento per questi motivi:
@@ -58,6 +61,7 @@ Per attivare il software in fase di staging, vai su menu:Support[Upgrade Center]
 
 
 
+[[health-check]]
 === Controllo dello stato
 
 Un controllo dello stato di salute viene eseguito come parte del processo di aggiornamento, ma è anche possibile eseguire un controllo dello stato di salute separatamente prima di iniziare (andare su menu:Upgrade Center[Pre-Upgrade Health Check]).
@@ -77,18 +81,21 @@ Il controllo di integrità valuta tutti i componenti del sistema storage per ass
 
 
 
+[[what-do-i-need-to-know-before-upgrading]]
 == Cosa devo sapere prima di effettuare l'aggiornamento?
 
 Prima di aggiornare più array di storage, esaminare le considerazioni chiave come parte della pianificazione.
 
 
 
+[[current-versions]]
 === Versioni attuali
 
 È possibile visualizzare le versioni correnti del software SANtricity OS dalla pagina Gestisci di Unified Manager per ogni array di storage rilevato. La versione è visualizzata nella colonna Software SANtricity OS. Le informazioni sul firmware del controller e sulla NVSRAM sono disponibili in una finestra di dialogo a comparsa quando si fa clic sulla versione di SANtricity OS in ciascuna riga.
 
 
 
+[[other-components-requiring-upgrade]]
 === Altri componenti che richiedono l'aggiornamento
 
 Nell'ambito del processo di aggiornamento, potrebbe essere necessario aggiornare anche il driver multipath/failover dell'host o il driver HBA affinché l'host possa interagire correttamente con i controller.
@@ -97,6 +104,7 @@ Per informazioni sulla compatibilità, fare riferimento a https://imt.netapp.com
 
 
 
+[[dual-controllers]]
 === Doppio controller
 
 Se un array di storage contiene due controller ed è installato un driver multipath, l'array di storage può continuare a elaborare le operazioni di I/O durante l'upgrade. Durante l'upgrade, si verifica il seguente processo:

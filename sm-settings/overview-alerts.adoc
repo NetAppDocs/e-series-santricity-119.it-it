@@ -16,6 +16,7 @@ summary: È possibile configurare System Manager per inviare avvisi relativi agl
 
 
 
+[[what-are-alerts]]
 == Che cosa sono gli avvisi?
 
 _Alerts_ notificano agli amministratori eventi importanti che si verificano sull'array di storage. Gli eventi possono includere problemi come un guasto alla batteria, un componente che passa da Ottimale a Offline o errori di ridondanza nel controller. Tutti gli eventi Critical sono considerati "alertable", insieme ad alcuni eventi Warning e Informational.
@@ -28,6 +29,7 @@ Per saperne di più:
 
 
 
+[[how-do-i-configure-alerts]]
 == Come si configurano gli avvisi?
 
 È possibile configurare gli avvisi in modo che vengano inviati come messaggio a uno o più indirizzi e-mail, come trap SNMP a un server SNMP o come messaggio a un server syslog. La configurazione degli avvisi è disponibile dal menu:Impostazioni[Avvisi].
@@ -41,6 +43,7 @@ Per saperne di più:
 
 
 
+[[related-information]]
 == Informazioni correlate
 
 Scopri di più sui concetti relativi agli avvisi:

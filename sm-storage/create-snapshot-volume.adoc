@@ -25,6 +25,7 @@ Il processo per creare un volume Snapshot è una procedura in più fasi.
 
 
 
+[[step-1-review-members-for-a-snapshot-volume]]
 == Passaggio 1: Esaminare i membri per un volume di Snapshot
 
 Selezionare un'immagine Snapshot di un volume base o un gruppo di coerenza Snapshot. Se si seleziona un'immagine Snapshot di un gruppo di coerenza Snapshot, i volumi membri del gruppo di coerenza Snapshot vengono visualizzati per la revisione.
@@ -48,6 +49,7 @@ Nella finestra di dialogo Review Members, esamina l'elenco dei volumi selezionat
 
 
 
+[[step-2-assign-snapshot-volume-to-host]]
 == Passaggio 2: Assegna il volume Snapshot all'host
 
 Seleziona un host specifico o un cluster di host da assegnare al volume Snapshot. Questa assegnazione garantisce a un host o a un cluster di host l'accesso al volume Snapshot. Puoi scegliere di assegnare un host in un secondo momento, se necessario.
@@ -90,6 +92,7 @@ L'assegnazione di un volume a un host non riesce se si tenta di assegnare un vol
 
 
 
+[[step-3-reserve-capacity-for-a-snapshot-volume]]
 == Passaggio 3: Riservare capacità per un volume Snapshot
 
 Associa la capacità riservata a un volume snapshot di lettura/scrittura. System Manager suggerisce i volumi e la capacità in base alle proprietà del volume di base o del gruppo di coerenza snapshot. Puoi accettare la configurazione di capacità riservata consigliata o personalizzare lo storage allocato.
@@ -130,6 +133,7 @@ Assegna la capacità riservata utilizzando le seguenti linee guida.
 
 
 
+[[step-4-edit-settings-for-a-snapshot-volume]]
 == Passaggio 4: Modificare le impostazioni per un volume Snapshot
 
 Modifica le impostazioni di un volume Snapshot, come il nome, la cache, le soglie di avviso per la capacità riservata e così via.

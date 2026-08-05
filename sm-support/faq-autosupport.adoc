@@ -16,6 +16,7 @@ Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda
 
 
 
+[[what-data-am-i-collecting]]
 == Quali dati sto raccogliendo?
 
 La funzionalità AutoSupport e la funzionalità manuale di raccolta dati di supporto forniscono modi per raccogliere dati in un pacchetto di supporto clienti per la risoluzione remota dei problemi e l'analisi dei problemi da parte del supporto tecnico.
@@ -24,6 +25,7 @@ Il pacchetto di assistenza clienti raccoglie tutti i tipi di informazioni relati
 
 
 
+[[what-does-unreadable-sectors-data-show-me]]
 == Cosa mostrano i dati dei settori illeggibili?
 
 È possibile visualizzare dati dettagliati sui settori illeggibili rilevati sulle unità nel proprio storage array.
@@ -104,6 +106,7 @@ Mostra uno dei seguenti tipi di errore:
 |===
 
 
+[[what-is-a-health-image]]
 == Che cos'è una health image?
 
 Un health image è un dump di dati raw della memoria del processore del controller che il supporto tecnico può utilizzare per diagnosticare un problema con un controller.
@@ -112,6 +115,7 @@ Il firmware genera automaticamente un'immagine di stato quando rileva determinat
 
 
 
+[[what-do-the-autosupport-features-do]]
 == A cosa servono le funzionalità di AutoSupport?
 
 La funzionalità AutoSupport è composta da tre funzionalità individuali che si abilitano separatamente.
@@ -123,6 +127,7 @@ La funzionalità AutoSupport è composta da tre funzionalità individuali che si
 
 
 
+[[what-type-of-data-is-collected-through-the-autosupport-feature]]
 == Che tipo di dati vengono raccolti tramite la funzionalità AutoSupport?
 
 La funzionalità AutoSupport contiene tre tipologie standard di invio: invii per eventi, invii programmati e invii di diagnostica su richiesta e da remoto.
@@ -157,6 +162,7 @@ La funzione AutoSupport invia automaticamente diversi messaggi a intervalli rego
 
 
 
+[[how-do-i-configure-the-delivery-method-for-the-autosupport-feature]]
 == Come configuro il metodo di consegna per la funzionalità AutoSupport?
 
 La funzionalità AutoSupport supporta i protocolli HTTPS e SMTP per la consegna delle comunicazioni AutoSupport al supporto tecnico.
@@ -213,6 +219,7 @@ Se il test di configurazione non riesce, verifica le impostazioni di configurazi
 
 
 
+[[what-is-configuration-data]]
 == Che cosa sono i dati di configurazione?
 
 Quando si seleziona Collect Configuration Data, il sistema salva lo stato corrente del database di configurazione RAID.
@@ -221,6 +228,7 @@ Il database di configurazione RAID include tutti i dati relativi ai gruppi di vo
 
 
 
+[[what-do-i-need-to-know-before-upgrading-the-santricity-os-software]]
 == Cosa devo sapere prima di aggiornare il software SANtricity OS?
 
 Prima di aggiornare il software e il firmware del controller, tieni presente questi elementi.
@@ -268,6 +276,7 @@ CAUTION: Non apportare modifiche all'array di archiviazione durante l'aggiorname
 
 
 
+[[what-do-i-need-to-know-before-suspending-iom-auto-synchronization]]
 == Cosa devo sapere prima di sospendere la sincronizzazione automatica dell'IOM?
 
 La sospensione della sincronizzazione automatica dell'IOM impedisce l'aggiornamento del firmware dell'IOM al successivo aggiornamento del software del controller SANtricity OS.
@@ -276,6 +285,7 @@ Normalmente, il software del controller e il firmware IOM vengono aggiornati com
 
 
 
+[[why-is-my-firmware-upgrade-progressing-so-slowly]]
 == Perché l'aggiornamento del firmware procede così lentamente?
 
 L'avanzamento dell'aggiornamento del firmware dipende dal carico complessivo del sistema.
@@ -284,6 +294,7 @@ Durante un aggiornamento online del firmware del disco, se si verifica un trasfe
 
 
 
+[[what-do-i-need-to-know-before-upgrading-drive-firmware]]
 == Cosa devo sapere prima di aggiornare il firmware del disco?
 
 Prima di aggiornare il firmware del disco, tieni presente questi elementi.
@@ -298,6 +309,7 @@ Prima di aggiornare il firmware del disco, tieni presente questi elementi.
 
 
 
+[[how-do-i-choose-which-type-of-upgrade-to-perform]]
 == Come faccio a scegliere quale tipo di aggiornamento eseguire?
 
 Si sceglie il tipo di aggiornamento da eseguire sul disco a seconda dello stato del pool o del gruppo di volumi.

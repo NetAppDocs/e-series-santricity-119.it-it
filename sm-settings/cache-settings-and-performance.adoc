@@ -24,6 +24,7 @@ Le impostazioni predefinite della cache soddisfano i requisiti della maggior par
 
 
 
+[[storage-array-cache-settings]]
 == Impostazioni della cache dell'array di storage
 
 Per tutti i volumi nell'array di storage, puoi specificare i seguenti valori dalla pagina System:
@@ -34,6 +35,7 @@ Per tutti i volumi nell'array di storage, puoi specificare i seguenti valori dal
 
 
 
+[[volume-cache-settings]]
 == Impostazioni della cache di volume
 
 Per i singoli volumi in un array di storage, è possibile specificare i seguenti valori dalla pagina Volumes (menu:Storage[Volumes]):

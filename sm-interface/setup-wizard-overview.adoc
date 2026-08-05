@@ -16,6 +16,7 @@ Utilizza la procedura guidata di configurazione per configurare il tuo array di 
 
 
 
+[[first-time-setup]]
 == Configurazione iniziale
 
 Quando si apre System Manager per la prima volta, viene avviata la procedura guidata di configurazione. La procedura guidata richiede di eseguire attività di configurazione di base, come assegnare un nome all'array di storage, configurare gli host, selezionare le applicazioni e creare pool di storage.
@@ -32,6 +33,7 @@ Se si annulla la procedura guidata, non è possibile riavviarla manualmente. La 
 
 
 
+[[terminology]]
 == Terminologia
 
 La procedura guidata di configurazione utilizza i seguenti termini.

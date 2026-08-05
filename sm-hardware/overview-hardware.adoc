@@ -15,6 +15,7 @@ summary: È possibile verificare lo stato dei componenti nella pagina Hardware e
 
 
 
+[[which-components-can-i-manage]]
 == Quali componenti posso gestire?
 
 È possibile verificare lo stato dei componenti ed eseguire alcune funzioni relative a questi componenti:
@@ -32,6 +33,7 @@ Per saperne di più:
 
 
 
+[[how-do-i-view-hardware-components]]
 == Come posso visualizzare i componenti hardware?
 
 Accedete alla pagina Hardware, che fornisce una rappresentazione grafica dei componenti fisici dell'array di storage. Potete passare dalla visualizzazione anteriore a quella posteriore degli alloggiamenti dell'array selezionando la scheda *Drives* o *Controllers* in alto a destra nella visualizzazione degli alloggiamenti.

@@ -15,6 +15,7 @@ La pagina Prestazioni offre semplici modi per monitorare le prestazioni del tuo 
 
 
 
+[[what-can-i-learn-from-performance-data]]
 == Cosa posso imparare dai dati sulle prestazioni?
 
 I grafici e le tabelle delle prestazioni mostrano i dati sulle prestazioni quasi in real-time, il che ti aiuta a determinare se un array di storage sta riscontrando problemi. Puoi anche salvare i dati sulle prestazioni per costruire una vista storica di un array di storage e identificare quando è iniziato un problema o cosa lo ha causato.
@@ -27,6 +28,7 @@ Per saperne di più:
 
 
 
+[[how-can-i-view-performance-data]]
 == Come posso visualizzare i dati sulle prestazioni?
 
 I dati sulle prestazioni sono disponibili nella Home page e nella Storage page.

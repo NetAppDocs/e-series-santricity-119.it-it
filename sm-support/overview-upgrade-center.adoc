@@ -16,12 +16,14 @@ Utilizza l'Upgrade Center per scaricare il software e il firmware più recenti e
 
 
 
+[[controller-upgrade-overview]]
 == Panoramica sull'aggiornamento del controller
 
 È possibile aggiornare il software e il firmware dell'array di storage per usufruire di tutte le funzionalità più recenti e delle correzioni di bug.
 
 
 
+[[components-included-in-the-os-controller-upgrade]]
 === Componenti inclusi nell'aggiornamento del controller del sistema operativo
 
 Diversi componenti degli array di storage contengono software o hardware che potresti voler aggiornare occasionalmente.
@@ -43,12 +45,14 @@ Nell'ambito del processo di aggiornamento, potrebbe essere necessario aggiornare
 
 
 
+[[when-to-stop-io]]
 === Quando interrompere l'I/O
 
 Se l'array di storage contiene due controller ed è installato un driver multipath, l'array di storage può continuare a elaborare le operazioni di I/O durante l'aggiornamento. Durante l'aggiornamento, il controller A esegue il failover di tutti i suoi volumi sul controller B, esegue l'aggiornamento, riprende i propri volumi e tutti i volumi del controller B, quindi aggiorna il controller B.
 
 
 
+[[pre-upgrade-health-check]]
 === Controllo di integrità pre-aggiornamento
 
 Un controllo dello stato di salute pre-aggiornamento viene eseguito come parte del processo di aggiornamento. Il controllo dello stato di salute pre-aggiornamento valuta tutti i componenti dell'array di storage per assicurarsi che l'aggiornamento possa procedere. Le seguenti condizioni potrebbero impedire l'aggiornamento:
@@ -68,12 +72,14 @@ Un controllo dello stato di salute pre-aggiornamento viene eseguito come parte d
 
 
 
+[[drive-upgrade-overview]]
 == Panoramica sull'aggiornamento del disco
 
 Il firmware del disco controlla le caratteristiche operative di basso livello di un disco. Periodicamente, i produttori di unità rilasciano aggiornamenti del firmware per aggiungere nuove funzionalità, migliorare le prestazioni e correggere i difetti.
 
 
 
+[[online-and-offline-drive-firmware-upgrades]]
 === Aggiornamenti del firmware dell'unità online e offline
 
 Esistono due tipi di aggiornamento del firmware del disco: online e offline.
@@ -113,6 +119,7 @@ Le seguenti unità DEVONO utilizzare il metodo offline:
 
 
 
+[[compatibility]]
 === Compatibilità
 
 Ogni file del firmware dell'unità contiene informazioni sul tipo di unità su cui il firmware viene eseguito. È possibile scaricare il file del firmware specificato solo su un'unità compatibile. System Manager verifica automaticamente la compatibilità durante il processo di aggiornamento.

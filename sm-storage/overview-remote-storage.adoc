@@ -16,6 +16,7 @@ Se disponi della funzionalità Remote Storage, puoi importare dati da un sistema
 
 
 
+[[what-is-the-remote-storage-feature]]
 == Che cos'è la funzione Remote Storage?
 
 La funzione _Remote Storage_ consente di importare dati da un sistema storage remoto a un sistema storage E-Series locale. Il sistema remoto può essere un altro sistema E-Series o un sistema di un altro fornitore. Questa funzione è utile quando si desidera semplificare la migrazione dei dati riducendo al minimo i tempi di inattività, ad esempio durante gli aggiornamenti delle apparecchiature.
@@ -33,6 +34,7 @@ Per saperne di più:
 
 
 
+[[how-do-i-import-data-with-this-feature]]
 == Come faccio a importare i dati con questa funzione?
 
 Tramite la procedura guidata Remote Storage, è possibile associare un dispositivo di storage (la fonte per l'importazione dei dati) a un volume di destinazione sul sistema E-Series. Questa procedura guidata è disponibile dal menu:Storage[Remote storage].

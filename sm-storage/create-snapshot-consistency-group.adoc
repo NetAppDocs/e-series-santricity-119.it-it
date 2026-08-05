@@ -23,6 +23,7 @@ La procedura per creare un gruppo di coerenza Snapshot si articola in più fasi.
 
 
 
+[[step-1-add-members-to-snapshot-consistency-group]]
 == Passaggio 1: Aggiungi membri al gruppo di coerenza Snapshot
 
 Seleziona i membri per specificare una raccolta di volumi che compongono il gruppo di coerenza Snapshot. Qualsiasi azione eseguita sul gruppo di coerenza Snapshot si estende uniformemente ai volumi membri selezionati.
@@ -43,6 +44,7 @@ Viene visualizzata la finestra di dialogo Crea gruppo di coerenza Snapshot.
 
 
 
+[[step-2-reserve-capacity-for-snapshot-consistency-group]]
 == Passaggio 2: Riserva la capacità per il gruppo di coerenza Snapshot
 
 Associa la capacità riservata al gruppo di coerenza Snapshot. System Manager suggerisce i volumi e la capacità in base alle proprietà del gruppo di coerenza Snapshot. Puoi accettare la configurazione di capacità riservata consigliata o personalizzare lo storage allocato.
@@ -74,6 +76,7 @@ Assegna la capacità riservata utilizzando le seguenti linee guida.
 
 
 
+[[step-3-edit-settings-for-snapshot-consistency-group]]
 == Passaggio 3: Modifica delle impostazioni per il gruppo di coerenza Snapshot
 
 Accetta o scegli le impostazioni di eliminazione automatica e le soglie di avviso della capacità riservata per il gruppo di coerenza Snapshot.

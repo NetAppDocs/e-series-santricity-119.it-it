@@ -16,6 +16,7 @@ Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda
 
 
 
+[[how-does-asynchronous-mirroring-differ-from-synchronous-mirroring]]
 == In che modo il mirroring asincrono si differenzia dal mirroring sincrono?
 
 La funzione di mirroring asincrono si differenzia dalla funzione di mirroring sincrono per un aspetto fondamentale: acquisisce lo stato del volume sorgente in un determinato momento e copia solo i dati che sono cambiati dall'ultima acquisizione dell'immagine.
@@ -112,6 +113,7 @@ In genere deve trovarsi entro circa 10 km (6.2 miglia) dall'array di storage loc
 |===
 
 
+[[why-cant-i-access-my-chosen-mirroring-feature]]
 == Perché non posso accedere alla funzione di mirroring che ho scelto?
 
 Il mirroring viene configurato nell'interfaccia SANtricity Unified Manager.
@@ -137,6 +139,7 @@ Per le istruzioni di configurazione, vedere quanto segue:
 
 
 
+[[what-do-i-need-to-know-before-creating-a-mirror-consistency-group]]
 == Cosa devo sapere prima di creare un mirror consistency group?
 
 Segui queste linee guida prima di creare un mirror consistency group.
@@ -167,6 +170,7 @@ Assicurati inoltre di soddisfare i seguenti requisiti per gli array di storage:
 
 
 
+[[asynchronous-mirroring-what-do-i-need-to-know-before-creating-a-mirrored-pair]]
 == Mirroring asincrono - Cosa devo sapere prima di creare una coppia speculare?
 
 Si configurano le coppie di mirror nell'interfaccia SANtricity Unified Manager e poi si gestiscono le coppie in SANtricity System Manager.
@@ -187,6 +191,7 @@ Prima di creare una coppia speculare, seguire queste linee guida.
 
 
 
+[[what-do-i-need-to-know-before-increasing-my-reserved-capacity-on-a-mirrored-pair-volume]]
 == Cosa devo sapere prima di aumentare la capacità riservata su un volume di coppia in mirroring?
 
 In genere, si dovrebbe aumentare la capacità riservata quando si riceve un avviso che la capacità riservata per una coppia di mirroring sta per esaurirsi. È possibile aumentare la capacità riservata solo in incrementi di 8 GiB.
@@ -208,6 +213,7 @@ Se non esiste capacità libera in alcun pool o gruppo di volumi, è possibile ag
 
 
 
+[[why-cant-i-increase-reserved-capacity-with-my-requested-amount]]
 == Perché non posso aumentare la capacità riservata con la quantità richiesta?
 
 È possibile aumentare la capacità riservata solo in incrementi di 4 GiB.
@@ -226,6 +232,7 @@ Per le operazioni di mirroring asincrono la capacità riservata è in genere il 
 
 
 
+[[why-would-i-change-this-percentage]]
 == Perché dovrei cambiare questa percentuale?
 
 La capacità riservata è in genere pari al 40 percento del volume di base per le operazioni di snapshot e al 20 percento del volume di base per le operazioni di mirroring asincrono.
@@ -240,6 +247,7 @@ In generale, scegli una percentuale maggiore per la capacità riservata se sussi
 
 
 
+[[why-do-i-see-more-than-one-reserved-capacity-candidate]]
 == Perché vedo più di un candidato a capacità riservata?
 
 Se in un pool o gruppo di volumi è presente più di un volume che soddisfa la percentuale di capacità selezionata per l'oggetto storage, verranno visualizzati più candidati.
@@ -248,6 +256,7 @@ Se in un pool o gruppo di volumi è presente più di un volume che soddisfa la p
 
 
 
+[[why-do-i-see-not-available-values-displayed-in-the-table]]
 == Perché vedo valori Non disponibili visualizzati nella tabella?
 
 La tabella elenca i valori Not Available quando i dati presenti sull'array di storage remoto non sono disponibili per essere visualizzati.
@@ -256,6 +265,7 @@ Per visualizzare i dati dell'array di storage remoto, avvia System Manager da Un
 
 
 
+[[why-dont-i-see-all-of-my-pools-and-volume-groups]]
 == Perché non vedo tutti i miei pool e gruppi di volumi?
 
 Quando si crea un volume secondario per la coppia di mirroring asincrono, il sistema visualizza un elenco di tutti i pool e i gruppi di volumi idonei per quella coppia di mirroring asincrono. Qualsiasi pool o gruppo di volumi non idoneo all'uso non viene visualizzato in quell'elenco.
@@ -269,6 +279,7 @@ I pool o i gruppi di volumi potrebbero non essere idonei per uno dei seguenti mo
 
 
 
+[[asynchronous-mirroring-why-dont-i-see-all-my-volumes]]
 == Mirroring asincrono - Perché non vedo tutti i volumi?
 
 Quando si seleziona un volume primario per una coppia con mirroring, un elenco mostra tutti i volumi idonei.
@@ -285,6 +296,7 @@ NOTE: Per i controller EF600 e EF300, i volumi primari e secondari di una coppia
 
 
 
+[[asynchronous-mirroring-why-dont-i-see-all-the-volumes-on-the-remote-storage-array]]
 == Mirroring asincrono - Perché non vedo tutti i volumi sull'array di storage remoto?
 
 Quando si seleziona un volume secondario sull'array di storage remoto, un elenco mostra tutti i volumi idonei per quella coppia di mirroring.
@@ -304,6 +316,7 @@ Qualsiasi volume che non è idoneo all'uso non viene visualizzato in quell'elenc
 
 
 
+[[why-would-i-update-my-remote-storage-arrays-ip-address]]
 == Perché dovrei aggiornare l'indirizzo IP del mio array di storage remoto?
 
 Aggiornare l'indirizzo IP dell'array di storage remoto quando l'indirizzo IP di una porta iSCSI cambia e l'array di storage locale non è in grado di comunicare con l'array di storage remoto.

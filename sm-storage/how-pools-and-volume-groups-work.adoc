@@ -36,6 +36,7 @@ Quando un sistema storage viene implementato, il primo passo consiste nel presen
 
 
 
+[[pools]]
 == Pool
 
 I pool sono progettati per aggregare dischi rigidi fisici in un ampio spazio di storage e per fornire una protezione RAID avanzata. Un pool crea numerosi set RAID virtuali a partire dal numero totale di unità assegnate al pool e distribuisce i dati in modo uniforme tra tutte le unità partecipanti. Se un'unità viene persa o aggiunta, System Manager ribilancia dinamicamente i dati tra tutte le unità attive.
@@ -44,12 +45,14 @@ I pool fungono da un altro livello RAID, virtualizzando l'architettura RAID sott
 
 
 
+[[drive-matching]]
 === Abbinamento drive
 
 È possibile scegliere tra HDD o SSD da utilizzare nei pool; tuttavia, come per i gruppi di volumi, tutte le unità del pool devono utilizzare la stessa tecnologia. I controller selezionano automaticamente le unità da includere, quindi è necessario assicurarsi di disporre di un numero sufficiente di unità per la tecnologia scelta.
 
 
 
+[[managing-failed-drives]]
 === Gestione dei dischi guasti
 
 I pool hanno una capacità minima di 11 unità; tuttavia, una capacità equivalente a quella di un'unità è riservata come capacità di riserva in caso di guasto di un'unità. Questa capacità di riserva è chiamata "`preservation capacity.`"
@@ -60,6 +63,7 @@ Dopo la creazione del pool, è possibile modificare il valore della capacità di
 
 
 
+[[volume-groups]]
 == Gruppi di volume
 
 I gruppi di volumi definiscono come la capacità viene allocata nel sistema storage ai volumi. Le unità disco sono organizzate in gruppi RAID e i volumi risiedono sulle unità all'interno di un gruppo RAID. Pertanto, le impostazioni di configurazione dei gruppi di volumi identificano quali unità fanno parte del gruppo e quale livello RAID viene utilizzato.
@@ -68,6 +72,7 @@ Quando si crea un gruppo di volumi, i controller selezionano automaticamente le 
 
 
 
+[[drive-matching]]
 === Abbinamento drive
 
 È necessario che le unità nel gruppo di volumi corrispondano per dimensioni e prestazioni. Se nel gruppo di volumi sono presenti unità più piccole e più grandi, tutte le unità vengono riconosciute come della capacità più piccola. Se nel gruppo di volumi sono presenti unità più lente e più veloci, tutte le unità vengono riconosciute alla velocità più lenta. Questi fattori influiscono sulle prestazioni e sulla capacità complessiva del sistema storage.
@@ -76,6 +81,7 @@ Non è possibile combinare tecnologie di drive diverse (HDD e SSD drives). RAID 
 
 
 
+[[managing-failed-drives]]
 === Gestione dei dischi guasti
 
 I gruppi di volumi utilizzano hot spare come unità di riserva in caso di guasto di un disco nei volumi RAID 1/10, RAID 3, RAID 5 o RAID 6 contenuti in un gruppo di volumi. Un hot spare non contiene dati e aggiunge un ulteriore livello di ridondanza al tuo array di storage.

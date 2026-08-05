@@ -16,6 +16,7 @@ Le unità disco del tuo array di storage forniscono la capacità di storage fisi
 
 
 
+[[using-capacity-to-create-and-expand-volumes]]
 == Utilizzo della capacità per creare ed espandere volumi
 
 È possibile creare volumi dalla capacità non assegnata o dalla capacità libera in un pool o in un gruppo di volumi.
@@ -28,6 +29,7 @@ Dopo aver espanso la capacità del volume, è necessario aumentare manualmente l
 
 
 
+[[capacity-types-for-thick-volumes-and-thin-volumes]]
 == Tipi di capacità per volumi spessi e volumi sottili
 
 È possibile creare volumi spessi o volumi sottili. La capacità dichiarata e la capacità allocata sono le stesse per i volumi spessi, ma sono diverse per i volumi sottili.
@@ -49,6 +51,7 @@ SANtricity System Manager non offre la possibilità di creare volumi thin. Se si
 ====
 
 
+[[capacity-limits-for-thick-volumes]]
 == Limiti di capacità per volumi spessi
 
 La capacità minima per un volume thick è di 1 MiB e la capacità massima è determinata dal numero e dalla capacità delle unità nel pool o nel gruppo di volumi.
@@ -65,6 +68,7 @@ Quando si crea un volume, viene preallocata una certa capacità aggiuntiva per l
 
 
 
+[[capacity-limits-for-thin-volumes]]
 == Limiti di capacità per volumi sottili
 
 È possibile creare volumi thin con una capacità dichiarata elevata e una capacità allocata relativamente ridotta, il che è vantaggioso per l'utilizzo e l'efficienza dello storage. I volumi thin possono semplificare l'amministrazione dello storage perché la capacità allocata può aumentare al variare delle esigenze dell'applicazione, senza interrompere l'applicazione, consentendo un migliore utilizzo dello storage.

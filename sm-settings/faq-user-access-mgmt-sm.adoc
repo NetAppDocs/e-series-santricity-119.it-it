@@ -16,6 +16,7 @@ Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda
 
 
 
+[[why-cant-i-log-in]]
 == Perché non posso accedere?
 
 Se ricevi un errore quando tenti di accedere a SANtricity System Manager, esamina queste possibili cause.
@@ -39,6 +40,7 @@ Gli errori di accesso a un array di archiviazione remoto per le attività di mir
 
 
 
+[[what-do-i-need-to-know-before-adding-a-directory-server]]
 == Cosa devo sapere prima di aggiungere un server di directory?
 
 Prima di aggiungere un server di directory in Access Management, assicurarsi di soddisfare i seguenti requisiti.
@@ -50,6 +52,7 @@ Prima di aggiungere un server di directory in Access Management, assicurarsi di 
 
 
 
+[[what-do-i-need-to-know-about-mapping-to-storage-array-roles]]
 == Cosa devo sapere sulla mappatura ai ruoli degli array di storage?
 
 Prima di associare i gruppi ai ruoli, consultare le seguenti linee guida.
@@ -64,6 +67,7 @@ Le funzionalità RBAC (in base al ruolo, role-based access control) integrate ne
 
 
 
+[[directory-services]]
 === Servizi di directory
 
 Se si utilizza un server LDAP (Lightweight Directory Access Protocol) e Directory Services, assicurarsi che:
@@ -80,6 +84,7 @@ Se si utilizza un server LDAP (Lightweight Directory Access Protocol) e Director
 
 
 
+[[saml]]
 === SAML
 
 Se si utilizzano le funzionalità Security Assertion Markup Language (SAML) incorporate nell'array di storage, assicurarsi che:
@@ -97,12 +102,14 @@ Se si utilizzano le funzionalità Security Assertion Markup Language (SAML) inco
 
 
 
+[[which-external-management-tools-may-be-affected-by-this-change]]
 == Quali strumenti di gestione esterni potrebbero essere interessati da questa modifica?
 
 Quando si apportano determinate modifiche in SANtricity System Manager, come il cambio dell'interfaccia di gestione o l'utilizzo di SAML come metodo di autenticazione, alcuni strumenti e funzionalità esterni potrebbero essere limitati dall'uso.
 
 
 
+[[management-interface]]
 === Interfaccia di gestione
 
 Gli strumenti che comunicano direttamente con l'interfaccia di gestione legacy (SYMbol), come il SANtricity SMI-S Provider o OnCommand Insight (OCI), non funzionano a meno che l'impostazione Legacy Management Interface non sia abilitata. Inoltre, non è possibile utilizzare i comandi CLI legacy o eseguire operazioni di mirroring se questa impostazione è disabilitata.
@@ -111,6 +118,7 @@ Contatta il supporto tecnico per ulteriori informazioni.
 
 
 
+[[saml-authentication]]
 === Autenticazione SAML
 
 Quando SAML è abilitato, i seguenti client non possono accedere ai servizi e alle risorse dell'array di storage:
@@ -127,12 +135,14 @@ Contatta il supporto tecnico per ulteriori informazioni.
 
 
 
+[[what-do-i-need-to-know-before-configuring-and-enabling-saml]]
 == Cosa devo sapere prima di configurare e abilitare SAML?
 
 Prima di configurare e abilitare le funzionalità Security Assertion Markup Language (SAML) per l'autenticazione, assicurati di soddisfare i seguenti requisiti e di comprendere le restrizioni SAML.
 
 
 
+[[requirements]]
 === Requisiti
 
 Prima di iniziare, assicurati che:
@@ -147,6 +157,7 @@ Prima di iniziare, assicurati che:
 
 
 
+[[restrictions]]
 === Restrizioni
 
 Oltre ai requisiti sopra indicati, assicurati di comprendere le seguenti restrizioni:
@@ -168,6 +179,7 @@ Oltre ai requisiti sopra indicati, assicurati di comprendere le seguenti restriz
 
 
 
+[[what-types-of-events-are-recorded-in-the-audit-log]]
 == Quali tipi di eventi vengono registrati nel registro di controllo?
 
 Il registro di controllo può registrare eventi di modifica o sia eventi di modifica che eventi di sola lettura.
@@ -180,6 +192,7 @@ A seconda delle impostazioni dei criteri, vengono visualizzati i seguenti tipi d
 
 
 
+[[what-do-i-need-to-know-before-configuring-a-syslog-server]]
 == Cosa devo sapere prima di configurare un syslog server?
 
 È possibile archiviare i log di controllo su un syslog server esterno.
@@ -195,6 +208,7 @@ Prima di configurare un syslog server, tenete a mente le seguenti linee guida.
 
 
 
+[[the-syslog-server-is-no-longer-receiving-audit-logs-what-do-i-do]]
 == Il syslog server non riceve più i log di controllo. Cosa devo fare?
 
 Se hai configurato un syslog server con il protocollo TLS, il server non può ricevere messaggi se il certificato diventa non valido per qualsiasi motivo. Un messaggio di errore relativo al certificato non valido viene registrato nel registro di controllo.

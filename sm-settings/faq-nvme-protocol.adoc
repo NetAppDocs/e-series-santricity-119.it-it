@@ -16,6 +16,7 @@ Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda
 
 
 
+[[how-do-i-interpret-nvme-over-fabrics-statistics]]
 == Come si interpretano le statistiche NVMe over Fabrics?
 
 La finestra di dialogo Visualizza statistiche NVMe over Fabrics mostra le statistiche per il sottosistema NVMe e l'interfaccia RDMA. Tutte le statistiche sono di sola lettura e non possono essere impostate.
@@ -28,6 +29,7 @@ La finestra di dialogo Visualizza statistiche NVMe over Fabrics mostra le statis
 
 
 
+[[what-else-do-i-need-to-do-to-configure-or-diagnose-nvme-over-infiniband]]
 == Cos'altro devo fare per configurare o diagnosticare NVMe su InfiniBand?
 
 La tabella seguente elenca le funzioni di SANtricity System Manager che è possibile utilizzare per configurare e gestire le sessioni NVMe over InfiniBand.
@@ -69,6 +71,7 @@ Visualizza statistiche NVMe over InfiniBand
 |===
 
 
+[[what-else-do-i-need-to-do-to-configure-or-diagnose-nvme-over-roce]]
 == Cos'altro devo fare per configurare o diagnosticare NVMe over RoCE?
 
 È possibile configurare e gestire NVMe over RoCE dalle pagine Hardware e Impostazioni.
@@ -110,6 +113,7 @@ Visualizza statistiche NVMe over Fabrics
 |===
 
 
+[[why-are-there-two-ip-addresses-for-one-physical-port]]
 == Perché ci sono due indirizzi IP per una porta fisica?
 
 Lo storage array EF600 può includere due HIC: uno esterno e uno interno.
@@ -120,6 +124,7 @@ Per ottenere le massime prestazioni a 200Gb, è necessario assegnare un indirizz
 
 
 
+[[why-are-there-two-sets-of-parameters-for-one-physical-port]]
 == Perché ci sono due serie di parametri per una porta fisica?
 
 Lo storage array EF600 può includere due HIC: uno esterno e uno interno.

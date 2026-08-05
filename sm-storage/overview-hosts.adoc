@@ -16,6 +16,7 @@ summary: 'È possibile configurare host e cluster di host, che definiscono le co
 
 
 
+[[what-are-hosts-and-host-clusters]]
 == Che cosa sono gli host e i cluster di host?
 
 Un host è un server che invia I/O a un volume su un array di storage. Un host cluster è un gruppo di host, che puoi creare per assegnare gli stessi volumi a più host.
@@ -29,6 +30,7 @@ Per saperne di più:
 
 
 
+[[how-do-i-configure-hosts-and-host-clusters]]
 == Come si configurano gli host e i cluster di host?
 
 Per definire le connessioni host, puoi andare su menu:Storage[Hosts] per configurare manualmente l'host. Se desideri che due o più host condividano l'accesso allo stesso set di volumi, puoi quindi definire un cluster e assegnare i volumi a quel cluster.
@@ -45,6 +47,7 @@ Per saperne di più:
 
 
 
+[[related-information]]
 == Informazioni correlate
 
 Scopri di più sulle attività relative agli host:

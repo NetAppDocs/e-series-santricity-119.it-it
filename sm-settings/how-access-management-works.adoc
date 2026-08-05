@@ -52,6 +52,7 @@ Durante l'accesso, il sistema esegue le seguenti attività in background:
 
 
 
+[[tasks-available-in-system-manager]]
 == Attività disponibili in System Manager
 
 L'accesso alle attività dipende dai ruoli assegnati all'utente, che includono i seguenti:
@@ -66,6 +67,7 @@ Un'attività non disponibile viene visualizzata in grigio o non è presente nell
 
 
 
+[[limitations-in-unified-manager-and-storage-manager]]
 == Limitazioni in Unified Manager e Storage Manager
 
 Se SAML è configurato per un array di storage, gli utenti non possono individuare o gestire lo storage per tale array da Unified Manager o dalle interfacce legacy Storage Manager.

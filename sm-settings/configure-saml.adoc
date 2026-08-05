@@ -40,6 +40,7 @@ La configurazione dell'autenticazione SAML è una procedura in più fasi.
 
 
 
+[[step-1-upload-the-idp-metadata-file]]
 == Passaggio 1: Carica il file dei metadati IdP
 
 Per fornire all'array di storage le informazioni di connessione all'IdP, è necessario importare i metadati IdP in System Manager. Il sistema IdP necessita di questi metadati per reindirizzare le richieste di autenticazione all'URL corretto e per convalidare le risposte ricevute. È sufficiente caricare un solo file di metadati per l'array di storage, anche se sono presenti due controller.
@@ -63,6 +64,7 @@ Dopo aver selezionato il file, viene visualizzato l'IdP Entity ID.
 
 
 
+[[step-2-export-service-provider-files]]
 == Passaggio 2: Esporta i file del Service Provider
 
 Per stabilire una relazione di fiducia tra l'IdP e l'array di storage, è necessario importare i metadati del Service Provider nell'IdP. L'IdP necessita di questi metadati per stabilire una relazione di fiducia con i controller e per elaborare le richieste di autorizzazione. Il file include informazioni quali il domain name del controller o l'indirizzo IP, in modo che l'IdP possa comunicare con i Service Provider.
@@ -85,6 +87,7 @@ Esiste un file in formato XML per ciascun controller.
 
 
 
+[[step-3-map-roles]]
 == Passaggio 3: Mappa i ruoli
 
 Per fornire agli utenti l'autorizzazione e l'accesso a System Manager, è necessario mappare gli attributi utente dell'IdP e le appartenenze ai gruppi ai ruoli predefiniti dell'array di storage.
@@ -162,6 +165,7 @@ Le mappature dei ruoli possono essere modificate dopo che SAML è stato abilitat
 
 
 
+[[step-4-test-sso-login]]
 == Passaggio 4: Test SSO login
 
 Per garantire che il sistema IdP e l'array di storage possano comunicare, è possibile testare facoltativamente un accesso SSO. Questo test viene eseguito anche durante la fase finale per l'abilitazione di SAML.
@@ -194,6 +198,7 @@ Se il test non viene completato correttamente, viene visualizzato un messaggio d
 
 
 
+[[step-5-enable-saml]]
 == Passaggio 5: Abilita SAML
 
 L'ultimo passaggio consiste nel completare la configurazione SAML per l'autenticazione degli utenti. Durante questo processo, il sistema richiede anche di testare un accesso SSO. La procedura di test dell'accesso SSO è descritta nel passaggio precedente.

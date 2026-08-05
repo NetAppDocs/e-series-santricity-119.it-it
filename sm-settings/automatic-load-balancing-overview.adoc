@@ -23,6 +23,7 @@ Quando il bilanciamento automatico del carico è abilitato, esegue le seguenti f
 
 
 
+[[enabling-and-disabling-automatic-load-balancing]]
 == Attivazione e disattivazione del bilanciamento automatico del carico
 
 Il bilanciamento automatico del carico è abilitato per impostazione predefinita su tutti gli storage array.
@@ -35,6 +36,7 @@ Potresti voler disabilitare il bilanciamento automatico del carico sul tuo array
 
 
 
+[[host-types-that-support-the-automatic-load-balancing-feature]]
 == Tipi di host che supportano la funzionalità di bilanciamento automatico del carico
 
 Anche se il bilanciamento automatico del carico è abilitato a livello di array di storage, il tipo di host che selezioni per un host o un cluster influisce direttamente su come funziona questa funzionalità.
@@ -82,6 +84,7 @@ Consultare la  https://mysupport.netapp.com/matrix["Strumento Interoperability M
 
 
 
+[[verifying-os-compatibility-with-the-automatic-load-balancing-feature]]
 == Verifica della compatibilità del sistema operativo con la funzionalità Automatic Load Balancing
 
 Verificare la compatibilità del sistema operativo con la funzionalità di bilanciamento automatico del carico prima di configurare un nuovo sistema (o migrare un sistema esistente).

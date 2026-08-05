@@ -25,6 +25,7 @@ La scoperta degli array è una procedura in più fasi.
 
 
 
+[[step-1-enter-network-address]]
 == Passaggio 1: Inserire l'indirizzo di rete
 
 Immettere un intervallo di indirizzi di rete per eseguire la ricerca nella sottorete locale. Qualsiasi array di storage raggiunto con successo viene visualizzato nella pagina Discover e può essere aggiunto al dominio di gestione.
@@ -57,6 +58,7 @@ Unified Manager esegue un controllo delle credenziali su ogni array che si aggiu
 
 
 
+[[step-2-resolve-self-signed-certificates-during-discovery]]
 == Passaggio 2: Risolvere i certificati autofirmati durante la fase di rilevamento
 
 Nell'ambito del processo di rilevamento, il sistema verifica che gli array di storage utilizzino certificati rilasciati da una fonte attendibile.
@@ -73,6 +75,7 @@ Nell'ambito del processo di rilevamento, il sistema verifica che gli array di st
 
 
 
+[[step-3-resolve-untrusted-certificates-during-discovery]]
 == Passaggio 3: Risolvere i certificati non attendibili durante il rilevamento
 
 I certificati non attendibili si verificano quando un array di storage tenta di stabilire una connessione sicura a Unified Manager, ma la connessione non viene confermata come sicura. Durante il processo di rilevamento dell'array, puoi risolvere i certificati non attendibili importando un certificato di un'autorità di certificazione (CA) (o un certificato firmato da una CA) rilasciato da una terza parte attendibile.
@@ -109,6 +112,7 @@ Qualsiasi array di storage con problemi di certificati non attendibili non risol
 
 
 
+[[step-4-provide-passwords]]
 == Passaggio 4: Fornire le password
 
 È necessario immettere le password per gli array di storage che si desidera aggiungere al proprio dominio di gestione.

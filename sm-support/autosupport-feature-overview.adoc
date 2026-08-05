@@ -19,6 +19,7 @@ AutoSupport data include informazioni sulla configurazione, lo stato, le prestaz
 
 
 
+[[key-benefits]]
 == Principali vantaggi
 
 Alcuni dei principali vantaggi della funzionalità AutoSupport includono:
@@ -33,6 +34,7 @@ Alcuni dei principali vantaggi della funzionalità AutoSupport includono:
 
 
 
+[[individual-autosupport-features]]
 == Caratteristiche individuali di AutoSupport
 
 La funzionalità AutoSupport è composta da tre funzionalità individuali che si abilitano separatamente.
@@ -44,6 +46,7 @@ La funzionalità AutoSupport è composta da tre funzionalità individuali che si
 
 
 
+[[difference-between-autosupport-and-collect-support-data]]
 == Differenza tra AutoSupport e Collect Support Data
 
 Esistono due metodi per la raccolta dei dati di supporto nell'array di archiviazione:

@@ -17,6 +17,7 @@ Per visualizzare la gerarchia di archiviazione, vai alla pagina iniziale e fai c
 
 
 
+[[physical-components]]
 == Componenti fisici
 
 I componenti fisici di un array di storage sono descritti in questa tabella.
@@ -81,6 +82,7 @@ Un client di gestione è il computer su cui è installato un browser per acceder
 |===
 
 
+[[logical-components]]
 == Componenti logici
 
 Le unità disco nell'array di storage forniscono la capacità di storage fisico per i dati. Utilizzare System Manager per configurare la capacità fisica in componenti logici, come pool, gruppi di volumi e volumi. Questi componenti sono gli strumenti che si utilizzano per configurare, archiviare, gestire e preservare i dati sull'array di storage. I componenti logici di un array di storage sono descritti in questa tabella.

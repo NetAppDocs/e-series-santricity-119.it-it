@@ -19,6 +19,7 @@ Durante la creazione del volume, il sistema richiede di rispondere a domande sul
 
 
 
+[[types-of-workloads]]
 == Tipi di carichi di lavoro
 
 È possibile creare due tipi di carichi di lavoro: specifici per applicazioni e altri.
@@ -39,6 +40,7 @@ Durante la creazione del volume, il sistema richiede di rispondere a domande sul
 
 
 
+[[application-and-workload-views]]
 == Viste dell'applicazione e del carico di lavoro
 
 Per visualizzare applicazioni e carichi di lavoro, avvia SANtricity System Manager. Da tale interfaccia, puoi visualizzare le informazioni associate a un carico di lavoro specifico di un'applicazione in diversi modi:

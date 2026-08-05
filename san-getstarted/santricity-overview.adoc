@@ -24,6 +24,7 @@ NOTE: Gli array di storage EF600/EF600C e EF300/EF300C non supportano il mirrori
 
 
 
+[[santricity-system-manager]]
 == SANtricity System Manager
 
 System Manager è software di gestione basato su web, integrato in ciascun controller. Per accedere all'interfaccia utente, punta un browser all'indirizzo IP del controller. Un setup wizard ti aiuta a iniziare con la configurazione del sistema.
@@ -90,6 +91,7 @@ Visualizza i dati diagnostici, gestisci gli aggiornamenti e configura AutoSuppor
 |===
 
 
+[[santricity-unified-manager]]
 == SANtricity Unified Manager
 
 Unified Manager è un software basato su web utilizzato per gestire l'intero dominio. Da una vista centrale, puoi vedere lo stato di tutti i più recenti array E-Series ed EF-Series, come E4000, E2800, EF280, EF300, E5700, EF570, EF600, EF300C ed EF600C. Puoi anche eseguire operazioni batch sugli array di storage selezionati.

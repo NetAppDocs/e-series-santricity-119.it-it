@@ -15,6 +15,7 @@ SANtricity System Manager utilizza icone e diversi altri metodi per notificare c
 
 
 
+[[icons]]
 == Icone
 
 System Manager utilizza queste icone per indicare lo stato dell'array di storage e dei suoi componenti.
@@ -60,6 +61,7 @@ System Manager visualizza queste icone in varie posizioni.
 
 
 
+[[alerts-and-leds]]
 == Avvisi e LED
 
 Inoltre, System Manager ti notifica i problemi anche in altri modi.

@@ -15,6 +15,7 @@ La pagina Hardware fornisce una rappresentazione grafica dei componenti fisici d
 
 
 
+[[shelves]]
 == Shelf di espansione
 
 Uno shelf è un componente che contiene l'hardware per lo storage array (controller, power/fan canister e drive). Esistono due tipi di shelf:
@@ -41,6 +42,7 @@ La visualizzazione dello shelf nella pagina Hardware mostra i componenti anterio
 
 
 
+[[controllers]]
 == Controllori
 
 Un controller è l'insieme di hardware e firmware che implementa le funzioni di array di storage e di gestione. Include la cache, il supporto per i dischi e il supporto per l'interfaccia verso gli host.
@@ -57,6 +59,7 @@ Un controller è l'insieme di hardware e firmware che implementa le funzioni di 
 
 
 
+[[drives]]
 == Dischi
 
 Il sistema di archiviazione può includere hard disk drive (HDD) o solid state drive (SSD). A seconda delle dimensioni dello shelf, è possibile installare fino a 12, 24 o 60 drive nello shelf.

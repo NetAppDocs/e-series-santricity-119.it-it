@@ -16,6 +16,7 @@ Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda
 
 
 
+[[how-does-asynchronous-mirroring-differ-from-synchronous-mirroring]]
 == In che modo il mirroring asincrono si differenzia dal mirroring sincrono?
 
 La funzione di mirroring asincrono si differenzia dalla funzione di mirroring sincrono per un aspetto fondamentale: acquisisce lo stato del volume sorgente in un determinato momento e copia solo i dati che sono cambiati dall'ultima acquisizione dell'immagine.
@@ -112,6 +113,7 @@ In genere deve trovarsi entro circa 10 km (6.2 miglia) dall'array di storage loc
 |===
 
 
+[[synchronous-mirroring-why-dont-i-see-all-my-volumes]]
 == Mirroring sincrono - Perché non visualizzo tutti i miei volumi?
 
 Quando si seleziona un volume primario per una coppia con mirroring, un elenco mostra tutti i volumi idonei.
@@ -125,6 +127,7 @@ I volumi che non sono idonei all'utilizzo non vengono visualizzati in tale elenc
 
 
 
+[[synchronous-mirroring-why-dont-i-see-all-the-volumes-on-the-remote-storage-array]]
 == Mirroring sincrono - Perché non visualizzo tutti i volumi sull'array di storage remoto?
 
 Quando si seleziona un volume secondario sull'array di storage remoto, un elenco mostra tutti i volumi idonei per quella coppia di mirroring.
@@ -144,6 +147,7 @@ Qualsiasi volume che non è idoneo all'uso non viene visualizzato in quell'elenc
 
 
 
+[[synchronous-mirroring-what-do-i-need-to-know-before-creating-a-mirrored-pair]]
 == Mirroring sincrono - cosa devo sapere prima di creare una coppia speculare?
 
 Si configurano le coppie di mirror nell'interfaccia SANtricity Unified Manager e poi si gestiscono le coppie in SANtricity System Manager.
@@ -163,6 +167,7 @@ Prima di creare una coppia mirror, segui queste linee guida:
 
 
 
+[[what-impact-does-synchronization-priority-have-on-synchronization-rates]]
 == Che impatto ha la priorità di sincronizzazione sulle velocità di sincronizzazione?
 
 La priorità di sincronizzazione definisce la quantità di tempo di elaborazione allocata alle attività di sincronizzazione rispetto alle prestazioni del sistema.
@@ -224,6 +229,7 @@ Le dimensioni del volume e i carichi di I/O dell'host influenzano i confronti de
 
 
 
+[[why-is-it-recommended-to-use-a-manual-synchronization-policy]]
 == Perché è consigliato utilizzare una policy di sincronizzazione manuale?
 
 Si consiglia la risincronizzazione manuale perché consente di gestire il processo di risincronizzazione in modo da offrire la migliore opportunità per il recupero dei dati.

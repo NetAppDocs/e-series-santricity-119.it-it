@@ -16,6 +16,7 @@ Questa FAQ può esserti utile se stai cercando una risposta rapida a una domanda
 
 
 
+[[what-do-i-need-to-know-before-creating-a-security-key]]
 == Cosa devo sapere prima di creare una chiave di sicurezza?
 
 Una chiave di sicurezza è condivisa dai controller e dalle unità abilitate alla sicurezza all'interno di un array di storage. Se un'unità abilitata alla sicurezza viene rimossa dall'array di storage, la chiave di sicurezza protegge i dati da accessi non autorizzati.
@@ -28,6 +29,7 @@ Una chiave di sicurezza è condivisa dai controller e dalle unità abilitate all
 
 
 
+[[internal-key-management]]
 === Gestione interna delle chiavi
 
 Le chiavi interne vengono gestite e "nasconste" in una posizione non accessibile nella memoria persistente del controller. Prima di creare una chiave di sicurezza interna, è necessario eseguire le seguenti operazioni:
@@ -40,6 +42,7 @@ Le chiavi interne vengono gestite e "nasconste" in una posizione non accessibile
 
 
 
+[[external-key-management]]
 === Gestione delle chiavi esterne
 
 Le chiavi esterne vengono gestite su un server di gestione delle chiavi separato, utilizzando un Key Management Interoperability Protocol (KMIP). Prima di creare una chiave di sicurezza esterna, è necessario eseguire le seguenti operazioni:
@@ -60,12 +63,14 @@ Le chiavi esterne vengono gestite su un server di gestione delle chiavi separato
 
 
 
+[[why-do-i-need-to-define-a-pass-phrase]]
 == Perché devo definire una pass phrase?
 
 La pass phrase viene utilizzata per crittografare e decrittografare il file della chiave di sicurezza memorizzato sul client di gestione locale. Senza la pass phrase, la chiave di sicurezza non può essere decrittografata e utilizzata per sbloccare i dati da un'unità con protezione abilitata se questa viene reinstallata in un altro storage array.
 
 
 
+[[why-is-it-important-to-record-security-key-information]]
 == Perché è importante registrare le informazioni sulla chiave di sicurezza?
 
 Se si perdono le informazioni relative alla chiave di sicurezza e non si dispone di un backup, si potrebbero perdere dati durante lo spostamento di unità con protezione abilitata o l'aggiornamento di un controller. È necessaria la chiave di sicurezza per sbloccare i dati sulle unità.
@@ -74,6 +79,7 @@ Assicurati di annotare l'identificatore della chiave di sicurezza, la frase di a
 
 
 
+[[what-do-i-need-to-know-before-backing-up-a-security-key]]
 == Cosa devo sapere prima di eseguire il backup di una chiave di sicurezza?
 
 Se la chiave di sicurezza originale si corrompe e non si dispone di un backup, si perderà l'accesso ai dati sulle unità se vengono migrate da un array di storage a un altro.
@@ -99,6 +105,7 @@ La passphrase per Drive Security non deve essere confusa con la password di Admi
 
 
 
+[[what-do-i-need-to-know-before-unlocking-secure-drives]]
 == Cosa devo sapere prima di sbloccare le unità secure?
 
 Per sbloccare i dati da un'unità con protezione attivata, è necessario importare la sua chiave di sicurezza.
@@ -113,6 +120,7 @@ Prima di sbloccare le unità secure-enabled, tieni presente le seguenti linee gu
 
 
 
+[[what-is-readwrite-accessibility]]
 == Che cos'è l'accessibilità in lettura/scrittura?
 
 La finestra Impostazioni unità include informazioni sugli attributi di sicurezza dell'unità. "Accesso in lettura/scrittura" è uno degli attributi che viene visualizzato se i dati di un'unità sono stati bloccati.
@@ -121,6 +129,7 @@ Per visualizzare gli attributi di sicurezza dell'unità, vai alla pagina Hardwar
 
 
 
+[[what-do-i-need-to-know-about-validating-the-security-key]]
 == Cosa devo sapere sulla convalida della security key?
 
 Dopo aver creato una chiave di sicurezza, dovresti convalidare il file della chiave per assicurarti che non sia corrotto.
@@ -134,6 +143,7 @@ Se la convalida non riesce, procedi come segue:
 
 
 
+[[what-is-the-difference-between-internal-security-key-and-external-security-key-management]]
 == Qual è la differenza tra chiave di sicurezza interna e gestione della chiave di sicurezza esterna?
 
 Quando si implementa la funzionalità Drive Security, è possibile utilizzare una chiave di sicurezza interna o una chiave di sicurezza esterna per bloccare i dati quando un'unità con sicurezza abilitata viene rimossa dall'array di archiviazione.

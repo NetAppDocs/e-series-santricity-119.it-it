@@ -17,6 +17,7 @@ Il registro eventi fornisce una cronologia degli eventi verificatisi sull'array 
 
 
 
+[[event-categories]]
 == Categorie di eventi
 
 Gli eventi nel registro eventi sono classificati in base a diversi stati. Gli eventi che richiedono un intervento hanno i seguenti stati:
@@ -32,6 +33,7 @@ Gli eventi di natura informativa che non richiedono alcuna azione immediata sono
 
 
 
+[[critical-events]]
 == Eventi critici
 
 Gli eventi critici indicano un problema con l'array di storage. Se si risolve immediatamente l'evento critico, si potrebbe evitare la perdita di accesso ai dati.
