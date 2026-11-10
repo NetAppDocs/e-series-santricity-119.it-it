@@ -16,6 +16,13 @@ La tabella seguente descrive le nuove funzionalità in SANtricity System Manager
 
 
 
+[[new-features-in-version-11-90r7]]
+== Nuove funzionalità in Version 11.90R7
+
+Questa versione contiene solo correzioni di errori e nessuna nuova funzionalità. Per ulteriori informazioni sulle modifiche in questa versione, consultare il README di E-Series SANtricity OS 11.90R7.
+
+
+
 [[new-features-in-version-11-90r6]]
 == Nuove funzionalità in Version 11.90R6
 
